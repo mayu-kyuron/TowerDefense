@@ -1,0 +1,22 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+エンディング。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+[calc exp="stage.number=null"]
+
+;タイトルへ戻る
+[jump scene=new file=wide/title]

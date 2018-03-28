@@ -1,0 +1,21 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+背景は荒地。[r]
+他の女性二人がモンスターに襲われかけているのを助けにいく。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="BattleSample"]

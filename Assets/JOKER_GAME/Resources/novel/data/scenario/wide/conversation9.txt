@@ -1,0 +1,33 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+場所は魔界。[r]
+エルフに招待されエルフ村へ行く。[p]
+
+背景は村。[r]
+村に行くと村人たちは敵対心を持っていた。[r]
+そこにダークエルフが現れ、事情を話すと仲間になってくれる。[p]
+
+エルフたちによると魔界は混沌化し、[r]
+それは人間界の住民が原因だという。[p]
+
+魔界人間界を救うため、主人公たちは[r]
+その人間に会いに行くことを決意する。[p]
+
+魔城付近にてモンスターと戦闘開始。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="BattleSample"]

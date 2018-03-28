@@ -1,0 +1,25 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+エルフは言葉を話すことができ、[r]
+エルフ（回復）たちは魔界に住んでおり、[r]
+自分たちも利用されていることを聞く。[p]
+
+悪の根源を断ち切るため、[r]
+主人公たちは魔界への潜入を決意する。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="Map"]

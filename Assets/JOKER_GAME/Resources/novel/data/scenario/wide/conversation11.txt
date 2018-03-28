@@ -1,0 +1,29 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+女性は元々男尊女卑の世界を断ち切りたく、[r]
+試行錯誤していたとき魔界の存在を知る。[r]
+魔界で女性はウロボロスの存在を知り、協力を求める。[p]
+
+魔界を支配しようとたくらんでいたウロボロスは、[r]
+人間の科学力と自身の支配力を結合させ、[r]
+魔界と人間界を征服するため女性を利用していたのだ。[p]
+
+その時女性は突然苦しみもがき、[r]
+バハムートのいけにえにささげられてしまう。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="BattleSample"]

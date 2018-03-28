@@ -1,0 +1,28 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#fighterA
+{name.supporterA}、調子はどう？[p]
+
+#supporterA
+上々よ。[r]
+あなたもでしょう、{name.fighterA}？[p]
+
+#
+背景は基地。初期メンバーの会話。[r]
+→荒地モンスターが接近中。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="BattleSample"]

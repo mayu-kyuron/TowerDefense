@@ -1,0 +1,28 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+背景は荒地の最深部。[r]
+その女性が戦闘をしている。[p]
+
+一人だが戦闘が十分にできており、[r]
+敵全員を仕留めてしまい、何か楽しげそう。[p]
+
+自己紹介等が終わり、最深部にある[r]
+不思議な物体に触れた瞬間、[r]
+大声が鳴り響きモンスターが大量出現する。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="BattleSample"]

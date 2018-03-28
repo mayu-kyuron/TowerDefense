@@ -1,0 +1,26 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+背景は魔城の最深部。[r]
+そこには魔界の住人には見たこともない装置があった。[r]
+しかし、主人公たちは固まった。[p]
+
+なぜならそれは人間によって作られていたからだ。[r]
+その装置を破壊しようとしたとき、[r]
+人間の女性が現れ、戦闘になる。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="BattleSample"]

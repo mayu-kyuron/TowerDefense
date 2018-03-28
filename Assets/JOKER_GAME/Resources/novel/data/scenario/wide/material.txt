@@ -1,0 +1,405 @@
+;メッセージ表示
+[showmessage]
+
+ロード中……
+
+[if exp="{stage.number}==null"]
+	[calc exp="stage.number=0"]
+[endif]
+
+;章ごとに材料取り込み
+[if exp="{stage.number}==0"]
+
+	;背景
+	[bg_new name="background" storage="rouka"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+
+[elsif exp="{stage.number}==1"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+
+[elsif exp="{stage.number}==2"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==2.5"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==3"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==3.5"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==4"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==4.5"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==5"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==6"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==6.5"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==7"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==8"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==8.5"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==9"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==10"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==10.5"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==11"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==12"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	
+[elsif exp="{stage.number}==-1"]
+
+	;背景
+	[bg_new name="background" storage="room"]
+
+	;キャラクター
+	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
+	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
+
+	;名前変数
+	[flag exp="name.fighterA=ファイターA"]
+	[flag exp="name.supporterA=サポーターA"]
+
+	;アイテム
+	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+
+[endif]
+
+
+;共通ライブラリ
+;ゲーム作成で便利なマクロ集
+[call file=wide/libs/utils]
+[text_new name=_sp_chara_name layer=ui x="-300" y=-100 val="" color="FFFFFF" fontsize=19 anchor="MiddleLeft"]
+[text_show name="_sp_chara_name"]
+
+;セーブ・ロードバックログなど基本的な機能を取り込む
+[call file=wide/system target="*system_setting_buttons"]
+
+[cm]
+
+
+;会話シーンへジャンプ
+[if exp="{stage.number}==0"]
+	[jump file=wide/prologue]
+	
+[elsif exp="{stage.number}==1"]
+	[jump file=wide/conversation1]
+	
+[elsif exp="{stage.number}==2"]
+	[jump file=wide/conversation2]
+	
+[elsif exp="{stage.number}==2.5"]
+	[jump file=wide/conversation2.5]
+	
+[elsif exp="{stage.number}==3"]
+	[jump file=wide/conversation3]
+	
+[elsif exp="{stage.number}==3.5"]
+	[jump file=wide/conversation3.5]
+	
+[elsif exp="{stage.number}==4"]
+	[jump file=wide/conversation4]
+	
+[elsif exp="{stage.number}==4.5"]
+	[jump file=wide/conversation4.5]
+	
+[elsif exp="{stage.number}==5"]
+	[jump file=wide/conversation5]
+	
+[elsif exp="{stage.number}==6"]
+	[jump file=wide/conversation6]
+	
+[elsif exp="{stage.number}==6.5"]
+	[jump file=wide/conversation6.5]
+	
+[elsif exp="{stage.number}==7"]
+	[jump file=wide/conversation7]
+	
+[elsif exp="{stage.number}==8"]
+	[jump file=wide/conversation8]
+	
+[elsif exp="{stage.number}==8.5"]
+	[jump file=wide/conversation8.5]
+	
+[elsif exp="{stage.number}==9"]
+	[jump file=wide/conversation9]
+	
+[elsif exp="{stage.number}==10"]
+	[jump file=wide/conversation10]
+	
+[elsif exp="{stage.number}==10.5"]
+	[jump file=wide/conversation10.5]
+	
+[elsif exp="{stage.number}==11"]
+	[jump file=wide/conversation11]
+	
+[elsif exp="{stage.number}==12"]
+	[jump file=wide/conversation12]
+	
+[elsif exp="{stage.number}==-1"]
+	[jump file=wide/ending]
+	
+[endif]

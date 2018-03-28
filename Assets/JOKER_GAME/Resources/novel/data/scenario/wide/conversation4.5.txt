@@ -1,0 +1,39 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+背景は荒地。[r]
+主人公たちは自分たちの組織内容を説明し、[r]
+命を救ってもらったお礼として三人が仲間になる。[p]
+
+不思議な物体の正体はわからず、[r]
+基地に運び調査を行うことにする。[p]
+
+↓[r]
+背景は基地。[r]
+物体の正体はこの世界のものではないらしい。[p]
+
+そこでモンスターが最も出現している[r]
+洞窟に向かうことにするが、そこでは[r]
+激しい戦いになることが予想できる。[p]
+
+その時見知らぬ女性が組織を訪れ、[r]
+仲間にしてほしいという（サポーター）。[p]
+
+その女性から高い能力を持つ女性がいることを聞き、[r]
+仲間にしに住んでいる森へ行くことに。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="Map"]

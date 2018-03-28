@@ -1,0 +1,30 @@
+[bg_show name="background"]
+
+[playbgm storage="music" wait=false]
+
+[chara_show name="fighterA" x=-5 y=-1]
+[chara_show name="supporterA" x=5 y=-1]
+
+#
+背景は森。[p]
+
+高い能力の女性と幼い助手二人[r]
+（魔法使いとガードナーとヒーラー）に出会い[r]
+事情を説明するが、厳しい戦いになると言われる。[p]
+
+そこで潜在能力を向上させるため、[r]
+神秘の聖水がある場所に向かうことになる。[p]
+
+聖水の場所では番人たちが試練を行っており、[r]
+その試練をクリアするために戦う。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="background"]
+
+[stopbgm storage="music" wait=false]
+[wait time=1]
+
+;戦闘へ
+[scene file="BattleSample"]
