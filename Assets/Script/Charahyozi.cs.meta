@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 56de0f91b9db96e4aa8deaf5d0a6d552
+timeCreated: 1521746124
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - fighter1: {fileID: 1213401914165286, guid: 438cb59545ae6f74a9d5316c851913b7, type: 2}
+  - witch1: {fileID: 1915876555090744, guid: 27b520ff1b2077f4094bb4860eb4173a, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
