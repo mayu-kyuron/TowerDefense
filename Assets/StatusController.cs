@@ -1,26 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Novel;
 
 public class StatusController : MonoBehaviour {
 
-    private double stageNum;
+    private GameObject mapGenerator;
 
-	// Use this for initialization
-	void Start () {
-
-        //stageNum = 11;
-        this.stageNum = double.Parse(StatusManager.variable.get("stage.number"));
-
-        if (MapGenerator.IsDecimal(this.stageNum))
-        {
-            this.stageNum += 0.5;
-        }
-        else
-        {
-            this.stageNum++;
-        }
+    // Use this for initialization
+    void Start () {
+        this.mapGenerator = GameObject.Find("MapGenerator");
     }
 	
 	// Update is called once per frame
@@ -30,6 +18,12 @@ public class StatusController : MonoBehaviour {
     
     private void OnClick()
     {
-        GlobalObject.LoadLevelWithString("Status", this.stageNum.ToString());
+        double stageNum = this.mapGenerator.GetComponent<MapGenerator>()
+            .variables.GetComponent<Variables>().StageNum;
+        GameObject settingObject = this.mapGenerator.GetComponent<MapGenerator>().settingObject;
+
+        GlobalObject.LoadLevelWithParams("Status",
+            stageNum.ToString(),
+            (settingObject == null ? null : settingObject.GetComponent<SettingObject>()));
     }
 }

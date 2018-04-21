@@ -4,16 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealerBtnController : MonoBehaviour {
-
-    private double stageNum;
+    
     private GameObject statusGenerator;
     private GameObject characterSetter;
 
     // Use this for initialization
     void Start()
     {
-        //this.stageNum = 9;
-        this.stageNum = double.Parse(GlobalObject.getInstance().StringParam);
         this.statusGenerator = GameObject.Find("StatusGenerator");
         this.characterSetter = GameObject.Find("CharacterSetter");
     }
@@ -28,12 +25,15 @@ public class HealerBtnController : MonoBehaviour {
     {
         int charaNum;
 
+        double stageNum = this.statusGenerator.GetComponent<StatusGenerator>()
+            .variables.GetComponent<Variables>().StageNum;
+
         // キャラクターの人数判断
-        if (this.stageNum < Consts.Healer2peopleStageNum)
+        if (stageNum < Consts.Healer2peopleStageNum)
         {
             charaNum = 1;
         }
-        else if (this.stageNum < Consts.Healer3peopleStageNum)
+        else if (stageNum < Consts.Healer3peopleStageNum)
         {
             charaNum = 2;
         }

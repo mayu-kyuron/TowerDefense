@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LeftArrowBtnController : MonoBehaviour {
-
-    private double stageNum;
+    
     private GameObject statusGenerator;
     private GameObject characterSetter;
 
     // Use this for initialization
     void Start () {
-        //this.stageNum = 9;
-        this.stageNum = double.Parse(GlobalObject.getInstance().StringParam);
         this.statusGenerator = GameObject.Find("StatusGenerator");
         this.characterSetter = GameObject.Find("CharacterSetter");
     }
@@ -29,35 +26,38 @@ public class LeftArrowBtnController : MonoBehaviour {
         int judgeCharaPageNum = this.statusGenerator.GetComponent<StatusGenerator>()
             .variables.GetComponent<Variables>().JudgeCharaPageNum;
 
+        double stageNum = this.statusGenerator.GetComponent<StatusGenerator>()
+            .variables.GetComponent<Variables>().StageNum;
+
         // ファイターページのとき
         if (judgeCharaTypeNum == 1)
         {
-            ChangeFighterPage(judgeCharaPageNum);
+            ChangeFighterPage(judgeCharaPageNum, stageNum);
         }
         // ウィッチページのとき
         else if (judgeCharaTypeNum == 2)
         {
-            ChangeWitchPage(judgeCharaPageNum);
+            ChangeWitchPage(judgeCharaPageNum, stageNum);
         }
         // ヒーラーページのとき
         else if (judgeCharaTypeNum == 3)
         {
-            ChangeHealerPage(judgeCharaPageNum);
+            ChangeHealerPage(judgeCharaPageNum, stageNum);
         }
         // ガーディアンページのとき
         else if (judgeCharaTypeNum == 4)
         {
-            ChangeGuardianPage(judgeCharaPageNum);
+            ChangeGuardianPage(judgeCharaPageNum, stageNum);
         }
         // サポーターページのとき
         else if (judgeCharaTypeNum == 5)
         {
-            ChangeSupporterPage(judgeCharaPageNum);
+            ChangeSupporterPage(judgeCharaPageNum, stageNum);
         }
         // モンスターページのとき
         else if (judgeCharaTypeNum == 6)
         {
-            ChangeMonsterPage(judgeCharaPageNum);
+            ChangeMonsterPage(judgeCharaPageNum, stageNum);
         }
     }
 
@@ -65,16 +65,17 @@ public class LeftArrowBtnController : MonoBehaviour {
     /// ページ表示ファイターキャラを変更する。
     /// </summary>
     /// <param name="judgeCharaPageNum">ページ番号</param>
-    private void ChangeFighterPage(int judgeCharaPageNum)
+    /// <param name="stageNum">ステージ番号</param>
+    private void ChangeFighterPage(int judgeCharaPageNum, double stageNum)
     {
         int charaNum;
 
         // キャラクターの人数判断       
-        if (this.stageNum < Consts.Fighter2peopleStageNum)
+        if (stageNum < Consts.Fighter2peopleStageNum)
         {
             charaNum = 1;
         }
-        else if (this.stageNum < Consts.Fighter3peopleStageNum)
+        else if (stageNum < Consts.Fighter3peopleStageNum)
         {
             charaNum = 2;
         }
@@ -117,12 +118,13 @@ public class LeftArrowBtnController : MonoBehaviour {
     /// ページ表示ウィッチキャラを変更する。
     /// </summary>
     /// <param name="judgeCharaPageNum">ページ番号</param>
-    private void ChangeWitchPage(int judgeCharaPageNum)
+    /// <param name="stageNum">ステージ番号</param>
+    private void ChangeWitchPage(int judgeCharaPageNum, double stageNum)
     {
         int charaNum;
 
         // キャラクターの人数判断       
-        if (this.stageNum < Consts.Witch2peopleStageNum)
+        if (stageNum < Consts.Witch2peopleStageNum)
         {
             charaNum = 1;
         }
@@ -149,16 +151,17 @@ public class LeftArrowBtnController : MonoBehaviour {
     /// ページ表示ヒーラーキャラを変更する。
     /// </summary>
     /// <param name="judgeCharaPageNum">ページ番号</param>
-    private void ChangeHealerPage(int judgeCharaPageNum)
+    /// <param name="stageNum">ステージ番号</param>
+    private void ChangeHealerPage(int judgeCharaPageNum, double stageNum)
     {
         int charaNum;
 
         // キャラクターの人数判断       
-        if (this.stageNum < Consts.Healer2peopleStageNum)
+        if (stageNum < Consts.Healer2peopleStageNum)
         {
             charaNum = 1;
         }
-        else if (this.stageNum < Consts.Healer3peopleStageNum)
+        else if (stageNum < Consts.Healer3peopleStageNum)
         {
             charaNum = 2;
         }
@@ -201,12 +204,13 @@ public class LeftArrowBtnController : MonoBehaviour {
     /// ページ表示ガーディアンキャラを変更する。
     /// </summary>
     /// <param name="judgeCharaPageNum">ページ番号</param>
-    private void ChangeGuardianPage(int judgeCharaPageNum)
+    /// <param name="stageNum">ステージ番号</param>
+    private void ChangeGuardianPage(int judgeCharaPageNum, double stageNum)
     {
         int charaNum;
 
         // キャラクターの人数判断       
-        if (this.stageNum < Consts.Guardian2peopleStageNum)
+        if (stageNum < Consts.Guardian2peopleStageNum)
         {
             charaNum = 1;
         }
@@ -233,12 +237,13 @@ public class LeftArrowBtnController : MonoBehaviour {
     /// ページ表示サポーターキャラを変更する。
     /// </summary>
     /// <param name="judgeCharaPageNum">ページ番号</param>
-    private void ChangeSupporterPage(int judgeCharaPageNum)
+    /// <param name="stageNum">ステージ番号</param>
+    private void ChangeSupporterPage(int judgeCharaPageNum, double stageNum)
     {
         int charaNum;
 
         // キャラクターの人数判断       
-        if (this.stageNum < Consts.Supporter2peopleStageNum)
+        if (stageNum < Consts.Supporter2peopleStageNum)
         {
             charaNum = 1;
         }
@@ -265,7 +270,8 @@ public class LeftArrowBtnController : MonoBehaviour {
     /// ページ表示モンスターキャラを変更する。
     /// </summary>
     /// <param name="judgeCharaPageNum">ページ番号</param>
-    private void ChangeMonsterPage(int judgeCharaPageNum)
+    /// <param name="stageNum">ステージ番号</param>
+    private void ChangeMonsterPage(int judgeCharaPageNum, double stageNum)
     {
 
     }

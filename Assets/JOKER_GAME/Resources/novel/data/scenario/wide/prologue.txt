@@ -1,6 +1,6 @@
 [bg_show name="background"]
 
-[playbgm storage="music" wait=false]
+[playbgm storage="music" wait=false vol={bgm.number}]
 
 [chara_show name="fighterA" x=0 y=-1]
 

@@ -4,12 +4,32 @@ using UnityEngine;
 
 public class Variables : MonoBehaviour {
 
+    // ステージ番号
+    private double stageNum;
+
     // キャラボタン選択の判断用変数
     // 1:ファイター、2:ウィッチ、3:ヒーラー、4:ガーディアン、5:サポーター、6:モンスター
     private int judgeCharaTypeNum;
 
     // ページ番号
     private int judgeCharaPageNum;
+
+    /// <summary>
+    /// ステージ番号を取得する。
+    /// </summary>
+    public double StageNum
+    {
+        get { return this.stageNum; }
+    }
+
+    /// <summary>
+    /// ステージ番号を設定する。
+    /// </summary>
+    /// <param name="judgeCharaTypeNum"></param>
+    public void SetStageNum(double stageNum)
+    {
+        this.stageNum = stageNum;
+    }
 
     /// <summary>
     /// キャラボタン選択の判断用変数を取得する。

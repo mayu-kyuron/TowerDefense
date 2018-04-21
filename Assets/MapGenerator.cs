@@ -15,8 +15,9 @@ public class MapGenerator : MonoBehaviour {
     public GameObject flagBtnPrefab;
     public GameObject statusBtnPrefab;
     public GameObject settingBtnPrefab;
+    public GameObject variables;
+    public GameObject settingObject;
 
-    private double stageNum;
     private int mapNum;
     private GameObject mapPrefab = null;
     private Canvas canvas;
@@ -24,26 +25,68 @@ public class MapGenerator : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
+        double stageNum;
+        bool isSetBefore;
+        int bgmNum;
+        int seNum;
+        int effectNum;
+        int damageNum;
         this.canvas = GameObject.FindObjectOfType<Canvas>();
 
         //this.stageNum = 7;
-        // ジョーカースクリプトから変数を受け取れなかったら、戦闘シーンから受け取る
-        if (!double.TryParse(StatusManager.variable.get("stage.number"), out stageNum))
+        // ジョーカースクリプトから変数を受け取る。
+        if (GlobalObject.getInstance().Params == null)
         {
-            this.stageNum = double.Parse(GlobalObject.getInstance().StringParam);
-        }
+            Debug.Log("ジョーカースクリプトから遷移");
+            Debug.Log("StatusManager.variable.get(\"stage.number\") = " + StatusManager.variable.get("stage.number"));
+            
+            stageNum = GetNewStageNum(double.Parse(StatusManager.variable.get("stage.number")));
 
-        if (IsDecimal(this.stageNum))
-        {
-            this.stageNum += 0.5;
+            isSetBefore = bool.Parse(StatusManager.variable.get("is.setBefore"));
+            bgmNum = int.Parse((double.Parse(StatusManager.variable.get("bgm.number")) / 0.2).ToString());
+            seNum = int.Parse((double.Parse(StatusManager.variable.get("se.number")) / 0.2).ToString());
+            effectNum = int.Parse(StatusManager.variable.get("effect.number"));
+            damageNum = int.Parse(StatusManager.variable.get("damage.number"));
         }
         else
         {
-            this.stageNum++;
+            Debug.Log("戦闘シーンかステータス画面、設定画面から遷移");
+
+            string stageNumStr = (string)GlobalObject.getInstance().Params[0];
+
+            SettingObject settingObjectFromOthers = (SettingObject)GlobalObject.getInstance().Params[1];
+            isSetBefore = settingObjectFromOthers.IsSetBefore;
+            bgmNum = settingObjectFromOthers.BgmNum;
+            seNum = settingObjectFromOthers.SeNum;
+            effectNum = settingObjectFromOthers.EffectNum;
+            damageNum = settingObjectFromOthers.DamageNum;
+
+            // 戦闘シーンからステージ番号を受け取る。
+            if (double.TryParse(stageNumStr, out stageNum))
+            {
+                stageNum = GetNewStageNum(stageNum);
+            }
+            // ステータス画面か設定画面からステージ番号を受け取る。
+            else
+            {               
+                stageNum = double.Parse(stageNumStr.Substring(0, stageNumStr.IndexOf(" ")));
+            }
         }
+        Debug.Log("stageNum = " + stageNum);
+
+        // シーン間引き継ぎ変数の初期化（ジョーカースクリプトからの遷移かを判断するため）
+        GlobalObject.getInstance().SetStringParam(null);
+        GlobalObject.getInstance().SetParam(null);
+        GlobalObject.getInstance().SetParams(null);
+
+        // ステージ番号設定
+        this.variables.GetComponent<Variables>().SetStageNum(stageNum);
+
+        // 前回ユーザ設定の設定
+        SetLastSettings(isSetBefore, bgmNum, seNum, effectNum, damageNum);
 
         // マップ画面決定（人間界or魔界）
-        if (this.stageNum <= MaxStageNumHumanWorld)
+        if (stageNum <= MaxStageNumHumanWorld)
         {
             this.mapNum = 1;
         }
@@ -57,13 +100,13 @@ public class MapGenerator : MonoBehaviour {
         {
             this.mapPrefab = this.map1Prefab;
 
-            if (this.stageNum == 1)
+            if (stageNum == 1)
             {
                 GameObject bonfireBtnIns1 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns1.transform.position = new Vector3(-463, -233, 0);
                 bonfireBtnIns1.transform.SetParent(this.canvas.transform, false);
             }
-            else if(this.stageNum == 2)
+            else if(stageNum == 2)
             {
                 GameObject bonfireBtnIns2 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns2.transform.position = new Vector3(-260.4f, -145.6f, 0);
@@ -71,7 +114,7 @@ public class MapGenerator : MonoBehaviour {
 
                 InstantiateFlag1();
             }
-            else if (this.stageNum == 3)
+            else if (stageNum == 3)
             {
                 GameObject bonfireBtnIns3 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns3.transform.position = new Vector3(-133, 0, 0);
@@ -80,7 +123,7 @@ public class MapGenerator : MonoBehaviour {
                 InstantiateFlag1();
                 InstantiateFlag2();
             }
-            else if (this.stageNum == 4)
+            else if (stageNum == 4)
             {
                 GameObject bonfireBtnIns4 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns4.transform.position = new Vector3(-289.3f, 29, 0);
@@ -90,7 +133,7 @@ public class MapGenerator : MonoBehaviour {
                 InstantiateFlag2();
                 InstantiateFlag3();
             }
-            else if (this.stageNum == 5)
+            else if (stageNum == 5)
             {
                 GameObject bonfireBtnIns5 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns5.transform.position = new Vector3(29, 145.6f, 0);
@@ -101,7 +144,7 @@ public class MapGenerator : MonoBehaviour {
                 InstantiateFlag3();
                 InstantiateFlag4();
             }
-            else if (this.stageNum == 6)
+            else if (stageNum == 6)
             {
                 GameObject bonfireBtnIns6 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns6.transform.position = new Vector3(260.4f, -26.2f, 0);
@@ -113,7 +156,7 @@ public class MapGenerator : MonoBehaviour {
                 InstantiateFlag4();
                 InstantiateFlag5();
             }
-            else if (this.stageNum == 7)
+            else if (stageNum == 7)
             {
                 GameObject bonfireBtnIns7 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns7.transform.position = new Vector3(231.5f, -145.6f, 0);
@@ -126,7 +169,7 @@ public class MapGenerator : MonoBehaviour {
                 InstantiateFlag5();
                 InstantiateFlag6();
             }
-            else if (this.stageNum == 8)
+            else if (stageNum == 8)
             {
                 GameObject bonfireBtnIns8 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns8.transform.position = new Vector3(-34.7f, -203.9f, 0);
@@ -147,13 +190,13 @@ public class MapGenerator : MonoBehaviour {
         {
             this.mapPrefab = this.map2Prefab;
 
-            if (this.stageNum == 9)
+            if (stageNum == 9)
             {
                 GameObject bonfireBtnIns9 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns9.transform.position = new Vector3(150, -133.9f, 0);
                 bonfireBtnIns9.transform.SetParent(this.canvas.transform, false);
             }
-            else if (this.stageNum == 10)
+            else if (stageNum == 10)
             {
                 GameObject bonfireBtnIns10 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns10.transform.position = new Vector3(-50, -63.9f, 0);
@@ -161,7 +204,7 @@ public class MapGenerator : MonoBehaviour {
 
                 InstantiateFlag9();
             }
-            else if (this.stageNum == 11)
+            else if (stageNum == 11)
             {
                 GameObject bonfireBtnIns11 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns11.transform.position = new Vector3(-460, 7.9f, 0);
@@ -170,7 +213,7 @@ public class MapGenerator : MonoBehaviour {
                 InstantiateFlag9();
                 InstantiateFlag10();
             }
-            else if (this.stageNum == 12)
+            else if (stageNum == 12)
             {
                 GameObject bonfireBtnIns12 = Instantiate(this.bonfireBtnPrefab) as GameObject;
                 bonfireBtnIns12.transform.position = new Vector3(-210, 142.9f, 0);
@@ -199,11 +242,53 @@ public class MapGenerator : MonoBehaviour {
 		
 	}
 
+    /// <summary>
+    /// 数値が小数点以下を含むかを判断する。
+    /// </summary>
+    /// <param name="doubleNum">数値</param>
+    /// <returns>含む場合はtrue、整数ならfalse</returns>
     public static bool IsDecimal(double doubleNum)
     {
         if (doubleNum - Math.Floor(doubleNum) != 0) return true;
 
         return false;
+    }
+
+    /// <summary>
+    /// ジョーカースクリプト後ストーリーからのステージ番号を
+    /// 次の番号（整数）に変換して取得する。
+    /// </summary>
+    /// <param name="stageNum">ステージ番号</param>
+    /// <returns>変換後のステージ番号</returns>
+    private double GetNewStageNum(double stageNum)
+    {
+        if (stageNum == 0) stageNum++; 
+        if (IsDecimal(stageNum)) stageNum += 0.5;
+
+        return stageNum;
+    }
+
+    /// <summary>
+    /// 前回の設定を反映する。
+    /// </summary>
+    /// <param name="isSetBefore">設定されたことがあるか</param>
+    /// <param name="bgmNum">BGMの音量</param>
+    /// <param name="seNum">効果音の音量</param>
+    /// <param name="effectNum">エフェクト表示の有無</param>
+    /// <param name="damageNum">ダメージ表示の有無</param>
+    private void SetLastSettings(bool isSetBefore, int bgmNum, int seNum, int effectNum, int damageNum)
+    {
+        this.settingObject.GetComponent<SettingObject>().SetIsSetBefore(isSetBefore);
+        this.settingObject.GetComponent<SettingObject>().SetBgmNum(bgmNum);
+        this.settingObject.GetComponent<SettingObject>().SetSeNum(seNum);
+        this.settingObject.GetComponent<SettingObject>().SetEffectNum(effectNum);
+        this.settingObject.GetComponent<SettingObject>().SetDamageNum(damageNum);
+
+        Debug.Log("MapGenerator - IsSetBefore = " + this.settingObject.GetComponent<SettingObject>().IsSetBefore);
+        Debug.Log("MapGenerator - BgmNum = " + this.settingObject.GetComponent<SettingObject>().BgmNum);
+        Debug.Log("MapGenerator - SeNum = " + this.settingObject.GetComponent<SettingObject>().SeNum);
+        Debug.Log("MapGenerator - EffectNum = " + this.settingObject.GetComponent<SettingObject>().EffectNum);
+        Debug.Log("MapGenerator - DamageNum = " + this.settingObject.GetComponent<SettingObject>().DamageNum);
     }
 
     private void InstantiateFlag1()

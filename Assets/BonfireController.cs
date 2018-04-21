@@ -4,23 +4,12 @@ using UnityEngine;
 using Novel;
 
 public class BonfireController : MonoBehaviour {
-    
-    private double stageNum;
+
+    private GameObject mapGenerator;
 
     // Use this for initialization
     void Start () {
-
-        //stageNum = 11;
-        this.stageNum = double.Parse(StatusManager.variable.get("stage.number"));
-
-        if (MapGenerator.IsDecimal(this.stageNum))
-        {
-            this.stageNum += 0.5;
-        }
-        else
-        {
-            this.stageNum++;
-        }
+        this.mapGenerator = GameObject.Find("MapGenerator");
     }
 	
 	// Update is called once per frame
@@ -31,8 +20,33 @@ public class BonfireController : MonoBehaviour {
     // クリックされたらジョーカースクリプトへ
     private void OnClick()
     {
-        StatusManager.variable.set("stage.number", this.stageNum.ToString());
+        // ステージ番号取得
+        string stageNum = this.mapGenerator.GetComponent<MapGenerator>()
+            .variables.GetComponent<Variables>().StageNum.ToString();
 
+        // 設定オブジェクトのフィールド取得
+        GameObject settingObject = this.mapGenerator.GetComponent<MapGenerator>().settingObject;
+        string isSetBefore = settingObject.GetComponent<SettingObject>().IsSetBefore.ToString();
+        string bgmNum = settingObject.GetComponent<SettingObject>().BgmNum.ToString();
+        string seNum = settingObject.GetComponent<SettingObject>().SeNum.ToString();
+        string effectNum = settingObject.GetComponent<SettingObject>().EffectNum.ToString();
+        string damageNum = settingObject.GetComponent<SettingObject>().DamageNum.ToString();
+
+        Debug.Log("BonfireController - isSetBefore = " + isSetBefore);
+        Debug.Log("BonfireController - bgmNum = " + bgmNum);
+        Debug.Log("BonfireController - seNum = " + seNum);
+        Debug.Log("BonfireController - effectNum = " + effectNum);
+        Debug.Log("BonfireController - damageNum = " + damageNum);
+
+        // ジョーカースクリプトに渡す値を設定
+        StatusManager.variable.set("stage.number", stageNum);
+        StatusManager.variable.set("is.setBefore", isSetBefore);
+        StatusManager.variable.set("bgm.number", bgmNum);
+        StatusManager.variable.set("se.number", seNum);
+        StatusManager.variable.set("effect.number", effectNum);
+        StatusManager.variable.set("damage.number", damageNum);
+
+        // シーン遷移
         NovelSingleton.StatusManager.callJoker("wide/material", "");
     }
 }

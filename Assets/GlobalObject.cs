@@ -13,26 +13,32 @@ public class GlobalObject : MonoBehaviour {
 
     public string StringParam
     {
-        get
-        {
-            return mStringParam;
-        }
+        get { return mStringParam; }
+    }
+    
+    public void SetStringParam(string mStringParam)
+    {
+        this.mStringParam = mStringParam;
     }
 
     public object Param
     {
-        get
-        {
-            return mParam;
-        }
+        get { return mParam; }
+    }
+
+    public void SetParam(object mParam)
+    {
+        this.mParam = mParam;
     }
 
     public object[] Params
     {
-        get
-        {
-            return mParams;
-        }
+        get { return mParams; }
+    }
+
+    public void SetParams(object[] mParams)
+    {
+        this.mParams = mParams;
     }
 
     public static GlobalObject getInstance()

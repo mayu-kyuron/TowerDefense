@@ -5,6 +5,20 @@
 
 [if exp="{stage.number}==null"]
 	[calc exp="stage.number=0"]
+	[flag exp="is.setBefore=false"]
+	[calc exp="effect.number=1"]
+	[calc exp="damage.number=1"]
+[endif]
+
+[if exp="{bgm.number}==null"]
+	[calc exp="bgm.number=0.6"]
+	[calc exp="se.number=0.6"]
+[elsif exp="{bgm.number}==0"]
+	[calc exp="bgm.number=0.6"]
+	[calc exp="se.number=0.6"]
+[else]
+	[calc exp="bgm.number={bgm.number}*0.2"]
+	[calc exp="se.number={se.number}*0.2"]
 [endif]
 
 ;章ごとに材料取り込み

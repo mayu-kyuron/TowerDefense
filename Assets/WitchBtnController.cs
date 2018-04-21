@@ -4,16 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class WitchBtnController : MonoBehaviour {
-
-    private double stageNum;
+    
     private GameObject statusGenerator;
     private GameObject characterSetter;
 
     // Use this for initialization
     void Start()
     {
-        //this.stageNum = 9;
-        this.stageNum = double.Parse(GlobalObject.getInstance().StringParam);
         this.statusGenerator = GameObject.Find("StatusGenerator");
         this.characterSetter = GameObject.Find("CharacterSetter");
     }
@@ -28,8 +25,11 @@ public class WitchBtnController : MonoBehaviour {
     {
         int charaNum;
 
+        double stageNum = this.statusGenerator.GetComponent<StatusGenerator>()
+            .variables.GetComponent<Variables>().StageNum;
+
         // キャラクターの人数判断
-        if (this.stageNum < Consts.Witch2peopleStageNum)
+        if (stageNum < Consts.Witch2peopleStageNum)
         {
             charaNum = 1;
         }
