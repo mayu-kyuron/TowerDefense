@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 496b813bf51d1d04e9247c3a4fcd3344
+timeCreated: 1525423569
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Naisho Moji
+  fontNames:
+  - Naisho Moji
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
