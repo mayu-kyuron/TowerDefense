@@ -15,7 +15,8 @@ public class DamageListScript : MonoBehaviour {
 	void Update () {
 		
 	}
-	
-	public void Add(){
-		
+
+    public void Add() {
+
+    }	
 }
