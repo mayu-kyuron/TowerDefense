@@ -1,18 +1,50 @@
-[bg_show name="background"]
+[bg_show name="wasteLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="fighterA" x=-5]
+[chara_show name="healerA" x=5]
+
+#fighterA
+ふぅ……[r]
+これで全部、魔物は仕留められたみたいね。[p]
+
+#healerA
+すごい。[r]
+あれだけの魔物を、これほど[r]
+あっさりとやっつけてしまうなんて。[p]
+
+#fighterA
+今日はいつもより調子が良かったわ。[r]
+2人がいてくれたおかげね。[p]
+
+#healerA
+そ、そんな……[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="witchA" x=-5 time=0.5]
+
+#witchA
+あたしも、そう思うなー！[r]
+2人のサポートがあれば、まさに百人力って感じ。[p]
+
+#healerA
+あ、ありがとうございます。[r]
+光栄です。[p]
+
+#witchA
+あはは！[r]
+いえいえ、こちらこそ。[p]
+
+ではでは気を取り直して。[r]
+今後こそ遺跡へ、レッツゴー！[p]
 
 #
-背景は荒地。[r]
-気を取り直して、みんなで最深部に向かう。[p]
-
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="wasteLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

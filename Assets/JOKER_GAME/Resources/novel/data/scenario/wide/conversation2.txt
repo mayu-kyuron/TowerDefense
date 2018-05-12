@@ -1,18 +1,98 @@
-[bg_show name="background"]
+[bg_show name="wasteLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="supporterA" x=-5]
+[chara_show name="witchA" x=5]
+
+#supporterA
+ふう……[r]
+さすがに疲れてきたわねぇ。[p]
+
+#witchA
+そうだねぇ。戦っても戦っても、[r]
+うじゃうじゃうじゃうじゃ……キリがないもんね。[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="fighterA" x=5 time=0.5]
+
+#fighterA
+2人とも、お疲れさま。[r]
+今日はもうこの辺りで休みましょうか。[r][l]
+見張っておくから、眠ってもらっても大丈夫よ。[p]
+
+#supporterA
+あら、{name.fighterA}。[r]
+あなたは大丈夫なの？[p]
+
+#fighterA
+ええ、私はまだ平気よ。[r]
+体力には自身があるの。[p]
+
+#supporterA
+まあ、頼もしい。[r]
+なら、お言葉に甘えてしまおうかしら。[r][l]
+何かあったときは、遠慮なく呼んでちょうだい。[p]
+
+#fighterA
+ええ、わかったわ。[p]
+
+[chara_hide name="supporterA" time=0.5]
+[wait time=0.5]
+
+…………[p]
+
+さすがに、3人では敵の対応が難しくなってきたわね……[r][l]
+早く敵の根城をつかまないと。[r]
+このまま消耗すれば、不利になっていく一方だわ。[p]
+
+…………[l]！！[p]
+
+あれは……[p]
 
 #
-背景は荒地。[r]
-他の女性二人がモンスターに襲われかけているのを助けにいく。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+[bg_hide name="wasteLand"]
+[wait time=1]
+[bg_show name="wasteLand"]
+[chara_show name="fighterA" x=-5]
 
+#fighterA
+2人ともっ、起きて！[p]
+
+[chara_show name="witchA" x=5]
+
+#witchA
+んん……どうしたの、{name.fighterA}？[r]
+そんなに慌てて……[p]
+
+#fighterA
+ヒトが襲われているの、女の子が2人！[r]
+助けないと、あのままじゃ……[p]
+
+#witchA
+ええ！？[r]
+なんでこんなところに？[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="supporterA" x=-5 time=0.5]
+
+#supporterA
+……とりあえず、向かいましょうか。[r][l]
+考えるのは、その後でもいいんじゃないかしら？[p]
+
+#witchA
+う、うん……[r]
+そうだね、とりあえず行こう！[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="wasteLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

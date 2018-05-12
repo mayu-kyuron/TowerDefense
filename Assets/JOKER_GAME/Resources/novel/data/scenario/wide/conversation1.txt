@@ -1,25 +1,98 @@
-[bg_show name="background"]
+[bg_show name="wasteLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="fighterA" x=-5]
+[chara_show name="witchA" x=5]
 
 #fighterA
-{name.supporterA}、調子はどう？[p]
+{name.witchA}、食糧調達お疲れさま。[r]
+危険な目には合わなかった？[p]
+
+#witchA
+ふふ。[r]
+{name.fighterA}、誰に向かって言ってるの？[p]
+
+もっちろん、平気に決まってるよ。[r]
+魔物どもになんか負けないんだから！[p]
+
+もし遭遇したって、あたしの魔法で[r]
+みーんな蹴散らしてやるもんね！[p]
+
+#fighterA
+そう、頼もしいわね。[r]
+……でも、無理は禁物よ。[r]
+この辺りはやっぱり、魔物の数が多いみたいだから。[p]
+
+#witchA
+うん、それは確かに……[r][l]
+これって、やつらの巣窟に近づいてるってことなのかな？[p]
+
+#fighterA
+ええ、そうでしょうね。[r]
+ヒトの姿も、めっきり見なくなってしまったし……[r]
+この大陸に来てから、男性は1人も見ていないわね。[p]
+
+#witchA
+きっと、みんな逃げ出しちゃったんだろうね……[p]
+
+#fighterA
+…………[p]
+
+#{name.???}
+仕方がないわ。[p]
+
+#witchA
+{name.supporterA}？[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="supporterA" x=5 time=0.5]
 
 #supporterA
-上々よ。[r]
-あなたもでしょう、{name.fighterA}？[p]
+こうなったのは、魔物のウイルスのせいなんだもの。[r]
+男の人たちが悪いわけじゃない。[p]
+
+どんなに勇敢で屈強な殿方でも、[r]
+たちまち戦意と力を喪失してしまう……[r]
+あなたのお兄さんが良い例だわ、{name.fighterA}。[p]
+
+#fighterA
+{name.supporterA}……[p]
+
+#supporterA
+あなたのお兄様は強い方よ。[r]
+国のために命を投げ出すことも厭わない人だった。[r]
+そんな方まで、あんなふうになるんだもの。[p]
+
+卑劣な魔物どもの好きになんかさせない。[r]
+私たちヒトは、このままじゃ終わらない。[r]
+それを証明するために戦うんでしょう、{name.fighterA}。[p]
+
+#fighterA
+……ええ、そうよ。[r]
+私たちの力で、やつらに目にもの見せてやるわ。[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+うんうん、その意気だね！[p]
+
+そーんなときにグッドタイミング！[r]
+敵軍が接近中だよー。[p]
+
+#fighterA
+{name.witchA}、ありがとう。[p]
+
+……よし。[r]
+2人とも、はりきっていくわよ！[p]
 
 #
-背景は基地。初期メンバーの会話。[r]
-→荒地モンスターが接近中。[p]
-
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="wasteLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

@@ -1,25 +1,258 @@
-[bg_show name="background"]
+[bg_show name="wasteLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+;@jump target=*debug
+
+[chara_show name="supporterA" x=-5]
+[chara_show name="guardianA" x=5]
+
+#supporterA
+あらあら……[r]
+遺跡といっても、本当に寂れてしまっているのね。[r]
+ほとんど野ざらしだわ。[p]
+
+#guardianA
+ええ、そのようですわね。[p]
+
+#supporterA
+{name.fighterB}は、どの辺りにいそうかしら？[p]
+
+#guardianA
+それが……たしか、あれを見たのは[r]
+この辺りだと思ったのですけれど。[p]
+
+…………[l]あっ！[p]
+
+[chara_hide name="guardianA" time=0.5]
+
+#supporterA
+{name.guardianA}？[r]
+あら、あの方は……[p]
 
 #
-背景は荒地の最深部。[r]
-その女性が戦闘をしている。[p]
+[cm]
+[chara_hide name="supporterA" time=0.5]
+[wait time=1]
+[chara_show name="fighterB" x=-5 time=0.5]
 
-一人だが戦闘が十分にできており、[r]
-敵全員を仕留めてしまい、何か楽しげそう。[p]
+#fighterB
+アハハハハハハハッ！！[r]
+ほぉら、もう終わりィ？[r]
+もぉっと頑張ってよ、ほらほらほらっ！[p]
 
-自己紹介等が終わり、最深部にある[r]
-不思議な物体に触れた瞬間、[r]
-大声が鳴り響きモンスターが大量出現する。[p]
+#
+[cm]
+[wait time=0.1]
 
+[playse storage="middle_punch1" vol={se.number}]
+[anim name="wasteLand" time=0.1 scale=1.2]
+[anim name="wasteLand" time=0.1 scale=1]
+[wait time=0.5]
+
+[playse storage="kick1" vol={se.number}]
+[anim name="wasteLand" time=0.1 scale=1.2]
+[anim name="wasteLand" time=0.1 scale=1]
+[wait time=0.5]
+
+[playse storage="devil_scared1" vol={se.number}]
+[wait time=1]
+
+[chara_hide name="fighterB" time=0.5]
+[wait time=1]
+[chara_show name="witchA" x=-5 time=0.5]
+[chara_show name="guardianA" x=5]
+
+#witchA
+……え、えぇぇ。[r]
+あ、あれが君たちの仲間の子なの？[p]
+
+#guardianA
+え、ええ。[r]
+間違いないですわ。[p]
+
+#witchA
+な、なんていうか……[r]
+どっちが魔物、て状態だねぇ。[p]
+
+#guardianA
+…………[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1]
+[chara_show name="fighterB" x=-5 time=0.5]
+
+#fighterB
+あぁーあっ、もう最後なのォ？[r]
+つまんなーいっ。[r]
+でも、殺っちゃう♪[p]
+
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="middle_kick" vol={se.number}]
+[anim name="wasteLand" time=0.1 scale=1.2]
+[anim name="wasteLand" time=0.1 scale=1]
+[wait time=0.5]
+
+[playse storage="devil_groaning2" vol={se.number}]
+[wait time=1]
+
+[chara_hide name="fighterB" time=0.5]
+[wait time=1]
+[chara_show name="fighterA" x=-5 time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#fighterA
+…………[p]
+
+終わったようね。[r]
+とりあえず、行ってみましょうか。[p]
+
+#witchA
+うえっ！？[r][l]
+
+[chara_hide name="fighterA" time=0.5]
+
+……さっすが{name.fighterA}、勇気あるなぁ。[p]
+
+#
+[cm]
+[chara_hide name="witchA" time=0.5]
+[wait time=1.5]
+[chara_show name="fighterA" x=5 time=0.5]
+
+#fighterA
+はじめまして、{name.fighterB}。[r]
+私は{name.fighterA}。魔物討伐の旅をしているわ。[p]
+
+[chara_show name="fighterB" x=-5 time=0.5]
+
+#fighterB
+{name.fighterA}……だれ？[r]
+なんで、あたいの名前知ってんのぉ？[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="healerA" x=5 time=0.5]
+
+#healerA
+{name.fighterB}！[r]
+もう、心配したんですよ。[p]
+
+#fighterB
+あれぇ、{name.healerA}？[r]
+来ちゃったんだ。てか、よく来れたねぇ。[p]
+
+#healerA
+{name.fighterA}さんたちに助けていただいたんです。[r]
+おかげで、こうして無事あなたのもとへたどり着けました。[p]
+
+#fighterB
+へえ、そぉなんだ？[r]
+2人とも、なかなかやるじゃん。[p]
+
+{name.fighterA}っていったっけ？[r]
+あとその仲間のヒトたちも、[r]
+この子ら助けてくれてありがとぉ！[p]
+
+#healerA
+はあ……そもそも、あなたがこんな無茶をしなければ。[r][l]
+これからは、勝手な真似はやめてください。[r]
+いくらあなたが強くても、過信はいつか身を滅ぼしますよ。[p]
+
+#fighterB
+はいはい、わかったわかった。[r][l]
+でぇーもっ、今回はその過信のおかげで[r]
+たどり着けたよォ、あの不思議物体にさ！[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1]
+[image_show name="wonder" time=0.5]
+[l]
+
+[image_hide name="wonder" time=0.5]
+[wait time=1]
+[chara_show name="fighterA" x=-5]
+[chara_show name="supporterA" x=5]
+
+#fighterA
+あれが、魔物を引き寄せるもの……[p]
+
+#supporterA
+なにかしら。一見、ただの宝石のように見えるけれど。[r][l]
+でも確かに、どこか不思議な感じがするわね。[r]
+いったい、何がそう感じさせるのかしら？[p]
+
+#fighterA
+……1度、外へ持ち出してみましょう。[r]
+ここでは調べようがないわ。[r]
+今なら、{name.fighterB}のおかげで魔物もいないし。[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+アハ、そォこなくっちゃ！[r]
+んじゃあ、ちょっと失礼して、[p]
+
+#fighterA
+待って！[r]
+何か仕掛けがあるかも、[p]
+
+#fighterB
+えぇ？[p]
+
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="dragon_roar" vol={se.number}]
+
+[anim name="wasteLand" time=0.1 scale=1.2]
+[anim name="wasteLand" time=0.1 scale=1]
+[anim name="wasteLand" time=0.1 scale=1.2]
+[anim name="wasteLand" time=0.1 scale=1]
+[anim name="wasteLand" time=0.1 scale=1.2]
+[anim name="wasteLand" time=0.1 scale=1]
+[anim name="wasteLand" time=0.1 scale=1.2]
+[anim name="wasteLand" time=0.1 scale=1]
+[wait time=1]
+
+#fighterB
+……って、うわぁっ！？[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+う、うっそ。[r]
+なんで、急に魔物が……それも、こんなに……？[p]
+
+#fighterA
+とにかく、応戦しましょう。[r][l]
+大丈夫。全員油断はしないで、冷静に。[p]
+
+こちらもこれだけの人数よ。[r]
+ヒトの技術と力を駆使すれば、勝てない相手じゃないわ！[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+……アハ、そぉだね。[r]
+全員まとめて、返り討ちにしてあげよォか！[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="wasteLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

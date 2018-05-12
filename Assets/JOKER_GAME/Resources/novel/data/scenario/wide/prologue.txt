@@ -1,19 +1,67 @@
-[bg_show name="background"]
+[bg_show name="grassLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=0 y=-1]
-
-#fighterA
-背景は廃れた場所。[r]
-世界観の説明。[p]
-
 #
+海と緑に包まれた星、地球――[r]
+175万種もの生物のうち、なかでも「ヒト」の繁栄は[r]
+76億という途方もない数に至るまで続いた。[p]
+
+目立った天敵の存在しないヒトの繁栄は[r]
+止まるところを知らず、ヒトはみな無条件に[r]
+この繁栄が続いていくのだと信じていた。[p]
+
+[bg_hide name="grassLand"]
+
+ヒトの天敵は、突如その地へと降り立った。[p]
+
+[bg_show name="wasteLand_violet"]
+[chara_show name="shadow_gazer" x=3 y=0]
+[chara_show name="shadow_monster1" x=-5 y=-1]
+
+神話に語り継がれるような異形の魔物たちには、[r]
+ヒトの歴史にはない新たなウイルスを生み出す力があった。[p]
+
+それは、ヒトのオスのみを蝕む奇妙なウイルス――[r]
+どこからとも知れぬ謎の魔物が生み出すその災厄を前に、[r]
+男たちは例外なくみるみるその体と心を弱らせていった。[p]
+
+弱体化した男たちに、魔物に抗う術があるはずもない。[r]
+戦いのなかに残されたのは、非力な女たちだけだった。[p]
+
+もう地球は、征服したも同然。[r]
+無情にも、モンスターどもの意のままになると思われた。[r][l]
+しかし……[p]
 
 [hide tag="character" time=0.5]
 [wait time=0.5]
+[chara_show name="shadow_fighterA" x=-4.5 y=-1]
+[wait time=1]
+[chara_show name="shadow_fighterA2" x=-4.5 y=-1 time=0]
+[chara_show name="shadow_fighterA3" x=-4.5 y=-1 time=0]
 
-[bg_hide name="background"]
+ヒトという種のメスは、彼らの思うほど非力ではなかった。[r]
+結束した女たちは、ヒトの英知「科学」をもって[r]
+自身らのクローンを生み出す技術を完成させた。
+
+[anim name="shadow_fighterA2" time=0.5 x=0 y=-1]
+[anim name="shadow_fighterA3" time=0.5 x=4.5 y=-1]
+
+[p]
+さらにこの窮地のなか、女たちは[r]
+次々と内に秘めたる異能を解放させる。[p]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+[bg_hide name="wasteLand_violet"]
+[wait time=1]
+[bg_show name="wasteLand"]
+
+地球の侵略は勇敢な女たちの活躍により、[r]
+当初は予想もされなかった十数年にも及ぶ[r]
+長期戦へと姿を変えつつあった――[p]
+
+[bg_hide name="wasteLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=2]

@@ -1,18 +1,79 @@
-[bg_show name="background"]
+[bg_show name="wasteLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="healerA" x=-5]
+[chara_show name="fighterA" x=5]
+
+#{name.???}
+あ、あのっ……[r]
+助けていただいて、ありがとうございました。[r]
+おかげで命拾いしました。[p]
+
+#fighterA
+いいのよ、困ったときはお互いさまだもの。[p]
+
+私は{name.fighterA}というの。[r]
+この剣で、魔物討伐の旅をしているわ。[r]
+あなたたちは？[p]
+
+#{name.???}
+わたしは、{name.healerA}と申します。[r]
+い、一応、回復魔法の使えるヒーラーです。[p]
+
+#fighterA
+あら、そうだったのね。[r]
+どおりで、魔物たちを相手にできるわけだわ。[p]
+
+#healerA
+いえ、そんな……[r]
+あなたたちが来なければ、きっとわたしたち、あのまま……[p]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="guardianA" x=-5 time=0.5]
+
+#{name.???}
+ええ、そうですね……[r]
+本当に、感謝してもしきれません。[p]
+
+{name.fighterA}さん、私は{name.guardianA}といいます。[r]
+しがないお花屋さんですわ、うふふ。[r][l]
+そちらのお2人の名前も、うかがってよろしいでしょうか？[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+はいはーい！[r]
+あたしは{name.witchA}だよ。[r]
+こう見えても、つよーい魔法使いなんだよ！[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="supporterA" x=5 time=0.5]
+
+#supporterA
+私は{name.supporterA}よ。[r]
+見ての通り、踊り子をしているわ。[p]
+
+#guardianA
+まあ……お2人とも、とっても[r]
+個性的で楽しい方たちですのね。[r][l]
+あなたたちも、3人で旅をなさっていますの？[p]
+
+#supporterA
+あなたたちもって……[r]
+そちらは2人しかいないように見えるけれど？[p]
+
+#guardianA
+ああ、そうでしたわ。[r]
+それが、実は……[p]
 
 #
-背景は荒地。[r]
-無事女性二人を助け、お礼を言われる。[p]
-
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="wasteLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

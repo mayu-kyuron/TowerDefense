@@ -1,23 +1,175 @@
-[bg_show name="background"]
+[bg_show name="wasteLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="guardianA" x=-5]
+[chara_show name="fighterA" x=5]
+
+#guardianA
+実は、私達にはもう1人、旅の仲間がいるのですわ。[p]
+
+#fighterA
+そのヒトは、今どこに？[p]
+
+#guardianA
+あなたがたは、この荒地の果てに[r]
+寂れた遺跡があるのをご存知でしょうか？[p]
+
+#fighterA
+遺跡？[r]
+この荒地にそんなものが？[p]
+
+#guardianA
+ええ。私達も、詳しい事情はわからないのですが……[r]
+ただあの中には、魔物たちを引き寄せる[r]
+不思議な物体が眠っているのです。[p]
+
+#fighterA
+魔物を、引き寄せる……？[p]
+
+[chara_hide name="guardianA" time=0.5]
+[chara_show name="healerA" x=-5 time=0.5]
+
+#healerA
+{name.guardianA}。[r]
+そう断定してしまうと、少しだけ、語弊があると思います。[r]
+実際には、引き寄せているのかどうかはよくわかりません。[p]
+
+ただこの荒地では、あの遺跡に近づくほど[r]
+――正確には、その物体に近づくほど、[r]
+魔物の数と勢いが増しているようなんです。[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="supporterA" x=5 time=0.5]
+
+#supporterA
+それは、とても興味深いことだけれど。[r]
+それとあなたがたのお仲間と、どういう関係があるのかしら？[p]
+
+#healerA
+その、遺跡にいるんです。[r]
+わたしたちの仲間……{name.fighterB}が。[p]
+
+#supporterA
+まあ、大変。[r]
+たった1人で、魔物たちの集うその場所へ？[p]
+
+#healerA
+はい。[r]
+そもそもわたしたちは、何も知らなかったころ、[r]
+あの遺跡へ入ったことがあるんです。[p]
+
+でも、魔物の襲撃に遭って。[r]
+そのとき、初めてあれを目にしたんです。[p]
+
+それから、命からがら逃げだして。[r][l]
+だからもう、あの場所には近づかないほうがいいと、[r]
+わたしと{name.guardianA}は結論づけました。[p]
+
+けれど{name.fighterB}だけは、それに反対して。[r][l]
+あれは絶対に怪しいから、調べるべきだと言い出したんです。[p]
+
+危ないからやめたほうがいいと、何度も止めたんですが……[r]
+昨晩ついに、隙を見て1人で行ってしまったようで。[p]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="guardianA" x=-5 time=0.5]
+
+#guardianA
+それで先ほど、助けに行こうと勇んで[r]
+出発したまではよかったのですけれど。[p]
+
+私たちは2人とも、あまり戦闘向きのタイプではなくて。[r]
+苦戦を強いられていたのですわ。[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+ふうん、そういうことかぁ。[r][l]
+じゃあじゃあ、あたし達も一緒についていってあげよっか？[p]
+
+#guardianA
+あら、まあ……それは、私たちにとっては[r]
+願ったり叶ったりなことですけれど。[p]
+
+あなたがたにも、何か旅の目的のようなものが[r]
+あるのではないでしょうか？[p]
+
+#witchA
+うん、もちろん。[r]
+でもたぶん、これってあたしたちの[r]
+目的にも近づける話だよね？[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="fighterA" x=5 time=0.5]
+
+#fighterA
+ええ、そうね。[r]
+魔物たちに関係しそうなものなら、調べる価値はあるわ。[p]
+
+#guardianA
+あなたたちの目的って……[p]
+
+#fighterA
+さっき言った通り、私たちは魔物討伐の旅をしているの。[r]
+最終的な目的はもちろん、この地球から魔物を一掃することよ。[r][l]
+そのためには、敵を知ることも重要だわ。[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+そーんなわけで、あたしたちも遺跡に向かいまーす！[r]
+あたしたちもその不思議な物体を調べたいし、[r]
+1人で遺跡に向かったってその子も、放っておけないしね。[p]
+
+ね、だから一緒に行こうよ。[r]
+{name.healerA}、{name.guardianA}！[p]
+
+#guardianA
+……ありがとうございます。[r]
+あなたたちのようなかたと一緒に行けるなんて、[r]
+これほど心強いことはありませんわ。[p]
+
+こちらこそ、どうぞよろしくお願いいたします。[p]
+
+#witchA
+よおっし！[r]
+じゃあさっそく遺跡へ、[p]
+
+[chara_hide name="guardianA" time=0.5]
+[chara_show name="supporterA" x=-5 time=0.5]
+
+#supporterA
+みんな、大変よ！[r]
+魔物の軍勢がこちらに向かっているみたい。[p]
+
+#witchA
+ええ！？[r]
+せっかく気合い入れたとこだったのにぃ。[p]
+
+まあいっか、この気合いを[r]
+やつらにバンバン当てちゃうもんね。[r][l]
+いっちょやってやるかー！[p]
 
 #
-背景は荒地。それぞれの自己紹介。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1]
+[chara_show name="guardianA" x=-5]
+[wait time=1]
 
-二人は仲間の一人が荒地の最深部にある[r]
-不思議な物体を調べるため潜入したいことを[r]
-止めたが行ってしまい、助けてあげたいという。[p]
+#guardianA
+うふふ。[r]
+本当に、楽しくて頼もしい方々ですわね。[p]
 
-協力をしようと決断したとたんに敵が出現。[p]
-
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="wasteLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

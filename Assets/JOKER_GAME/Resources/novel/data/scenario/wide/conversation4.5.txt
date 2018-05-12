@@ -1,36 +1,327 @@
-[bg_show name="background"]
+[bg_show name="wasteLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="healerA" x=-5]
+[chara_show name="fighterA" x=5]
+
+#healerA
+はぁ、はぁ、はぁ……や、やりました。[r]
+わたしたち、やったんですね！[p]
+
+#fighterA
+ええ、その通り。[r]
+私たちの勝利よ。[p]
+
+#healerA
+あなたたちのおかげです。[r]
+ありがとうございます！[p]
+
+#fighterA
+いいえ、こちらこそ。[r]
+すばらしい戦いぶりだったわ。[r][l]
+あなたたちも、魔物の襲来後にその力を？[p]
+
+#healerA
+はい。[r]
+それまではわたしも{name.guardianA}も、[r]
+ただの民間人でした。[p]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="fighterB" x=-5 time=0.5]
+
+#fighterB
+まあ、あたいはもともとこうだけどねぇ。[p]
+
+#fighterA
+そ、そう……[p]
+
+#fighterB
+世界中巡って強いヒトを片っ端から伸していくのが[r]
+あたいの生きる楽しみだったのに、あの雑魚どもの襲来のせいで[r]
+そいつらみぃんな元気なくしちゃってさぁ。[p]
+
+世界をつまんなくしたあいつらを全員[r]
+始末してやろうと旅してたわけ。[p]
+
+そこで、自分たちもおんなじこと考えてたっていう[r]
+{name.healerA}たちに出会ったんだよ。[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="healerA" x=5 time=0.5]
+
+#healerA
+{name.fighterB}……[r]
+その言い方では、誤解を与えてしまいます。[p]
+
+#fighterB
+なんで？[r]
+そういうことでしょぉ？[p]
+
+#healerA
+はあ……[p]
+
+[chara_hide name="fighterB" time=0.5]
+[wait time=0.5]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="healerA" x=-5 time=0.5]
+
+[chara_show name="fighterA" x=5 time=0.5]
+
+あの、{name.fighterA}さん、要するにですね。[r]
+わたしたちも、おおむねあなたがたと同じ意志をもって[r]
+今まで3人で旅をしていた、ということです。[p]
+
+この地球から、魔物たちを一掃する。[r]
+それが、あなたたちの旅の目的なんですよね？[p]
+
+#fighterA
+ええ、そうよ。[p]
+
+#healerA
+なら、わたしたちにもその目的を果たす[r]
+協力をさせていただけませんか？[p]
+
+#fighterA
+えっ……[p]
+
+#healerA
+確かに、わたしたちでは力不足かもしれません。[r]
+でもわたしは、できることならあなたの力になりたい。[p]
+
+強く、優しく、勇気あるあなたがたと一緒なら……[r]
+どんな目的だって果たせると、そう思うんです。[p]
+
+#fighterA
+……ありがとう。[r]
+そちらで異存がないのなら、私たちはもちろん歓迎よ。[r]
+こちらからお願いしたいくらい。[p]
+
+#healerA
+{name.fighterB}、{name.guardianA}。[r]
+どうでしょうか？[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+まあ、いいんじゃないのぉ？[r]
+みんな強いし、なんかおもしろそうだし。[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="guardianA" x=5 time=0.5]
+
+#guardianA
+ええ、うふふ。[r]
+これからますます楽しくなりそうですわ。[p]
+
+[chara_hide name="guardianA" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+じゃあ、決まりだね。[r]
+みんなこれからよろしくー！[p]
+
+#healerA
+はい、よろしくお願いします！[r]
+今回助けていただいた恩も、きっとお返ししますね。[p]
 
 #
-背景は荒地。[r]
-主人公たちは自分たちの組織内容を説明し、[r]
-命を救ってもらったお礼として三人が仲間になる。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1.5]
 
-不思議な物体の正体はわからず、[r]
-基地に運び調査を行うことにする。[p]
+[chara_show name="supporterA" x=-5]
+[chara_show name="fighterA" x=5]
 
-↓[r]
-背景は基地。[r]
-物体の正体はこの世界のものではないらしい。[p]
+#supporterA
+これでこの先も旅を続けられそうね、{name.fighterA}。[r]
+私たち、とても運がいいのかもしれないわ。[p]
 
-そこでモンスターが最も出現している[r]
-洞窟に向かうことにするが、そこでは[r]
-激しい戦いになることが予想できる。[p]
+#fighterA
+{name.supporterA}……ええ、本当に。[p]
 
-その時見知らぬ女性が組織を訪れ、[r]
-仲間にしてほしいという（サポーター）。[p]
+#supporterA
+ところで、あれはやっぱり持ち出すのかしら？[p]
 
-その女性から高い能力を持つ女性がいることを聞き、[r]
-仲間にしに住んでいる森へ行くことに。[p]
+#fighterA
+もちろん、そのつもりよ。[r]
+船まで運んで、詳しく調査するわ。[p]
 
+#supporterA
+そう。ならさっそく、作業にとりかかりましょうか。[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+[bg_hide name="wasteLand"]
+[wait time=2]
+
+[bg_show name="inboard"]
+[wait time=1]
+[chara_show name="fighterA" x=-5]
+[chara_show name="fighterB" x=5]
+
+#fighterA
+やっぱり……[r]
+この物体は、もともと地球にあったものではないみたいね。[p]
+
+#fighterB
+じゃあそれって、魔物どもが持ちこんだってことぉ？[p]
+
+#fighterA
+その可能性が高いわね。[p]
+
+#fighterB
+ふぅん。[r]
+んで、ほかにはなんかわかったぁ？[p]
+
+#fighterA
+いいえ。残念ながら、詳しいことはわからなかったわ。[r][l]
+まず調べても前例が見つからないし、近似例もないみたい。[p]
+
+それに、解析した成分のどれにも一致データがないの。[r]
+つまり、この物体の丸ごとすべてが地球外のものということ。[p]
+
+私たちの手元の機器とデータでは、これ以上調べようがないわ。[r][l]
+もう少し、現場の情報やサンプルがあればいいのだけれど。[p]
+
+#fighterB
+マジかぁ。これで、ちょっとくらいは、[r]
+あいつらのことがわかるかと思ったんだけど。[r]
+そんな甘くないかぁ。[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="supporterA" x=-5 time=0.5]
+
+#supporterA
+あら。そんなに悲観的になることはないと思うわ。[r][l]
+{name.fighterA}の言い方からすれば、ほかのサンプルさえ[r]
+集まれば、研究を進められるってことだもの。[p]
+
+#fighterB
+そうなのぉ？[r]
+でもこんなん、あの遺跡でしか見たことないけど。[p]
+
+#supporterA
+まあ、そうでしょうねぇ。[r]
+もし本当に魔物を引き寄せる力があるのなら、[r]
+今回のようにたくさん魔物のいる場所にしか存在しえないもの。[p]
+
+そうなれば、必然的にヒトの手が及びにくい場所になるわね。[p]
+
+#fighterB
+じゃあ、魔物がたっくさん出る場所を探せばいいんだぁ。[r]
+……それって、どこなのぉ？[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="healerA" x=-5 time=0.5]
+
+#healerA
+東の山を越えた先の洞窟なら、あるいは……[p]
+
+#fighterB
+洞窟ぅ？[p]
+
+#healerA
+はい。海岸線に沿ったこの地域内で、[r]
+最も多く魔物が出現すると言われている場所です。[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+へえ、よく知ってるね！[r]
+じゃあ、次はそこを目指して行こうよ。[p]
+
+#healerA
+ま、待ってください。[r]
+さすがに、わたしたちだけでそこに行くのは危険すぎます。[p]
+
+#witchA
+え、そんなにひどいとこなの？[p]
+
+#healerA
+はい。あの一帯の集落はひとつ残らず滅ぼされていますし、[r]
+運悪く足を踏み入れた旅人は全員殺されてしまうか、[r]
+致命傷を負って帰ったと聞いています。[p]
+
+#witchA
+うげぇ、そうなんだ。[r][l]
+うーん……じゃあ、どうしよう？[r]
+やっぱり、ほかの場所を探すしかないのかなあ。[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1]
+[chara_show name="supporterB" x=-5 time=0.5]
+
+#supporterB
+おーい、誰かいるかーい？[p]
+
+[chara_show name="guardianA" x=5 time=0.5]
+
+#guardianA
+どなたですの？[p]
+
+#supporterB
+お、いたいた。[r]
+はじめまして。僕、{name.supporterB}っていうんだ。[p]
+
+魔物討伐の旅をしてるヒトたちがいるって聞いて来たんだよ。[r]
+僕も、君たちの仲間に加わりたいんだ。[p]
+
+#guardianA
+まあ、ちょうどいいタイミングですわ。[r]
+私達も、これからもっと戦力が必要だと[r]
+お話ししていたところですのよ。[p]
+
+#supporterB
+おお、それはよかった。[r]
+それに、戦力というなら僕は当てがあるよ。[p]
+
+#guardianA
+本当ですの！？[p]
+
+#supporterB
+うん。なんでもすっごく強い魔法使いが、[r]
+この荒地を越えていったって。[r]
+今頃、海岸沿いの森の辺りにいるんじゃないかな？[p]
+
+噂で聞くには、1人で魔物たちを無双するんだってさ。[r]
+一撃で魔物たちを木っ端みじんにできるらしいよ。[p]
+
+#guardianA
+それは、ぜひともお力をお借りしたいところですわね。[r]
+{name.fighterA}、どうなさいます？[p]
+
+[chara_hide name="supporterB" time=0.5]
+[chara_show name="fighterA" x=-5 time=0.5]
+
+#fighterA
+そうね……{name.supporterB}のいう魔法使いは気になるわ。[r]
+噂が本当なら、洞窟の突破も夢じゃないものね。[p]
+
+[chara_hide name="guardianA" time=0.5]
+[chara_show name="supporterB" x=5 time=0.5]
+
+#supporterB
+それじゃあ、まずは森を目指していこうか。[r][l]
+何はともあれ{name.fighterA}、それからほかのみんなも、[r]
+これからどうぞよろしくね。[p]
+
+#fighterA
+ええ、こちらこそ。[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="inboard"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]
