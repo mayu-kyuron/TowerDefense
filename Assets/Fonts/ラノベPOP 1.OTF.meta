@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7ccf2d70f123bbc4c98eafc4845ce4bf
+timeCreated: 1522333873
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: 07LightNovelPOP
+  fontNames:
+  - 07LightNovelPOP
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 12aa4cda40c0de14d901b8cf7d41f950, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
