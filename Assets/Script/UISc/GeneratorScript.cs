@@ -7,39 +7,69 @@ public class GeneratorScript : MonoBehaviour {
 	
 	//オブジェクトの登録
 	public GameObject fighter1Pre;
-	public GameObject witch1Pre;
+    public GameObject fighter3Pre;
+    public GameObject witch1Pre;
 	public GameObject healer1Pre;
 	public GameObject slimePre;
 	public GameObject gaitherPre;
 	
-	public GameObject firstBPre;
+	//public GameObject firstBPre;
 	
-	FirstScript firstS;
+	//FirstScript firstS;
 	
 	//出すオブジェクトの宣言
 	GameObject go;
 	GameObject MGo;
-	
-	//確率
-	int dice;
+
+    //最新情報のオブジェクト
+    private GameObject latestInfo;
+    private LatestInfo latestInfo_sc;
+
+    //確率
+    int dice;
 	
 	//時間
 	float time = 0;
 	float callTime = 0;
-	
-	int number = 0;
-	int Maxnumber = 20;
-	int deathNumber = 0;
-	// Use this for initialization
-	void Start () {
-		firstS = firstBPre.GetComponent<FirstScript>();
-	}
+
+    int stageNum;
+	int number;
+	int maxNum;
+	int deathNum;
+
+    //ステージナンバーとそれに対するモンスターの出現数
+    private Dictionary<int, int> stage_monsNumDic = new Dictionary<int, int>();
+
+    //ステージについての情報の構造体
+    private struct StageInfo
+    {
+        public int stageNum;
+        public int maxNum;
+        public string[] monsterName;
+        public int randamNum;
+    }
+
+    StageInfo[] stageInfolist = new StageInfo[12];
+
+    // Use this for initialization
+    void Start () {
+
+        //最新情報のスクリプト取得
+        latestInfo = GameObject.Find("最新情報");
+        latestInfo_sc = latestInfo.GetComponent<LatestInfo>();
+
+        //ステージナンバーとそれに対するモンスターの出現数取得
+        //stage_monsNumDic = latestInfo_sc.GetStage_monsNum;
+        //maxNum = stage_monsNumDic[stageNum];
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		if(firstS.flag){
+		//if(firstS.flag){
+
 			time += Time.deltaTime;
-			if(number < Maxnumber){
+
+			if(number < maxNum){
 				if(time >= callTime){
 					time = 0;
 					dice = Random.Range(1, 6);
@@ -53,8 +83,8 @@ public class GeneratorScript : MonoBehaviour {
 					callTime = Random.Range(1, 7);
 				}
 			}
-		}
-		if(deathNumber == Maxnumber){
+		//}
+		if(deathNum == maxNum){
 			Invoke("Clear", 2.0f);
 		}
 	}
@@ -72,7 +102,7 @@ public class GeneratorScript : MonoBehaviour {
 	}
 	
 	public void Count(){
-		deathNumber++;
+		deathNum++;
 	}
 	
 	void Clear(){

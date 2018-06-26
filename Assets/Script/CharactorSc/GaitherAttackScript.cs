@@ -16,6 +16,7 @@ public class GaitherAttackScript : MonoBehaviour {
 	GaitherSc gaitherS;
 	Fighter1Script F1S;
 	Witch1Sc W1S;
+    Witch2Script W2S;
 	ShipSc shipSc;
 	
 	GameObject parentGaither;
@@ -24,8 +25,8 @@ public class GaitherAttackScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		ship = GameObject.Find("Ship");
-		shipSc = ship.GetComponent<ShipSc>();
+		//ship = GameObject.Find("Ship");
+		//shipSc = ship.GetComponent<ShipSc>();
 		parentGaither = transform.root.gameObject;
 		gaitherS = parentGaither.GetComponent<GaitherSc>();
 	}
@@ -43,10 +44,16 @@ public class GaitherAttackScript : MonoBehaviour {
 				} 
 				else if(playerType == 4){
 					W1S.hp -= power;
-					//Debug.Log("ウィッチ" + W1S.hp);
+					//Debug.Log("ウィッチ1" + W1S.hp);
 					W1S.DamageUI(power);
 				}
-				else if(playerType == 3){
+                else if (playerType == 5)
+                {
+                    W2S.hp -= power;
+                    //Debug.Log("ウィッチ2" + W2S.hp);
+                    W2S.DamageUI(power);
+                }
+                else if(playerType == 3){
 					shipSc.hp -= power;
 					shipSc.DamageUI(power);
 				}
@@ -70,7 +77,15 @@ public class GaitherAttackScript : MonoBehaviour {
 				W1S = player.GetComponent<Witch1Sc>();
 				playerType = 4;
 			}
-			else if(other.gameObject.tag == "Ship"){
+            else if (other.gameObject.tag == "Witch2")
+            {
+                enemy = true;
+                gaitherS.move = false;
+                player = GameObject.Find("Witch2");
+                W2S = player.GetComponent<Witch2Script>();
+                playerType = 5;
+            }
+            else if(other.gameObject.tag == "Ship"){
 				enemy = true;
 				gaitherS.move = false;
 				playerType = 3;
