@@ -1,0 +1,150 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class BattleTempGenerator : MonoBehaviour {
+	
+    private const int MaxMonsterNum = 20;
+
+    //オブジェクトの登録
+    public GameObject fighter1Pre;
+	public GameObject witch1Pre;
+	public GameObject healer1Pre;
+	public GameObject healer2Pre;
+	public GameObject healer3Pre;
+	public GameObject slimePre;
+	public GameObject summonBtnPrefab;
+
+	private Canvas canvas;
+	private CurrentStatusVariables currentStatusVariables;
+	private float time = 0;
+    private float timeToCall = 0;
+    private int monsterNum = 0;
+    private int deadMonsterNum = 0;
+	private Dictionary<int, int> charaNoMap;
+	private Dictionary<int, int> monsterNoMap = new Dictionary<int, int>();
+
+	// Use this for initialization
+	void Start () {
+		this.canvas = GameObject.FindObjectOfType<Canvas>();
+		this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
+
+		// 仮にプレイヤー選択キャラを設定
+		var charaNumList = new List<int>() { 1, 4, 6, 7, 8 };
+		this.charaNoMap = new Dictionary<int, int> {
+			{ charaNumList[0], 0 },
+			{ charaNumList[1], 0 },
+			{ charaNumList[2], 0 },
+			{ charaNumList[3], 0 },
+			{ charaNumList[4], 0 },
+		};
+
+		// 仮に出現モンスターを設定
+		var monsterNumList = new List<int>() { 1 };
+		foreach(int monsterNum in monsterNumList) {
+			this.monsterNoMap.Add(monsterNum, 0);
+		}
+
+		SetSummonButtons();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		this.time += Time.deltaTime;
+
+		// ランダムな時間経過後、数がMAXでなければモンスター投下
+		if(this.monsterNum < MaxMonsterNum && this.time >= this.timeToCall) {
+			this.time = 0;
+			int dice = Random.Range(1, 6);
+
+            GameObject monsterGo;
+			this.monsterNoMap[1] = this.monsterNoMap[1] + 1;
+
+			//if(dice <= 3){
+				monsterGo = Instantiate(this.slimePre) as GameObject;
+				monsterGo.name = string.Format("Slime{0}", this.monsterNoMap[1]);
+			//}
+//               else {
+			//	monsterGo = Instantiate(this.gaitherPre) as GameObject;
+			//}
+
+			monsterGo.transform.position = new Vector2(7, -2);
+
+			this.monsterNum++;
+			this.timeToCall = Random.Range(1, 7);
+		}
+
+		if(this.deadMonsterNum == MaxMonsterNum) {
+			Invoke("Clear", 2.0f);
+		}
+	}
+
+    /// <summary>
+    /// キャラクターを生成する。
+    /// </summary>
+    /// <param name="charaNo">キャラクター番号</param>
+	public void GenerateChara(int charaNo) {
+		GameObject chara = null;
+		float positionX = -7;
+		float positionY = -2;
+
+		this.charaNoMap[charaNo] = this.charaNoMap[charaNo] + 1;
+		
+		if (charaNo == CharaMonsterNoConst.FighterANo) {
+			chara = Instantiate(this.fighter1Pre) as GameObject;
+			chara.name = string.Format("FighterA{0}", this.charaNoMap[charaNo]);
+		}
+		else if(charaNo == CharaMonsterNoConst.WitchANo) {
+			chara = Instantiate(this.witch1Pre) as GameObject;
+			chara.name = string.Format("WitchA{0}", this.charaNoMap[charaNo]);
+		}
+		else if (charaNo == CharaMonsterNoConst.HealerANo) {
+			chara = Instantiate(this.healer1Pre) as GameObject;
+			chara.name = string.Format("HealerA{0}", this.charaNoMap[charaNo]);
+		}
+		else if (charaNo == CharaMonsterNoConst.HealerBNo) {
+			chara = Instantiate(this.healer2Pre) as GameObject;
+			chara.name = string.Format("HealerB{0}", this.charaNoMap[charaNo]);
+			positionY = -1.75f;
+		}
+		else if (charaNo == CharaMonsterNoConst.HealerCNo) {
+			chara = Instantiate(this.healer3Pre) as GameObject;
+			chara.name = string.Format("HealerC{0}", this.charaNoMap[charaNo]);
+		}
+
+		chara.transform.position = new Vector2(positionX, positionY);
+	}
+	
+    /// <summary>
+    /// 倒したモンスターの数をカウントする。
+    /// </summary>
+	public void CountDeadMonster() {
+		this.deadMonsterNum++;
+	}
+	
+    /// <summary>
+    /// クリアシーンに遷移する。
+    /// </summary>
+	private void LoadClearScene() {
+		SceneManager.LoadScene("Clear");
+	}
+
+	/// <summary>
+	/// 召喚ボタンを設定する。
+	/// </summary>
+	private void SetSummonButtons() {
+		float xZahyouLeft = 0;
+		float xZayouMargin = 50;
+		float yZahyou = -250;
+
+		for (int i = 0; i < 5; i++) {
+			GameObject summonBtnInstance = Instantiate(this.summonBtnPrefab) as GameObject;
+			summonBtnInstance.transform.position = new Vector3(xZahyouLeft, yZahyou, 0);
+			summonBtnInstance.transform.SetParent(this.canvas.transform, false);
+			summonBtnInstance.name = "SummonButton" + (i + 1);
+
+			xZahyouLeft += xZayouMargin;
+		}
+	}
+}
