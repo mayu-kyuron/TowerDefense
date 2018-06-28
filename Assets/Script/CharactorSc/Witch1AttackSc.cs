@@ -5,7 +5,7 @@ using UnityEngine;
 public class Witch1AttackSc : MonoBehaviour {
 	
 	//ステータス
-	float power = 10.0f;
+	public float power = 10.0f;
 	private float attackTime = 4.0f;
 	
 	private float time = 0;
@@ -24,13 +24,35 @@ public class Witch1AttackSc : MonoBehaviour {
 	SuraimuScript slimeSc;
 	GaitherSc gaitherS;
 
-	void Start (){
+    //追加ーーーーーーーーーーーーーーーーーーーーーー
+    //最新情報スクリプト
+    private GameObject info;
+    private LatestInfo info_sc;
+
+    //シーン上のプレイヤー名と最新攻撃力と体力
+    private Dictionary<string, float> playPowDic = new Dictionary<string, float>();
+
+    void Start (){
 		parentWitch1 = transform.root.gameObject;
 		witch1Sc = parentWitch1.GetComponent<Witch1Sc>();
-	}
-	
-	void Update () {
-		if(enemy){
+
+        //追加
+        //最新情報スクリプト取得
+        info = GameObject.Find("LatestInfo");
+        info_sc = info.GetComponent<LatestInfo>();
+
+        //名前と攻撃力、体力を登録
+        info_sc.RegplayPow(parentWitch1.name, power);
+    }
+
+    void Update () {
+
+        //追加
+        //攻撃力を更新
+        playPowDic = info_sc.GetplayPow;
+        this.power = playPowDic[parentWitch1.name];
+
+        if (enemy){
 			time += Time.deltaTime;
 			if(time >= attackTime){
 				time = 0;
