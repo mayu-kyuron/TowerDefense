@@ -2,7 +2,7 @@
 using UnityEngine;
 
 /// <summary>
-/// ウィッチ（遠距離単体攻撃タイプ）コントローラー
+/// ウィッチ（遠距離単体攻撃タイプ）の攻撃用コントローラー
 /// </summary>
 public class SimpleWitchAttackController : AttackerController {
 	
@@ -11,41 +11,41 @@ public class SimpleWitchAttackController : AttackerController {
 	protected override void Awake() {
 
 		// 親のタグ名からキャラを判断し、ステータスを取得する。
-		Dictionary<string, float> thisCharaStatusMap = new CharaStatusConst().CharaStatusMap[transform.root.gameObject.tag];
+		Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[transform.root.gameObject.tag];
 
 		this.power = thisCharaStatusMap[CharaStatusConst.PowerKey];
 		this.timeToAttack = thisCharaStatusMap[CharaStatusConst.TimeToAttackKey];
 	}
 
-	protected override void Start (){
+	protected override void Start() {
+		base.Start();
 		this.simpleWitchController = transform.root.gameObject.GetComponent<SimpleWitchController>();
 	}
-	
+
+	protected override void AddCharaToMap() {
+
+		// 自分の名前をキーに、攻撃力を登場キャラマップに登録する。
+		this.currentStatusVariables.AddCharaPowerToMap(this.charaObjectName, this.power);
+	}
+
 	protected override void Update () {
 		Action();
 	}
 
-	protected override void OnTriggerStay2D(Collider2D other){
+	/// <summary>
+	/// 衝突したモンスターを設定する。
+	/// </summary>
+	/// <typeparam name="T">モンスターコントローラー</typeparam>
+	/// <param name="monsterKind">モンスター種類</param>
+	/// <param name="other">衝突コライダ</param>
+	/// <returns>モンスターコントローラーの子インスタンス</returns>
+	protected override T SetFightingMonster<T>(string monsterKind, Collider2D other) {
 
-		// 前進していたとき、敵と衝突したら攻撃に移る
-		if (!this.isFacingEnemy){
+		this.isFacingEnemy = true;
+		this.simpleWitchController.isMoving = false;
+		this.monsterKind = monsterKind;
 
-			// 遠距離攻撃キャラの攻撃用コライダは、ぶつかってもスル―
-			if (other.gameObject.tag == CharaStatusConst.AttackTag) return;
-
-			if (other.gameObject.tag == MonsterStatusConst.SlimeTag){
-				this.isFacingEnemy = true;
-				this.simpleWitchController.isMoving = false;
-				this.enemyFighterController = other.gameObject.GetComponent<EnemyFighterController>();
-				this.monsterType = CharaMonsterNoConst.SlimeNo;
-			}
-			else if(other.gameObject.tag == MonsterStatusConst.GaitherTag) {
-				this.isFacingEnemy = true;
-				this.simpleWitchController.isMoving = false;
-				this.gaitherSc = other.gameObject.GetComponent<GaitherSc>();
-				this.monsterType = CharaMonsterNoConst.GaitherNo;
-			}
-		}
+		return other.gameObject.GetComponent<T>();
 	}
 
 	protected override void OnTriggerExit2D(Collider2D other){

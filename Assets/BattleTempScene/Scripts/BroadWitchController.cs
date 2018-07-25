@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// ウィッチ（遠距離単体攻撃タイプ）のコントローラー
+/// ウィッチ（遠距離範囲攻撃タイプ）のコントローラー
 /// </summary>
-public class SimpleWitchController : AttackerController {
+public class BroadWitchController : AttackerController {
 
 	protected override void AddCharaToMap() {
 
@@ -18,11 +18,11 @@ public class SimpleWitchController : AttackerController {
 	}
 
 	// 遠距離攻撃キャラはAttackコントローラーで当たり判定する。
-	protected override void OnTriggerStay2D(Collider2D other){
+	protected override void OnTriggerStay2D(Collider2D other) {
 	}
 
 	// 遠距離攻撃キャラはAttackコントローラーで当たり判定する。
-	protected override void OnTriggerExit2D(Collider2D other){
+	protected override void OnTriggerExit2D(Collider2D other) {
 	}
 
 	protected override void GoAhead() {

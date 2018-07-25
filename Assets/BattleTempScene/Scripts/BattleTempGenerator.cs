@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// 仮バトルシーンのジェネレーター
+/// </summary>
 public class BattleTempGenerator : MonoBehaviour {
 	
     private const int MaxMonsterNum = 20;
@@ -10,10 +13,13 @@ public class BattleTempGenerator : MonoBehaviour {
     //オブジェクトの登録
     public GameObject fighter1Pre;
 	public GameObject witch1Pre;
+	public GameObject witch2Pre;
 	public GameObject healer1Pre;
 	public GameObject healer2Pre;
 	public GameObject healer3Pre;
+	public GameObject supporter1Pre;
 	public GameObject slimePre;
+	public GameObject gaitherPre;
 	public GameObject summonBtnPrefab;
 
 	private Canvas canvas;
@@ -31,7 +37,7 @@ public class BattleTempGenerator : MonoBehaviour {
 		this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
 
 		// 仮にプレイヤー選択キャラを設定
-		var charaNumList = new List<int>() { 1, 4, 6, 7, 8 };
+		var charaNumList = new List<int>() { 1, 4, 5, 7, 11 };
 		this.charaNoMap = new Dictionary<int, int> {
 			{ charaNumList[0], 0 },
 			{ charaNumList[1], 0 },
@@ -41,7 +47,7 @@ public class BattleTempGenerator : MonoBehaviour {
 		};
 
 		// 仮に出現モンスターを設定
-		var monsterNumList = new List<int>() { 1 };
+		var monsterNumList = new List<int>() { 1, 2 };
 		foreach(int monsterNum in monsterNumList) {
 			this.monsterNoMap.Add(monsterNum, 0);
 		}
@@ -56,18 +62,20 @@ public class BattleTempGenerator : MonoBehaviour {
 		// ランダムな時間経過後、数がMAXでなければモンスター投下
 		if(this.monsterNum < MaxMonsterNum && this.time >= this.timeToCall) {
 			this.time = 0;
+
 			int dice = Random.Range(1, 6);
-
             GameObject monsterGo;
-			this.monsterNoMap[1] = this.monsterNoMap[1] + 1;
 
-			//if(dice <= 3){
+			if(dice <= 3){
+				this.monsterNoMap[1] = this.monsterNoMap[1] + 1;
 				monsterGo = Instantiate(this.slimePre) as GameObject;
 				monsterGo.name = string.Format("Slime{0}", this.monsterNoMap[1]);
-			//}
-//               else {
-			//	monsterGo = Instantiate(this.gaitherPre) as GameObject;
-			//}
+			}
+            else {
+				this.monsterNoMap[2] = this.monsterNoMap[2] + 1;
+				monsterGo = Instantiate(this.gaitherPre) as GameObject;
+				monsterGo.name = string.Format("Gaither{0}", this.monsterNoMap[2]);
+			}
 
 			monsterGo.transform.position = new Vector2(7, -2);
 
@@ -99,6 +107,10 @@ public class BattleTempGenerator : MonoBehaviour {
 			chara = Instantiate(this.witch1Pre) as GameObject;
 			chara.name = string.Format("WitchA{0}", this.charaNoMap[charaNo]);
 		}
+		else if (charaNo == CharaMonsterNoConst.WitchBNo) {
+			chara = Instantiate(this.witch2Pre) as GameObject;
+			chara.name = string.Format("WitchB{0}", this.charaNoMap[charaNo]);
+		}
 		else if (charaNo == CharaMonsterNoConst.HealerANo) {
 			chara = Instantiate(this.healer1Pre) as GameObject;
 			chara.name = string.Format("HealerA{0}", this.charaNoMap[charaNo]);
@@ -111,6 +123,10 @@ public class BattleTempGenerator : MonoBehaviour {
 		else if (charaNo == CharaMonsterNoConst.HealerCNo) {
 			chara = Instantiate(this.healer3Pre) as GameObject;
 			chara.name = string.Format("HealerC{0}", this.charaNoMap[charaNo]);
+		}
+		else if (charaNo == CharaMonsterNoConst.SupporterANo) {
+			chara = Instantiate(this.supporter1Pre) as GameObject;
+			chara.name = string.Format("SupporterA{0}", this.charaNoMap[charaNo]);
 		}
 
 		chara.transform.position = new Vector2(positionX, positionY);

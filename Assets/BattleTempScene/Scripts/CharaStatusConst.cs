@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
+/// <summary>
+/// キャラクターステータス関連の定数
+/// </summary>
 public class CharaStatusConst {
 
 	// ステータスを取得するためのキー
@@ -12,73 +13,111 @@ public class CharaStatusConst {
 	public const string EnergyNeededKey = "EnergyNeeded";
 
 	// キャラクターのタグ名
+	// ※キャラクターを増やすごとに追加
 	public const string FighterATag = "Fighter1";
 	public const string WitchATag = "Witch1";
+	public const string WitchBTag = "Witch2";
 	public const string HealerATag = "Healer1";
 	public const string HealerBTag = "Healer2";
 	public const string HealerCTag = "Healer3";
+	public const string SupporterATag = "Supporter1";
 	public const string AttackTag = "Attack";
 	public const string ShipTag = "Ship";
 
 	// キャラクターの種類名
-	public const string FighterKindName = "Fighter";
-	public const string SimpleWitchKindName = "SimpleWitch";
-	public const string SimpleHealerKindName = "SimpleHealer";
-	public const string TotalHealerKindName = "TotalHealer";
-	public const string BroadHealerKindName = "BroadHealer";
+	public const string FighterKind = "Fighter";
+	public const string SimpleWitchKind = "SimpleWitch";
+	public const string BroadWitchKind = "BroadWitch";
+	public const string SimpleHealerKind = "SimpleHealer";
+	public const string TotalHealerKind = "TotalHealer";
+	public const string BroadHealerKind = "BroadHealer";
+	public const string PowerSupporterKind = "PowerSupporter";
 
-	// 種類ごとの各キャラクター名の配列
+	// 種類ごとの各キャラクター名リスト
+	// ※キャラクターを増やすごとに追加
 	static readonly List<string> fighterNameList = new List<string> { "FighterA" };
-	static readonly List<string> SimpleWitchNameList = new List<string> { "WitchA" };
-	static readonly List<string> SimpleHealerNameList = new List<string> { "HealerA" };
-	static readonly List<string> TotalHealerNameList = new List<string> { "HealerB" };
-	static readonly List<string> BroadHealerNameList = new List<string> { "HealerC" };
+	static readonly List<string> simpleWitchNameList = new List<string> { "WitchA" };
+	static readonly List<string> broadWitchNameList = new List<string> { "WitchB" };
+	static readonly List<string> simpleHealerNameList = new List<string> { "HealerA" };
+	static readonly List<string> totalHealerNameList = new List<string> { "HealerB" };
+	static readonly List<string> broadHealerNameList = new List<string> { "HealerC" };
+	static readonly List<string> powerSupporterNameList = new List<string> { "SupporterA" };
+
+	// 全キャラクターのタグリスト
+	// ※キャラクターを増やすごとに追加
+	readonly List<string> charaTagList = new List<string> {
+		FighterATag,
+		WitchATag,
+		WitchBTag,
+		HealerATag,
+		HealerBTag,
+		HealerCTag,
+		SupporterATag,
+	};
 
 	/// <summary>
 	/// 全キャラクターステータスのマップ（キー：タグ名）
+	/// ※キャラクターを増やすごとに追加
 	/// </summary>
 	readonly Dictionary<string, Dictionary<string, float>> charaStatusMap 
 		= new Dictionary<string, Dictionary<string, float>>() {
 
-		{ FighterATag, FighterAStatusMap },
-		{ WitchATag, WitchAStatusMap },
-		{ HealerATag, HealerAStatusMap },
-		{ HealerBTag, HealerBStatusMap },
-		{ HealerCTag, HealerCStatusMap },
+		{ FighterATag, fighterAStatusMap },
+		{ WitchATag, witchAStatusMap },
+		{ WitchBTag, witchBStatusMap },
+		{ HealerATag, healerAStatusMap },
+		{ HealerBTag, healerBStatusMap },
+		{ HealerCTag, healerCStatusMap },
+		{ SupporterATag, supporterAStatusMap },
 	};
 
 	/// <summary>
-	/// 種類ごとのキャラクター名の配列のリスト
+	/// 種類ごとの全キャラクター名リストのマップ（キー：種類名）
 	/// </summary>
-	readonly Dictionary<string, List<string>> charaNamesList = new Dictionary<string, List<string>>() {
+	readonly Dictionary<string, List<string>> charaNameListMap = new Dictionary<string, List<string>>() {
 
-		{ FighterKindName, fighterNameList },
-		{ SimpleWitchKindName, SimpleWitchNameList },
-		{ SimpleHealerKindName, SimpleHealerNameList },
-		{ TotalHealerKindName, TotalHealerNameList },
-		{ BroadHealerKindName, BroadHealerNameList },
+		{ FighterKind, fighterNameList },
+		{ SimpleWitchKind, simpleWitchNameList },
+		{ BroadWitchKind, broadWitchNameList },
+		{ SimpleHealerKind, simpleHealerNameList },
+		{ TotalHealerKind, totalHealerNameList },
+		{ BroadHealerKind, broadHealerNameList },
+		{ PowerSupporterKind, powerSupporterNameList },
 	};
+
+	/// <summary>
+	/// 全キャラクターのタグリストを取得する。
+	/// </summary>
+	public List<string> CharaTagList
+	{
+		get { return charaTagList; }
+	}
 
 	/// <summary>
 	/// 全キャラクターステータスのマップ（キー：タグ名）を取得する。
 	/// </summary>
 	public Dictionary<string, Dictionary<string, float>> CharaStatusMap
 	{
-		get { return this.charaStatusMap; }
+		get { return charaStatusMap; }
 	}
 
 	/// <summary>
-	/// 種類ごとのキャラクター名の配列を取得する。
+	/// 種類ごとの全キャラクター名リストのマップ（キー：種類名）を取得する。
 	/// </summary>
-	public Dictionary<string, List<string>> CharaNamesList
+	public Dictionary<string, List<string>> CharaNameListMap
 	{
-		get { return this.charaNamesList; }
+		get { return charaNameListMap; }
 	}
+
+	////////////////////////////////////////////
+	// ↓ここから、キャラクターのステータス↓ //
+	// ※キャラクターを増やすごとに追加       //
+	////////////////////////////////////////////
 
 	/// <summary>
 	/// ファイターAのステータス
 	/// </summary>
-	static readonly Dictionary<string, float> FighterAStatusMap = new Dictionary<string, float>() {
+	static readonly Dictionary<string, float> fighterAStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 20 },
 		{ PowerKey, 10 },
 		{ SpeedToMoveKey, 0.05f },
@@ -89,7 +128,7 @@ public class CharaStatusConst {
 	/// <summary>
 	/// ウィッチAのステータス
 	/// </summary>
-	static readonly Dictionary<string, float> WitchAStatusMap = new Dictionary<string, float>() {
+	static readonly Dictionary<string, float> witchAStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 10 },
 		{ PowerKey, 10.0f },
 		{ SpeedToMoveKey, 0.025f },
@@ -98,9 +137,20 @@ public class CharaStatusConst {
 	};
 
 	/// <summary>
+	/// ウィッチBのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> witchBStatusMap = new Dictionary<string, float>() {
+		{ HpKey, 15 },
+		{ PowerKey, 10.0f },
+		{ SpeedToMoveKey, 0.025f },
+		{ TimeToAttackKey, 3.0f },
+		{ EnergyNeededKey, 15 }
+	};
+
+	/// <summary>
 	/// ヒーラーAのステータス
 	/// </summary>
-	static readonly Dictionary<string, float> HealerAStatusMap = new Dictionary<string, float>() {
+	static readonly Dictionary<string, float> healerAStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 15 },
 		{ PowerKey, 5 },
 		{ SpeedToMoveKey, 0.015f },
@@ -111,7 +161,7 @@ public class CharaStatusConst {
 	/// <summary>
 	/// ヒーラーBのステータス
 	/// </summary>
-	static readonly Dictionary<string, float> HealerBStatusMap = new Dictionary<string, float>() {
+	static readonly Dictionary<string, float> healerBStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 10 },
 		{ PowerKey, 2 },
 		{ SpeedToMoveKey, 0.01f },
@@ -122,11 +172,22 @@ public class CharaStatusConst {
 	/// <summary>
 	/// ヒーラーCのステータス
 	/// </summary>
-	static readonly Dictionary<string, float> HealerCStatusMap = new Dictionary<string, float>() {
+	static readonly Dictionary<string, float> healerCStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 10 },
 		{ PowerKey, 5 },
 		{ SpeedToMoveKey, 0.015f },
 		{ TimeToAttackKey, 5.0f },
+		{ EnergyNeededKey, 20 }
+	};
+
+	/// <summary>
+	/// サポーターAのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> supporterAStatusMap = new Dictionary<string, float>() {
+		{ HpKey, 15 },
+		{ PowerKey, 5 },
+		{ SpeedToMoveKey, 0.025f },
+		{ TimeToAttackKey, 0 },
 		{ EnergyNeededKey, 20 }
 	};
 }

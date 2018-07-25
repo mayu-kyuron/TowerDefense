@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using UnityEditor;
-
+﻿/// <summary>
+/// プレイヤー選択キャラ、ステージ別モンスター判断用の定数
+/// </summary>
 public class CharaMonsterNoConst {
 
 	public const int FighterANo = 1;
@@ -15,7 +15,6 @@ public class CharaMonsterNoConst {
 	public const int GuardianBNo = 10;
 	public const int SupporterANo = 11;
 	public const int SupporterBNo = 12;
-	public const int ShipNo = -1;
 
 	public const int SlimeNo = 1;
 	public const int GaitherNo = 2;

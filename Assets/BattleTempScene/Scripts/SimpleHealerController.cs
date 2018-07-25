@@ -8,36 +8,25 @@ public class SimpleHealerController : HealerController {
 
 	protected override Dictionary<string, string> GetCharaNameKindMap(Dictionary<string, float> currentHpMap) {
 
-		// 登場キャラ中で最もHPの減っているキャラ名を取得する。
-		var lowHpCharaName = "";
+		// 登場キャラ中で最もHPの減っているオブジェクト名を取得する。
+		var lowHpObjectName = "";
 		bool isFirst = true;
-		foreach (string charaName in currentHpMap.Keys) {
+		foreach (string objectName in currentHpMap.Keys) {
 
 			if (isFirst) {
-				lowHpCharaName = charaName;
+				lowHpObjectName = objectName;
 				isFirst = false;
 			}
 			else {
-				if (currentHpMap[charaName] < currentHpMap[lowHpCharaName]) {
-					float maxHp = new CharaStatusConst().CharaStatusMap[GameObject.Find(charaName).tag][CharaStatusConst.HpKey];
-					if(currentHpMap[charaName] != maxHp) lowHpCharaName = charaName;
+				if (currentHpMap[objectName] < currentHpMap[lowHpObjectName]) {
+					float maxHp = this.charaStatusConst.CharaStatusMap[GameObject.Find(objectName).tag][CharaStatusConst.HpKey];
+					if (currentHpMap[objectName] != maxHp) lowHpObjectName = objectName;
 				}
 			}
 		}
+		
+		string lowHpCharaName = GetCharaMonsterName(lowHpObjectName);
 
-		// キャラ名から種類（遠距離単体攻撃タイプなど）を特定する。
-		int numIndex = -1;
-		for (int i = 0; i < lowHpCharaName.Length; i++) {
-
-			if(halfNumRegex.IsMatch(lowHpCharaName[i].ToString())) {
-				numIndex = i;
-				break;
-			}
-		}
-
-		string lowHpCharaKind = null;
-		if(numIndex != -1) lowHpCharaKind = lowHpCharaName.Substring(0, numIndex);
-
-		return new Dictionary<string, string>() { { lowHpCharaName, lowHpCharaKind } };
+		return new Dictionary<string, string>() { { lowHpObjectName, lowHpCharaName } };
 	}
 }

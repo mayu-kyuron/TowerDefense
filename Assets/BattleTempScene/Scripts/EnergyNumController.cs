@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// エネルギー表示UIのコントローラー
+/// </summary>
 public class EnergyNumController : MonoBehaviour {
 
 	private const float TimeForEnergyUp = 1.0f;

@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 召喚ボタンUIのコントローラー
+/// </summary>
 public class SummonButtonController : MonoBehaviour {
 
 	private const int BtnNameLetterNum = 12; // "SummonButton1"など。最後の数字は除く。
@@ -13,14 +16,15 @@ public class SummonButtonController : MonoBehaviour {
 	private int charaNum;
 	private int charaEnergy;
 	private EnergyNumController energyNumController;
+	private CharaStatusConst charaStatusConst = new CharaStatusConst();
 	private int energyNumTheRest;
 
 	void Start () {
 		this.energyNumController = GameObject.Find("EnergyNumText").GetComponent<EnergyNumController>();
 
-        int buttonNum = int.Parse(this.gameObject.name.Substring(BtnNameLetterNum));
+		int buttonNum = int.Parse(this.gameObject.name.Substring(BtnNameLetterNum));
         // 仮にプレイヤー選択キャラを設定
-        this.charaNumList = new List<int>() { 1, 4, 6, 7, 8 };
+        this.charaNumList = new List<int>() { 1, 4, 5, 7, 11 };
         this.charaNum = this.charaNumList[buttonNum - 1];
 
 		RamifySetEnergy();
@@ -55,30 +59,33 @@ public class SummonButtonController : MonoBehaviour {
 	/// 召喚エネルギーの設定処理を分岐させる。
 	/// </summary>
 	private void RamifySetEnergy() {
-
-		//ファイター1
+		
 		if (this.charaNum == CharaMonsterNoConst.FighterANo) {
-			Dictionary<string, float> thisCharaStatusMap = new CharaStatusConst().CharaStatusMap[CharaStatusConst.FighterATag];
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.FighterATag];
 			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 		}
-		//ウィッチ1
 		else if (this.charaNum == CharaMonsterNoConst.WitchANo) {
-			Dictionary<string, float> thisCharaStatusMap = new CharaStatusConst().CharaStatusMap[CharaStatusConst.WitchATag];
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.WitchATag];
 			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 		}
-		//ヒーラー1
+		else if (this.charaNum == CharaMonsterNoConst.WitchBNo) {
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.WitchBTag];
+			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
+		}
 		else if (this.charaNum == CharaMonsterNoConst.HealerANo) {
-			Dictionary<string, float> thisCharaStatusMap = new CharaStatusConst().CharaStatusMap[CharaStatusConst.HealerATag];
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.HealerATag];
 			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 		}
-		//ヒーラー2
 		else if (this.charaNum == CharaMonsterNoConst.HealerBNo) {
-			Dictionary<string, float> thisCharaStatusMap = new CharaStatusConst().CharaStatusMap[CharaStatusConst.HealerBTag];
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.HealerBTag];
 			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 		}
-		//ヒーラー3
 		else if (this.charaNum == CharaMonsterNoConst.HealerCNo) {
-			Dictionary<string, float> thisCharaStatusMap = new CharaStatusConst().CharaStatusMap[CharaStatusConst.HealerCTag];
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.HealerCTag];
+			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
+		}
+		else if (this.charaNum == CharaMonsterNoConst.SupporterANo) {
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.SupporterATag];
 			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 		}
 	}

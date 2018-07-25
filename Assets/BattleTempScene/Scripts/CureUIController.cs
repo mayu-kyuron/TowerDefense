@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 回復ポイント表示UIのコントローラー
+/// </summary>
 public class CureUIController : MonoBehaviour {
 	
 	private const float SpeedToFadeout = 1.3f;

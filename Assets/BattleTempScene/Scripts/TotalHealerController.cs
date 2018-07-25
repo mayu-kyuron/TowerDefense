@@ -9,17 +9,13 @@ public class TotalHealerController : HealerController {
 		var charaNameKindMap = new Dictionary<string, string>();
 
 		// キャラ名から種類（遠距離単体攻撃タイプなど）を特定し、マップに格納する。
-		foreach (string name in currentHpMap.Keys) {
+		foreach (string objectName in currentHpMap.Keys) {
 
-			if (name == this.gameObject.name) continue;
+			if (objectName == this.gameObject.name) continue;
 
-			for (int i = 0; i < name.Length; i++) {
+			string charaName = GetCharaMonsterName(objectName);
 
-				if (halfNumRegex.IsMatch(name[i].ToString())) {
-					charaNameKindMap.Add(name, name.Substring(0, i));
-					break;
-				}
-			}
+			charaNameKindMap.Add(objectName, charaName);
 		}
 
 		return charaNameKindMap;
