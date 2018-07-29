@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Witch2Script : MonoBehaviour {
 
     //ステータス(hpと移動速度)
-    public float hp = 15f;
+    private float MaxHp = 15;
+    public float hp;
     private float moveSpeed = 0.025f;
 
     //動けるかのフラッグ
@@ -25,6 +26,7 @@ public class Witch2Script : MonoBehaviour {
 
     //シーン上のプレイヤー名と体力
     private Dictionary<string, float> playHpDic = new Dictionary<string, float>();
+    private Dictionary<string, float> playMaxHpDic = new Dictionary<string, float>();
 
     void Start()
     {
@@ -34,7 +36,8 @@ public class Witch2Script : MonoBehaviour {
         info_sc = info.GetComponent<LatestInfo>();
 
         //名前と体力を登録
-        info_sc.RegplayHp(transform.name, hp);
+        info_sc.RegplayHp(transform.name, MaxHp);
+        info_sc.RegplayMaxHp(transform.name, MaxHp);
     }
     //----------------------------------------------------------------	
     // 毎フレームごと
@@ -44,6 +47,8 @@ public class Witch2Script : MonoBehaviour {
         //体力を更新
         playHpDic = info_sc.GetplayHp;
         this.hp = playHpDic[transform.name];
+        playMaxHpDic = info_sc.GetplayMaxHp;
+        this.MaxHp = playMaxHpDic[transform.name];
 
         //動き
         if (move)
@@ -59,6 +64,7 @@ public class Witch2Script : MonoBehaviour {
             //Dictionaryの消去
             info_sc.playPowDelete(transform.name);
             info_sc.playHpDelete(transform.name);
+            info_sc.playMaxHpDelete(transform.name);
         }
     }
 

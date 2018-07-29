@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Fighter1Script : Token {
-	
-	//ステータス
-	public float hp = 30;
+
+    //ステータス
+    private float MaxHp = 30;
+	public float hp;
 	public float power = 10;
 	float moveSpeed = 0.05f;
 	private float attackTime = 4.0f;
@@ -33,9 +34,11 @@ public class Fighter1Script : Token {
 	int monsterType = 0;
 
     //追加
-    //シーン上のプレイヤー名と最新攻撃力と体力
+    //シーン上のプレイヤー名と最新攻撃力と体力,最新hp
     private Dictionary<string, float> playPowDic = new Dictionary<string, float>();
     private Dictionary<string, float> playHpDic = new Dictionary<string, float>();
+    private Dictionary<string, float> playMaxHpDic = new Dictionary<string, float>();
+
 
     //最新情報スクリプト
     private GameObject info;
@@ -47,20 +50,22 @@ public class Fighter1Script : Token {
         info = GameObject.Find("LatestInfo");
         info_sc = info.GetComponent<LatestInfo>();
 
-        //名前と攻撃力、体力を登録
+        //名前と攻撃力、体力,最新hpを登録
         info_sc.RegplayPow(transform.name, power);
-        info_sc.RegplayHp(transform.name, hp);
-
+        info_sc.RegplayHp(transform.name, MaxHp);
+        info_sc.RegplayMaxHp(transform.name, MaxHp);
     }
     //----------------------------------------------------------------	
     // 毎フレームごと
     void Update () {
         //追加
-        //攻撃力、体力を更新
+        //攻撃力、体力,最新hpを更新
         playPowDic = info_sc.GetplayPow;
         this.power = playPowDic[transform.name];
         playHpDic = info_sc.GetplayHp;
         this.hp = playHpDic[transform.name];
+        playMaxHpDic = info_sc.GetplayMaxHp;
+        this.MaxHp = playMaxHpDic[transform.name];
 
         if (move){
 			if(transform.position.x < 0)
@@ -89,8 +94,9 @@ public class Fighter1Script : Token {
             //Dictionaryの消去
             info_sc.playPowDelete(transform.name);
             info_sc.playHpDelete(transform.name);
+            info_sc.playMaxHpDelete(transform.name);
         }
-	}
+    }
 //------------------------------------------------------------------
 	//ぶつかっているとき
 	void OnTriggerStay2D(Collider2D other){

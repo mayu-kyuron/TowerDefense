@@ -9,8 +9,12 @@ public class LatestInfo : MonoBehaviour {
     private Dictionary<string, float> monsHpDic = new Dictionary<string, float>();
     //プレイヤー名と最新攻撃力
     private Dictionary<string, float> playPowDic = new Dictionary<string, float>();
-    //プレイヤー名と最新体力
+    //プレイヤー名と最新hp
     private Dictionary<string, float> playHpDic = new Dictionary<string, float>();
+
+    //追加
+    //プレイヤー名と最新最大hp
+    private Dictionary<string, float> playMaxHpDic = new Dictionary<string, float>();
 
     void Update() {
     }
@@ -75,7 +79,7 @@ public class LatestInfo : MonoBehaviour {
     //シーン上のプレイヤー名と最新攻撃力をセット
     public void SetplayHp(Dictionary<string, float> b)
     {
-        monsHpDic = b;
+        playHpDic = b;
     }
 
     //プレイヤー名と攻撃力の登録
@@ -88,5 +92,31 @@ public class LatestInfo : MonoBehaviour {
     public void playHpDelete(string name)
     {
         playHpDic.Remove(name);
+    }
+
+    //追加
+    //プレイヤー名と最大hpーーーーーーーーーーーーーーーー
+    //シーン上のプレイヤー名と最大hpを取得
+    public Dictionary<string, float> GetplayMaxHp
+    {
+        get { return this.playMaxHpDic; }
+    }
+
+    //シーン上のプレイヤー名と最新攻撃力をセット
+    public void SetplayMaxHp(Dictionary<string, float> b)
+    {
+        playMaxHpDic = b;
+    }
+
+    //プレイヤー名と攻撃力の登録
+    public void RegplayMaxHp(string name, float hp)
+    {
+        playMaxHpDic.Add(name, hp);
+    }
+
+    //死んだプレイヤーをplayHpDicから消去
+    public void playMaxHpDelete(string name)
+    {
+        playMaxHpDic.Remove(name);
     }
 }
