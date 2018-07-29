@@ -2,37 +2,33 @@
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="guardianA" x=-5]
+[chara_show name="healerA" x=-5]
 [chara_show name="fighterA" x=5]
 
-#guardianA
-実は、私達にはもう1人、旅の仲間がいるのですわ。[p]
+#healerA
+実はわたしにも、旅の仲間がいるのです。[p]
 
 #fighterA
 そのヒトは、今どこに？[p]
 
-#guardianA
+#healerA
 あなたがたは、この荒地の果てに[r]
-寂れた遺跡があるのをご存知でしょうか？[p]
+寂れた遺跡があるのをご存知ですか？[p]
 
 #fighterA
 遺跡？[r]
 この荒地にそんなものが？[p]
 
-#guardianA
-ええ。私達も、詳しい事情はわからないのですが……[r]
+#healerA
+はい。わたしたちも、詳しい事情はわからないのですが……[r]
 ただあの中には、魔物たちを引き寄せる[r]
 不思議な物体が眠っているのです。[p]
 
 #fighterA
 魔物を、引き寄せる……？[p]
 
-[chara_hide name="guardianA" time=0.5]
-[chara_show name="healerA" x=-5 time=0.5]
-
 #healerA
-{name.guardianA}。[r]
-そう断定してしまうと、少しだけ、語弊があると思います。[r]
+あ、いえ、その……[r]
 実際には、引き寄せているのかどうかはよくわかりません。[p]
 
 ただこの荒地では、あの遺跡に近づくほど[r]
@@ -44,11 +40,11 @@
 
 #supporterA
 それは、とても興味深いことだけれど。[r]
-それとあなたがたのお仲間と、どういう関係があるのかしら？[p]
+それとあなたのお仲間と、どういう関係があるのかしら？[p]
 
 #healerA
 その、遺跡にいるんです。[r]
-わたしたちの仲間……{name.fighterB}が。[p]
+わたしの仲間……{name.fighterB}が。[p]
 
 #supporterA
 まあ、大変。[r]
@@ -64,23 +60,17 @@
 
 それから、命からがら逃げだして。[r][l]
 だからもう、あの場所には近づかないほうがいいと、[r]
-わたしと{name.guardianA}は結論づけました。[p]
+わたし自身は結論づけました。[p]
 
-けれど{name.fighterB}だけは、それに反対して。[r][l]
+けれど{name.fighterB}は、それに反対して。[r][l]
 あれは絶対に怪しいから、調べるべきだと言い出したんです。[p]
 
 危ないからやめたほうがいいと、何度も止めたんですが……[r]
 昨晩ついに、隙を見て1人で行ってしまったようで。[p]
 
-[chara_hide name="healerA" time=0.5]
-[chara_show name="guardianA" x=-5 time=0.5]
-
-#guardianA
-それで先ほど、助けに行こうと勇んで[r]
-出発したまではよかったのですけれど。[p]
-
-私たちは2人とも、あまり戦闘向きのタイプではなくて。[r]
-苦戦を強いられていたのですわ。[p]
+助けに行こうと、先ほど出発したところ……[r]
+わたしは戦闘向きのタイプではないので、[r]
+やはり苦戦を強いられてしまって。[p]
 
 [chara_hide name="supporterA" time=0.5]
 [chara_show name="witchA" x=5 time=0.5]
@@ -89,12 +79,12 @@
 ふうん、そういうことかぁ。[r][l]
 じゃあじゃあ、あたし達も一緒についていってあげよっか？[p]
 
-#guardianA
-あら、まあ……それは、私たちにとっては[r]
-願ったり叶ったりなことですけれど。[p]
+#healerA
+え？　ええっと、それは、わたしにとっては[r]
+願ったり叶ったりなことですが……[p]
 
 あなたがたにも、何か旅の目的のようなものが[r]
-あるのではないでしょうか？[p]
+あるのではないんですか？[p]
 
 #witchA
 うん、もちろん。[r]
@@ -108,7 +98,7 @@
 ええ、そうね。[r]
 魔物たちに関係しそうなものなら、調べる価値はあるわ。[p]
 
-#guardianA
+#healerA
 あなたたちの目的って……[p]
 
 #fighterA
@@ -124,21 +114,20 @@
 あたしたちもその不思議な物体を調べたいし、[r]
 1人で遺跡に向かったってその子も、放っておけないしね。[p]
 
-ね、だから一緒に行こうよ。[r]
-{name.healerA}、{name.guardianA}！[p]
+ねっ、だから一緒に行こうよ、{name.healerA}！[p]
 
-#guardianA
+#healerA
 ……ありがとうございます。[r]
 あなたたちのようなかたと一緒に行けるなんて、[r]
-これほど心強いことはありませんわ。[p]
+これほど心強いことはありません。[p]
 
-こちらこそ、どうぞよろしくお願いいたします。[p]
+こちらこそ、どうぞよろしくお願いします。[p]
 
 #witchA
 よおっし！[r]
 じゃあさっそく遺跡へ、[p]
 
-[chara_hide name="guardianA" time=0.5]
+[chara_hide name="healerA" time=0.5]
 [chara_show name="supporterA" x=-5 time=0.5]
 
 #supporterA
@@ -157,12 +146,11 @@
 [cm]
 [hide tag="character" time=0.5]
 [wait time=1]
-[chara_show name="guardianA" x=-5]
+[chara_show name="healerA" x=-5]
 [wait time=1]
 
-#guardianA
-うふふ。[r]
-本当に、楽しくて頼もしい方々ですわね。[p]
+#healerA
+本当にありがとう、勇気ある方々……[p]
 
 #
 [cm]

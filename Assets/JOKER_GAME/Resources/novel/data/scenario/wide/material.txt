@@ -26,7 +26,6 @@
 [flag exp="stor.witchA=witchA"]
 [flag exp="stor.supporterA=supporterA"]
 [flag exp="stor.healerA=shadow_supporterA"]
-[flag exp="stor.guardianA=chara"]
 [flag exp="stor.fighterB=fighterB"]
 [flag exp="stor.supporterB=shadow_fighterA"]
 
@@ -35,7 +34,6 @@
 [flag exp="name.witchA=ウィッチA"]
 [flag exp="name.supporterA=サポーターA"]
 [flag exp="name.healerA=ヒーラーA"]
-[flag exp="name.guardianA=ガーディアンA"]
 [flag exp="name.fighterB=ファイターB"]
 [flag exp="name.supporterB=サポーターB"]
 [flag exp="name.???=？？？"]
@@ -45,7 +43,6 @@
 [calc exp="y.witchA=-0.5"]
 [calc exp="y.supporterA=-1"]
 [calc exp="y.healerA=-1"]
-[calc exp="y.guardianA=-1"]
 [calc exp="y.fighterB=0"]
 [calc exp="y.supporterB=-1"]
 
@@ -97,7 +94,6 @@
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
-	[chara_new name="guardianA" storage="{stor.guardianA}" jname="{name.guardianA}" jcolor=98FB98 tag="character" y="{y.guardianA}"]
 	
 [elsif exp="{stage.number}==3"]
 
@@ -109,7 +105,6 @@
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
-	[chara_new name="guardianA" storage="{stor.guardianA}" jname="{name.guardianA}" jcolor=98FB98 tag="character" y="{y.guardianA}"]
 	
 [elsif exp="{stage.number}==3.5"]
 
@@ -131,7 +126,6 @@
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
-	[chara_new name="guardianA" storage="{stor.guardianA}" jname="{name.guardianA}" jcolor=98FB98 tag="character" y="{y.guardianA}"]
 	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale=0.8 y="{y.fighterB}"]
 
 	;アイテム
@@ -148,7 +142,6 @@
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
-	[chara_new name="guardianA" storage="{stor.guardianA}" jname="{name.guardianA}" jcolor=98FB98 tag="character" y="{y.guardianA}"]
 	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale=0.8 y="{y.fighterB}"]
 	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" y="{y.supporterB}"]
 	
