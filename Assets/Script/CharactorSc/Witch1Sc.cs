@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class Witch1Sc : MonoBehaviour {
 
-	//ステータス
-	public float hp = 40;
+    //ステータス
+    private float MaxHp = 40;
+	public float hp;
 	float moveSpeed = 0.025f;
 	
 	//敵と戦闘しているか
@@ -25,6 +26,7 @@ public class Witch1Sc : MonoBehaviour {
 
     //シーン上のプレイヤー名と体力
     private Dictionary<string, float> playHpDic = new Dictionary<string, float>();
+    private Dictionary<string, float> playMaxHpDic = new Dictionary<string, float>();
 
     void Start (){
         //追加
@@ -33,15 +35,18 @@ public class Witch1Sc : MonoBehaviour {
         info_sc = info.GetComponent<LatestInfo>();
 
         //名前と体力を登録
-        info_sc.RegplayHp(transform.name, hp);
+        info_sc.RegplayHp(transform.name, MaxHp);
+        info_sc.RegplayMaxHp(transform.name, MaxHp);
     }
-//----------------------------------------------------------------	
-	// 毎フレームごと
-	void Update () {
+    //----------------------------------------------------------------	
+    // 毎フレームごと
+    void Update () {
         //追加
         //体力を更新
         playHpDic = info_sc.GetplayHp;
         this.hp = playHpDic[transform.name];
+        playMaxHpDic = info_sc.GetplayMaxHp;
+        this.MaxHp = playMaxHpDic[transform.name];
 
         if (move){
 			if(transform.position.x < 0)
@@ -52,8 +57,9 @@ public class Witch1Sc : MonoBehaviour {
             //Dictionaryの消去
             info_sc.playPowDelete(transform.name);
             info_sc.playHpDelete(transform.name);
+            info_sc.playMaxHpDelete(transform.name);
         }
-	}
+    }
 	public void DamageUI(float damage){
 		damageUIScript damageUIS = damageUI.GetComponent<damageUIScript>();
 		damageUIS.damage = damage;

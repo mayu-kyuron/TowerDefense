@@ -6,8 +6,9 @@ public class Supporter2Script : MonoBehaviour {
 
     private float time = 0;
 
-    //ステータス(体力、移動速度、召喚エネルギー、上昇ぱわー)
-    public float hp = 15;
+    //ステータス(最大体力、現体力移動速度、召喚エネルギー、上昇ぱわー)
+    public float MaxHp = 15;
+    public float hp;
     private float _moveSpeed = 0.025f;
     public int Energy = 20;
     private float SupportPower = 5;
@@ -19,8 +20,10 @@ public class Supporter2Script : MonoBehaviour {
     private GameObject info;
     private LatestInfo info_sc;
 
-    //シーン上のプレイヤー名と体力
+    //シーン上のプレイヤー名と体力,最大hp
     private Dictionary<string, float> playHpDic = new Dictionary<string, float>();
+    //シーン上のプレイヤー名と体力,最大hp
+    private Dictionary<string, float> playMaxHpDic = new Dictionary<string, float>();
 
     //すでに能力を上昇させたプレイヤー名を保存
     private List<string> playList = new List<string>();
@@ -36,16 +39,19 @@ public class Supporter2Script : MonoBehaviour {
         info = GameObject.Find("LatestInfo");
         info_sc = info.GetComponent<LatestInfo>();
 
-        //名前と体力を登録
-        info_sc.RegplayHp(transform.name, hp);
+        //名前とhpと最大hpを登録
+        info_sc.RegplayHp(transform.name, MaxHp);
+        info_sc.RegplayMaxHp(transform.name, MaxHp);
     }
 
     void Update()
     {
         //追加
-        //体力を更新
+        //体力と最大hpを更新
         playHpDic = info_sc.GetplayHp;
         this.hp = playHpDic[transform.name];
+        playMaxHpDic = info_sc.GetplayMaxHp;
+        this.MaxHp = playMaxHpDic[transform.name];
 
         time += Time.deltaTime;
 
@@ -55,25 +61,21 @@ public class Supporter2Script : MonoBehaviour {
                 transform.Translate(_moveSpeed, 0, 0);
         }
 
-        //シーン上のプレイヤー名と攻撃力の取得
-        playHpDic = info_sc.GetplayHp;
-
         //一秒ごとに新しいキャラがシーン上にいないか探す
         if (time >= 1)
         {
-
             time = 0;
 
             //playPowDicのキーのリストで処理を回す
-            List<string> keyList = new List<string>(playHpDic.Keys);
+            List<string> keyList = new List<string>(playMaxHpDic.Keys);
 
             foreach (string key in keyList)
             {
                 //リストに何も入っていないとき
                 if (playList.Count == 0)
                 {
-                    playHpDic[key] += SupportPower;
-                    Debug.Log(playHpDic[key]);
+                    playMaxHpDic[key] += SupportPower;
+                    Debug.Log(key + playMaxHpDic[key]);
                     //次に処理が行われないように
                     playList.Add(key);
                 }
@@ -91,8 +93,8 @@ public class Supporter2Script : MonoBehaviour {
                     //ないとき
                     if (judge == 0)
                     {
-                        playHpDic[key] += SupportPower;
-                        Debug.Log(key + playHpDic[key]);
+                        playMaxHpDic[key] += SupportPower;
+                        Debug.Log(key + playMaxHpDic[key]);
                         playList.Add(key);
                     }
                     else
@@ -100,13 +102,14 @@ public class Supporter2Script : MonoBehaviour {
                 }
             }
             //更新したプレイヤー名と攻撃力を返す
-            info_sc.SetplayPow(playHpDic);
+            info_sc.SetplayMaxHp(playMaxHpDic);
         }
         if (hp <= 0)
         {
             Destroy(gameObject);
             //Dictionaryの消去
             info_sc.playHpDelete(transform.name);
+            info_sc.playMaxHpDelete(transform.name);
         }
     }
 

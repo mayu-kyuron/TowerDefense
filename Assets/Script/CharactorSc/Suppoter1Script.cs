@@ -7,8 +7,9 @@ public class Suppoter1Script : MonoBehaviour {
 
     private float time = 0;
 
-    //ステータス(体力、移動速度、召喚エネルギー、上昇ぱわー)
-    public float hp = 15;
+    //ステータス(体力、最大hp, 移動速度、召喚エネルギー、上昇ぱわー)
+    private float MaxHp = 15;
+    public float hp;
     private float _moveSpeed = 0.025f;
     public int Energy = 20;
     private float SupportPower = 5;
@@ -23,6 +24,7 @@ public class Suppoter1Script : MonoBehaviour {
     //シーン上のプレイヤー名と最新攻撃力
     private Dictionary<string, float> playPowDic = new Dictionary<string, float>();
     private Dictionary<string, float> playHpDic = new Dictionary<string, float>();
+    private Dictionary<string, float> playMaxHpDic = new Dictionary<string, float>();
 
     //すでに能力を上昇させたプレイヤー名を保存
     private List<string> playList = new List<string>();
@@ -38,15 +40,18 @@ public class Suppoter1Script : MonoBehaviour {
         info_sc = info.GetComponent<LatestInfo>();
 
         //名前と体力を登録
-        info_sc.RegplayHp(transform.name, hp);
+        info_sc.RegplayHp(transform.name, MaxHp);
+        info_sc.RegplayMaxHp(transform.name, MaxHp);
     }
-	
-	void Update () {
+
+    void Update () {
 
         //追加
-        //体力を更新
+        //体力, 最新hpを更新
         playHpDic = info_sc.GetplayHp;
         this.hp = playHpDic[transform.name];
+        playMaxHpDic = info_sc.GetplayMaxHp;
+        this.MaxHp = playMaxHpDic[transform.name];
 
         time += Time.deltaTime;
 
@@ -107,6 +112,7 @@ public class Suppoter1Script : MonoBehaviour {
             Destroy(gameObject);
             //Dictionaryの消去
             info_sc.playHpDelete(transform.name);
+            info_sc.playMaxHpDelete(transform.name);
         }
     }
 
