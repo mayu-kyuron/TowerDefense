@@ -10,9 +10,10 @@ public abstract class AttackerController : CharaController {
 
 	protected override void AddCharaToMap() {
 
-		// 自分の名前をキーに、HPと攻撃力を登場キャラマップに登録する。
+		// 自分の名前をキーに、HP・最大HP・攻撃力を登場キャラマップに登録する。
 		this.currentStatusVariables.AddCharaHpToMap(this.charaObjectName, this.hp);
 		this.currentStatusVariables.AddCharaPowerToMap(this.charaObjectName, this.power);
+		this.currentStatusVariables.AddCharaMaxHpToMap(this.charaObjectName, this.maxHp);
 	}
 
 	protected override void Action() {

@@ -31,6 +31,7 @@ public abstract class MonsterController : MonoBehaviour {
 	protected TotalHealerController totalHealerController;
 	protected BroadHealerController broadHealerController;
 	protected PowerSupporterController powerSupporterController;
+	protected HpSupporterController hpSupporterController;
 	protected ShipSc shipSc;
 
 	protected BattleTempGenerator battleTempGenerator;
@@ -114,6 +115,8 @@ public abstract class MonsterController : MonoBehaviour {
 			// 登場モンスターのHPマップから自分を削除する。
 			this.currentStatusVariables.RemoveMonsterHpFromMap(this.monsterObjectName);
 
+			Debug.Log(this.monsterObjectName + " - Disappear.");
+
 			Destroy(this.gameObject);
 		}
 	}
@@ -163,6 +166,9 @@ public abstract class MonsterController : MonoBehaviour {
 		}
 		else if (this.charaStatusConst.CharaNameListMap[CharaStatusConst.PowerSupporterKind].Contains(charaName)) {
 			this.powerSupporterController = SetFightingChara<PowerSupporterController>(CharaStatusConst.PowerSupporterKind, other);
+		}
+		else if (this.charaStatusConst.CharaNameListMap[CharaStatusConst.HpSupporterKind].Contains(charaName)) {
+			this.hpSupporterController = SetFightingChara<HpSupporterController>(CharaStatusConst.HpSupporterKind, other);
 		}
 		else if (other.gameObject.tag == CharaStatusConst.ShipTag) {
 			SetFightingChara<CharaController>(CharaStatusConst.ShipTag, other);

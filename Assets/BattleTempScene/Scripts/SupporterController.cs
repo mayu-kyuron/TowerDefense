@@ -12,8 +12,9 @@ public abstract class SupporterController : CharaController {
 
 	protected override void AddCharaToMap() {
 
-		// 自分の名前をキーに、HPを登場キャラマップに登録する。
+		// 自分の名前をキーに、HPと最大HPを登場キャラマップに登録する。
 		this.currentStatusVariables.AddCharaHpToMap(this.gameObject.name, this.hp);
+		this.currentStatusVariables.AddCharaMaxHpToMap(this.charaObjectName, this.maxHp);
 	}
 
 	protected override void GoAhead() {
@@ -25,24 +26,47 @@ public abstract class SupporterController : CharaController {
 		
 		if (this.time >= 1) {
 			this.time = 0;
-			Dictionary<string, float> charaPowerMap = this.currentStatusVariables.CurrentCharaPowerMap;
+			Dictionary<string, float> charaStatusMap = GetCurrentCharaStatusMap();
 
 			// ループ中にマップの値を変えるため、キーのみをリストに取り出して回す。
-			List<string> charaNameList = new List<string>(charaPowerMap.Keys);
+			List<string> charaNameList = new List<string>(charaStatusMap.Keys);
+
+			List<string> skipCharaNameList = GetSkipCharaNameList();
 
 			// まだ能力上昇していないキャラのみ、能力を上昇させる。
 			foreach (string charaName in charaNameList) {
+
+				if (skipCharaNameList != null && skipCharaNameList.Contains(charaName)) continue;
 				
 				if (!this.supportedCharaList.Contains(charaName)) {
-					charaPowerMap[charaName] += this.power;
+					charaStatusMap[charaName] += this.power;
 					this.supportedCharaList.Add(charaName);
 
-					Debug.Log(String.Format("{0} - {1}.power = {2}", this.charaObjectName, charaName, charaPowerMap[charaName]));
+					var target = (this.charaObjectName.StartsWith("SupporterA")) ? "power" : "maxHp";
+					Debug.Log(String.Format("{0} - {1}.{2} = {3}", this.charaObjectName, charaName, target, charaStatusMap[charaName]));
 				}
 			}
-			
-			// 更新した登場キャラ攻撃力マップを設定する。
-			this.currentStatusVariables.SetCurrentCharaPowerMap(charaPowerMap);
+
+			// 更新した登場キャラステータスマップを設定する。
+			SetCurrentCharaStatusMap(charaStatusMap);
 		}
 	}
+
+	/// <summary>
+	/// 能力アップの対象となる登場キャラステータスマップを取得する。
+	/// </summary>
+	/// <returns></returns>
+	protected abstract Dictionary<string, float> GetCurrentCharaStatusMap();
+
+	/// <summary>
+	/// 能力アップ処理をスキップするキャラ名リストを取得する。
+	/// ※スキップキャラなしの場合はnullを返すこと。
+	/// </summary>
+	/// <returns></returns>
+	protected abstract List<string> GetSkipCharaNameList();
+
+	/// <summary>
+	/// 更新した登場キャラステータスマップを設定する。
+	/// </summary>
+	protected abstract void SetCurrentCharaStatusMap(Dictionary<string, float> charaStatusMap);
 }

@@ -7,12 +7,13 @@ public class SimpleWitchController : AttackerController {
 
 	protected override void AddCharaToMap() {
 
-		// 自分の名前をキーに、HPを登場キャラマップに登録する。
+		// 自分の名前をキーに、HPと最大HPを登場キャラマップに登録する。
 		this.currentStatusVariables.AddCharaHpToMap(this.charaObjectName, this.hp);
+		this.currentStatusVariables.AddCharaMaxHpToMap(this.charaObjectName, this.maxHp);
 	}
 
 	protected override void Update() {
-		SetCurrentHp();
+		SetCurrentHpAndMaxHp();
 		GoAhead();
 		Disappear();
 	}

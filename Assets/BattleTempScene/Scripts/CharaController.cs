@@ -10,6 +10,8 @@ public abstract class CharaController : MonoBehaviour {
 	//ステータス
 	[HideInInspector]
 	public float hp;
+	[HideInInspector]
+	public float maxHp;
 	protected int energyNeeded;
 	protected float power;
 	protected float speedToMove;
@@ -45,6 +47,7 @@ public abstract class CharaController : MonoBehaviour {
 		Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[this.gameObject.tag];
 
 		this.hp = thisCharaStatusMap[CharaStatusConst.HpKey];
+		this.maxHp = thisCharaStatusMap[CharaStatusConst.HpKey];
 		this.power = thisCharaStatusMap[CharaStatusConst.PowerKey];
 		this.speedToMove = thisCharaStatusMap[CharaStatusConst.SpeedToMoveKey];
 		this.timeToAttack = thisCharaStatusMap[CharaStatusConst.TimeToAttackKey];
@@ -68,8 +71,8 @@ public abstract class CharaController : MonoBehaviour {
 
 	protected virtual void Update() {
 
-		// 範囲攻撃を受けていた場合のHPを反映する。
-		SetCurrentHp();
+		// 範囲攻撃や能力アップを受けていた場合のHPを反映する。
+		SetCurrentHpAndMaxHp();
 
 		// 前進する（真ん中辺りでストップ）
 		GoAhead();
@@ -82,11 +85,14 @@ public abstract class CharaController : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// 最新の自分のHPを取得し、設定する。
+	/// 最新の自分のHPと最大HPを取得し、設定する。
 	/// </summary>
-	protected virtual void SetCurrentHp() {
+	protected virtual void SetCurrentHpAndMaxHp() {
 		Dictionary<string, float> currentHpMap = this.currentStatusVariables.CurrentCharaHpMap;
+		Dictionary<string, float> currentMaxHpMap = this.currentStatusVariables.CurrentCharaMaxHpMap;
+
 		this.hp = currentHpMap[this.charaObjectName];
+		this.maxHp = currentMaxHpMap[this.charaObjectName];
 	}
 
 	/// <summary>
@@ -108,9 +114,10 @@ public abstract class CharaController : MonoBehaviour {
 
 		if (this.hp <= 0) {
 
-			// 登場キャラのHP・攻撃力マップから自分を削除する。
+			// 登場キャラのHP・攻撃力・最大HPマップから自分を削除する。
 			this.currentStatusVariables.RemoveCharaHpFromMap(this.charaObjectName);
 			this.currentStatusVariables.RemoveCharaPowerFromMap(this.charaObjectName);
+			this.currentStatusVariables.RemoveCharaMaxHpFromMap(this.charaObjectName);
 
 			Debug.Log(this.charaObjectName + " - Disappear.");
 

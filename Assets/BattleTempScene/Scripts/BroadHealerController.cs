@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 /// <summary>
 /// ヒーラー（範囲回復タイプ）のコントローラー

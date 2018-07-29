@@ -24,7 +24,7 @@ public class SummonButtonController : MonoBehaviour {
 
 		int buttonNum = int.Parse(this.gameObject.name.Substring(BtnNameLetterNum));
         // 仮にプレイヤー選択キャラを設定
-        this.charaNumList = new List<int>() { 1, 4, 5, 7, 11 };
+        this.charaNumList = new List<int>() { 1, 11, 5, 6, 12 };
         this.charaNum = this.charaNumList[buttonNum - 1];
 
 		RamifySetEnergy();
@@ -86,6 +86,10 @@ public class SummonButtonController : MonoBehaviour {
 		}
 		else if (this.charaNum == CharaMonsterNoConst.SupporterANo) {
 			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.SupporterATag];
+			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
+		}
+		else if (this.charaNum == CharaMonsterNoConst.SupporterBNo) {
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.SupporterBTag];
 			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 		}
 	}

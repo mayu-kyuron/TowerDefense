@@ -19,7 +19,7 @@ public class SimpleHealerController : HealerController {
 			}
 			else {
 				if (currentHpMap[objectName] < currentHpMap[lowHpObjectName]) {
-					float maxHp = this.charaStatusConst.CharaStatusMap[GameObject.Find(objectName).tag][CharaStatusConst.HpKey];
+					float maxHp = GameObject.Find(objectName).GetComponent<CharaController>().maxHp;
 					if (currentHpMap[objectName] != maxHp) lowHpObjectName = objectName;
 				}
 			}

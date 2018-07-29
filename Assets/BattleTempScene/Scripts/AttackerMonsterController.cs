@@ -79,6 +79,12 @@ public abstract class AttackerMonsterController : MonsterController {
 
 			Debug.Log(this.monsterObjectName + " - this.powerSupporterController.hp = " + this.powerSupporterController.hp);
 		}
+		else if (this.charaKind == CharaStatusConst.HpSupporterKind) {
+			this.hpSupporterController.hp -= this.power;
+			this.hpSupporterController.DisplayDamageUI(this.power);
+
+			Debug.Log(this.monsterObjectName + " - this.hpSupporterController.hp = " + this.hpSupporterController.hp);
+		}
 		else if (this.charaKind == CharaStatusConst.ShipTag) {
 			this.shipSc.hp -= this.power;
 			this.shipSc.DamageUI(this.power);

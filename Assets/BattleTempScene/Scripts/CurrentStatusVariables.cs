@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
 
 /// <summary>
@@ -15,6 +14,9 @@ public class CurrentStatusVariables : MonoBehaviour {
 
 	// 戦闘中の全キャラクターの攻撃力マップ
 	private Dictionary<string, float> currentCharaPowerMap = new Dictionary<string, float>();
+
+	// 戦闘中の全キャラクターの最大HPマップ
+	private Dictionary<string, float> currentCharaMaxHpMap = new Dictionary<string, float>();
 
 	/// <summary>
 	/// 戦闘中の全キャラクターのHPマップを取得する。
@@ -131,5 +133,39 @@ public class CurrentStatusVariables : MonoBehaviour {
 	/// <param name="name">ゲームオブジェクト名</param>
 	public void RemoveCharaPowerFromMap(string name) {
 		this.currentCharaPowerMap.Remove(name);
+	}
+
+	/// <summary>
+	/// 戦闘中の全キャラクターの最大HPマップを取得する。
+	/// </summary>
+	public Dictionary<string, float> CurrentCharaMaxHpMap
+	{
+		get { return this.currentCharaMaxHpMap; }
+	}
+
+	/// <summary>
+	/// 戦闘中の全キャラクターの最大HPマップを設定する。
+	/// </summary>
+	/// <param name="currentCharaMaxHpMap"></param>
+	public void SetCurrentCharaMaxHpMap(Dictionary<string, float> currentCharaMaxHpMap) {
+		this.currentCharaMaxHpMap = currentCharaMaxHpMap;
+	}
+
+	/// <summary>
+	/// 戦闘中キャラクターマップに自分の最大HPを登録する。
+	/// すでに同キャラクター名で登録されていた場合は何もしない。
+	/// </summary>
+	/// <param name="name">ゲームオブジェクト名</param>
+	/// <param name="hp">HP</param>
+	public void AddCharaMaxHpToMap(string name, float hp) {
+		if (!this.currentCharaMaxHpMap.ContainsKey(name)) this.currentCharaMaxHpMap.Add(name, hp);
+	}
+
+	/// <summary>
+	/// 戦闘中キャラクターマップから自分の最大HPを削除する。
+	/// </summary>
+	/// <param name="name">ゲームオブジェクト名</param>
+	public void RemoveCharaMaxHpFromMap(string name) {
+		this.currentCharaMaxHpMap.Remove(name);
 	}
 }

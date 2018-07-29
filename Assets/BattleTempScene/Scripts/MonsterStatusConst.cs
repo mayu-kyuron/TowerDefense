@@ -56,7 +56,7 @@ public class MonsterStatusConst {
 		{ FighterMonsterKind, fighterMonsterNameList },
 		{ SimpleWitchMonsterKind, simpleWitchMonsterNameList },
 		{ BroadWitchMonsterKind, broadWitchMonsterNameList },
-		{ SimpleHealerMonsterKind, simpleHealerMonsterNameList },
+		{ SimpleHealerMonsterKind, simpleHealerMonsterNameList }
 	};
 
 	/// <summary>

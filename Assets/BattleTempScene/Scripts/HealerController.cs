@@ -8,8 +8,9 @@ public abstract class HealerController : CharaController {
 
 	protected override void AddCharaToMap() {
 
-		// 自分の名前をキーに、HPを登場キャラマップに登録する。
-		this.currentStatusVariables.AddCharaHpToMap(this.gameObject.name, this.hp);
+		// 自分の名前をキーに、HPと最大HPを登場キャラマップに登録する。
+		this.currentStatusVariables.AddCharaHpToMap(this.charaObjectName, this.hp);
+		this.currentStatusVariables.AddCharaMaxHpToMap(this.charaObjectName, this.maxHp);
 	}
 
 	protected override void GoAhead() {
@@ -61,6 +62,9 @@ public abstract class HealerController : CharaController {
 			else if (this.charaStatusConst.CharaNameListMap[CharaStatusConst.PowerSupporterKind].Contains(charaName)) {
 				CureChara<PowerSupporterController>(objectName);
 			}
+			else if (this.charaStatusConst.CharaNameListMap[CharaStatusConst.HpSupporterKind].Contains(charaName)) {
+				CureChara<HpSupporterController>(objectName);
+			}
 		}
 	}
 
@@ -73,18 +77,17 @@ public abstract class HealerController : CharaController {
 		where T : CharaController {
 
 		GameObject lowHpChara = GameObject.Find(charaName);
-
 		var charaController = lowHpChara.GetComponent<T>();
-		Dictionary<string, float> charaStatusMap = this.charaStatusConst.CharaStatusMap[charaController.tag];
 
 		Debug.Log("HealerController - " + charaName + ".hp = " + charaController.hp);
+		Debug.Log("HealerController - " + charaName + ".maxHp = " + charaController.maxHp);
 
 		// HPが満タンだったら、何もせずにリターン
-		if (charaController.hp == charaStatusMap[CharaStatusConst.HpKey]) return;
+		if (charaController.hp == charaController.maxHp) return;
 
 		// HPがMAXを超えないよう、パワーを調節して回復する。
-		if (charaController.hp > charaStatusMap[CharaStatusConst.HpKey] - this.power) {
-			float power = charaStatusMap[CharaStatusConst.HpKey] - charaController.hp;
+		if (charaController.hp > charaController.maxHp - this.power) {
+			float power = charaController.maxHp - charaController.hp;
 			charaController.hp += power;
 			charaController.DisplayCureUI(power);
 		}
@@ -94,5 +97,6 @@ public abstract class HealerController : CharaController {
 		}
 
 		Debug.Log("HealerController - " + charaName + ".hp = " + charaController.hp);
+		Debug.Log("HealerController - " + charaName + ".maxHp = " + charaController.maxHp);
 	}
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +17,7 @@ public class BattleTempGenerator : MonoBehaviour {
 	public GameObject healer2Pre;
 	public GameObject healer3Pre;
 	public GameObject supporter1Pre;
+	public GameObject supporter2Pre;
 	public GameObject slimePre;
 	public GameObject gaitherPre;
 	public GameObject summonBtnPrefab;
@@ -37,7 +37,7 @@ public class BattleTempGenerator : MonoBehaviour {
 		this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
 
 		// 仮にプレイヤー選択キャラを設定
-		var charaNumList = new List<int>() { 1, 4, 5, 7, 11 };
+		var charaNumList = new List<int>() { 1, 11, 5, 6, 12 };
 		this.charaNoMap = new Dictionary<int, int> {
 			{ charaNumList[0], 0 },
 			{ charaNumList[1], 0 },
@@ -127,6 +127,10 @@ public class BattleTempGenerator : MonoBehaviour {
 		else if (charaNo == CharaMonsterNoConst.SupporterANo) {
 			chara = Instantiate(this.supporter1Pre) as GameObject;
 			chara.name = string.Format("SupporterA{0}", this.charaNoMap[charaNo]);
+		}
+		else if (charaNo == CharaMonsterNoConst.SupporterBNo) {
+			chara = Instantiate(this.supporter2Pre) as GameObject;
+			chara.name = string.Format("SupporterB{0}", this.charaNoMap[charaNo]);
 		}
 
 		chara.transform.position = new Vector2(positionX, positionY);

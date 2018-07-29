@@ -21,6 +21,7 @@ public class CharaStatusConst {
 	public const string HealerBTag = "Healer2";
 	public const string HealerCTag = "Healer3";
 	public const string SupporterATag = "Supporter1";
+	public const string SupporterBTag = "Supporter2";
 	public const string AttackTag = "Attack";
 	public const string ShipTag = "Ship";
 
@@ -32,6 +33,7 @@ public class CharaStatusConst {
 	public const string TotalHealerKind = "TotalHealer";
 	public const string BroadHealerKind = "BroadHealer";
 	public const string PowerSupporterKind = "PowerSupporter";
+	public const string HpSupporterKind = "HpSupporter";
 
 	// 種類ごとの各キャラクター名リスト
 	// ※キャラクターを増やすごとに追加
@@ -42,6 +44,7 @@ public class CharaStatusConst {
 	static readonly List<string> totalHealerNameList = new List<string> { "HealerB" };
 	static readonly List<string> broadHealerNameList = new List<string> { "HealerC" };
 	static readonly List<string> powerSupporterNameList = new List<string> { "SupporterA" };
+	static readonly List<string> hpSupporterNameList = new List<string> { "SupporterB" };
 
 	// 全キャラクターのタグリスト
 	// ※キャラクターを増やすごとに追加
@@ -53,6 +56,7 @@ public class CharaStatusConst {
 		HealerBTag,
 		HealerCTag,
 		SupporterATag,
+		SupporterBTag,
 	};
 
 	/// <summary>
@@ -69,6 +73,7 @@ public class CharaStatusConst {
 		{ HealerBTag, healerBStatusMap },
 		{ HealerCTag, healerCStatusMap },
 		{ SupporterATag, supporterAStatusMap },
+		{ SupporterBTag, supporterBStatusMap },
 	};
 
 	/// <summary>
@@ -83,6 +88,7 @@ public class CharaStatusConst {
 		{ TotalHealerKind, totalHealerNameList },
 		{ BroadHealerKind, broadHealerNameList },
 		{ PowerSupporterKind, powerSupporterNameList },
+		{ HpSupporterKind, hpSupporterNameList }
 	};
 
 	/// <summary>
@@ -184,6 +190,17 @@ public class CharaStatusConst {
 	/// サポーターAのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> supporterAStatusMap = new Dictionary<string, float>() {
+		{ HpKey, 15 },
+		{ PowerKey, 5 },
+		{ SpeedToMoveKey, 0.025f },
+		{ TimeToAttackKey, 0 },
+		{ EnergyNeededKey, 20 }
+	};
+
+	/// <summary>
+	/// サポーターBのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> supporterBStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 15 },
 		{ PowerKey, 5 },
 		{ SpeedToMoveKey, 0.025f },
