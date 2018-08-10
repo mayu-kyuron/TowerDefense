@@ -48,22 +48,22 @@ public class StatusGenerator : MonoBehaviour {
 
         // キャラクター表示
         GameObject charaInstance = Instantiate(this.charaPrefab) as GameObject;
-        charaInstance.transform.position = new Vector3(-140, 45, 0);
+        charaInstance.transform.position = new Vector3(-120, 10, 0);
         charaInstance.transform.SetParent(this.canvas.transform, false);
 
         // 説明ウィンドウ表示
         GameObject explanationInstance = Instantiate(this.explanationPrefab) as GameObject;
-        explanationInstance.transform.position = new Vector3(250, 120, 0);
+        explanationInstance.transform.position = new Vector3(210, 120, 0);
         explanationInstance.transform.SetParent(this.canvas.transform, false);
 
         // ステータスウィンドウ表示
         GameObject statusInstance = Instantiate(this.statusPrefab) as GameObject;
-        statusInstance.transform.position = new Vector3(250, -120, 0);
+        statusInstance.transform.position = new Vector3(210, -70, 0);
         statusInstance.transform.SetParent(this.canvas.transform, false);
 
         // ページ番号表示
         GameObject pageNumInstance = Instantiate(this.pageNumPrefab) as GameObject;
-        pageNumInstance.transform.position = new Vector3(142, -263, 0);
+        pageNumInstance.transform.position = new Vector3(240, -196, 0);
         pageNumInstance.transform.SetParent(this.canvas.transform, false);
 
         // 初期設定（ファイターAのステータスを表示）
@@ -152,39 +152,39 @@ public class StatusGenerator : MonoBehaviour {
     private GameObject[] DisplayButtons()
     {
         GameObject backBtnInstance = Instantiate(this.backBtnPrefab) as GameObject;
-        backBtnInstance.transform.position = new Vector3(-450, 260, 0);
+        backBtnInstance.transform.position = new Vector3(-340, 190, 0);
         backBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject fighterBtnInstance = Instantiate(this.fighterBtnPrefab) as GameObject;
-        fighterBtnInstance.transform.position = new Vector3(-400, 170, 0);
+        fighterBtnInstance.transform.position = new Vector3(-330, 120, 0);
         fighterBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject witchBtnInstance = Instantiate(this.witchBtnPrefab) as GameObject;
-        witchBtnInstance.transform.position = new Vector3(-400, 90, 0);
+        witchBtnInstance.transform.position = new Vector3(-330, 60, 0);
         witchBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject healerBtnInstance = Instantiate(this.healerBtnPrefab) as GameObject;
-        healerBtnInstance.transform.position = new Vector3(-400, 10, 0);
+        healerBtnInstance.transform.position = new Vector3(-330, 0, 0);
         healerBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject guardianBtnInstance = Instantiate(this.guardianBtnPrefab) as GameObject;
-        guardianBtnInstance.transform.position = new Vector3(-400, -70, 0);
+        guardianBtnInstance.transform.position = new Vector3(-330, -60, 0);
         guardianBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject supporterBtnInstance = Instantiate(this.supporterBtnPrefab) as GameObject;
-        supporterBtnInstance.transform.position = new Vector3(-400, -150, 0);
+        supporterBtnInstance.transform.position = new Vector3(-330, -120, 0);
         supporterBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject monsterBtnInstance = Instantiate(this.monsterBtnPrefab) as GameObject;
-        monsterBtnInstance.transform.position = new Vector3(-400, -230, 0);
+        monsterBtnInstance.transform.position = new Vector3(-330, -180, 0);
         monsterBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject leftArrowBtnInstance = Instantiate(this.leftArrowBtnPrefab) as GameObject;
-        leftArrowBtnInstance.transform.position = new Vector3(-50, -255, 0);
+        leftArrowBtnInstance.transform.position = new Vector3(82, -190, 0);
         leftArrowBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject rightArrowBtnInstance = Instantiate(this.rightArrowBtnPrefab) as GameObject;
-        rightArrowBtnInstance.transform.position = new Vector3(280, -255, 0);
+        rightArrowBtnInstance.transform.position = new Vector3(337, -190, 0);
         rightArrowBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         return new GameObject[] { guardianBtnInstance, supporterBtnInstance, monsterBtnInstance };

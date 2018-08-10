@@ -5,11 +5,16 @@
 [bg_show name="background"]
 
 ;開始ボタンとロードボタンを実装
-@image_new name="button_start" tag="button" x=4 y=-1.0  storage="title_start" scale=2
-@image_new name="button_load" tag="button" x=4 y=-3.2  storage="title_load" scale=2
+@image_new name="button_start" tag="button" x=-3.5 y=-3.2  storage="title_start" scale=1.2
+@image_new name="button_load" tag="button" x=3.5 y=-3.2  storage="title_load" scale=1.2
+
+;autoという変数にオートセーブのデータを代入
+@get_autosave var=auto
 
 @show tag=button
 @anim name=button_start storage="onmouse"
+
+*no
 
 [evt name="button_start" act="click" target="*click_start" ]
 [evt name="button_load" act="click" target="*click_load" ]
@@ -17,12 +22,51 @@
 [s]
 
 *click_start
-;効果音を鳴らす
 
 [playse storage="start"]
 
-@anim name="button_start" scale=2.5 wait=false
-@hide tag="button" time=1
+@anim name="button_start" scale=1.5 wait=false
+
+;オートセーブされたデータが存在するなら
+[if exp="{auto.date}!=''"]
+
+	[wait time = 1]
+
+	[showmessage]
+	@anim name="button_start" scale=1.2 wait=false
+
+	[wait time = 1]
+
+	はじめからを選択するとすべてのデータが消えます。[r][l]
+	本当にしますか？
+
+	[wait time = 1]
+
+
+	[select_new text="はい" target=*select_ok ]
+	[select_new text="いいえ" target=*select_no ]
+
+	[select_show sound=click ]
+
+	[s]
+
+	*select_ok
+
+	[cm]
+	[hidemessage]
+
+	@jump target=*ok
+
+	*select_no
+
+	[cm]
+	[hidemessage]
+
+	@jump target=*no
+
+[endif]
+
+*ok
 
 @bg_hide name="background" time=1.5
 
@@ -31,6 +75,22 @@
 
 *click_load
 [playse storage="start"]
-@anim name="button_load" scale=2.5 wait=true
-@sleepgame file="wide/libs/save" target="*loadstart"
-@jump scene=new target="*title"
+@anim name="button_load" scale=1.5 wait=true
+
+[if exp="{auto.date}==''"]
+
+	[showmessage]
+	@anim name="button_load" scale=1.2 wait=false
+
+	[wait time = 1]
+
+	データがありません。[p]
+	[cm]
+
+	[hidemessage]
+
+	@jump target = *no
+
+[endif]
+
+[load name = "autosave"]

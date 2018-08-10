@@ -1,3 +1,5 @@
+@jump target = *a
+
 [bg_show name="grassLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
@@ -65,5 +67,7 @@
 
 [stopbgm storage="music" wait=false]
 [wait time=2]
+
+*a
 
 [scene file="Map"]

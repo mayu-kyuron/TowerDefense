@@ -103,7 +103,7 @@ public class MapGenerator : MonoBehaviour {
             if (stageNum == 1)
             {
                 GameObject bonfireBtnIns1 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns1.transform.position = new Vector3(-463, -233, 0);
+                bonfireBtnIns1.transform.position = new Vector3(-340, -180, 0);
                 bonfireBtnIns1.transform.SetParent(this.canvas.transform, false);
             }
             else if(stageNum == 2)
@@ -229,11 +229,11 @@ public class MapGenerator : MonoBehaviour {
         mapInstance.transform.position = new Vector3(0, 0, 0);
 
         GameObject statusBtnInstance = Instantiate(this.statusBtnPrefab) as GameObject;
-        statusBtnInstance.transform.position = new Vector3(450, -200, 0);
+        statusBtnInstance.transform.position = new Vector3(330, -135, 0);
         statusBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject settingBtnInstance = Instantiate(this.settingBtnPrefab) as GameObject;
-        settingBtnInstance.transform.position = new Vector3(450, -260, 0);
+        settingBtnInstance.transform.position = new Vector3(330, -195, 0);
         settingBtnInstance.transform.SetParent(this.canvas.transform, false);
     }
 	
