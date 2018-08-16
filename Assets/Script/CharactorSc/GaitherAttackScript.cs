@@ -55,7 +55,7 @@ public class GaitherAttackScript : MonoBehaviour {
                 }
                 else if(playerType == 3){
 					shipSc.hp -= power;
-					shipSc.DamageUI(power);
+					shipSc.Damage(power);
 				}
 			}
 		}

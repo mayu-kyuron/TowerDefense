@@ -76,4 +76,9 @@ public abstract class HealerMonsterController : MonsterController {
 
 		Debug.Log("HealerMonsterController - " + monsterName + ".hp = " + monsterController.hp);
 	}
+
+    protected override void RamifySettingFightingChara(Collider2D other) {
+        base.RamifySettingFightingChara(other);
+        if(!this.monsterStatusConst.MonsterNameListMap[MonsterStatusConst.SimpleHealerMonsterKind].Contains(other.gameObject.tag)) this.isMoving = false;
+    }
 }

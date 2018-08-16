@@ -14,8 +14,29 @@ public class MonsterStatusConst {
 	// モンスターのタグ名
 	// ※モンスターを増やすごとに追加
 	public const string SlimeTag = "Suraimu";
-	public const string GaitherTag = "Gaither";
-	public const string AttackTag = "Attack";
+    public const string SlimeRedTag = "SlimeRed";
+    public const string GaitherTag = "Gaither";
+    public const string GaitherWhiteTag = "GaitherWhite";
+    public const string OrgeOrangeTag = "OrgeOrange";
+    public const string OrgeGreenTag = "OrgeGreen";
+    public const string ChimeraRedTag = "ChimeraRed";
+    public const string ChimeraPurpleTag = "ChimeraPurple";
+    public const string CentaurBrownTag = "CentaurBrown";
+    public const string CentaurBlackTag = "CentaurBlack";
+    public const string YetiWhiteTag = "YetiWhite";
+    public const string YetiGreenTag = "YetiGreen";
+    public const string FairyYellowTag = "FairyYellow";
+    public const string FairyPurpleTag = "FairyPurple";
+    public const string UnicornWhiteTag = "UnicornWhite";
+    public const string UnicornBlackTag = "UnicornBlack";
+    public const string GoblinGreenTag = "GoblinGreen";
+    public const string GoblinBlackTag = "GoblinBlack";
+    public const string GolemTag = "Golem";
+    public const string IfritGreenTag = "IfritGreen";
+    public const string IfritRedTag = "IfritRed";
+    public const string AlrauneTag = "Alraune";
+    public const string CarbuncleTag = "Carbuncle";
+    public const string AttackTag = "Attack";
 
 	// モンスターの種類名
 	public const string FighterMonsterKind = "FighterMonster";
@@ -25,16 +46,37 @@ public class MonsterStatusConst {
 
 	// 種類ごとの各モンスター名リスト
 	// ※モンスターを増やすごとに追加
-	static readonly List<string> fighterMonsterNameList = new List<string> { "Slime" };
-	static readonly List<string> simpleWitchMonsterNameList = new List<string> { "Gaither" };
-	static readonly List<string> broadWitchMonsterNameList = new List<string> {  };
-	static readonly List<string> simpleHealerMonsterNameList = new List<string> {  };
+	static readonly List<string> fighterMonsterNameList = new List<string> { "Slime", "SlimeRed", "OrgeOrange", "OrgeRed", "ChimeraRed", "ChimeraPurple", "Carbuncle" };
+	static readonly List<string> simpleWitchMonsterNameList = new List<string> { "Gaither", "GaitherWhite", "Alraune" };
+	static readonly List<string> broadWitchMonsterNameList = new List<string> { "CentaurBrown", "CentaurBlack", "YetiWhite", "YetiGreen", "GoblinGreen", "GoblinBlack", "Golem", "IfritGreen", "IfritRed" };
+	static readonly List<string> simpleHealerMonsterNameList = new List<string> { "FairyYellow", "FairyPurple", "UnicornWhite", "UnicornBlack" };
 
-	// 全モンスターのタグリスト
-	// ※モンスターを増やすごとに追加
-	readonly List<string> monsterTagList = new List<string> {
-		SlimeTag,
-		GaitherTag,
+    // 全モンスターのタグリスト
+    // ※モンスターを増やすごとに追加
+    readonly List<string> monsterTagList = new List<string> {
+        SlimeTag,
+        SlimeRedTag,
+        OrgeOrangeTag,
+        OrgeGreenTag,
+        ChimeraRedTag,
+        ChimeraPurpleTag,
+        CarbuncleTag,
+        GaitherTag,
+        GaitherWhiteTag,
+        CentaurBrownTag,
+        CentaurBlackTag,
+        YetiWhiteTag,
+        YetiGreenTag,
+        FairyYellowTag,
+        FairyPurpleTag,
+        UnicornWhiteTag,
+        UnicornBlackTag,
+        GoblinGreenTag,
+        GoblinBlackTag,
+        GolemTag,
+        IfritGreenTag,
+        IfritRedTag,
+        AlrauneTag,
 	};
 
 	/// <summary>
@@ -45,8 +87,29 @@ public class MonsterStatusConst {
 		= new Dictionary<string, Dictionary<string, float>>() {
 
 		{ SlimeTag, slimeStatusMap },
-		{ GaitherTag, gaitherStatusMap },
-	};
+        { SlimeRedTag, slimeRedStatusMap },
+        { OrgeOrangeTag, orgeOrangeStatusMap },
+        { OrgeGreenTag, orgeGreenStatusMap },
+        { ChimeraRedTag, chimeraRedStatusMap },
+        { ChimeraPurpleTag, chimeraPurpleStatusMap },
+        { CarbuncleTag, carbuncleStatusMap },
+        { GaitherTag, gaitherStatusMap },
+        { GaitherWhiteTag, gaitherWhiteStatusMap },
+        { CentaurBrownTag, centaurBrownStatusMap },
+        { CentaurBlackTag, centaurBlackStatusMap },
+        { YetiWhiteTag, yetiWhiteStatusMap },
+        { YetiGreenTag, yetiGreenStatusMap },
+        { FairyYellowTag, fairyYellowStatusMap },
+        { FairyPurpleTag, fairyPurpleStatusMap },
+        { UnicornBlackTag, unicornBlackStatusMap },
+        { UnicornWhiteTag, unicornWhiteStatusMap },
+        { GoblinGreenTag, goblinGreenStatusMap },
+        { GoblinBlackTag, goblinBlackStatusMap },
+        { GolemTag, golemStatusMap },
+        { IfritGreenTag, ifritGreenStatusMap },
+        { IfritRedTag, ifritRedStatusMap },
+        { AlrauneTag, alrauneStatusMap },
+    };
 
 	/// <summary>
 	/// 種類ごとの全モンスター名リストのマップ（キー：種類名）
@@ -97,13 +160,223 @@ public class MonsterStatusConst {
 		{ TimeToAttackKey, 5.0f }
 	};
 
-	/// <summary>
-	/// ゲイザーのステータス
+    /// <summary>
+	/// スライムレッドのステータス
 	/// </summary>
-	static readonly Dictionary<string, float> gaitherStatusMap = new Dictionary<string, float>() {
+	static readonly Dictionary<string, float> slimeRedStatusMap = new Dictionary<string, float>() {
+        { HpKey, 60 },
+        { PowerKey, 20.0f },
+        { SpeedToMoveKey, -0.03f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+	/// オーガグリーンのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> orgeGreenStatusMap = new Dictionary<string, float>() {
+        { HpKey, 100 },
+        { PowerKey, 40.0f },
+        { SpeedToMoveKey, -0.015f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+	/// オーガオレンジのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> orgeOrangeStatusMap = new Dictionary<string, float>() {
+        { HpKey, 200 },
+        { PowerKey, 80.0f },
+        { SpeedToMoveKey, -0.015f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+	/// キマイラレッドのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> chimeraRedStatusMap = new Dictionary<string, float>() {
+        { HpKey, 60 },
+        { PowerKey, 30.0f },
+        { SpeedToMoveKey, -0.05f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+	/// キマイラパープルのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> chimeraPurpleStatusMap = new Dictionary<string, float>() {
+        { HpKey, 120 },
+        { PowerKey, 60.0f },
+        { SpeedToMoveKey, -0.05f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+	/// カーバンクルのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> carbuncleStatusMap = new Dictionary<string, float>() {
+        { HpKey, 60 },
+        { PowerKey, 30.0f },
+        { SpeedToMoveKey, -0.06f },
+        { TimeToAttackKey, 2.0f }
+    };
+
+    /// <summary>
+    /// ゲイザーのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> gaitherStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 40 },
 		{ PowerKey, 5.0f },
 		{ SpeedToMoveKey, -0.025f },
 		{ TimeToAttackKey, 3.0f }
 	};
+
+    /// <summary>
+	/// ゲイザーホワイトのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> gaitherWhiteStatusMap = new Dictionary<string, float>() {
+        { HpKey, 80 },
+        { PowerKey, 40.0f },
+        { SpeedToMoveKey, -0.025f },
+        { TimeToAttackKey, 3.0f }
+    };
+
+    /// <summary>
+    /// ケンタウロスブラウンのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> centaurBrownStatusMap = new Dictionary<string, float>() {
+        { HpKey, 80 },
+        { PowerKey, 40.0f },
+        { SpeedToMoveKey, -0.025f },
+        { TimeToAttackKey, 2.0f }
+    };
+
+    /// <summary>
+    /// ケンタウロスブラックのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> centaurBlackStatusMap = new Dictionary<string, float>() {
+        { HpKey, 160 },
+        { PowerKey, 80.0f },
+        { SpeedToMoveKey, -0.025f },
+        { TimeToAttackKey, 2.0f }
+    };
+
+    /// <summary>
+    /// イエティホワイトのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> yetiWhiteStatusMap = new Dictionary<string, float>() {
+        { HpKey, 40 },
+        { PowerKey, 20.0f },
+        { SpeedToMoveKey, -0.025f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+    /// イエティグリーンのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> yetiGreenStatusMap = new Dictionary<string, float>() {
+        { HpKey, 80 },
+        { PowerKey, 40.0f },
+        { SpeedToMoveKey, -0.025f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+    /// フェアリーイエローのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> fairyYellowStatusMap = new Dictionary<string, float>() {
+        { HpKey, 30 },
+        { PowerKey, 20.0f },
+        { SpeedToMoveKey, -0.02f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+    /// フェアリーパープルのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> fairyPurpleStatusMap = new Dictionary<string, float>() {
+        { HpKey, 50 },
+        { PowerKey, 40.0f },
+        { SpeedToMoveKey, -0.02f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+    /// ユニコーンホワイトのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> unicornWhiteStatusMap = new Dictionary<string, float>() {
+        { HpKey, 60 },
+        { PowerKey, 40.0f },
+        { SpeedToMoveKey, -0.02f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+    /// ユニコーンブラックのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> unicornBlackStatusMap = new Dictionary<string, float>() {
+        { HpKey, 120 },
+        { PowerKey, 80.0f },
+        { SpeedToMoveKey, -0.02f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+    /// ゴブリングリーンのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> goblinGreenStatusMap = new Dictionary<string, float>() {
+        { HpKey, 80 },
+        { PowerKey, 30.0f },
+        { SpeedToMoveKey, -0.02f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+    /// ゴブリンブラックのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> goblinBlackStatusMap = new Dictionary<string, float>() {
+        { HpKey, 100 },
+        { PowerKey, 30.0f },
+        { SpeedToMoveKey, -0.02f },
+        { TimeToAttackKey, 5.0f }
+    };
+
+    /// <summary>
+    /// ゴーレムのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> golemStatusMap = new Dictionary<string, float>() {
+        { HpKey, 200 },
+        { PowerKey, 50.0f },
+        { SpeedToMoveKey, -0.01f },
+        { TimeToAttackKey, 10.0f }
+    };
+
+    /// <summary>
+    /// イフリートグリーンのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> ifritGreenStatusMap = new Dictionary<string, float>() {
+        { HpKey, 250 },
+        { PowerKey, 80.0f },
+        { SpeedToMoveKey, -0.01f },
+        { TimeToAttackKey, 10.0f }
+    };
+
+    /// <summary>
+    /// イフリートレッドのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> ifritRedStatusMap = new Dictionary<string, float>() {
+        { HpKey, 500 },
+        { PowerKey, 150.0f },
+        { SpeedToMoveKey, -0.01f },
+        { TimeToAttackKey, 10.0f }
+    };
+
+    /// <summary>
+    /// アルラウネのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> alrauneStatusMap = new Dictionary<string, float>() {
+        { HpKey, 80 },
+        { PowerKey, 50.0f },
+        { SpeedToMoveKey, -0.025f },
+        { TimeToAttackKey, 3.0f }
+    };
 }

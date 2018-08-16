@@ -39,55 +39,55 @@ public abstract class AttackerMonsterController : MonsterController {
 
 		if (this.charaKind == CharaStatusConst.FighterKind) {
 			this.fighterController.hp -= this.power;
-			this.fighterController.DisplayDamageUI(this.power);
+			this.fighterController.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.fighterController.hp = " + this.fighterController.hp);
 		}
 		else if (this.charaKind == CharaStatusConst.SimpleWitchKind) {
 			this.simpleWitchController.hp -= this.power;
-			this.simpleWitchController.DisplayDamageUI(this.power);
+			this.simpleWitchController.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.simpleWitchController.hp = " + this.simpleWitchController.hp);
 		}
 		else if (this.charaKind == CharaStatusConst.BroadWitchKind) {
 			this.broadWitchController.hp -= this.power;
-			this.broadWitchController.DisplayDamageUI(this.power);
+			this.broadWitchController.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.broadWitchController.hp = " + this.broadWitchController.hp);
 		}
 		else if (this.charaKind == CharaStatusConst.SimpleHealerKind) {
 			this.simpleHealerController.hp -= this.power;
-			this.simpleHealerController.DisplayDamageUI(this.power);
+			this.simpleHealerController.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.simpleHealerController.hp = " + this.simpleHealerController.hp);
 		}
 		else if (this.charaKind == CharaStatusConst.TotalHealerKind) {
 			this.totalHealerController.hp -= this.power;
-			this.totalHealerController.DisplayDamageUI(this.power);
+			this.totalHealerController.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.totalHealerController.hp = " + this.totalHealerController.hp);
 		}
 		else if (this.charaKind == CharaStatusConst.BroadHealerKind) {
 			this.broadHealerController.hp -= this.power;
-			this.broadHealerController.DisplayDamageUI(this.power);
+			this.broadHealerController.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.broadHealerController.hp = " + this.broadHealerController.hp);
 		}
 		else if (this.charaKind == CharaStatusConst.PowerSupporterKind) {
 			this.powerSupporterController.hp -= this.power;
-			this.powerSupporterController.DisplayDamageUI(this.power);
+			this.powerSupporterController.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.powerSupporterController.hp = " + this.powerSupporterController.hp);
 		}
 		else if (this.charaKind == CharaStatusConst.HpSupporterKind) {
 			this.hpSupporterController.hp -= this.power;
-			this.hpSupporterController.DisplayDamageUI(this.power);
+			this.hpSupporterController.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.hpSupporterController.hp = " + this.hpSupporterController.hp);
 		}
 		else if (this.charaKind == CharaStatusConst.ShipTag) {
 			this.shipSc.hp -= this.power;
-			this.shipSc.DamageUI(this.power);
+			this.shipSc.Damage(this.power);
 
 			Debug.Log(this.monsterObjectName + " - this.shipSc.hp = " + this.shipSc.hp);
 		}

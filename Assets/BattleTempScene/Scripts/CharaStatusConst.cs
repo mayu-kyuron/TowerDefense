@@ -124,7 +124,7 @@ public class CharaStatusConst {
 	/// ファイターAのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> fighterAStatusMap = new Dictionary<string, float>() {
-		{ HpKey, 20 },
+		{ HpKey, 100 },
 		{ PowerKey, 10 },
 		{ SpeedToMoveKey, 0.05f },
 		{ TimeToAttackKey, 4.0f },

@@ -204,26 +204,35 @@ public abstract class CharaController : MonoBehaviour {
 	}
 
 	/// <summary>
-	/// 自分の受けたダメージを表示する。
+	/// 自分の受けたダメージを表示し、HPを更新する。
 	/// </summary>
 	/// <param name="damage">ダメージ量</param>
-	public void DisplayDamageUI(float damage) {
-		var damageUISc = this.damageUI.GetComponent<damageUIScript>();
-		GameObject damageText = Instantiate(this.damageUI) as GameObject;
+	public void Damage(float damage) {
 
-		damageUISc.damage = damage;
-		damageText.transform.position = new Vector2(
-			this.transform.position.x - 0.3f, this.transform.position.y + 1.3f);
-
+        DisplayDamageUI(damage);
+		
 		// 登場キャラマップのHPを更新する。
 		this.currentStatusVariables.UpdateCharaHpOfMap(this.charaObjectName, this.hp);
 	}
+    /// <summary>
+    /// 自分の受けたダメージを表示する。
+    /// </summary>
+    /// <param name="dammage"></param>
+    public void DisplayDamageUI(float damage)
+    {
+        var damageUISc = this.damageUI.GetComponent<damageUIScript>();
+        GameObject damageText = Instantiate(this.damageUI) as GameObject;
 
-	/// <summary>
-	/// 自分の受けた回復量を表示する。
-	/// </summary>
-	/// <param name="cure">回復量</param>
-	public void DisplayCureUI(float cure) {
+        damageUISc.damage = damage;
+        damageText.transform.position = new Vector2(
+            this.transform.position.x - 0.3f, this.transform.position.y + 1.3f);
+    }
+
+    /// <summary>
+    /// 自分の受けた回復量を表示する。
+    /// </summary>
+    /// <param name="cure">回復量</param>
+    public void DisplayCureUI(float cure) {
 		var cureUIController = this.cureUI.GetComponent<CureUIController>();
 		GameObject cureText = Instantiate(this.cureUI) as GameObject;
 

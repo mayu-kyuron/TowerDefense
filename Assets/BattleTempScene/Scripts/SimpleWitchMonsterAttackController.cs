@@ -18,8 +18,15 @@ public class SimpleWitchMonsterAttackController : AttackerMonsterController {
 	}
 
 	protected override void Start() {
-		base.Start();
-		this.simpleWitchMonsterController = transform.root.gameObject.GetComponent<SimpleWitchMonsterController>();
+        this.battleTempGenerator = GameObject.Find("BattleTempGenerator").GetComponent<BattleTempGenerator>();
+        this.shipSc = GameObject.Find("Ship").GetComponent<ShipSc>();
+        this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
+
+        // モンスターオブジェクト名を取得する。
+        this.monsterObjectName = this.gameObject.name;
+        if (this.gameObject.tag == CharaStatusConst.AttackTag) this.monsterObjectName = transform.root.gameObject.name;
+
+        this.simpleWitchMonsterController = transform.root.gameObject.GetComponent<SimpleWitchMonsterController>();
 	}
 
 	protected override void Update() {

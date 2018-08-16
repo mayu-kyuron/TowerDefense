@@ -6,18 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class ShipSc : MonoBehaviour {
 
-	public float hp = 150.0f;
+    protected CurrentStatusVariables currentStatusVariables;
+    public float hp = 150f;
+    private string Name;
 	public GameObject damageUI;
 	Slider slider;
-	
-	// Use this for initialization
-	void Start () {
+
+    private Dictionary<string, float> currentCharaHpMap = new Dictionary<string, float>();
+
+    // Use this for initialization
+    void Start () {
 		slider = GameObject.Find("HPgage").GetComponent<Slider>();
-	}
+        this.Name = this.gameObject.name;
+        this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
+        this.currentStatusVariables.AddCharaHpToMap(this.Name, this.hp);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		if(hp <= 0){
+
+        this.currentCharaHpMap = this.currentStatusVariables.CurrentCharaHpMap;
+        this.hp = this.currentCharaHpMap[this.Name];
+        slider.value = hp;
+
+        if (hp <= 0){
 			SceneManager.LoadScene("GameOver");
 		}
 	}
@@ -25,11 +37,19 @@ public class ShipSc : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other){
 	}
 	
-	public void DamageUI(float damage){
-		damageUIScript damageUIS = damageUI.GetComponent<damageUIScript>();
-		damageUIS.damage = damage;
-		GameObject damageText = Instantiate(damageUI) as GameObject;
-		damageText.transform.position = new Vector2(transform.position.x - 0.3f, transform.position.y + 1.3f);
-		slider.value = hp;
-	}
+	public void Damage(float damage){
+
+        DisplayDamageUI(damage);
+        
+        // 登場キャラマップのHPを更新する。
+        this.currentStatusVariables.UpdateCharaHpOfMap(this.Name, this.hp);
+    }
+
+    public void DisplayDamageUI(float damage)
+    {
+        damageUIScript damageUIS = damageUI.GetComponent<damageUIScript>();
+        damageUIS.damage = damage;
+        GameObject damageText = Instantiate(damageUI) as GameObject;
+        damageText.transform.position = new Vector2(transform.position.x - 0.3f, transform.position.y + 1.3f);
+    }
 }

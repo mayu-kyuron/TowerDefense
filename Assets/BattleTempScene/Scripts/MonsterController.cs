@@ -54,6 +54,7 @@ public abstract class MonsterController : MonoBehaviour {
 		this.power = thisMonsterStatusMap[MonsterStatusConst.PowerKey];
 		this.speedToMove = thisMonsterStatusMap[MonsterStatusConst.SpeedToMoveKey];
 		this.timeToAttack = thisMonsterStatusMap[MonsterStatusConst.TimeToAttackKey];
+        //Debug.Log("Awake" + hp);
 	}
 
 	protected virtual void Start () {
@@ -65,8 +66,9 @@ public abstract class MonsterController : MonoBehaviour {
 		this.monsterObjectName = this.gameObject.name;
 		if (this.gameObject.tag == CharaStatusConst.AttackTag) this.monsterObjectName = transform.root.gameObject.name;
 
-		// 自分の名前をキーに、HPを登場モンスターマップに登録する。
-		this.currentStatusVariables.AddMonsterHpToMap(this.monsterObjectName, this.hp);
+        // 自分の名前をキーに、HPを登場モンスターマップに登録する。
+        //Debug.Log("登録前の渡す値" + this.hp);
+        this.currentStatusVariables.AddMonsterHpToMap(this.monsterObjectName, this.hp);
 	}
 
 	protected virtual void Update () {
@@ -142,7 +144,7 @@ public abstract class MonsterController : MonoBehaviour {
 	/// 衝突キャラ設定処理を分岐させる。
 	/// </summary>
 	/// <param name="other">衝突コライダ</param>
-	protected void RamifySettingFightingChara(Collider2D other) {
+	protected virtual void RamifySettingFightingChara(Collider2D other) {
 
 		string charaName = GetCharaMonsterName(other.name);
 

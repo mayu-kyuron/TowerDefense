@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// ウィッチ（遠距離範囲攻撃タイプ）のコントローラー
+/// ウィッチ（遠距離範囲攻撃タイプ）、ファイター複数攻撃のコントローラー
 /// </summary>
 public class BroadWitchController : AttackerController {
 

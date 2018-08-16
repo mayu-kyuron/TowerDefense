@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 9a659968df0ff7445aea107e9e2d394d
-timeCreated: 1532168663
+timeCreated: 1534397553
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - damageUI: {fileID: 1867914530371354, guid: 41e99d83801d8a2428a27cc9f1293024, type: 2}
+  - cureUI: {fileID: 1401401113834830, guid: ab5e347429b52724eadb2a7b9a26fef7, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

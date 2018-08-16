@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System;
 
 /// <summary>
-/// ウィッチ（遠距離範囲攻撃タイプ）モンスターの攻撃用コントローラー
+/// ウィッチ（遠距離範囲攻撃タイプ）ファイター(複数攻撃)モンスターの攻撃用コントローラー
 /// </summary>
 public class BroadWitchMonsterAttackController : AttackerMonsterController {
 
 	private Dictionary<string, float> charaHpMap = new Dictionary<string, float>();
 	private BroadWitchMonsterController broadWitchMonsterController;
+    private CharaController charaController;
 
 	// 攻撃対象キャラクターリスト
 	private List<string> attackedCharaList = new List<string>();
@@ -23,8 +24,15 @@ public class BroadWitchMonsterAttackController : AttackerMonsterController {
 	}
 
 	protected override void Start() {
-		base.Start();
-		this.broadWitchMonsterController = transform.root.gameObject.GetComponent<BroadWitchMonsterController>();
+        this.battleTempGenerator = GameObject.Find("BattleTempGenerator").GetComponent<BattleTempGenerator>();
+        this.shipSc = GameObject.Find("Ship").GetComponent<ShipSc>();
+        this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
+
+        // モンスターオブジェクト名を取得する。
+        this.monsterObjectName = this.gameObject.name;
+        if (this.gameObject.tag == CharaStatusConst.AttackTag) this.monsterObjectName = transform.root.gameObject.name;
+
+        this.broadWitchMonsterController = transform.root.gameObject.GetComponent<BroadWitchMonsterController>();
 	}
 
 	protected override void Update() {
@@ -45,8 +53,17 @@ public class BroadWitchMonsterAttackController : AttackerMonsterController {
 
 			if (this.attackedCharaList.Contains(charaName)) {
 				this.charaHpMap[charaName] -= this.power;
+                charaController = GameObject.Find(charaName).GetComponent<CharaController>();
 
-				Debug.Log(String.Format("{0} - {1}.hp = {2}", this.monsterObjectName, charaName, this.charaHpMap[charaName]));
+                if(charaController == null)
+                {
+                    shipSc.DisplayDamageUI(this.power);
+                }
+                else
+                {
+                    this.charaController.DisplayDamageUI(this.power);
+                }
+                Debug.Log(String.Format("{0} - {1}.hp = {2}", this.monsterObjectName, charaName, this.charaHpMap[charaName]));
 			}
 		}
 
@@ -60,12 +77,13 @@ public class BroadWitchMonsterAttackController : AttackerMonsterController {
 
 		// 攻撃対象のキャラクター名を登録
 		this.attackedCharaList.Add(other.name);
+        //Debug.Log(attackedCharaList[0]);
 	}
 
 	protected override void OnTriggerStay2D(Collider2D other) {
 
 		// 相手がキャラクターなら攻撃態勢に入る。
-		if (this.charaStatusConst.CharaTagList.Contains(other.tag)) {
+		if (this.charaStatusConst.CharaTagList.Contains(other.tag) || other.gameObject.tag == CharaStatusConst.ShipTag) {
 			this.isFacingEnemy = true;
 			this.broadWitchMonsterController.isMoving = false;
 		}

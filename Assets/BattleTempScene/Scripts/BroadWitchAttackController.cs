@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ウィッチ（遠距離範囲攻撃タイプ）の攻撃用コントローラー
+/// ウィッチ（遠距離範囲攻撃タイプ）、ファイター複数攻撃の攻撃用コントローラー
 /// </summary>
 public class BroadWitchAttackController : AttackerController {
 
