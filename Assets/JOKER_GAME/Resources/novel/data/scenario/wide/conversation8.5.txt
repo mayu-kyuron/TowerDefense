@@ -1,22 +1,259 @@
-[bg_show name="background"]
+[bg_show name="cave"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="witchA" x=-5]
+[chara_show name="supporterB" x=5]
+
+#witchA
+うう、もう疲れたよー。[r]
+なんでこんなに魔物が出てくるの？[r]
+このままじゃキリがないよ……[p]
+
+#supporterB
+ふう、確かに。[r][l]
+まあさっきまでの戦闘のおかげで、[r]
+魔物の出現量もだいぶん落ち着いたみたいけど。[p]
+
+でも、このままじゃさすがにまずいな。[p]
+
+#witchA
+きゃあ！[p]
+
+#supporterB
+うわっ！[r]
+なんだい、{name.witchA}？[p]
+
+#witchA
+あ、あれ！[r]
+また来たよう。[p]
+
+#supporterB
+ん？[r]
+あれは……[p]
 
 #
-エルフは言葉を話すことができ、[r]
-エルフ（回復）たちは魔界に住んでおり、[r]
-自分たちも利用されていることを聞く。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1.5]
 
-悪の根源を断ち切るため、[r]
-主人公たちは魔界への潜入を決意する。[p]
+[chara_show name="healerC" x=5]
 
+#{name.???}
+もし、そこの方々。[p]
+
+[chara_show name="witchA" x=-5]
+
+#witchA
+ひっ。[r]
+ま、魔物がすぐそこにぃ！[p]
+
+#{name.???}
+ま、待って。[r]
+お願い、話を聞いて……[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="supporterB" x=-5 time=0.5]
+
+#supporterB
+みんな、落ち着いて！[r][l]
+君は、僕らの言葉が通じるのかい？[p]
+
+#{name.???}
+ああ……はい、そうなんです。[r]
+勇気を出してお話ししてよかった。[p]
+
+わたくしの名は{name.healerC}と申します。[r]
+どうか、わたくしの話に耳を傾けてはいただけませんか？[p]
+
+#supporterB
+ああ、もちろん。[r]
+いったいどうしたんだい？[p]
+
+#healerC
+実はわたくしは、エルフという種族なのです。[r]
+確かに魔界の住人ですが、争いは好まず[r]
+みな穏やかに暮らしています。[p]
+
+#supporterB
+そうなんだ。[r]
+じゃあ、なぜ君のような種族がこんなところに？[p]
+
+#healerC
+それは……[r]
+そうしなければ、村のものを根絶やしにすると、[r]
+彼のものに脅されているからです。[p]
+
+#supporterB
+彼のもの？[p]
+
+#healerC
+魔界は今、余所から現れた[r]
+絶大な力をもつものに支配されているのです。[p]
+
+彼のものはわたくしたちの魔界に住み着き、[r]
+あなたがたヒトの世界をも陥れようとしています。[p]
+
+#supporterB
+へえ。[r]
+まさか、やつらの根源が魔界とやらにいたとはね。[r]
+通りで尻尾をつかめないわけだ。[p]
+
+[chara_hide name="supporterB" time=0.5]
+[chara_show name="fighterA" x=-5 time=0.5]
+
+#fighterA
+それで、あなたはどうしてそんな大切なことを[r]
+私たちに教えてくれたの？[p]
+
+#healerC
+それは、もしかしたらあなたがたは、[r]
+彼のものに匹敵する力をおもちかもしれないと感じて。[p]
+
+あれだけの多勢に最後まで希望を失わず、[r]
+むしろ圧倒するまでに至ったのはあなたがたが初めてでした。[r][l]
+どうか、どうかその力で魔界を救ってはいただけませんか？[p]
+
+[chara_hide name="healerC" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+うわあ、とうとう壮大な話になってきたね。[r][l]
+どうするの、{name.fighterA}？[p]
+
+#fighterA
+そうね……決して、口で言うほど[r]
+簡単なことではないでしょうね。[p]
+
+#witchA
+うーん、そうだよね。[r]
+さすがに、今のあたしたちには無謀かなあ？[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="healerA" x=-5 time=0.5]
+
+#healerA
+む、無謀なんて。[r]
+そんなことは、ないと思います！[p]
+
+#witchA
+{name.healerA}……[p]
+
+#healerA
+だ、だって、こんなわたしでも、ここまで来れたんです。[r]
+なんの力もなかったわたしでも……[p]
+
+世界を取り戻したいという気持ちと、ほんの少しの勇気と。[r]
+それから、頼りがいのあるすばらしい同志たち。[p]
+
+それだけで、魔物たちの襲い来る途方もない現実を[r]
+ここまで生き抜くことができました。[r][l]
+みなさんなら……わたしたちなら、この先だって通用します！[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+へぇ、言うようになったじゃん。[r]
+前まではこういうとき、すぐに止めようとしたくせに。[p]
+
+#healerA
+そ、それは……[p]
+
+#fighterB
+あは、いいんじゃないのぉ？[r]
+今のあんたのほうがおもしろいし。[r][l]
+あたいも、魔界に行ってそいつぶっ飛ばすのに賛成。[p]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="witchB" x=-5 time=0.5]
+
+#witchB
+ほっほほほ、余も威勢がよいのは嫌いじゃないのう。[r][l]
+余らには、あの偉大な聖水の加護もある。[r]
+魔界にいっちょう乗り込んでみるもやぶさかではないの。[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="healerB" x=5 time=0.5]
+
+#healerB
+{name.healerB}は、いつも先生と一緒。[r]
+先生が行くなら、{name.healerB}だって行く。[r][l]
+魔界でも、どこまででもついていく。[p]
+
+#witchB
+ほほ、さしずめ運命共同体というやつじゃの。[p]
+
+#healerB
+うん。[r]
+先生と{name.healerB}は何があっても、いつまでも一緒。[p]
+
+[chara_hide name="witchB" time=0.5]
+[chara_show name="supporterA" x=-5 time=0.5]
+
+#supporterA
+幼い{name.healerB}にもこれほどの覚悟があるのに、[r]
+私たちが尻込みしてはいられないわね。[p]
+
+[chara_hide name="healerB" time=0.5]
+[chara_show name="supporterB" x=5 time=0.5]
+
+#supporterB
+そうだね。[r][l]
+いよいよ本来の目的を果たせそうだという[r]
+この好機を、自ら逃す手はないかな。[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="witchA" x=-5 time=0.5]
+
+#witchA
+みんな……うん、そうだよね。[r][l]
+ここまで来てやっぱりやめようなんて、[r]
+そんなのあたしたちじゃないよね。[p]
+
+このために、今までずっと長い旅を続けてきたんだ。[r][l]
+あたしたちの努力は無駄じゃなかったって、証明してやろうよ！[p]
+
+[chara_hide name="supporterB" time=0.5]
+[chara_show name="fighterA" x=5 time=0.5]
+
+#fighterA
+ふふ……ええ、そうね。みんなの言う通りだわ。[r][l]
+私たちが力を合わせれば、越えられない壁なんてない。[r]
+これまでも、私はその奇跡を何度も目にしてきたわ。[p]
+
+知識も能力も、ヒトのもつすべての力を結集して、[r]
+卑劣な魔物どもをこの地球から一掃してやりましょう。[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="healerC" x=-5 time=0.5]
+
+#healerC
+ああ、よかった。[r]
+決意していただけたのですね。[p]
+
+#fighterA
+ええ、おかげさまでね。[r][l]
+そうとなれば、あなたには魔界の案内役を頼みたいわ。[r]
+お願いできるかしら？[p]
+
+#healerC
+ええ、もちろんです。[r]
+戦闘でも、微力ながらお手伝いさせていただきます。[p]
+
+#fighterA
+頼もしいわ。[r]
+これから、どうぞよろしくね。[p]
+
+#healerC
+こちらこそ、よろしくお願いいたします。[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="cave"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

@@ -1,23 +1,201 @@
-[bg_show name="background"]
+[bg_show name="insideCastle"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="supporterB" x=-5]
+[chara_show name="healerC" x=5]
+
+#supporterB
+ふう、やっとここまで来たね。[r][l]
+思いのほか巨大な城に相見えたときはどうしたものかと[r]
+頭を抱えたけど、入ってみればどうってことはないな。[p]
+
+#healerC
+まあ、そうでしたか。[r]
+あなたがたが勇気あるヒトたちで本当によかった。[p]
+
+#supporterB
+それほどでもないけどね。[r]
+でもあの大きさだと、諸悪の根源まで[r]
+たどり着くのはやはり至難の業になりそうだ。[p]
+
+まあ、それも覚悟の上なんだけどね。[p]
+
+#healerC
+ええ……[r]
+ここからは、これまで以上に厳しい戦いになるでしょう。[p]
+
+ところでこの部屋、いったい何をする場所なのでしょうか？[r]
+簡素ですが、とても堅牢な造りになっていますね。[p]
+
+いくつも並んでいるのは、あくまで[r]
+ただの柱……ということで良いのでしょうか？[p]
+
+#supporterB
+さあ、それはなんとも言えないな。[p]
+
+#healerC
+そうですよね……ここにあるのは、地球人には[r]
+わかり得ない未知のものばかりですものね。[p]
+
+あの奥に備えてあるものなんて、[r]
+いったい何がどうなっているのか、[r]
+わたくしには皆目見当がつきませんわ。[p]
+
+#supporterB
+奥に備えてあるもの……[l]！！[r][l]
+あ、あれは……！[p]
+
+[chara_hide name="supporterB" time=0.5]
+
+#healerC
+{name.supporterB}さん？[p]
 
 #
-背景は魔城の最深部。[r]
-そこには魔界の住人には見たこともない装置があった。[r]
-しかし、主人公たちは固まった。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1.5]
 
-なぜならそれは人間によって作られていたからだ。[r]
-その装置を破壊しようとしたとき、[r]
-人間の女性が現れ、戦闘になる。[p]
+[chara_show name="supporterB" x=-5]
+
+#supporterB
+やっぱり、これは……[p]
+
+[chara_show name="healerC" x=5]
+
+#healerC
+{name.supporterB}さん、どうかなさったんですか？[p]
+
+#supporterB
+これ、僕にはよく見覚えがある。[p]
+
+#healerC
+え、どうして……？[p]
+
+#supporterB
+これは、人間界ではめずらしくない電子機器だよ。[r]
+鉄の入れ物にあらかじめコードをインプットして、[r]
+必要なときに電力を流し込んで動かすんだ。[p]
+
+僕だけじゃない。[r]
+現代のヒトにとっては、とても一般的なものさ。[p]
+
+#healerC
+ええっと、それはつまり……[p]
+
+[chara_hide name="supporterB" time=0.5]
+[chara_show name="witchB" x=-5 time=0.5]
+
+#witchB
+この建造物――彼のものの根城に、[r]
+我々ヒトの手が加わっているのは間違いない。[p]
+
+エルフ族の見解通り、魔物とヒトとの間に[r]
+繋がりがある説が濃厚というわけじゃのう。[p]
+
+#healerC
+そんな……[p]
+
+#witchB
+まあなんにせよ、調べてみる価値はありそうじゃ。[r]
+……{name.healerB}。[p]
+
+[chara_hide name="healerC" time=0.5]
+[chara_show name="healerB" x=5 time=0.5]
+
+#healerB
+はい、先生。[p]
+
+#witchB
+ちょっとこの機器の裏側に入り込めるかの？[r]
+取り外しが可能かを確認したい。[p]
+
+#healerB
+うん。[r]
+{name.healerB}、やってみる。[p]
+
+[chara_hide name="healerB" time=0.5]
+[wait time=0.5]
+
+ん……なんとか入れた。[r]
+機械は、壁と導線でつながってるみたい。[p]
+
+#witchB
+ふむ、ならば取り外しはできそうじゃのう。[r][l]
+では{name.healerB}、次はその導線をすべて取り外しておくれ。[p]
+
+#{name.???}
+それは困ります。[p]
+
+#witchB
+む……？[p]
+
+[chara_show name="enemyWoman" x=5 time=0.5]
+
+#{name.???}
+それは、我らの計画に不可欠なもの。[r]
+そのように無遠慮に触られては困ります。[p]
+
+#witchB
+おまえは、まさか……[p]
+
+#{name.???}
+今なら見逃してあげますから、すべて忘れて帰りなさい。[r]
+ヒトがこんなところまで来るものではありませんよ。[p]
+
+[chara_hide name="witchB" time=0.5]
+[chara_show name="supporterA" x=-5 time=0.5]
+
+#supporterA
+そういうあなたもヒトでしょう？[r]
+あなたこそ、こんなところで何を？[p]
+
+#{name.???}
+知る必要はありません。[r]
+装置から離れ、即刻この場を立ち去りなさい。[p]
+
+#supporterA
+それではお話にならないわねぇ。[r]
+私たちも、それなりの覚悟でここにいるのよ？[p]
+
+#{name.???}
+そうですか……では、仕方がありません。[r][l]
+出番よ、おまえたち！！[p]
 
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="explosion1" vol={se.number}]
+[anim name="insideCastle" time=0.1 scale=1.2]
+[anim name="insideCastle" time=0.1 scale=1]
+[wait time=2]
+
+[playse storage="monster_roaning3" vol={se.number}]
+[wait time=5]
+
+[chara_show name="supporterA" x=-5 time=0.5]
+[chara_show name="enemyWoman" x=5 time=0.5]
+
+#{name.???}
+さあ、逃げるなら今ですよ。[p]
+
+#supporterA
+いいえ、私たちはこの程度では引き下がらないわ。[p]
+
+#{name.???}
+わからないヒトたちです……[r]
+では、こちらから思い知らせて差し上げましょう！[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="insideCastle"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

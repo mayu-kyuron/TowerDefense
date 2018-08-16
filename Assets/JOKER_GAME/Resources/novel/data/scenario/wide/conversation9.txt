@@ -1,30 +1,205 @@
-[bg_show name="background"]
+[bg_show name="elfVillage"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="witchA" x=-5]
+[chara_show name="healerC" x=5]
+
+#witchA
+ね、ねえ、{name.healerC}。[p]
+
+#healerC
+はい、なんでしょうか？[p]
+
+#witchA
+魔界って、いつもこんなに暗いの？[p]
+
+#healerC
+ああ……そうですね。[r]
+以前はもう少し明るいときもありましたが、[r]
+彼のものが現れてからはずっとこのような感じです。[p]
+
+#witchA
+そうなんだ……[r]
+な、なんか、今にも飛び出してきそうだな。[p]
+
+#healerC
+大丈夫。この辺りは、エルフ族の管轄ですから。[r]
+むやみにヒトを襲うような魔物はいないはずです。[p]
+
+……ほら、つきましたよ。[r]
+ここが、エルフ族の村です。[p]
 
 #
-場所は魔界。[r]
-エルフに招待されエルフ村へ行く。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1.5]
 
-背景は村。[r]
-村に行くと村人たちは敵対心を持っていた。[r]
-そこにダークエルフが現れ、事情を話すと仲間になってくれる。[p]
+[chara_show name="mobElf" x=-5]
 
-エルフたちによると魔界は混沌化し、[r]
-それは人間界の住民が原因だという。[p]
+#mobElf
+{name.healerC}じゃないか！[r]
+無事だったんだね。[p]
 
-魔界人間界を救うため、主人公たちは[r]
-その人間に会いに行くことを決意する。[p]
+[chara_show name="healerC" x=5]
 
-魔城付近にてモンスターと戦闘開始。[p]
+#healerC
+はい。[r]
+すみません、ご心配をおかけして。[p]
 
+#mobElf
+無事だったなら構わないさ。[r]
+……そちらは？[p]
+
+#healerC
+この魔界を救うため、はるばる[r]
+人間界から来てくださったヒトたちです。[p]
+
+#mobElf
+ひ、ヒトだって！？[p]
+
+#healerC
+え？[r]
+あの、それがどうかされましたか？[p]
+
+#mobElf
+おまえ、知らないのか？[r]
+魔界がこうまで混沌化しているのは、[r]
+その「ヒト」が原因なんだぞ！[p]
+
+[chara_hide name="healerC" time=0.5]
+[chara_show name="fighterA" x=5 time=0.5]
+
+#fighterA
+あの、それはどういうことでしょうか？[p]
+
+#mobElf
+な、なんだよ、あんた！[p]
+
+#fighterA
+申し遅れました、私は{name.fighterA}といいます。[r]
+魔界に巣食う魔物を退治するためにやってきました。[r][l]
+あの、先ほどのヒトの話、詳しく伺っても良いでしょうか？[p]
+
+#mobElf
+まさか、おまえたちが彼のものを？[r]
+本気で言ってるのか？[p]
+
+#fighterA
+はい、私たちは本気です。[r][l]
+{name.healerC}を含む9人全員で[r]
+覚悟を決めて、ここまでやってきたんです。[p]
+
+#mobElf
+……そうか、わかった。[r][l]
+そこまで言うなら、知っていることはすべて話すよ。[p]
+
+#fighterA
+ありがとうございます！[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+[bg_hide name="elfVillage"]
+[wait time=2]
+
+[bg_show name="elfVillage"]
+[wait time=1]
+[chara_show name="mobElf" x=-5]
+[chara_show name="fighterA" x=5]
+
+#mobElf
+そういうわけで、彼のものが魔界に住み着いたのも、[r]
+ここを拠点に人間界を支配しようとしているのも、[r]
+そのヒトの仕組んだことらしいぞ。[p]
+
+現にエルフの仲間も、ヒトが魔物を引き連れて[r]
+人間界に向かうところを何度か目撃しているんだ。[p]
+
+#fighterA
+まさか、そんな……[p]
+
+[chara_hide name="mobElf" time=0.5]
+[chara_show name="healerA" x=-5 time=0.5]
+
+#healerA
+ほ、ほんとうなんでしょうか？[r]
+人間界を脅かす魔物を、ヒトが手引きしていただなんて。[p]
+
+#fighterA
+……わからないわ。[r][l]
+とても信じられない思いだけれど、エルフ族の方々が[r]
+嘘をついているようには思えないもの。[p]
+
+#healerA
+確かに、そうですよね……[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+んじゃまあ、あたいらで確かめに行けばいーじゃん？[p]
+
+#healerA
+え？[p]
+
+#fighterB
+だってここで話してるだけじゃ、結局わかんないし。[r]
+実際に会いに行けばいーんじゃないの？[p]
+
+#healerA
+で、でも……[p]
+
+#fighterB
+だぁいじょうぶだって。[r]
+もしかしたら、なんか訳ありかもしんないじゃん？[r][l]
+ほんとに悪いやつだったら、ぶっ飛ばせばいーんだし。[p]
+
+#healerA
+そ、そんな簡単な話ですかね？[p]
+
+#fighterB
+かんたん、かんたん。[r]
+てか、ここでうじうじしてても仕方ないじゃん？[r][l]
+とっとと済まして元の世界取り戻そーよ。[p]
+
+#healerA
+そうですね……{name.fighterB}の言う通りかも。[r][l]
+よし、その方に会いに行きましょう、{name.fighterA}さん！[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="fighterA" x=5 time=0.5]
+
+#fighterA
+ええ、そうね。[r][l]
+真相を確かめるためにも、まずはもう少し[r]
+敵の根城に近づきましょうか。[p]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="healerC" x=-5 time=0.5]
+
+#healerC
+はい……いよいよですね。[r][l]
+それではみなさん、彼のものの住処は[r]
+この村よりさらに奥地、丘の向こうです。[p]
+
+ここを離れてしまえば、魔物の襲撃は免れません。[r]
+準備はよろしいですね？[p]
+
+#fighterA
+ええ、望むところよ。[p]
+
+#healerC
+頼もしいお返事ありがとうございます。[r][l]
+では、参りましょうか。[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="elfVillage"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

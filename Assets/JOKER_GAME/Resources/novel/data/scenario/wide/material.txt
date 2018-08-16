@@ -25,9 +25,13 @@
 [flag exp="stor.fighterA=fighterA"]
 [flag exp="stor.witchA=witchA"]
 [flag exp="stor.supporterA=supporterA"]
-[flag exp="stor.healerA=shadow_supporterA"]
+[flag exp="stor.healerA=healerA"]
 [flag exp="stor.fighterB=fighterB"]
-[flag exp="stor.supporterB=shadow_fighterA"]
+[flag exp="stor.supporterB=supporterB"]
+[flag exp="stor.witchB=witchB"]
+[flag exp="stor.healerB=healerB"]
+[flag exp="stor.healerC=healerC"]
+[flag exp="stor.enemyWoman=enemyWoman"]
 
 ;キャラクター名
 [flag exp="name.fighterA=ファイターA"]
@@ -36,6 +40,11 @@
 [flag exp="name.healerA=ヒーラーA"]
 [flag exp="name.fighterB=ファイターB"]
 [flag exp="name.supporterB=サポーターB"]
+[flag exp="name.witchB=ウィッチB"]
+[flag exp="name.healerB=ヒーラーB"]
+[flag exp="name.healerC=ヒーラーC"]
+[flag exp="name.enemyWoman=謎の女性"]
+[flag exp="name.lastBoss=ウロボロス"]
 [flag exp="name.???=？？？"]
 
 ;キャラクターY座標
@@ -45,9 +54,20 @@
 [calc exp="y.healerA=-1"]
 [calc exp="y.fighterB=0"]
 [calc exp="y.supporterB=-1"]
+[calc exp="y.witchB=-1"]
+[calc exp="y.healerB=-0.3"]
+[calc exp="y.healerC=-1"]
+[calc exp="y.enemyWoman=-1"]
+
+;キャラクタースケール（必要なものだけ）
+[calc exp="scale.healerA=0.8"]
+[calc exp="scale.fighterB=0.8"]
+[calc exp="scale.supporterB=0.8"]
+[calc exp="scale.witchB=0.9"]
+[calc exp="scale.enemyWoman=0.9"]
 
 ;デバッグ用
-;[calc exp="stage.number=4.5"]
+;[calc exp="stage.number=-1"]
 
 ;章ごとに材料取り込み
 [if exp="{stage.number}==0"]
@@ -93,7 +113,7 @@
 	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
-	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	
 [elsif exp="{stage.number}==3"]
 
@@ -104,7 +124,7 @@
 	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
-	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	
 [elsif exp="{stage.number}==3.5"]
 
@@ -114,7 +134,7 @@
 	;キャラクター
 	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
-	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	
 [elsif exp="{stage.number}==4"]
 
@@ -125,8 +145,8 @@
 	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
-	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
-	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale=0.8 y="{y.fighterB}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
 
 	;アイテム
 	[image_new name="wonder" storage="wonder" scale=0.7 x=0 y=1]
@@ -141,201 +161,168 @@
 	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
 	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
-	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" y="{y.healerA}"]
-	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale=0.8 y="{y.fighterB}"]
-	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" y="{y.supporterB}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
 	
 [elsif exp="{stage.number}==5"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="forest" storage="forest"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
 	
 [elsif exp="{stage.number}==6"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="forest" storage="forest"]
+	[bg_new name="grassLand" storage="grassLand"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 	
 [elsif exp="{stage.number}==6.5"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="grassLand" storage="grassLand"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
+	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 
 	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[image_new name="potion" storage="potion" scale=1.2]
 	
 [elsif exp="{stage.number}==7"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="cave" storage="cave"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	
 [elsif exp="{stage.number}==8"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="cave" storage="cave"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 	
 [elsif exp="{stage.number}==8.5"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="cave" storage="cave"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
+	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
+	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
 	
 [elsif exp="{stage.number}==9"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="elfVillage" storage="elfVillage"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
+	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
+	[chara_new name="mobElf" storage="mobElf" jname="村人" jcolor=FFFFFF tag="character" scale=1.7 y=-0.52]
 	
 [elsif exp="{stage.number}==10"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="insideCastle" storage="insideCastle"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
+	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
+	[chara_new name="enemyWoman" storage="{stor.enemyWoman}" jname="{name.enemyWoman}" jcolor=B0C4DE tag="character" scale="{scale.enemyWoman}" y="{y.enemyWoman}"]
 	
 [elsif exp="{stage.number}==10.5"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="insideCastle" storage="insideCastle"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
+	[chara_new name="enemyWoman" storage="{stor.enemyWoman}" jname="{name.enemyWoman}" jcolor=B0C4DE tag="character" scale="{scale.enemyWoman}" y="{y.enemyWoman}"]
 	
 [elsif exp="{stage.number}==11"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="depthCastle" storage="depthCastle"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
+	[chara_new name="enemyWoman" storage="{stor.enemyWoman}" jname="{name.enemyWoman}" jcolor=B0C4DE tag="character" scale="{scale.enemyWoman}" y="{y.enemyWoman}"]
 	
 [elsif exp="{stage.number}==12"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="depthCastle" storage="depthCastle"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
+	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
+	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
 	
 [elsif exp="{stage.number}==-1"]
 
 	;背景
-	[bg_new name="background" storage="room"]
+	[bg_new name="depthCastle" storage="depthCastle"]
 
 	;キャラクター
-	[chara_new name="fighterA" storage="fighterA" jname="ファイターA" jcolor=FF77FF tag="character"]
-	[chara_new name="supporterA" storage="supporterA" jname="サポーターA" jcolor=22FFFF tag="character"]
-
-	;名前変数
-	[flag exp="name.fighterA=ファイターA"]
-	[flag exp="name.supporterA=サポーターA"]
-
-	;アイテム
-	[image_new name="unity_logo" storage="unity_logo" scale=0.7]
+	[chara_new name="fighterA" storage="{stor.fighterA}" jname="{name.fighterA}" jcolor=FF77FF tag="character" y="{y.fighterA}"]
+	[chara_new name="witchA" storage="{stor.witchA}" jname="{name.witchA}" jcolor=22FFFF tag="character" y="{y.witchA}"]
+	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
+	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
+	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
+	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
+	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
 
 [endif]
 
@@ -343,7 +330,7 @@
 ;共通ライブラリ
 ;ゲーム作成で便利なマクロ集
 [call file=wide/libs/utils]
-[text_new name=_sp_chara_name layer=ui x="-300" y=-100 val="" color="FFFFFF" fontsize=19 anchor="MiddleLeft"]
+[text_new name=_sp_chara_name layer=ui x="-168" y=-108.5 val="" color="FFFFFF" fontsize=16 anchor="MiddleLeft"]
 [text_show name="_sp_chara_name"]
 
 ;セーブ・ロードバックログなど基本的な機能を取り込む

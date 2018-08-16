@@ -1,19 +1,187 @@
-[bg_show name="background"]
+[bg_show name="grassLand"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="witchB" x=-5]
+[chara_show name="fighterB" x=5]
+
+#witchB
+ほお、見事なもんじゃのう。[p]
+
+#fighterB
+ギャハハハハ……って、あれぇ？[r]
+もう終わりなのぉ？[p]
+
+#witchB
+ああ。[r]
+聖なる番人――ゴーレムを倒した時点で、[r]
+余らは聖水に認められた。[p]
+
+もう襲ってこんということは、[r]
+好きに持って行って構わんのじゃろう。[p]
+
+#fighterB
+ふぅん、そんなもんか。[r][l]
+んじゃ、遠慮なくー！[p]
+
+…………[l]おおっ！[r]
+なにこれ、マジですっごい力わいてくるぅ！[p]
+
+[chara_hide name="witchB" time=0.5]
+[chara_show name="witchA" x=-5 time=0.5]
+
+#witchA
+えっ、ほんとう！？[r]
+あたしもあたしもー！[p]
+
+…………[l]うわわ、なにこれ！？[r]
+な、なんかムズムズ……ふわあ、でも気持ちいぃ。[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="healerA" x=5 time=0.5]
+
+#healerA
+わ、わたしも、触ってみてもいいですか！[p]
+
+#witchA
+どうぞどうぞー。[r][l]
+ほら{name.fighterA}、みんなも、早くおいでよー！[p]
 
 #
-強さを認められた主人公たちに女性は協力を承諾する。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1.5]
 
-背景は基地。仲間10人で洞窟侵入を決める。[p]
+[chara_show name="fighterA" x=-5]
+[chara_show name="supporterB" x=5]
 
+#fighterA
+ふふ、みんな楽しそうで何よりね。[p]
+
+#supporterB
+ああ、そうだね。[r]
+一時はどうなることかと思ったけど。[r][l]
+まさか、あんな大物が聖水の泉を守っていたなんてね。[p]
+
+#fighterA
+ええ。でもおかげで、ヒトが協力し合えば[r]
+どんなことでも成し遂げられると改めて思えたわ。[p]
+
+まだ3人の頃には到底できそうになかったことも、[r]
+着実にこなせるように変わっていくのを感じるの。[p]
+
+#supporterB
+へえ……それは何よりだ。[p]
+
+#{name.???}
+ねえ。[p]
+
+#supporterB
+ん？[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="healerB" x=-5 time=0.5]
+
+ああ、君は……{name.healerB}だね。[p]
+
+#healerB
+うん、そう。[r]
+……さっきはごめんなさい。[p]
+
+#supporterB
+え？[p]
+
+#healerB
+ひどいこと言って。[r][l]
+お姉さんたちの戦い、すごかった。[r]
+……先生には負けるけど。[p]
+
+#supporterB
+ははっ、そっか。[r]
+そう言ってもらえて嬉しいよ。ありがとう。[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1.5]
+
+[chara_show name="witchB" x=-5]
+[chara_show name="supporterA" x=5]
+
+#witchB
+ほっほ。[r]
+これにて一件落着というやつかのう。[p]
+
+#supporterA
+あら、あなた最初から[r]
+こうなることを見越していたのね？[p]
+
+#witchB
+むう？[r]
+いくら余といえど、予知能力までは持ち合わせておらんよ。[r]
+成り行きじゃ、成り行き。[p]
+
+#supporterA
+まあ……食えないヒトね。[p]
+
+#witchB
+おまえさんもなぁ。[p]
+
+#supporterA
+うふふふ。[p]
+
+#witchB
+ほっほほほ。[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+うわあ……敵に回すとヤバい2人かも。[p]
+
+#witchB
+む、何か言ったかの？[p]
+
+#witchA
+い、いや、何も！[r][l]
+ええっと、これで{name.witchB}と{name.healerB}は、[r]
+あたしたちと一緒に来てくれるってことでオッケー？[p]
+
+#witchB
+うむ、断る理由がないの。[p]
+
+#witchA
+わーい！[r]
+それじゃあ、みんなで洞窟潜入に向けて作戦会議だ！[p]
+
+[chara_hide name="witchA" time=0.5]
+[wait time=1.5]
+
+#witchB
+ほほ、元気がよいのう。[r][l]
+さあて……よっこらしょっと。[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1]
+[image_show name="potion" time=0.5 y=1.5]
+[l]
+
+[image_hide name="potion" time=0.5]
+[wait time=1]
+[chara_show name="witchB" x=-5]
+
+#witchB
+よしよし、これで魔物どもにも引けを取らんじゃろう。[r]
+楽しみ、楽しみ……ほっほほほ。[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="grassLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

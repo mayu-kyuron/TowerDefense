@@ -1,27 +1,285 @@
-[bg_show name="background"]
+[bg_show name="forest"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="healerA" x=-5]
 
-#
-背景は森。[p]
+#healerA
+はあ……よかった、なんとかなったみたい、[p]
 
-高い能力の女性と幼い助手二人[r]
-（魔法使いとガードナーとヒーラー）に出会い[r]
-事情を説明するが、厳しい戦いになると言われる。[p]
+[chara_show name="supporterB" x=5]
 
-そこで潜在能力を向上させるため、[r]
-神秘の聖水がある場所に向かうことになる。[p]
+#supporterB
+{name.healerA}、危ない！[p]
 
-聖水の場所では番人たちが試練を行っており、[r]
-その試練をクリアするために戦う。[p]
+#healerA
+えっ、いやあっ！！[p]
 
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="magic4" vol={se.number}]
+[anim name="forest" time=0.1 scale=1.2]
+[anim name="forest" time=0.1 scale=1]
+[wait time=0.5]
+
+[playse storage="devil_groaning2" vol={se.number}]
+[wait time=2]
+
+[chara_show name="healerA" x=-5 time=0.5]
+
+#healerA
+あ、わたし、助かった……？[p]
+
+#{name.???}
+これ、おまえたち。[p]
+
+[chara_show name="witchB" x=5]
+
+こんなところで何をしておる？[r]
+若人が、命を粗末にしてはいかんぞ。[p]
+
+#healerA
+え、ええと、ごめんなさい。[r]
+あの、助けていただいて、ありがとうございます。[p]
+
+#{name.???}
+ふむ、わかればよいのじゃ。[r]
+では余はこれで、[p]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="supporterB" x=-5 time=0.5]
+
+#supporterB
+待ってくれ！[r][l]
+君は、ここらで噂の魔法使いじゃないかい？[r]
+確か名前は{name.witchB}、だったかな？[p]
+
+#witchB
+む、余を知っておるのか。[r][l]
+どこかでお会い申したかのう……[r]
+悪いが、とんと思い出せんな。[p]
+
+#supporterB
+いやいや、僕たちは正真正銘、初対面だよ。[r][l]
+でも、僕たちは君を探していたんだ。[r]
+魔物たちと戦うため、君の力を貸してほしいんだよ。[p]
+
+#witchB
+魔物たち、とな？[p]
+
+#supporterB
+ああ、そうなんだ。[r]
+実は……[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+[bg_hide name="forest"]
+[wait time=2]
+
+[bg_show name="forest"]
+[wait time=1]
+[chara_show name="supporterB" x=-5]
+[chara_show name="witchB" x=5]
+
+#witchB
+ふむう……[r]
+その不思議な物体について調べるため、[r]
+あの山の麓の洞窟に行きたいとな？[p]
+
+#supporterB
+そう。でも危険な場所だって言うから、[r]
+その前に戦力を集めようということになってね。[r]
+君に白羽の矢が立ったわけさ。[p]
+
+[chara_hide name="witchB" time=0.5]
+[chara_show name="healerB" x=5 time=0.5]
+
+#{name.???}
+……嫌。[r]
+先生は、そんなとこ行かない。[p]
+
+#supporterB
+え？[r]
+ええっと、君は……[p]
+
+#{name.???}
+{name.healerB}は、先生の助手。[r][l]
+自分たちが弱いからって、先生を利用しようとしないで。[p]
+
+#supporterB
+いや、そんなつもりは……[p]
+
+[chara_hide name="supporterB" time=0.5]
+[chara_show name="witchB" x=-5 time=0.5]
+
+#witchB
+これ、{name.healerB}。[r]
+藪から棒に、目上の方へそんな言い方をしてはいかん。[p]
+
+#healerB
+……ごめんなさい。[r][l]
+でも、先生が行くことない。[r]
+先生は{name.healerB}と、別の探し物しなきゃいけない。[p]
+
+#witchB
+そうじゃのう。[r]
+探し物は、余らにとって必須となる物じゃ。[p]
+
+{name.healerB}。ではまずこの御方々に、[r]
+ともに探し物をしてもらうというのはどうじゃろうか？[p]
+
+#healerB
+この人たちと、一緒に？[p]
+
+#witchB
+そうじゃ。[r]
+その間、おまえは彼女らが信頼に足る方々かを判断するとよい。[p]
+
+#healerB
+……先生が、そう言うなら。[p]
+
+#witchB
+そちらはそれで、どうかのう？[p]
+
+[chara_hide name="healerB" time=0.5]
+[chara_show name="supporterA" x=5 time=0.5]
+
+#supporterA
+ええ、問題ないわ。[p]
+
+#witchB
+すまんのう。[p]
+
+#supporterA
+いいえ、こちらこそ。[r][l]
+それで、そのお探し物については伺ってもいいのかしら？[p]
+
+#witchB
+もちろんじゃ。[r][l]
+探し物とは、この森に潜む聖水のことよ。[p]
+
+#supporterA
+聖水？[p]
+
+#witchB
+そう。[r]
+ヒトの潜在能力を向上させるという、神秘の水の名じゃ。[p]
+
+余らは勢力を増す魔物たちに対抗するため、[r]
+ここにそれを手に入れに参った。[r][l]
+聖水を手にするのは、おまえたちにも悪い話じゃなかろうて。[p]
+
+#supporterA
+あら、それはそうでしょうね。[r][l]
+ならさっそく、その聖水を探しに行きましょう。[p]
+
+#witchB
+うむ。[r]
+では{name.healerB}、例の場所まで案内を頼めるかの？[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="healerB" x=5 time=0.5]
+
+#healerB
+うん、わかった。[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+[bg_hide name="forest"]
+[wait time=2]
+
+[bg_show name="grassLand"]
+[wait time=1]
+[chara_show name="healerB" x=-5]
+[chara_show name="supporterA" x=5]
+
+#healerB
+あそこに見えるの、怪しい泉。[p]
+
+#supporterA
+あら、もう当たりはついていたのね。[r]
+まだ調べてはいないのかしら？[p]
+
+#healerB
+まだ。[p]
+
+#supporterA
+そう……[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+んじゃもう、早く取ってみちゃおーよ。[r][l]
+ほら、この水でしょ？[r]
+……おぉっ、冷たくてなかなかいい感じぃ。[p]
+
+#healerB
+あ、触っちゃった。[p]
+
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="mobile_suit2" vol={se.number} loop=true]
+[wait time=2]
+
+#fighterB
+ん、なにこれ？[r]
+なんの音？？[p]
+
+#healerB
+聖なる番人のやってくる音……[p]
+
+#fighterB
+聖なる番人？[p]
+
+[stopse storage="mobile_suit2"]
+
+#
+[cm]
+[wait time=1]
+
+[playse storage="giant_robot_attacking2" vol={se.number}]
+[anim name="grassLand" time=0.1 scale=1.2]
+[anim name="grassLand" time=0.1 scale=1]
+[anim name="grassLand" time=0.1 scale=1.2]
+[anim name="grassLand" time=0.1 scale=1]
+[wait time=0.5]
+
+[chara_hide name="healerB" time=0.5]
+[chara_show name="witchB" x=-5 time=0.5]
+
+#witchB
+おお、来なさったか。[p]
+
+そういえば言い忘れておったが……[r]
+聖水の泉には、聖なる番人が鎮座しておる。[r][l]
+やつの試練を突破せずには、目的は果たせまいて。[p]
+
+#fighterB
+…………[l]アッハハハハハハハ！！！[r]
+いいねいいね、すっごい嬲りがいありそォッ！[p]
+
+#witchB
+ほっほ、威勢のよいことよ。[r][l]
+では、お手並み拝見といこうかの。[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="grassLand"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

@@ -1,17 +1,215 @@
-[bg_show name="background"]
+[bg_show name="depthCastle"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[wait time=1]
 
-#
-エンディング。[p]
+[playse storage="scream_of_a_monster1" vol={se.number}]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[wait time=3]
+
+#{name.lastBoss}
+グオオオオッ！！！[r]
+ま、まさか、我がこのような……[p]
+
+[chara_show name="fighterA" x=-5]
+
+#fighterA
+ヒトの力を身をもって知ったのは、[r]
+あなたのほうだったようね。[p]
+
+#{name.lastBoss}
+ぐうう……忌々しい小娘がァ……[r]
+もろとも滅ぼしてくれる！！[p]
+
+[chara_show name="healerA" x=5]
+
+#healerA
+危ない、{name.fighterA}さん！[p]
+
+#fighterA
+……っ！[p]
 
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="scream_of_a_monster1" vol={se.number}]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[wait time=3]
+
+[chara_show name="fighterA" x=-5]
+
+#fighterA
+その手は食わない。[r]
+私たちは、慢心も油断もしないわ。[p]
+
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="holly_sword1" vol={se.number}]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[wait time=3]
+
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+#{name.lastBoss}
+ぐ、おおおおおお……[p]
+
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="dark_atmosphere" vol={se.number}]
+[wait time=3]
+
+[chara_show name="healerA" x=-5]
+[chara_show name="fighterA" x=5]
+
+#healerA
+ああ……終わったんですね、本当に。[p]
+
+#fighterA
+ええ。[r][l]
+長いようで、短かったわ。[r]
+怒涛のように過ぎ行く日々だった。[p]
+
+#healerA
+そうですね。[r][l]
+わたしも、{name.fighterA}さんと出会ったのが[r]
+ついこの間のことのように思います。[p]
+
+よかった、あなたたちに出会えて。[r]
+今日を――悪に打ち勝つ日を、この手で迎らえて。[r][l]
+こんなに嬉しい日は、生まれて初めてです。[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="healerB" x=5 time=0.5]
+
+#healerB
+……{name.healerB}も。[r]
+これでみんな、昔みたいに平和に暮らせる……嬉しい。[p]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="fighterB" x=-5 time=0.5]
+
+#fighterB
+ひゃははっ、あたいもあたいも！[r]
+これでまたあいつらと戦えるしぃ？[r]
+とにかく、さいっこうの気分！！[p]
+
+[chara_hide name="healerB" time=0.5]
+[chara_show name="supporterB" x=5 time=0.5]
+
+#supporterB
+ははっ、本当にね。[r]
+僕もこれで、自分の研究に専念できる。[r]
+こんな爽快な気分はいつぶりだろう。[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="witchB" x=-5 time=0.5]
+
+#witchB
+ほんに、長く生きるもんじゃのう。[r]
+まだまだ余の身も捨てたものではない。[p]
+
+[chara_hide name="supporterB" time=0.5]
+[chara_show name="supporterA" x=5 time=0.5]
+
+#supporterA
+あら。[r]
+{name.witchB}、あなたいったいいくつなの？[p]
+
+#witchB
+ほほ、おなごに年を聞くものではないよ。[r][l]
+まあ少なくとも、おまえらが生まれる[r]
+うん十年前から余はこの世に存在しておる。[p]
+
+#supporterA
+まあ……[p]
+
+#witchB
+こんなことを言いたくなるほどには浮かれておるのう。[p]
+
+#supporterA
+あら、やっぱり冗談なのね？[p]
+
+#witchB
+さあ、それはどうかのう？[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="healerC" x=5 time=0.5]
+
+#healerC
+知らなかった……[r]
+エルフ族のように、姿の変わらないヒトもいるのですね。[p]
+
+[chara_hide name="witchB" time=0.5]
+[chara_show name="witchA" x=-5 time=0.5]
+
+#witchA
+いや、はは、あれはどうだろう。[p]
+
+#healerC
+でもわたくしも、数百年の時のなかで、[r]
+今が一番嬉しい瞬間だと思います。[p]
+
+#witchA
+おおっ、こっちはなんか本物っぽい！[r][l]
+あたしはまだうん十年も生きてないけど……[r]
+でもでも、今日は今まででいっちばん嬉しい日だよ！[p]
+
+[chara_hide name="healerC" time=0.5]
+[chara_show name="fighterA" x=5 time=0.5]
+
+#fighterA
+みんな……[p]
+
+旅の目的を達成できる日が来たこと、[r]
+このすばらしい仲間たちと今日を[r]
+迎えられたことを、心より感謝するわ。[p]
+
+#witchA
+うん、うん！[r]
+……でも、ちょっぴり寂しいな。[r][l]
+{name.fighterA}は、この後どうするの？[p]
+
+#fighterA
+そうね……まずは、兄さんのお見舞いに行くわ。[r]
+もう必要ないかもしれないけれどね。[r]
+それから、荒廃した土地の復興作業もあるし……[p]
+
+#witchA
+そっか。[r]
+まだまだやること、たくさんあるもんね。[p]
+
+……あたしも、自分にできることをする。[r][l]
+そうしてれば、またみんなとも会えるかな？[p]
+
+#fighterA
+ええ、必ず。[r][l]
+だって私たちは、同じ場所を目指す「同志」だもの。[p]
+
+だからまた、きっとどこかで。[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="depthCastle"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

@@ -24,8 +24,7 @@
 
 #healerA
 はい。[r]
-それまではわたしも{name.guardianA}も、[r]
-ただの民間人でした。[p]
+それまで、わたしはただの民間人でした。[p]
 
 [chara_hide name="healerA" time=0.5]
 [chara_show name="fighterB" x=-5 time=0.5]
@@ -44,8 +43,8 @@
 世界をつまんなくしたあいつらを全員[r]
 始末してやろうと旅してたわけ。[p]
 
-そこで、自分たちもおんなじこと考えてたっていう[r]
-{name.healerA}たちに出会ったんだよ。[p]
+そこで、自分もおんなじこと考えてたっていう[r]
+{name.healerA}に出会ったんだよ。[p]
 
 [chara_hide name="fighterA" time=0.5]
 [chara_show name="healerA" x=5 time=0.5]
@@ -71,7 +70,7 @@
 
 あの、{name.fighterA}さん、要するにですね。[r]
 わたしたちも、おおむねあなたがたと同じ意志をもって[r]
-今まで3人で旅をしていた、ということです。[p]
+今まで2人で旅をしていた、ということです。[p]
 
 この地球から、魔物たちを一掃する。[r]
 それが、あなたたちの旅の目的なんですよね？[p]
@@ -99,8 +98,7 @@
 こちらからお願いしたいくらい。[p]
 
 #healerA
-{name.fighterB}、{name.guardianA}。[r]
-どうでしょうか？[p]
+{name.fighterB}、どうでしょうか？[p]
 
 [chara_hide name="fighterA" time=0.5]
 [chara_show name="fighterB" x=5 time=0.5]
@@ -110,18 +108,11 @@
 みんな強いし、なんかおもしろそうだし。[p]
 
 [chara_hide name="fighterB" time=0.5]
-[chara_show name="guardianA" x=5 time=0.5]
-
-#guardianA
-ええ、うふふ。[r]
-これからますます楽しくなりそうですわ。[p]
-
-[chara_hide name="guardianA" time=0.5]
 [chara_show name="witchA" x=5 time=0.5]
 
 #witchA
 じゃあ、決まりだね。[r]
-みんなこれからよろしくー！[p]
+2人ともこれからよろしくー！[p]
 
 #healerA
 はい、よろしくお願いします！[r]
@@ -262,10 +253,10 @@
 #supporterB
 おーい、誰かいるかーい？[p]
 
-[chara_show name="guardianA" x=5 time=0.5]
+[chara_show name="supporterA" x=5 time=0.5]
 
-#guardianA
-どなたですの？[p]
+#supporterA
+どなたかしら？[p]
 
 #supporterB
 お、いたいた。[r]
@@ -274,17 +265,17 @@
 魔物討伐の旅をしてるヒトたちがいるって聞いて来たんだよ。[r]
 僕も、君たちの仲間に加わりたいんだ。[p]
 
-#guardianA
-まあ、ちょうどいいタイミングですわ。[r]
+#supporterA
+あら、ちょうどいいタイミングね。[r]
 私達も、これからもっと戦力が必要だと[r]
-お話ししていたところですのよ。[p]
+話していたところなのよ。[p]
 
 #supporterB
 おお、それはよかった。[r]
 それに、戦力というなら僕は当てがあるよ。[p]
 
-#guardianA
-本当ですの！？[p]
+#supporterA
+まあ、本当？[p]
 
 #supporterB
 うん。なんでもすっごく強い魔法使いが、[r]
@@ -294,9 +285,9 @@
 噂で聞くには、1人で魔物たちを無双するんだってさ。[r]
 一撃で魔物たちを木っ端みじんにできるらしいよ。[p]
 
-#guardianA
-それは、ぜひともお力をお借りしたいところですわね。[r]
-{name.fighterA}、どうなさいます？[p]
+#supporterA
+それは、ぜひとも力をお借りしたいところね。[r]
+{name.fighterA}、どうしましょうか？[p]
 
 [chara_hide name="supporterB" time=0.5]
 [chara_show name="fighterA" x=-5 time=0.5]
@@ -305,7 +296,7 @@
 そうね……{name.supporterB}のいう魔法使いは気になるわ。[r]
 噂が本当なら、洞窟の突破も夢じゃないものね。[p]
 
-[chara_hide name="guardianA" time=0.5]
+[chara_hide name="supporterA" time=0.5]
 [chara_show name="supporterB" x=5 time=0.5]
 
 #supporterB

@@ -1,26 +1,229 @@
-[bg_show name="background"]
+[bg_show name="depthCastle"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="fighterA" x=-5]
+[chara_show name="enemyWoman" x=5]
 
-#
-女性は元々男尊女卑の世界を断ち切りたく、[r]
-試行錯誤していたとき魔界の存在を知る。[r]
-魔界で女性はウロボロスの存在を知り、協力を求める。[p]
+#fighterA
+ここは……？[p]
 
-魔界を支配しようとたくらんでいたウロボロスは、[r]
-人間の科学力と自身の支配力を結合させ、[r]
-魔界と人間界を征服するため女性を利用していたのだ。[p]
+#enemyWoman
+ここは、魔物たちの生まれてくる場所。[r]
+そしてあれは、{name.lastBoss}様の寝床です。[p]
 
-その時女性は突然苦しみもがき、[r]
-バハムートのいけにえにささげられてしまう。[p]
+#fighterA
+{name.lastBoss}？[p]
+
+#enemyWoman
+{name.lastBoss}様は、全魔物の王たる存在。[r]
+圧倒的な力と崇高なご意志をもつお方。[r][l]
+惨めでちっぽけだった私に、尊い希望をお与えくださった。[p]
+
+#fighterA
+つまり、どういうことなの？[p]
+
+#enemyWoman
+あなたは今まで、世界に疑問を感じたことはないですか？[p]
+
+#fighterA
+世界に、疑問……？[p]
+
+#enemyWoman
+古来より当然のように続く、悪しき風潮の蔓延る世界を。[r]
+――男が、無条件に女を蹂躙する世界を。[p]
+
+#fighterA
+あなた、いったい何の話を……[p]
+
+#enemyWoman
+女は、女であるというだけで男より常に[r]
+低位にあることに満足しなければならない。[p]
+
+企業に、政治家に、国のトップに[r]
+女性が少ないのは、女性の力が劣るからなの？[p]
+
+#fighterA
+それは、[p]
+
+#enemyWoman
+いいえ、そんなはずはない。[r]
+だってそうなら、現代になって唐突に[r]
+社会に女性が増え始めたことの説明がつかないもの。[p]
+
+生物の進化が、そんな短期間に起こるはずないものね。[r][l]
+女性の力は、初めから男性に劣ってなんかない。[r]
+悪しき風習――男という姑息な邪魔者に阻まれているのよ。[p]
+
+世界を変えるには、力が必要だわ。[r]
+蔓延る悪を、一掃してしまうような力が。[p]
+
+#fighterA
+まさか、それで魔物たちを手引きして……[r]
+男のヒトだけを蝕む、あのウイルスを？[p]
+
+#enemyWoman
+そうですよ？[r][l]
+{name.lastBoss}様は、私の苦しみを[r]
+よく理解してくださりました。[p]
+
+ヒトの科学力を提供する代わりに、私に力を[r]
+与えるという約束を交わしてくださったのです。[p]
+
+おかげで、世界は理想の形に生まれ変わろうとしています。[r]
+あとは邪魔な男どもを間引くだけ。[p]
+
+あなたがたもまた、この世界の尊い女性……[r]
+私とともに、世界の救世主となりましょう。[p]
+
+#fighterA
+……お断りするわ。[p]
+
+#enemyWoman
+なんですって？[p]
+
+#fighterA
+そんな馬鹿げた計画の一端を担うだなんてごめんよ。[r][l]
+あなたのやろうとしていることは、ただ力に[r]
+物を言わせた利己的な支配に他ならないわ。[p]
+
+崇高な意志なのかどうかは知らないけれど、[r]
+なんの前振りもなくヒトの生活を脅かすような真似が[r]
+悪ではないと、あなたは言いきれるの？[p]
+
+#enemyWoman
+それは、必要悪です。[p]
+
+#fighterA
+……わからないわ。[r]
+あなたこそ、無条件にヒトを蹂躙している。[r][l]
+協力することなんて、到底できそうにないわ。[p]
+
+#enemyWoman
+どうして？[r]
+私は、あなたたちを思って言っているのに……[p]
+
+#{name.???}
+もう良い、{name.enemyWoman}。[p]
+
+#fighterA
+……っ！！[r]
+誰なの？[p]
+
+#enemyWoman
+{name.lastBoss}様！[p]
+
+[chara_hide name="fighterA" time=0.5]
+[wait time=0.5]
+
+[chara_hide name="enemyWoman" time=0.5]
+[chara_show name="enemyWoman" x=-5 time=0.5]
+
+#{name.lastBoss}
+{name.enemyWoman}、話し合いとやらはもう良いだろう。[r]
+さっさとその者どもを始末しろ。[p]
+
+#enemyWoman
+し、しかし、{name.lastBoss}様。[r]
+彼女たちは悪しきヒトではありません。[r]
+始末するのはあまりに、[p]
+
+#{name.lastBoss}
+五月蠅い、些末なことをくどくどと。[r][l]
+ヒトなどすべて同じだろう。[p]
+
+#enemyWoman
+{name.lastBoss}様……？[p]
+
+#{name.lastBoss}
+もう良い、我の思い通りにならないというなら。[r]
+せめて、我が糧となるが良い。[p]
+
+#enemyWoman
+え？[r][l]
+ぐ、あああああああ！！！[p]
+
+[chara_show name="fighterA" x=5 time=0.5]
+
+#fighterA
+{name.enemyWoman}！？[p]
+
+#enemyWoman
+い、いや、助けて！[r]
+どうして、{name.lastBoss}、さま……[p]
+
+[chara_hide name="enemyWoman" time=0.5]
+[wait time=0.5]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+そ、そんな、ひどい……！[p]
+
+#{name.lastBoss}
+我らの力を増強する術をもつというから[r]
+好きにさせていたが、所詮は弱きヒトの子よ。[r]
+いつかは我ら強者に滅ぼされる存在でしかない。[p]
+
+魔界の次は、人間界――最後には地球すべてを制する[r]
+我が糧となったのだからその肉体、無駄にはならん。[p]
+
+#witchA
+何言ってるの！？[r]
+ヒトの命をなんだと思って……！！[p]
+
+#{name.lastBoss}
+それがどうした、弱き者よ。[r]
+おまえたちもすぐに同じ末路を辿ろう！[p]
 
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="sea_magma" vol={se.number}]
+[wait time=2]
+[stopse storage="sea_magma"]
+[wait time=1]
+
+[playse storage="scream_of_a_monster1" vol={se.number}]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[wait time=3]
+
+#{name.lastBoss}
+{name.enemyWoman}は我の一部となり、[r]
+今後の我らの地球侵略に貢献するのだ。[r]
+悪い使い道ではあるまい。[p]
+
+[chara_show name="fighterA" x=-5 time=0.5]
+
+#fighterA
+許さない……おまえだけは、絶対に！！[p]
+
+#{name.lastBoss}
+世迷言を。[r]
+我が直々に、愚かなおまえたちを殲滅してやろう。[p]
+
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+来るよ、{name.fighterA}！[p]
+
+#fighterA
+望むところ……目に物見せてくれる！[p]
+
+#
+[cm]
+[hide tag="character" time=0.5]
+[wait time=0.5]
+
+[bg_hide name="depthCastle"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

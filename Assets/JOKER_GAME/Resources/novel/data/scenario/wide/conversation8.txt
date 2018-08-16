@@ -1,22 +1,153 @@
-[bg_show name="background"]
+[bg_show name="cave"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="supporterA" x=-5]
+[chara_show name="witchB" x=5]
+
+#supporterA
+はあ……聞いていた通り、険しい道のりだったわぁ。[r]
+この魔物の数と強さ、今までとは比べ物にならないわね。[p]
+
+#witchB
+ふむ、ここらの地域では随一じゃな。[r]
+聖水の力がなければ、こうして最奥に[r]
+たどり着くことすら難しかったじゃろうて。[p]
+
+#supporterA
+あら、あなたほどの魔法の使い手でも？[p]
+
+#witchB
+ほっほ。[r]
+おまえらは何かと余を過大評価しているようじゃが、[r]
+余はそれほどたいそうなヒトではない。[p]
+
+せいぜい噂だけがひとり歩きしたんじゃろうよ。[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="healerB" x=-5 time=0.5]
+
+#healerB
+そんなことない、先生はすばらしいヒト。[r][l]
+{name.healerB}と家族のことも、村のヒトたちのことも、[r]
+みんなみんな魔物から守ってくれた。[p]
+
+それから{name.healerB}が先生のおそばについてから、[r]
+先生が負けるところなんて一度も見たことない。[r]
+どんな大群でも、いつもひとりで倒してた。[p]
+
+#witchB
+ほほ、それはおまえの回復魔法に助けられてのことよ。[r]
+素養で言えば、{name.healerB}のほうに軍配が上がろう。[p]
+
+[chara_hide name="witchB" time=0.5]
+[chara_show name="supporterA" x=5 time=0.5]
+
+#supporterA
+まあ。[r]
+まだ幼いのに、とても優秀なのね。[p]
+
+#healerB
+……{name.healerB}は、先生の弟子だから。[r]
+いつか先生みたいになるために、毎日がんばってる。[p]
+
+#supporterA
+ふふ。[r]
+すてきね、そんなふうに目標にできるヒトがいて。[p]
+
+#healerB
+ん。[r][l]
+ねえ、ところであれ、なんだろう？[p]
+
+#supporterA
+え？　あら、何かしら。[r]
+ずいぶん大きな穴ね。[p]
+
+[chara_hide name="supporterA" time=0.5]
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+えぇ、なになにぃ？[r]
+うわっ。ほんとだ、なにこれ。[p]
+
+#healerB
+わからない。[r]
+なんだか、こわい。[p]
+
+#fighterB
+そぉ？　別に普通の穴でしょ。[r]
+どれどれぇ？[p]
+
+[chara_hide name="fighterB" time=0.5]
+
+#healerB
+あ、入っちゃった。[p]
+
+#fighterB
+んんー？[r]
+暗くてよく見えな……って、うぎゃああ！[r][l]
+ま、まものがァ！！[p]
+
+[chara_hide name="healerB" time=0.5]
+[chara_show name="healerA" x=-5 time=0.5]
+
+#healerA
+{name.fighterB}！？[p]
 
 #
-背景は洞窟。[r]
-最深部に到着すると不思議な穴を発見する。[r]
-モンスターはこの穴から出現していた。[p]
+[cm]
+[wait time=0.1]
 
-大量のモンスターと[r]
-人型のモンスター（エルフ）との戦闘開始。[p]
+[playse storage="knocking_out_three" vol={se.number}]
 
+[wait time=2]
+
+#healerA
+そ、そんな、{name.fighterB}！[r][l]
+い、いま助けますから！！[p]
+
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+ふー、焦ったぁ。[p]
+
+#healerA
+……って、え？[r]
+はっ。{name.fighterB}、ひどい血が……！[p]
+
+#fighterB
+んぇ？[r][l]
+ああこれ、あたいのじゃないよ。[r]
+あいつらの返り血だから、キャハハ！[p]
+
+#healerA
+な、なんだ……心配して損しました。[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="supporterB" x=5 time=0.5]
+
+#supporterB
+いや、そう安心してもいられないみたいだ。[r]
+まさか、この穴が魔物の元凶だったとはね。[r][l]
+ん？　あれは……[p]
+
+#healerA
+{name.supporterB}さん？[p]
+
+#supporterB
+いや、なんでもない。[r]
+とにかく、今は戦うしか生きる術がなさそうだ。[p]
+
+#healerA
+そ、そうですね。[r]
+いきましょうか！[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="cave"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

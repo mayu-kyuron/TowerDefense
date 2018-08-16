@@ -1,19 +1,96 @@
-[bg_show name="background"]
+[bg_show name="forest"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="fighterA" x=-5]
+[chara_show name="supporterB" x=5]
+
+#fighterA
+少し薄暗いけれど……海が近くてきれいなところね。[p]
+
+#supporterB
+確かにね。[r]
+こんなご時世じゃなければ、観光客でも来ていそうだ。[p]
+
+#fighterA
+ええ。[r]
+本来の目的があるとはいえ、[r]
+こうして世界を見て回るのはいいものね。[p]
+
+[chara_hide name="supporterB" time=0.5]
+[chara_show name="witchA" x=5 time=0.5]
+
+#witchA
+はあ、相変わらず{name.fighterA}は余裕だなあ。[r]
+あたしなんか、歩きすぎてもうクタクタだよ……[p]
+
+#fighterA
+あら、そう？　少し急ぎすぎたかしら。[r][l]
+早く、例の魔法使いの女性に追いつかなければと思って……[p]
+
+#witchA
+確かにそうなんだけどさ……[r]
+でもでも、ちょーっとだけ休憩もしたいかなあ。[p]
+
+#fighterA
+そうね、休むことも重要だわ。[r][l]
+ちょうどここは見晴らしもいいし、[r]
+少し腰を落ち着けていきましょうか。[p]
+
+#witchA
+やったー！[r]
+そうこなくっちゃね。[p]
 
 #
-背景は森。[r]
-女性を探していたところ、[r]
-モンスターに遭遇し戦闘になる。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1.5]
 
+[chara_show name="healerA" x=-5]
+[chara_show name="supporterB" x=5]
+
+#healerA
+凄腕の魔法使い……いったいどんな方なんでしょう？[r]
+もう、この近くにいるんでしょうか。[p]
+
+#supporterB
+うーん……[r]
+申し訳ないけど、僕も詳しいことは知らないんだよね。[r]
+実際に見たわけでもないし。[p]
+
+ただまあ、実力は確かだよ。[r]
+実際に魔物から助けてもらったヒトもけっこういたしね。[r]
+あと、弟子を連れてるとかなんとか言ってたな。[p]
+
+#healerA
+で、弟子ですか。すごいですね……[r]
+そんな方に、協力していただけるでしょうか？[p]
+
+#supporterB
+まあ、なんとかなるんじゃないかな。[r][l]
+こんなときだし、ヒト同士なるべく協力し合うべきさ。[r]
+話に聞く限り、向こうも少なからずそう考えてると思うよ。[p]
+
+#healerA
+そ、そうですよね。[r][l]
+……って、きゃああっ！！[p]
+
+#supporterB
+えっ、何！？[r]
+どうかしたかい……って、うわっ！[r]
+ま、魔物！？[p]
+
+と、とにかく、応戦しようか。[p]
+
+#healerA
+は、はい！[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="forest"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

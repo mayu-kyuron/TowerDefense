@@ -1,18 +1,81 @@
-[bg_show name="background"]
+[bg_show name="cave"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="healerA" x=-5]
+[chara_show name="fighterA" x=5]
+
+#healerA
+ううっ……[r]
+やっぱり洞窟の中って、薄暗くて不気味ですね。[r]
+今にも魔物が飛び出してきそう。[p]
+
+#fighterA
+そう？[r]
+でもほら、よく壁を見てみて。[p]
+
+#healerA
+え？[r]
+あれ、何か光ってる？[p]
+
+#fighterA
+宝石のように輝く石――パワーストーンといったかしら。[r]
+この洞窟の壁のそこかしこに散らばっているようね。[p]
+
+#healerA
+ほ、ほんとです！[r]
+すごい、とってもきれいですね。[p]
+
+#fighterA
+ええ。[r]
+魔物たちも、このパワーストーンに吸い寄せられたのかも。[p]
+
+#healerA
+ええっ！[r]
+ま、まさかこの石にそんな力が……[p]
+
+#fighterA
+ふふ、冗談よ。[p]
+
+#healerA
+えっ。[p]
+
+#fighterA
+あら、本気にした？[p]
+
+#healerA
+だ、だって……{name.fighterA}さんが、[r]
+そんな冗談を言うとは思わなくて。[p]
+
+#fighterA
+うふふ。[r]
+私も普通のヒトだもの、おどけたいときだってあるわ。[p]
+
+#healerA
+お、おどけたいときですか。[p]
+
+#fighterA
+……{name.healerA}、そっちを見て！[p]
+
+#healerA
+へ？[r]
+ま、またパワーストーン……って、魔物！？[p]
+
+#fighterA
+{name.healerA}、気をつけて！[p]
+
+さあ……いよいよね。[r][l]
+みんな、受けて立つわよ！[p]
+
+#healerA
+は、はい！[p]
 
 #
-背景は洞窟。[r]
-モンスターと遭遇し戦闘になる。[p]
-
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="cave"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

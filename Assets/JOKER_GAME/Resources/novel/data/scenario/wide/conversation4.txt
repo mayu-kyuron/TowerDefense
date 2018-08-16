@@ -2,32 +2,30 @@
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-;@jump target=*debug
-
 [chara_show name="supporterA" x=-5]
-[chara_show name="guardianA" x=5]
+[chara_show name="healerA" x=5]
 
 #supporterA
 あらあら……[r]
 遺跡といっても、本当に寂れてしまっているのね。[r]
 ほとんど野ざらしだわ。[p]
 
-#guardianA
-ええ、そのようですわね。[p]
+#healerA
+はい、そのようですね。[p]
 
 #supporterA
 {name.fighterB}は、どの辺りにいそうかしら？[p]
 
-#guardianA
+#healerA
 それが……たしか、あれを見たのは[r]
-この辺りだと思ったのですけれど。[p]
+この辺りだと思ったんですけど。[p]
 
 …………[l]あっ！[p]
 
-[chara_hide name="guardianA" time=0.5]
+[chara_hide name="healerA" time=0.5]
 
 #supporterA
-{name.guardianA}？[r]
+{name.healerA}？[r]
 あら、あの方は……[p]
 
 #
@@ -61,21 +59,21 @@
 [chara_hide name="fighterB" time=0.5]
 [wait time=1]
 [chara_show name="witchA" x=-5 time=0.5]
-[chara_show name="guardianA" x=5]
+[chara_show name="healerA" x=5]
 
 #witchA
 ……え、えぇぇ。[r]
-あ、あれが君たちの仲間の子なの？[p]
+あ、あれが君の仲間の子なの？[p]
 
-#guardianA
-え、ええ。[r]
-間違いないですわ。[p]
+#healerA
+は、はい。[r]
+間違いないです。[p]
 
 #witchA
 な、なんていうか……[r]
 どっちが魔物、て状態だねぇ。[p]
 
-#guardianA
+#healerA
 …………[p]
 
 #
@@ -152,11 +150,11 @@
 
 #fighterB
 へえ、そぉなんだ？[r]
-2人とも、なかなかやるじゃん。[p]
+なかなかやるじゃん。[p]
 
 {name.fighterA}っていったっけ？[r]
 あとその仲間のヒトたちも、[r]
-この子ら助けてくれてありがとぉ！[p]
+この子のこと助けてくれてありがとぉ！[p]
 
 #healerA
 はあ……そもそも、あなたがこんな無茶をしなければ。[r][l]

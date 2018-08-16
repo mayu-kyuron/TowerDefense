@@ -1,18 +1,124 @@
-[bg_show name="background"]
+[bg_show name="depthCastle"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="fighterA" x=-5]
+
+#fighterA
+見たか、私たちの力を！[r]
+おまえのような卑劣なものどもには負けない！！[p]
+
+#{name.lastBoss}
+ふん、見誤ったか……小賢しいヒトの娘よ。[r]
+魔界の住人のように、おとなしく我に屈せば良いものを。[p]
+
+[chara_show name="healerC" x=5]
+
+#healerC
+わたくしたちだって、諦めたわけではありません。[r]
+仲間とともに、こうして一矢報いる機会を待っていたのです。[p]
+
+{name.fighterA}さんたちとならできる。[r]
+もうあなたの思い通りにはさせません！[p]
+
+[chara_hide name="fighterA" time=0.5]
+[chara_show name="witchA" x=-5 time=0.5]
+
+#witchA
+そうだよ！[r]
+あんたなんか、あたしの魔法でぶっ飛ばしてやる。[r]
+地球は、あたしたちが取り戻す！[p]
+
+[chara_hide name="healerC" time=0.5]
+[chara_show name="supporterB" x=5 time=0.5]
+
+#supporterB
+ヒトの科学を――ヒトの思いを利用したおまえを、[r]
+僕たちがこれ以上生かしておくものか！[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="healerA" x=-5 time=0.5]
+
+#healerA
+ぐすっ……{name.enemyWoman}さんを、よくもあんな。[r][l]
+許さない、彼女の無念はわたしたちがこの手で晴らします！[p]
+
+[chara_hide name="supporterB" time=0.5]
+[chara_show name="fighterB" x=5 time=0.5]
+
+#fighterB
+{name.healerA}、手ェ貸すよ。[r]
+世界をつまんなくしたあいつなんか、[r]
+あたいがボッコボコにしてやるから。[p]
+
+おまえは地球狙ったことを後悔して、[r]
+無様に呻いてここで死んじゃえ！[p]
+
+[chara_hide name="healerA" time=0.5]
+[chara_show name="witchB" x=-5 time=0.5]
+
+#witchB
+ほほ、なんとも野蛮な言い回しよのう。[r]
+しかし今は、それを咎めるべくもない。[r][l]
+やつは相応の報いを受けねばならん！[p]
+
+[chara_hide name="fighterB" time=0.5]
+[chara_show name="healerB" x=5 time=0.5]
+
+#healerB
+村のヒトたち、魔物のせいでずっと苦しんでた。[r]
+{name.healerB}も……先生がいなかったら、[r]
+ここにいられなかったかもしれない。[p]
+
+もうあの日の{name.healerB}みたいに、[r]
+魔物たちに怯えて暮らす必要ない。[r][l]
+今ここで、あいつを倒して全部終わらせる！[p]
+
+[chara_hide name="witchB" time=0.5]
+[chara_show name="supporterA" x=-5 time=0.5]
+
+#supporterA
+ふふ……女子供と、侮ったわね。[r]
+私たちを野放しにしたこと、死に際で悔いるがいいわ！[p]
 
 #
-女性を利用し魔界と人間界を支配しようとしていた[r]
-ウロボロスに、主人公たちは最後の戦いを挑む。[p]
+[cm]
+[hide tag="character" time=0.5]
+[wait time=1]
 
+#{name.lastBoss}
+弱小者が、好き放題に宣うものよ。[r][l]
+癪に障るが止むを得ん、我の真の力を解放しよう。[p]
+
+魔族の覇者たる我との格の違いを、その身をもって知るが良い！[p]
+
+#
+[cm]
+[wait time=0.1]
+
+[playse storage="scream_of_a_monster1" vol={se.number}]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[anim name="depthCastle" time=0.1 scale=1.2]
+[anim name="depthCastle" time=0.1 scale=1]
+[wait time=3]
+
+[chara_show name="fighterA" x=-5]
+[chara_show name="witchA" x=5]
+
+#fighterA
+終わりにするわ。[r]
+この戦いに、すべてを込める！[p]
+
+#witchA
+行こう、{name.fighterA}！[p]
+
+#
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="depthCastle"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]

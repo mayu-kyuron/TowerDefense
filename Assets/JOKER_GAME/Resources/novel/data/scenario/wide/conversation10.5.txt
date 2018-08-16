@@ -1,19 +1,55 @@
-[bg_show name="background"]
+[bg_show name="insideCastle"]
 
 [playbgm storage="music" wait=false vol={bgm.number}]
 
-[chara_show name="fighterA" x=-5 y=-1]
-[chara_show name="supporterA" x=5 y=-1]
+[chara_show name="witchA" x=-5]
+[chara_show name="enemyWoman" x=5]
+
+#witchA
+や、やった……どう！？[r]
+これがあたしたちの力だよ！[p]
+
+#{name.???}
+ええ……見事なものです。[r][l]
+ただのはったりではなかったのですね。[r]
+お見逸れいたしました。[p]
+
+#witchA
+う、やけに素直だな。[p]
+
+#{name.???}
+クス、先ほどの無礼はお詫びします。[r][l]
+私の名は{name.enemyWoman}。あなたがたの味方です。[p]
+
+#witchA
+み、味方って……さすがに信じられないよ。[p]
+
+#enemyWoman
+手荒な出迎えをしてしまったので、無理もありません。[r][l]
+では、きちんと訳を説明しますので、[r]
+今から一緒に来ていただけませんか？[p]
+
+#witchA
+えぇ。[r]
+ど、どうしよう？[p]
+
+[chara_hide name="witchA" time=0.5]
+[chara_show name="fighterA" x=-5 time=0.5]
+
+#fighterA
+いいわ、行きましょう。[r]
+話し合うことは重要だわ。[p]
+
+#enemyWoman
+ああ、どうもありがとうございます。[r][l]
+さあみなさん、こちらへどうぞ。[p]
 
 #
-戦闘終了後、女性はさっきとは[r]
-別人のように穏やかであった。[r]
-わけを説明するという女性についていくことに。[p]
-
+[cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
-[bg_hide name="background"]
+[bg_hide name="insideCastle"]
 
 [stopbgm storage="music" wait=false]
 [wait time=1]
