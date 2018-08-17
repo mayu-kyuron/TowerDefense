@@ -15,7 +15,8 @@ public class CharaStatusConst {
 	// キャラクターのタグ名
 	// ※キャラクターを増やすごとに追加
 	public const string FighterATag = "Fighter1";
-	public const string WitchATag = "Witch1";
+    public const string FighterBTag = "Fighter2";
+    public const string WitchATag = "Witch1";
 	public const string WitchBTag = "Witch2";
 	public const string HealerATag = "Healer1";
 	public const string HealerBTag = "Healer2";
@@ -38,7 +39,8 @@ public class CharaStatusConst {
 	// 種類ごとの各キャラクター名リスト
 	// ※キャラクターを増やすごとに追加
 	static readonly List<string> fighterNameList = new List<string> { "FighterA" };
-	static readonly List<string> simpleWitchNameList = new List<string> { "WitchA" };
+    static readonly List<string> fighterBNameList = new List<string> { "FighterB" };
+    static readonly List<string> simpleWitchNameList = new List<string> { "WitchA" };
 	static readonly List<string> broadWitchNameList = new List<string> { "WitchB" };
 	static readonly List<string> simpleHealerNameList = new List<string> { "HealerA" };
 	static readonly List<string> totalHealerNameList = new List<string> { "HealerB" };
@@ -50,6 +52,7 @@ public class CharaStatusConst {
 	// ※キャラクターを増やすごとに追加
 	readonly List<string> charaTagList = new List<string> {
 		FighterATag,
+        FighterBTag,
 		WitchATag,
 		WitchBTag,
 		HealerATag,
@@ -67,7 +70,8 @@ public class CharaStatusConst {
 		= new Dictionary<string, Dictionary<string, float>>() {
 
 		{ FighterATag, fighterAStatusMap },
-		{ WitchATag, witchAStatusMap },
+        { FighterBTag, fighterBStatusMap },
+        { WitchATag, witchAStatusMap },
 		{ WitchBTag, witchBStatusMap },
 		{ HealerATag, healerAStatusMap },
 		{ HealerBTag, healerBStatusMap },
@@ -131,10 +135,21 @@ public class CharaStatusConst {
 		{ EnergyNeededKey, 10 }
 	};
 
-	/// <summary>
-	/// ウィッチAのステータス
+    /// <summary>
+	/// ファイターBのステータス
 	/// </summary>
-	static readonly Dictionary<string, float> witchAStatusMap = new Dictionary<string, float>() {
+	static readonly Dictionary<string, float> fighterBStatusMap = new Dictionary<string, float>() {
+        { HpKey, 100 },
+        { PowerKey, 20 },
+        { SpeedToMoveKey, 0.05f },
+        { TimeToAttackKey, 2.0f },
+        { EnergyNeededKey, 10 }
+    };
+
+    /// <summary>
+    /// ウィッチAのステータス
+    /// </summary>
+    static readonly Dictionary<string, float> witchAStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 10 },
 		{ PowerKey, 10.0f },
 		{ SpeedToMoveKey, 0.025f },

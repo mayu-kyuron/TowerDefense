@@ -9,9 +9,10 @@ public class BroadWitchAttackController : AttackerController {
 
     private Dictionary<string, float> monsterHpMap = new Dictionary<string, float>();
 	private BroadWitchController broadWitchController;
+    private MonsterController monsterController;
 
-	// 攻撃対象モンスターリスト
-	private List<string> attackedMonsterList = new List<string>();
+    // 攻撃対象モンスターリスト
+    private List<string> attackedMonsterList = new List<string>();
 
 	protected override void Awake() {
 
@@ -51,8 +52,10 @@ public class BroadWitchAttackController : AttackerController {
 
 			if (this.attackedMonsterList.Contains(monsterName)) {
 				this.monsterHpMap[monsterName] -= this.power;
+                monsterController = GameObject.Find(monsterName).GetComponent<MonsterController>();
+                this.monsterController.DisplayDamageUI(this.power);
 
-				Debug.Log(String.Format("{0} - {1}.hp = {2}", this.charaObjectName, monsterName, this.monsterHpMap[monsterName]));
+                Debug.Log(String.Format("{0} - {1}.hp = {2}", this.charaObjectName, monsterName, this.monsterHpMap[monsterName]));
 			}
 		}
 
