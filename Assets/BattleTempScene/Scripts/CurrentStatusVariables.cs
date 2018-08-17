@@ -33,15 +33,17 @@ public class CurrentStatusVariables : MonoBehaviour {
 		this.currentCharaHpMap = currentCharaHpMap;
 	}
 
-	/// <summary>
-	/// 戦闘中キャラクターマップに自分のHPを登録する。
-	/// すでに同キャラクター名で登録されていた場合は何もしない。
-	/// </summary>
-	/// <param name="name">ゲームオブジェクト名</param>
-	/// <param name="hp">HP</param>
-	public void AddCharaHpToMap(string name, float hp) {
-		if (!this.currentCharaHpMap.ContainsKey(name))  this.currentCharaHpMap.Add(name, hp);
-	}
+    /// <summary>
+    /// 戦闘中キャラクターマップに自分のHPを登録する。
+    /// すでに同キャラクター名で登録されていた場合は何もしない。
+    /// </summary>
+    /// <param name="name">ゲームオブジェクト名</param>
+    /// <param name="hp">HP</param>
+    public void AddCharaHpToMap(string name, float hp)
+    {
+        Debug.Log(name + hp);
+        if (!this.currentCharaHpMap.ContainsKey(name)) this.currentCharaHpMap.Add(name, hp);
+    }
 
 	/// <summary>
 	/// 戦闘中キャラクターマップの自分のHPを更新する。
@@ -83,6 +85,8 @@ public class CurrentStatusVariables : MonoBehaviour {
 	/// <param name="hp">HP</param>
 	public void AddMonsterHpToMap(string name, float hp) {
 		if(!this.currentMonsterHpMap.ContainsKey(name)) this.currentMonsterHpMap.Add(name, hp);
+        //foreach (KeyValuePair<string, float> a in CurrentMonsterHpMap)
+            //Debug.Log("登録後の値"+a.Key + a.Value);
 	}
 
 	/// <summary>

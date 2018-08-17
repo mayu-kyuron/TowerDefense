@@ -21,6 +21,10 @@ public class BattleTempGenerator : MonoBehaviour {
 	public GameObject slimePre;
 	public GameObject gaitherPre;
 	public GameObject summonBtnPrefab;
+    public GameObject variables;
+
+    //ステージ番号
+    private double stageNum = 0;
 
 	private Canvas canvas;
 	private CurrentStatusVariables currentStatusVariables;
@@ -36,8 +40,14 @@ public class BattleTempGenerator : MonoBehaviour {
 		this.canvas = GameObject.FindObjectOfType<Canvas>();
 		this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
 
-		// 仮にプレイヤー選択キャラを設定
-		var charaNumList = new List<int>() { 1, 11, 5, 6, 12 };
+        //ステージ番号の取得
+        stageNum = this.variables.GetComponent<Variables>().StageNum;
+
+        //ステージの詳細を取得
+
+
+        // 仮にプレイヤー選択キャラを設定
+        var charaNumList = new List<int>() { 1, 11, 5, 6, 12 };
 		this.charaNoMap = new Dictionary<int, int> {
 			{ charaNumList[0], 0 },
 			{ charaNumList[1], 0 },
@@ -154,9 +164,9 @@ public class BattleTempGenerator : MonoBehaviour {
 	/// 召喚ボタンを設定する。
 	/// </summary>
 	private void SetSummonButtons() {
-		float xZahyouLeft = 0;
-		float xZayouMargin = 50;
-		float yZahyou = -250;
+		float xZahyouLeft = -240;
+		float xZayouMargin = 120;
+		float yZahyou = -180;
 
 		for (int i = 0; i < 5; i++) {
 			GameObject summonBtnInstance = Instantiate(this.summonBtnPrefab) as GameObject;

@@ -103,13 +103,13 @@ public class MapGenerator : MonoBehaviour {
             if (stageNum == 1)
             {
                 GameObject bonfireBtnIns1 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns1.transform.position = new Vector3(-463, -233, 0);
+                bonfireBtnIns1.transform.position = new Vector3(-339, -171, 0);
                 bonfireBtnIns1.transform.SetParent(this.canvas.transform, false);
             }
             else if(stageNum == 2)
             {
                 GameObject bonfireBtnIns2 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns2.transform.position = new Vector3(-260.4f, -145.6f, 0);
+                bonfireBtnIns2.transform.position = new Vector3(-242.5f, -128, 0);
                 bonfireBtnIns2.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag1();
@@ -117,7 +117,7 @@ public class MapGenerator : MonoBehaviour {
             else if (stageNum == 3)
             {
                 GameObject bonfireBtnIns3 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns3.transform.position = new Vector3(-133, 0, 0);
+                bonfireBtnIns3.transform.position = new Vector3(-177, -50, 0);
                 bonfireBtnIns3.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag1();
@@ -126,7 +126,7 @@ public class MapGenerator : MonoBehaviour {
             else if (stageNum == 4)
             {
                 GameObject bonfireBtnIns4 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns4.transform.position = new Vector3(-289.3f, 29, 0);
+                bonfireBtnIns4.transform.position = new Vector3(-253, 21.5f, 0);
                 bonfireBtnIns4.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag1();
@@ -136,7 +136,7 @@ public class MapGenerator : MonoBehaviour {
             else if (stageNum == 5)
             {
                 GameObject bonfireBtnIns5 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns5.transform.position = new Vector3(29, 145.6f, 0);
+                bonfireBtnIns5.transform.position = new Vector3(59.7f, 111.6f, 0);
                 bonfireBtnIns5.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag1();
@@ -147,7 +147,7 @@ public class MapGenerator : MonoBehaviour {
             else if (stageNum == 6)
             {
                 GameObject bonfireBtnIns6 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns6.transform.position = new Vector3(260.4f, -26.2f, 0);
+                bonfireBtnIns6.transform.position = new Vector3(251, 21.5f, 0);
                 bonfireBtnIns6.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag1();
@@ -159,7 +159,7 @@ public class MapGenerator : MonoBehaviour {
             else if (stageNum == 7)
             {
                 GameObject bonfireBtnIns7 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns7.transform.position = new Vector3(231.5f, -145.6f, 0);
+                bonfireBtnIns7.transform.position = new Vector3(208, -154, 0);
                 bonfireBtnIns7.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag1();
@@ -172,7 +172,7 @@ public class MapGenerator : MonoBehaviour {
             else if (stageNum == 8)
             {
                 GameObject bonfireBtnIns8 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns8.transform.position = new Vector3(-34.7f, -203.9f, 0);
+                bonfireBtnIns8.transform.position = new Vector3(-21.5f, -154, 0);
                 bonfireBtnIns8.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag1();
@@ -193,13 +193,13 @@ public class MapGenerator : MonoBehaviour {
             if (stageNum == 9)
             {
                 GameObject bonfireBtnIns9 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns9.transform.position = new Vector3(150, -133.9f, 0);
+                bonfireBtnIns9.transform.position = new Vector3(87, -85, 0);
                 bonfireBtnIns9.transform.SetParent(this.canvas.transform, false);
             }
             else if (stageNum == 10)
             {
                 GameObject bonfireBtnIns10 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns10.transform.position = new Vector3(-50, -63.9f, 0);
+                bonfireBtnIns10.transform.position = new Vector3(-139, -52, 0);
                 bonfireBtnIns10.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag9();
@@ -207,7 +207,7 @@ public class MapGenerator : MonoBehaviour {
             else if (stageNum == 11)
             {
                 GameObject bonfireBtnIns11 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns11.transform.position = new Vector3(-460, 7.9f, 0);
+                bonfireBtnIns11.transform.position = new Vector3(-273, 10, 0);
                 bonfireBtnIns11.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag9();
@@ -216,7 +216,7 @@ public class MapGenerator : MonoBehaviour {
             else if (stageNum == 12)
             {
                 GameObject bonfireBtnIns12 = Instantiate(this.bonfireBtnPrefab) as GameObject;
-                bonfireBtnIns12.transform.position = new Vector3(-210, 142.9f, 0);
+                bonfireBtnIns12.transform.position = new Vector3(-161, 87, 0);
                 bonfireBtnIns12.transform.SetParent(this.canvas.transform, false);
 
                 InstantiateFlag9();
@@ -229,11 +229,11 @@ public class MapGenerator : MonoBehaviour {
         mapInstance.transform.position = new Vector3(0, 0, 0);
 
         GameObject statusBtnInstance = Instantiate(this.statusBtnPrefab) as GameObject;
-        statusBtnInstance.transform.position = new Vector3(450, -200, 0);
+        statusBtnInstance.transform.position = new Vector3(-324, 187, 0);
         statusBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject settingBtnInstance = Instantiate(this.settingBtnPrefab) as GameObject;
-        settingBtnInstance.transform.position = new Vector3(450, -260, 0);
+        settingBtnInstance.transform.position = new Vector3(-192, 187, 0);
         settingBtnInstance.transform.SetParent(this.canvas.transform, false);
     }
 	
@@ -294,77 +294,77 @@ public class MapGenerator : MonoBehaviour {
     private void InstantiateFlag1()
     {
         GameObject flagBtnIns1 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns1.transform.position = new Vector3(-463, -233, 0);
+        flagBtnIns1.transform.position = new Vector3(-339, -171, 0);
         flagBtnIns1.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag2()
     {
         GameObject flagBtnIns2 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns2.transform.position = new Vector3(-260.4f, -145.6f, 0);
+        flagBtnIns2.transform.position = new Vector3(-242.5f, -128, 0);
         flagBtnIns2.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag3()
     {
         GameObject flagBtnIns3 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns3.transform.position = new Vector3(-133, 0, 0);
+        flagBtnIns3.transform.position = new Vector3(-177, -50, 0);
         flagBtnIns3.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag4()
     {
         GameObject flagBtnIns4 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns4.transform.position = new Vector3(-289.3f, 29, 0);
+        flagBtnIns4.transform.position = new Vector3(-253, 21.5f, 0);
         flagBtnIns4.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag5()
     {
         GameObject flagBtnIns5 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns5.transform.position = new Vector3(29, 145.6f, 0);
+        flagBtnIns5.transform.position = new Vector3(59.7f, 111.6f, 0);
         flagBtnIns5.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag6()
     {
         GameObject flagBtnIns6 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns6.transform.position = new Vector3(260.4f, -26.2f, 0);
+        flagBtnIns6.transform.position = new Vector3(251, 21.5f, 0);
         flagBtnIns6.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag7()
     {
         GameObject flagBtnIns7 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns7.transform.position = new Vector3(231.5f, -145.6f, 0);
+        flagBtnIns7.transform.position = new Vector3(208, -154, 0);
         flagBtnIns7.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag8()
     {
         GameObject flagBtnIns8 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns8.transform.position = new Vector3(-34.7f, -203.9f, 0);
+        flagBtnIns8.transform.position = new Vector3(-21.5f, -154, 0);
         flagBtnIns8.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag9()
     {
         GameObject flagBtnIns9 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns9.transform.position = new Vector3(150, -133.9f, 0);
+        flagBtnIns9.transform.position = new Vector3(87, -85, 0);
         flagBtnIns9.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag10()
     {
         GameObject flagBtnIns10 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns10.transform.position = new Vector3(-50, -63.9f, 0);
+        flagBtnIns10.transform.position = new Vector3(-139, -52, 0);
         flagBtnIns10.transform.SetParent(this.canvas.transform, false);
     }
 
     private void InstantiateFlag11()
     {
         GameObject flagBtnIns11 = Instantiate(this.flagBtnPrefab) as GameObject;
-        flagBtnIns11.transform.position = new Vector3(-460, 7.9f, 0);
+        flagBtnIns11.transform.position = new Vector3(-273, 10, 0);
         flagBtnIns11.transform.SetParent(this.canvas.transform, false);
     }
 }
