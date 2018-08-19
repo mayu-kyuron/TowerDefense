@@ -1,6 +1,8 @@
-[bg_show name="cave"]
+;@jump target = *l
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="cave2" wait=false vol={bgm.number}]
+
+[bg_show name="cave"]
 
 [chara_show name="healerA" x=-5]
 [chara_show name="fighterA" x=5]
@@ -59,7 +61,12 @@
 
 #healerA
 へ？[r]
+
+[stopbgm storage="cave2" wait=false]
+
 ま、またパワーストーン……って、魔物！？[p]
+
+[playbgm storage="enemy" wait=false vol={bgm.number}]
 
 #fighterA
 {name.healerA}、気をつけて！[p]
@@ -77,8 +84,12 @@
 
 [bg_hide name="cave"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="enemy" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*l
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

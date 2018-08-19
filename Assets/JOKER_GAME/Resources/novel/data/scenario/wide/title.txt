@@ -1,6 +1,7 @@
 
 *title
 ;タイトル画面
+@call file=wide/libs/utils
 [bg_new name="background" layer="background" storage="title"]
 [bg_show name="background"]
 

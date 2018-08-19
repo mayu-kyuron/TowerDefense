@@ -1,6 +1,8 @@
+;@jump target = *t
+
 [bg_show name="depthCastle"]
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="FlashBack" wait=false vol={bgm.number}]
 
 [chara_show name="fighterA" x=-5]
 
@@ -11,6 +13,8 @@
 #{name.lastBoss}
 ふん、見誤ったか……小賢しいヒトの娘よ。[r]
 魔界の住人のように、おとなしく我に屈せば良いものを。[p]
+
+[wait time = 1]
 
 [chara_show name="healerC" x=5]
 
@@ -85,6 +89,9 @@
 [cm]
 [hide tag="character" time=0.5]
 [wait time=1]
+[stopbgm storage="FlashBack" wait=false]
+
+[wait time = 2.5]
 
 #{name.lastBoss}
 弱小者が、好き放題に宣うものよ。[r][l]
@@ -101,8 +108,11 @@
 [anim name="depthCastle" time=0.1 scale=1]
 [anim name="depthCastle" time=0.1 scale=1.2]
 [anim name="depthCastle" time=0.1 scale=1]
-[wait time=3]
+[wait time=2]
 
+[playbgm storage="boss" wait=false vol={bgm.number}]
+
+[wait time = 2]
 [chara_show name="fighterA" x=-5]
 [chara_show name="witchA" x=5]
 
@@ -120,8 +130,12 @@
 
 [bg_hide name="depthCastle"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="boss" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*t
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

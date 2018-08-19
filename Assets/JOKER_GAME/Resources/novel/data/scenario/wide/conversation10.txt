@@ -1,6 +1,8 @@
-[bg_show name="insideCastle"]
+;@jump target = *q
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="storage" wait=false vol={bgm.number}]
+
+[bg_show name="insideCastle"]
 
 [chara_show name="supporterB" x=-5]
 [chara_show name="healerC" x=5]
@@ -46,6 +48,9 @@
 奥に備えてあるもの……[l]！！[r][l]
 あ、あれは……！[p]
 
+[stopbgm storage="storage" wait=false]
+[wait time = 0.5]
+
 [chara_hide name="supporterB" time=0.5]
 
 #healerC
@@ -71,6 +76,9 @@
 
 #healerC
 え、どうして……？[p]
+
+[playbgm storage="scare" wait=false vol={bgm.number}]
+[wait time = 0.5]
 
 #supporterB
 これは、人間界ではめずらしくない電子機器だよ。[r]
@@ -127,8 +135,14 @@
 #{name.???}
 それは困ります。[p]
 
+[stopbgm storage="scare" wait=false]
+[wait time = 0.5]
+
 #witchB
 む……？[p]
+
+[playbgm storage="storage" wait=false vol={bgm.number}]
+[wait time = 2]
 
 [chara_show name="enemyWoman" x=5 time=0.5]
 
@@ -197,8 +211,12 @@
 
 [bg_hide name="insideCastle"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="storage" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*q
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

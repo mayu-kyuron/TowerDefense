@@ -45,6 +45,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.fighterASprite;
         this.explanationPrefab.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.FighterAExp;
         this.statusPrefab.transform.Find("Text").GetComponent<Text>().text = StatusContents.FighterAStatus;
+        this.statusPrefab.transform.Find("Text2").GetComponent<Text>().text = StatusContents.FighterAStatus2;
 
         if (charaNum == 1)
         {
@@ -71,6 +72,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.fighterBSprite;
         this.explanationPrefab.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.FighterBExp;
         this.statusPrefab.transform.Find("Text").GetComponent<Text>().text = StatusContents.FighterBStatus;
+        this.statusPrefab.transform.Find("Text2").GetComponent<Text>().text = StatusContents.FighterBStatus2;
 
         if (charaNum == 2)
         {
@@ -106,6 +108,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.witchASprite;
         this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.WitchAExp;
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.WitchAStatus;
+        this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.WitchAStatus2;
 
         if (charaNum == 1)
         {
@@ -132,6 +135,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.witchBSprite;
         this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.WitchBExp;
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.WitchBStatus;
+        this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.WitchBStatus2;
 
         if (charaNum == 2)
         {
@@ -154,6 +158,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.healerASprite;
         this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.HealerAExp;
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.HealerAStatus;
+        this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.HealerAStatus2;
 
         if (charaNum == 1)
         {
@@ -180,6 +185,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.healerBSprite;
         this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.HealerBExp;
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.HealerBStatus;
+        this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.HealerBStatus2;
 
         if (charaNum == 2)
         {
@@ -201,6 +207,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.healerCSprite;
         this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.HealerCExp;
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.HealerCStatus;
+        this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.HealerCStatus2;
         this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText3;
     }
 
@@ -263,6 +270,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.supporterASprite;
         this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.SupporterAExp;
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.SupporterAStatus;
+        this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.SupporterAStatus2;
 
         if (charaNum == 1)
         {
@@ -289,6 +297,7 @@ public class CharacterSetter : MonoBehaviour {
         this.charaPrefab.GetComponent<Image>().sprite = this.supporterBSprite;
         this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.SupporterBExp;
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.SupporterBStatus;
+        this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.SupporterBStatus2;
 
         if (charaNum == 2)
         {

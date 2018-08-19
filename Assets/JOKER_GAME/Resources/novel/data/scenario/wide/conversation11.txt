@@ -1,6 +1,8 @@
-[bg_show name="depthCastle"]
+;@jump target = *s
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="sad" wait=false vol={bgm.number}]
+
+[bg_show name="depthCastle"]
 
 [chara_show name="fighterA" x=-5]
 [chara_show name="enemyWoman" x=5]
@@ -23,8 +25,14 @@
 #fighterA
 つまり、どういうことなの？[p]
 
+[stopbgm storage="sad" wait=false]
+[wait time = 2]
+
 #enemyWoman
 あなたは今まで、世界に疑問を感じたことはないですか？[p]
+
+[playbgm storage="scare" wait=false vol={bgm.number}]
+[wait time = 2.5]
 
 #fighterA
 世界に、疑問……？[p]
@@ -76,11 +84,17 @@
 あなたがたもまた、この世界の尊い女性……[r]
 私とともに、世界の救世主となりましょう。[p]
 
+[stopbgm storage="scare" wait=false]
+[wait time = 2]
+
 #fighterA
 ……お断りするわ。[p]
 
 #enemyWoman
 なんですって？[p]
+
+[playbgm storage="dark" wait=false vol={bgm.number}]
+[wait time = 0.5]
 
 #fighterA
 そんな馬鹿げた計画の一端を担うだなんてごめんよ。[r][l]
@@ -103,6 +117,9 @@
 どうして？[r]
 私は、あなたたちを思って言っているのに……[p]
 
+[stopbgm storage="dark" wait=false]
+[wait time = 1]
+
 #{name.???}
 もう良い、{name.enemyWoman}。[p]
 
@@ -112,6 +129,9 @@
 
 #enemyWoman
 {name.lastBoss}様！[p]
+
+[playbgm storage="last" wait=false vol={bgm.number}]
+[wait time = 0.5]
 
 [chara_hide name="fighterA" time=0.5]
 [wait time=0.5]
@@ -225,8 +245,12 @@
 
 [bg_hide name="depthCastle"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="last" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*s
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

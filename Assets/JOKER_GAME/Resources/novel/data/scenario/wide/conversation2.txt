@@ -1,6 +1,8 @@
-[bg_show name="wasteLand"]
+;@jump target = *c
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="wildPlace" wait=false vol={bgm.number}]
+
+[bg_show name="wasteLand"]
 
 [chara_show name="supporterA" x=-5]
 [chara_show name="witchA" x=5]
@@ -50,12 +52,17 @@
 
 あれは……[p]
 
+[stopbgm storage="wildPlace" wait=false]
+
 #
 [cm]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 [bg_hide name="wasteLand"]
 [wait time=1]
+
+[playbgm storage="enemy2" wait=false vol={bgm.number}]
+
 [bg_show name="wasteLand"]
 [chara_show name="fighterA" x=-5]
 
@@ -94,8 +101,12 @@
 
 [bg_hide name="wasteLand"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="enemy2" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*c
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

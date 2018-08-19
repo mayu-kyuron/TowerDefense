@@ -1,6 +1,8 @@
-[bg_show name="forest"]
+;@jump target = *j
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="forest" wait=false vol={bgm.number}]
+
+[bg_show name="forest"]
 
 [chara_show name="healerA" x=-5]
 
@@ -15,6 +17,7 @@
 #healerA
 えっ、いやあっ！！[p]
 
+[stopbgm storage="forest" wait=false]
 [hide tag="character" time=0.5]
 [wait time=0.5]
 
@@ -38,6 +41,7 @@
 #{name.???}
 これ、おまえたち。[p]
 
+[playbgm storage="witch" wait=false vol={bgm.number}]
 [chara_show name="witchB" x=5]
 
 こんなところで何をしておる？[r]
@@ -195,8 +199,11 @@
 [hide tag="character" time=0.5]
 [wait time=0.5]
 [bg_hide name="forest"]
+[stopbgm storage="witch" wait=false]
+
 [wait time=2]
 
+[playbgm storage="water" wait=false vol={bgm.number}]
 [bg_show name="grassLand"]
 [wait time=1]
 [chara_show name="healerB" x=-5]
@@ -228,7 +235,9 @@
 
 #
 [cm]
-[wait time=0.1]
+[stopbgm storage="water" wait=false]
+
+[wait time = 1]
 
 [playse storage="mobile_suit2" vol={se.number} loop=true]
 [wait time=2]
@@ -267,7 +276,11 @@
 やつの試練を突破せずには、目的は果たせまいて。[p]
 
 #fighterB
-…………[l]アッハハハハハハハ！！！[r]
+…………[l]
+
+[playbgm storage="enemy2" wait=false vol={bgm.number}]
+
+アッハハハハハハハ！！！[r]
 いいねいいね、すっごい嬲りがいありそォッ！[p]
 
 #witchB
@@ -281,8 +294,12 @@
 
 [bg_hide name="grassLand"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="enemy2" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*j
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

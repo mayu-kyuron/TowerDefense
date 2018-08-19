@@ -1,6 +1,8 @@
-[bg_show name="wasteLand"]
+;@jump target = *h
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="cave" wait=false vol={bgm.number}]
+
+[bg_show name="wasteLand"]
 
 [chara_show name="healerA" x=-5]
 [chara_show name="fighterA" x=5]
@@ -148,6 +150,12 @@
 [hide tag="character" time=0.5]
 [wait time=0.5]
 [bg_hide name="wasteLand"]
+[stopbgm storage="cave" wait=false]
+
+[wait time = 1]
+
+[playbgm storage="base" wait=false vol={bgm.number}]
+
 [wait time=2]
 
 [bg_show name="inboard"]
@@ -247,16 +255,22 @@
 #
 [cm]
 [hide tag="character" time=0.5]
-[wait time=1]
-[chara_show name="supporterB" x=-5 time=0.5]
+[stopbgm storage="base" wait=false]
 
-#supporterB
+[wait time=1]
+
+#?
 おーい、誰かいるかーい？[p]
 
 [chara_show name="supporterA" x=5 time=0.5]
 
 #supporterA
 どなたかしら？[p]
+
+[playbgm storage="base" wait=false vol={bgm.number}]
+[chara_show name="supporterB" x=-5 time=0.5]
+
+[wait time = 1]
 
 #supporterB
 お、いたいた。[r]
@@ -314,8 +328,12 @@
 
 [bg_hide name="inboard"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="base" wait=false]
 [wait time=1]
+
+[autosave]
+
+;*h
 
 ;戦闘へ
 [scene file="Map"]

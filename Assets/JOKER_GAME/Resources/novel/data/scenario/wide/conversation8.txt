@@ -1,6 +1,8 @@
-[bg_show name="cave"]
+@jump target = *o
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="cave2" wait=false vol={bgm.number}]
+
+[bg_show name="cave"]
 
 [chara_show name="supporterA" x=-5]
 [chara_show name="witchB" x=5]
@@ -86,9 +88,16 @@
 #fighterB
 んんー？[r]
 暗くてよく見えな……って、うぎゃああ！[r][l]
+
+[stopbgm storage="cave2" wait=false]
+
 ま、まものがァ！！[p]
 
+[playbgm storage="fight" wait=false vol={bgm.number}]
+[wait time=1.5]
+
 [chara_hide name="healerB" time=0.5]
+
 [chara_show name="healerA" x=-5 time=0.5]
 
 #healerA
@@ -105,6 +114,12 @@
 #healerA
 そ、そんな、{name.fighterB}！[r][l]
 い、いま助けますから！！[p]
+
+[stopbgm storage="fight" wait=false]
+[wait time =1]
+
+[playbgm storage="cave2" wait=false vol={bgm.number}]
+[wait time=1.5]
 
 [chara_show name="fighterB" x=5 time=0.5]
 
@@ -152,5 +167,9 @@
 [stopbgm storage="music" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*o
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

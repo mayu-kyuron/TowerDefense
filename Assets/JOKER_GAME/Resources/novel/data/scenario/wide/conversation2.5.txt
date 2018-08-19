@@ -1,6 +1,8 @@
-[bg_show name="wasteLand"]
+;@jump target = *d
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="wildPlace" wait=false vol={bgm.number}]
+
+[bg_show name="wasteLand"]
 
 [chara_show name="healerA" x=-5]
 [chara_show name="fighterA" x=5]
@@ -64,8 +66,12 @@
 
 [bg_hide name="wasteLand"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="wildPlace" wait=false]
 [wait time=1]
+
+[autosave]
+
+;*d
 
 ;戦闘へ
 [scene file="Map"]

@@ -58,12 +58,12 @@ public class StatusGenerator : MonoBehaviour {
 
         // ステータスウィンドウ表示
         GameObject statusInstance = Instantiate(this.statusPrefab) as GameObject;
-        statusInstance.transform.position = new Vector3(210, -70, 0);
+        statusInstance.transform.position = new Vector3(195, -102, 0);
         statusInstance.transform.SetParent(this.canvas.transform, false);
 
         // ページ番号表示
         GameObject pageNumInstance = Instantiate(this.pageNumPrefab) as GameObject;
-        pageNumInstance.transform.position = new Vector3(240, -196, 0);
+        pageNumInstance.transform.position = new Vector3(223, -197.5f, 0);
         pageNumInstance.transform.SetParent(this.canvas.transform, false);
 
         // 初期設定（ファイターAのステータスを表示）
@@ -180,11 +180,11 @@ public class StatusGenerator : MonoBehaviour {
         monsterBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject leftArrowBtnInstance = Instantiate(this.leftArrowBtnPrefab) as GameObject;
-        leftArrowBtnInstance.transform.position = new Vector3(82, -190, 0);
+        leftArrowBtnInstance.transform.position = new Vector3(63.6f, -190, 0);
         leftArrowBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject rightArrowBtnInstance = Instantiate(this.rightArrowBtnPrefab) as GameObject;
-        rightArrowBtnInstance.transform.position = new Vector3(337, -190, 0);
+        rightArrowBtnInstance.transform.position = new Vector3(325, -190, 0);
         rightArrowBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         return new GameObject[] { guardianBtnInstance, supporterBtnInstance, monsterBtnInstance };
@@ -201,5 +201,7 @@ public class StatusGenerator : MonoBehaviour {
             .gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.FighterAExp;
         this.canvas.gameObject.transform.FindChild("statusPrefab(Clone)")
             .gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.FighterAStatus;
+        this.canvas.gameObject.transform.FindChild("statusPrefab(Clone)")
+            .gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.FighterAStatus2;
     }
 }

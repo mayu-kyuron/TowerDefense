@@ -1,6 +1,8 @@
-[bg_show name="elfVillage"]
+;@jump target = *p
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="demon" wait=false vol={bgm.number}]
+
+[bg_show name="elfVillage"]
 
 [chara_show name="witchA" x=-5]
 [chara_show name="healerC" x=5]
@@ -201,8 +203,12 @@
 
 [bg_hide name="elfVillage"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="demon" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*p
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

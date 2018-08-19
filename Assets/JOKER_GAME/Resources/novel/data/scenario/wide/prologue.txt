@@ -1,6 +1,12 @@
-[bg_show name="grassLand"]
+@jump target = *a
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[autosave]
+
+[playbgm storage="opening1" wait=false vol={bgm.number}]
+
+[wait time = 3]
+
+[bg_show name="grassLand"]
 
 #
 海と緑に包まれた星、地球――[r]
@@ -34,7 +40,12 @@
 しかし……[p]
 
 [hide tag="character" time=0.5]
-[wait time=0.5]
+
+[stopbgm storage="opening1" wait=false]
+[playbgm storage="opening2" wait=false vol={bgm.number}]
+
+[wait time = 1]
+
 [chara_show name="shadow_fighterA" x=-4.5 y=-1]
 [wait time=1]
 [chara_show name="shadow_fighterA2" x=-4.5 y=-1 time=0]
@@ -63,7 +74,11 @@
 
 [bg_hide name="wasteLand"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="opening2" wait=false]
 [wait time=2]
+
+[autosave]
+
+*a
 
 [scene file="Map"]

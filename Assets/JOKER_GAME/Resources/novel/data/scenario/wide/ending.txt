@@ -1,6 +1,6 @@
-[bg_show name="depthCastle"]
+;@jump target = *v
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[bg_show name="depthCastle"]
 
 [wait time=1]
 
@@ -70,9 +70,13 @@
 
 #
 [cm]
-[wait time=0.1]
 
-[playse storage="dark_atmosphere" vol={se.number}]
+[playse storage="dissappear" wait=false vol={se.number}]
+
+[wait time=7]
+
+[playbgm storage="ending2" wait=false vol={bgm.number}]
+
 [wait time=3]
 
 [chara_show name="healerA" x=-5]
@@ -211,7 +215,7 @@
 
 [bg_hide name="depthCastle"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="ending2" wait=false]
 [wait time=1]
 
 [calc exp="stage.number=null"]
