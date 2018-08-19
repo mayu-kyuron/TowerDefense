@@ -39,9 +39,8 @@ public class CharaStatusConst {
 	// 種類ごとの各キャラクター名リスト
 	// ※キャラクターを増やすごとに追加
 	static readonly List<string> fighterNameList = new List<string> { "FighterA" };
-    static readonly List<string> fighterBNameList = new List<string> { "FighterB" };
     static readonly List<string> simpleWitchNameList = new List<string> { "WitchA" };
-	static readonly List<string> broadWitchNameList = new List<string> { "WitchB" };
+	static readonly List<string> broadWitchNameList = new List<string> { "WitchB", "FighterB" };
 	static readonly List<string> simpleHealerNameList = new List<string> { "HealerA" };
 	static readonly List<string> totalHealerNameList = new List<string> { "HealerB" };
 	static readonly List<string> broadHealerNameList = new List<string> { "HealerC" };

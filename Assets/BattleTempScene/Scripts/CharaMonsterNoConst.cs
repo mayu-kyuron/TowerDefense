@@ -3,6 +3,8 @@
 /// </summary>
 public class CharaMonsterNoConst {
 
+	public const int NoneNo = -1;
+
 	public const int FighterANo = 1;
 	public const int FighterBNo = 2;
 	public const int FighterCNo = 3;

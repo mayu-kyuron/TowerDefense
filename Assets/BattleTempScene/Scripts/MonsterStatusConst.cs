@@ -11,6 +11,34 @@ public class MonsterStatusConst {
 	public const string SpeedToMoveKey = "SpeedToMove";
 	public const string TimeToAttackKey = "TimeToAttack";
 
+	// モンスターのオブジェクト名
+	// ※モンスターを増やすごとに追加
+	public const string SlimeName = "Slime";
+	public const string SlimeRedName = "SlimeRed";
+	public const string GaitherName = "Gaither";
+	public const string GaitherWhiteName = "GaitherWhite";
+	public const string OrgeOrangeName = "OrgeOrange";
+	public const string OrgeGreenName = "OrgeGreen";
+	public const string ChimeraRedName = "ChimeraRed";
+	public const string ChimeraPurpleName = "ChimeraPurple";
+	public const string CentaurBrownName = "CentaurBrown";
+	public const string CentaurBlackName = "CentaurBlack";
+	public const string YetiWhiteName = "YetiWhite";
+	public const string YetiGreenName = "YetiGreen";
+	public const string FairyYellowName = "FairyYellow";
+	public const string FairyPurpleName = "FairyPurple";
+	public const string UnicornWhiteName = "UnicornWhite";
+	public const string UnicornBlackName = "UnicornBlack";
+	public const string GoblinGreenName = "GoblinGreen";
+	public const string GoblinBlackName = "GoblinBlack";
+	public const string GolemName = "Golem";
+	public const string IfritGreenName = "IfritGreen";
+	public const string IfritRedName = "IfritRed";
+	public const string AlrauneName = "Alraune";
+	public const string CarbuncleName = "Carbuncle";
+	public const string ZonbieWhiteName = "ZonbieWhite";
+	public const string ZonbieGreenName = "ZonbieGreen";
+
 	// モンスターのタグ名
 	// ※モンスターを増やすごとに追加
 	public const string SlimeTag = "Suraimu";
@@ -36,7 +64,9 @@ public class MonsterStatusConst {
     public const string IfritRedTag = "IfritRed";
     public const string AlrauneTag = "Alraune";
     public const string CarbuncleTag = "Carbuncle";
-    public const string AttackTag = "Attack";
+	public const string ZonbieWhiteTag = "ZonbieWhite";
+	public const string ZonbieGreenTag = "ZonbieGreen";
+	public const string AttackTag = "Attack";
 
 	// モンスターの種類名
 	public const string FighterMonsterKind = "FighterMonster";
@@ -46,10 +76,10 @@ public class MonsterStatusConst {
 
 	// 種類ごとの各モンスター名リスト
 	// ※モンスターを増やすごとに追加
-	static readonly List<string> fighterMonsterNameList = new List<string> { "Slime", "SlimeRed", "OrgeOrange", "OrgeRed", "ChimeraRed", "ChimeraPurple", "Carbuncle" };
-	static readonly List<string> simpleWitchMonsterNameList = new List<string> { "Gaither", "GaitherWhite", "Alraune" };
-	static readonly List<string> broadWitchMonsterNameList = new List<string> { "CentaurBrown", "CentaurBlack", "YetiWhite", "YetiGreen", "GoblinGreen", "GoblinBlack", "Golem", "IfritGreen", "IfritRed" };
-	static readonly List<string> simpleHealerMonsterNameList = new List<string> { "FairyYellow", "FairyPurple", "UnicornWhite", "UnicornBlack" };
+	static readonly List<string> fighterMonsterNameList = new List<string> { SlimeName, SlimeRedName, OrgeOrangeName, OrgeGreenName, ChimeraRedName, ChimeraPurpleName, CarbuncleName, ZonbieWhiteName, ZonbieGreenName };
+	static readonly List<string> simpleWitchMonsterNameList = new List<string> { GaitherName, GaitherWhiteName, AlrauneName };
+	static readonly List<string> broadWitchMonsterNameList = new List<string> { CentaurBrownName, CentaurBlackName, YetiWhiteName, YetiGreenName, GoblinGreenName, GoblinBlackName, GolemName, IfritGreenName, IfritRedName };
+	static readonly List<string> simpleHealerMonsterNameList = new List<string> { FairyYellowName, FairyPurpleName, UnicornWhiteName, UnicornBlackName };
 
     // 全モンスターのタグリスト
     // ※モンスターを増やすごとに追加
@@ -77,6 +107,8 @@ public class MonsterStatusConst {
         IfritGreenTag,
         IfritRedTag,
         AlrauneTag,
+		ZonbieWhiteTag,
+		ZonbieGreenTag,
 	};
 
 	/// <summary>
@@ -109,7 +141,9 @@ public class MonsterStatusConst {
         { IfritGreenTag, ifritGreenStatusMap },
         { IfritRedTag, ifritRedStatusMap },
         { AlrauneTag, alrauneStatusMap },
-    };
+		{ ZonbieWhiteTag, zonbieWhiteStatusMap },
+		{ ZonbieGreenTag, zonbieGreenStatusMap },
+	};
 
 	/// <summary>
 	/// 種類ごとの全モンスター名リストのマップ（キー：種類名）
@@ -379,4 +413,24 @@ public class MonsterStatusConst {
         { SpeedToMoveKey, -0.025f },
         { TimeToAttackKey, 3.0f }
     };
+
+	/// <summary>
+	/// ゾンビホワイトのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> zonbieWhiteStatusMap = new Dictionary<string, float>() {
+		{ HpKey, 40 },
+		{ PowerKey, 15.0f },
+		{ SpeedToMoveKey, -0.025f },
+		{ TimeToAttackKey, 5.5f }
+	};
+
+	/// <summary>
+	/// ゾンビグリーンのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> zonbieGreenStatusMap = new Dictionary<string, float>() {
+		{ HpKey, 80 },
+		{ PowerKey, 30.0f },
+		{ SpeedToMoveKey, -0.025f },
+		{ TimeToAttackKey, 5.5f }
+	};
 }
