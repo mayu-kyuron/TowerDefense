@@ -13,6 +13,7 @@ public class ShipSc : MonoBehaviour {
 	private const float SpeedScreenFadeout = 0.5f;
 	private const float SpeedTextFadein = 0.2f;
 
+	private Canvas canvas;
 	private CurrentStatusVariables currentStatusVariables;
 	private BattleTempGenerator battleTempGenerator;
 	public GameObject damageUI;
@@ -29,6 +30,7 @@ public class ShipSc : MonoBehaviour {
 	private Dictionary<string, float> currentCharaHpMap = new Dictionary<string, float>();
 	
     void Start () {
+		this.canvas = GameObject.FindObjectOfType<Canvas>();
 		this.slider = GameObject.Find("HPgage").GetComponent<Slider>();
         this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
 		this.battleTempGenerator = GameObject.Find("BattleTempGenerator").GetComponent<BattleTempGenerator>();
@@ -57,7 +59,9 @@ public class ShipSc : MonoBehaviour {
 			}
 			else if(this.textClearness <= 1.0f) {
 
-				if(time < 1.0f) {
+				if (this.textClearness == 0.0f) this.canvas.sortingOrder = 5;
+
+				if (time < 1.0f) {
 					time += Time.deltaTime;
 					return;
 				}

@@ -331,9 +331,10 @@ public class Charahyozi : MonoBehaviour {
 	/// <summary>
 	/// 変数を設定して戦闘画面に遷移する。
 	/// </summary>
-	public void SetVariablesAndLoadBattleTemp() {
+	public void SetVariablesAndLoadBattleTemp(List<int> charaNoList) {
 		double stageNum = this.variables.GetComponent<Variables>().StageNum;
 
-		GlobalObject.LoadLevelWithParams("BattleTemp", stageNum.ToString(), this.settingObject.GetComponent<SettingObject>());
+		GlobalObject.LoadLevelWithParams("BattleTemp",
+			stageNum.ToString(), this.settingObject.GetComponent<SettingObject>(), charaNoList);
 	}
 }

@@ -51,6 +51,6 @@ public class BattleStartBtnController : MonoBehaviour {
 
         foreach (int charaNum in charaNumList) Debug.Log("BattleStartBtnController - charaNum = " + charaNum);
 
-		this.charaHyoziScript.SetVariablesAndLoadBattleTemp();
+		this.charaHyoziScript.SetVariablesAndLoadBattleTemp(charaNumList);
     }
 }

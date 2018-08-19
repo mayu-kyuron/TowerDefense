@@ -11,20 +11,21 @@ public class SummonButtonController : MonoBehaviour {
 	//オブジェクトの登録
     public GameObject callUI;
     public GameObject notCall;
-	
+
 	private List<int> charaNumList;
 	private int charaNum;
 	private int charaEnergy;
 	private EnergyNumController energyNumController;
+	private BattleTempGenerator battleTempGenerator;
 	private CharaStatusConst charaStatusConst = new CharaStatusConst();
 	private int energyNumTheRest;
 
 	void Start () {
 		this.energyNumController = GameObject.Find("EnergyNumText").GetComponent<EnergyNumController>();
+		this.battleTempGenerator = GameObject.Find("BattleTempGenerator").GetComponent<BattleTempGenerator>();
 
 		int buttonNum = int.Parse(this.gameObject.name.Substring(BtnNameLetterNum));
-        // 仮にプレイヤー選択キャラを設定
-        this.charaNumList = new List<int>() { 1, 11, 5, 6, 12 };
+        this.charaNumList = this.battleTempGenerator.variables.GetComponent<Variables>().CharaNoList;
         this.charaNum = this.charaNumList[buttonNum - 1];
 
 		RamifySetEnergy();

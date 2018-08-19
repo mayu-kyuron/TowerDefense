@@ -55,10 +55,36 @@ public class BattleTempGenerator : MonoBehaviour {
 	public GameObject golemPre;
 	public GameObject alraunePre;
 
+	public GameObject backImgPrefab;
 	public GameObject summonBtnPrefab;
     public GameObject variables;
 	public GameObject settingObject;
 	public GameObject hiddenClearImageUI;
+
+	// キャラの画像
+	public Sprite fighterASprite;
+	public Sprite fighterBSprite;
+	public Sprite witchASprite;
+	public Sprite witchBSprite;
+	public Sprite healerASprite;
+	public Sprite healerBSprite;
+	public Sprite healerCSprite;
+	public Sprite supporterASprite;
+	public Sprite supporterBSprite;
+
+	// ステージごとの背景画像
+	public Sprite stage1Back;
+	public Sprite stage2Back;
+	public Sprite stage3Back;
+	public Sprite stage4Back;
+	public Sprite stage5Back;
+	public Sprite stage6Back;
+	public Sprite stage7Back;
+	public Sprite stage8Back;
+	public Sprite stage9Back;
+	public Sprite stage10Back;
+	public Sprite stage11Back;
+	public Sprite stage12Back;
 
 	private Canvas canvas;
 	private CurrentStatusVariables currentStatusVariables;
@@ -69,12 +95,14 @@ public class BattleTempGenerator : MonoBehaviour {
 	private float clearness = 0.0f;
 	private int monsterNum = 0;
     private int deadMonsterNum = 0;
-	private Dictionary<int, int> charaNoMap;
+	private Dictionary<int, int> charaNoMap = new Dictionary<int, int>();
 	private Dictionary<int, int> monsterNoMap = new Dictionary<int, int>();
 	private Dictionary<int, List<int>> monsterMap;
 	private Dictionary<int, double> paceMap;
 	private Dictionary<int, MonsterObject> monsterPrefabMap;
-	
+	private Dictionary<int, Sprite> stageBackgroundMap;
+	private Dictionary<int, Sprite> charaNoSpriteMap;
+
 	void Start () {
 		this.canvas = GameObject.FindObjectOfType<Canvas>();
 		this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
@@ -83,6 +111,10 @@ public class BattleTempGenerator : MonoBehaviour {
 
 		//double stageNum = 1;
 		double stageNum = double.Parse(GlobalObject.getInstance().Params[0].ToString());
+		//var charaNoList = new List<int> {
+		//	1, 4, 11,
+		//};
+		var charaNoList = (List<int>)GlobalObject.getInstance().Params[2];
 
 		// ステージ番号の設定
 		this.variables.GetComponent<Variables>().SetStageNum(stageNum);
@@ -93,18 +125,33 @@ public class BattleTempGenerator : MonoBehaviour {
 			SetLastSettings();
 		}
 
+		// プレイヤー選択キャラの設定
+		this.variables.GetComponent<Variables>().SetCharaNoList(charaNoList);
+
+		// シーン間引き継ぎ変数の初期化（ジョーカースクリプトからの遷移かを判断するため）
+		GlobalObject.getInstance().SetStringParam(null);
+		GlobalObject.getInstance().SetParam(null);
+		GlobalObject.getInstance().SetParams(null);
+
+		for (int i = 0; i < charaNoList.Count; i++) {
+			this.charaNoMap.Add(charaNoList[i], 0);
+		}
+
 		//ステージの詳細を取得
 		this.monsterMap = this.stageEnemyInfo.StageMonsterComingNumMap[(int)stageNum];
 		this.paceMap = this.stageEnemyInfo.StageMonsterComingPaceMap[(int)stageNum];
 
-		// 仮にプレイヤー選択キャラを設定
-		var charaNumList = new List<int>() { 1, 11, 5, 6, 12 };
-		this.charaNoMap = new Dictionary<int, int> {
-			{ charaNumList[0], 0 },
-			{ charaNumList[1], 0 },
-			{ charaNumList[2], 0 },
-			{ charaNumList[3], 0 },
-			{ charaNumList[4], 0 },
+		// キャラの召喚ボタン画像設定
+		this.charaNoSpriteMap = new Dictionary<int, Sprite> {
+			{ CharaMonsterNoConst.FighterANo, this.fighterASprite },
+			{ CharaMonsterNoConst.FighterBNo, this.fighterBSprite },
+			{ CharaMonsterNoConst.WitchANo, this.witchASprite },
+			{ CharaMonsterNoConst.WitchBNo, this.witchBSprite },
+			{ CharaMonsterNoConst.HealerANo, this.healerASprite },
+			{ CharaMonsterNoConst.HealerBNo, this.healerBSprite },
+			{ CharaMonsterNoConst.HealerCNo, this.healerCSprite },
+			{ CharaMonsterNoConst.SupporterANo, this.supporterASprite },
+			{ CharaMonsterNoConst.SupporterBNo, this.supporterBSprite },
 		};
 
 		// モンスターのオブジェクト情報を番号別にマップに設定
@@ -141,6 +188,20 @@ public class BattleTempGenerator : MonoBehaviour {
 			this.monsterNoMap.Add(monsterNo, 0);
 		}
 
+		// 背景の設定
+		this.stageBackgroundMap = new Dictionary<int, Sprite> {
+			{ 1, stage1Back }, { 2, stage2Back }, { 3, stage3Back }, { 4, stage4Back }, { 5, stage5Back }, { 6, stage6Back },
+			{ 7, stage7Back }, { 8, stage8Back }, { 9, stage9Back }, { 10, stage10Back }, { 11, stage11Back }, { 12, stage12Back },
+		};
+
+		GameObject backImgInstance = Instantiate(this.backImgPrefab) as GameObject;
+		backImgInstance.transform.position = new Vector3(0, 0, 0);
+		backImgInstance.GetComponent<UnityEngine.UI.Image>().sprite = this.stageBackgroundMap[(int)stageNum];
+		backImgInstance.transform.SetParent(canvas.transform, false);
+		backImgInstance.transform.SetAsFirstSibling();
+		backImgInstance.name = "backImgInstance";
+
+		// 召喚ボタンの設定
 		SetSummonButtons();
 	}
 	
@@ -174,7 +235,11 @@ public class BattleTempGenerator : MonoBehaviour {
 		if (this.deadMonsterNum == this.paceMap.Count) {
 
 			if (this.clearness <= 1.0f) {
-				if (this.clearness == 0.0f) this.hiddenClearImageUI.GetComponent<AudioSource>().Play();
+
+				if (this.clearness == 0.0f) {
+					this.canvas.sortingOrder = 5;
+					this.hiddenClearImageUI.GetComponent<AudioSource>().Play();
+				}
 
 				this.clearness += SpeedClearFadein * Time.deltaTime;
 				this.hiddenClearImage.color = new Color(0.1843f, 0.3098f, 0.3098f, this.clearness);
@@ -208,9 +273,13 @@ public class BattleTempGenerator : MonoBehaviour {
 		float xZayouMargin = 120;
 		float yZahyou = -180;
 
-		for (int i = 0; i < 5; i++) {
+		List<int> charaNoList = this.variables.GetComponent<Variables>().CharaNoList;
+
+		for (int i = 0; i < this.charaNoMap.Count; i++) {
 			GameObject summonBtnInstance = Instantiate(this.summonBtnPrefab) as GameObject;
 			summonBtnInstance.transform.position = new Vector3(xZahyouLeft, yZahyou, 0);
+			summonBtnInstance.transform.FindChild("Image").GetComponent<UnityEngine.UI.Image>().sprite
+				= this.charaNoSpriteMap[charaNoList[i]];
 			summonBtnInstance.transform.SetParent(this.canvas.transform, false);
 			summonBtnInstance.name = "SummonButton" + (i + 1);
 
