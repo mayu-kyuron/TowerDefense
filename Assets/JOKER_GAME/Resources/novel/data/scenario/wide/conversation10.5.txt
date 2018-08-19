@@ -1,6 +1,8 @@
-[bg_show name="insideCastle"]
+;@jump target = *r
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="storage" wait=false vol={bgm.number}]
+
+[bg_show name="insideCastle"]
 
 [chara_show name="witchA" x=-5]
 [chara_show name="enemyWoman" x=5]
@@ -51,8 +53,12 @@
 
 [bg_hide name="insideCastle"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="storage" wait=false]
 [wait time=1]
+
+[autosave]
+
+;*r
 
 ;戦闘へ
 [scene file="Map"]

@@ -1,6 +1,8 @@
-[bg_show name="wasteLand"]
+;@jump target = *b
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="wildPlace" wait=false vol={bgm.number}]
+
+[bg_show name="wasteLand"]
 
 [chara_show name="fighterA" x=-5]
 [chara_show name="witchA" x=5]
@@ -81,6 +83,11 @@
 そーんなときにグッドタイミング！[r]
 敵軍が接近中だよー。[p]
 
+[stopbgm storage="wildPlace" wait=false]
+[playbgm storage="enemy" wait=false vol={bgm.number}]
+
+[wait time = 2]
+
 #fighterA
 {name.witchA}、ありがとう。[p]
 
@@ -94,8 +101,12 @@
 
 [bg_hide name="wasteLand"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="enemy" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*b
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

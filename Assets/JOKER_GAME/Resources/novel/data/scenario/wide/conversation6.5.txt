@@ -1,6 +1,8 @@
-[bg_show name="grassLand"]
+;@jump target = *k
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="water" wait=false vol={bgm.number}]
+
+[bg_show name="grassLand"]
 
 [chara_show name="witchB" x=-5]
 [chara_show name="fighterB" x=5]
@@ -183,8 +185,12 @@
 
 [bg_hide name="grassLand"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="water" wait=false]
 [wait time=1]
+
+[autosave]
+
+;*k
 
 ;戦闘へ
 [scene file="Map"]

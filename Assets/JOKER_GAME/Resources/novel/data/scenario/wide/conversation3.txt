@@ -1,6 +1,8 @@
-[bg_show name="wasteLand"]
+;@jump target = *e
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="wildPlace" wait=false vol={bgm.number}]
+
+[bg_show name="wasteLand"]
 
 [chara_show name="healerA" x=-5]
 [chara_show name="fighterA" x=5]
@@ -127,6 +129,12 @@
 よおっし！[r]
 じゃあさっそく遺跡へ、[p]
 
+[stopbgm storage="wildPlace" wait=false]
+
+[playbgm storage="enemy" wait=false vol={bgm.number}]
+
+[wait time = 1.5]
+
 [chara_hide name="healerA" time=0.5]
 [chara_show name="supporterA" x=-5 time=0.5]
 
@@ -159,8 +167,12 @@
 
 [bg_hide name="wasteLand"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="enemy" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*e
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

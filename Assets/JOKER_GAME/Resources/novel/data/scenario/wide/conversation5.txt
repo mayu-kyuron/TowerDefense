@@ -1,6 +1,8 @@
-[bg_show name="forest"]
+;@jump target = *i
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="forest" wait=false vol={bgm.number}]
+
+[bg_show name="forest"]
 
 [chara_show name="fighterA" x=-5]
 [chara_show name="supporterB" x=5]
@@ -75,11 +77,18 @@
 そ、そうですよね。[r][l]
 ……って、きゃああっ！！[p]
 
+[stopbgm storage="forest" wait=false]
+
+[wait time = 1]
+
 #supporterB
 えっ、何！？[r]
-どうかしたかい……って、うわっ！[r]
-ま、魔物！？[p]
+どうかしたかい……って、うわっ！[p]
 
+[playbgm storage="fight" wait=false vol={bgm.number}]
+[wait time = 2.5]
+
+ま、魔物！？[p]
 と、とにかく、応戦しようか。[p]
 
 #healerA
@@ -92,8 +101,12 @@
 
 [bg_hide name="forest"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="fight" wait=false]
 [wait time=1]
 
+[autosave]
+
+;*i
+
 ;戦闘へ
-[scene file="BattleSample"]
+[scene file="SelectScene"]

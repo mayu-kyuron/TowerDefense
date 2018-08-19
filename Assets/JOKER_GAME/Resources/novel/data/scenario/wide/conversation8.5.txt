@@ -1,6 +1,8 @@
-[bg_show name="cave"]
+;@jump target = *u
 
-[playbgm storage="music" wait=false vol={bgm.number}]
+[playbgm storage="cave2" wait=false vol={bgm.number}]
+
+[bg_show name="cave"]
 
 [chara_show name="witchA" x=-5]
 [chara_show name="supporterB" x=5]
@@ -255,8 +257,12 @@
 
 [bg_hide name="cave"]
 
-[stopbgm storage="music" wait=false]
+[stopbgm storage="cave2" wait=false]
 [wait time=1]
+
+[autosave]
+
+;*u
 
 ;戦闘へ
 [scene file="Map"]
