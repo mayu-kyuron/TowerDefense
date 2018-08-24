@@ -6,22 +6,35 @@ using UnityEngine.UI;
 /// </summary>
 public class EnergyNumController : MonoBehaviour {
 
-	private const float TimeForEnergyUp = 1.0f;
-	
-	private int energyNum = 0;
-	private float time = TimeForEnergyUp;
+	private const float TimeForEnergyUp = 0.4f;
+    private const float TimeForEnergyUp2 = 0.2f;
+    private const float TimeForEnergyUp3 = 0.15f;
+    private const float ChangeTime = 45.0f;
+    private const int MaxEnergy = 40;
+
+    private int energyNum = 0;
+    private float timeForEnergyUp;
+    private float time = 0;
+    private float totalTime = 0;
 	
 	void Start () {
-	}
+        this.timeForEnergyUp = TimeForEnergyUp;
+    }
 	
 	void Update () {
-        this.time -= Time.deltaTime;
-			
+        this.time += Time.deltaTime;
+        this.totalTime += Time.deltaTime;
+
         // エネルギー数を増やす
-		if(this.time <= 0.0f && this.energyNum < 20){
-            this.energyNum += 5;
+        if (totalTime > ChangeTime)  this.timeForEnergyUp = TimeForEnergyUp2;
+
+        if(totalTime > ChangeTime * 2)  this.timeForEnergyUp = TimeForEnergyUp3;
+
+        if (this.time >= this.timeForEnergyUp && this.energyNum < MaxEnergy){
+            this.time = 0;
+            this.energyNum += 1;
             this.gameObject.GetComponent<Text>().text = this.energyNum.ToString();
-            this.time = TimeForEnergyUp;
+            
 		}
 	}
 	
