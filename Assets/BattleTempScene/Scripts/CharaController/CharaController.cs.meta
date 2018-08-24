@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 125be34f779d82a41bf2a7031e25de2d
+timeCreated: 1535100294
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - damageUI: {instanceID: 0}
+  - cureUI: {instanceID: 0}
+  - settingObject: {fileID: 1570027063590000, guid: c40ebbf561f3aea499db9a3e8a74cc54,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

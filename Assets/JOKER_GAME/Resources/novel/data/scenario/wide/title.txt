@@ -20,12 +20,13 @@
 [evt name="button_start" act="click" target="*click_start" ]
 [evt name="button_load" act="click" target="*click_load" ]
 
+[evt_resume]
+
 [s]
 
 *click_start
-
+[evt_stop]
 [playse storage="start"]
-
 @anim name="button_start" scale=1.5 wait=false
 
 ;オートセーブされたデータが存在するなら
@@ -41,11 +42,12 @@
 	はじめからを選択するとすべてのデータが消えます。[r][l]
 	本当にしますか？
 
-	[wait time = 1]
-
+	[wait time =1]
 
 	[select_new text="はい" target=*select_ok ]
 	[select_new text="いいえ" target=*select_no ]
+
+	[evt_resume tag="select_button"]
 
 	[select_show sound=click ]
 
@@ -53,6 +55,7 @@
 
 	*select_ok
 
+	[evt_stop]
 	[cm]
 	[hidemessage]
 
@@ -63,7 +66,9 @@
 	[cm]
 	[hidemessage]
 
-	@jump target=*no
+	[evt_resume]
+
+	[s]
 
 [endif]
 
@@ -75,6 +80,7 @@
 @jump file=wide/material scene=new
 
 *click_load
+[evt_stop]
 [playse storage="start"]
 @anim name="button_load" scale=1.5 wait=true
 

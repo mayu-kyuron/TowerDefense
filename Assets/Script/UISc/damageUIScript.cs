@@ -7,13 +7,13 @@ public class damageUIScript : MonoBehaviour {
 	
 	Text damageText;
 	
-	public float damage = 0;
+	public float damage;
 	
 	//テキストの透明度
 	float alpha;
 	
 	//フェードアウトするスピード
-	float fadeSpeed = 1.3f;
+	float fadeSpeed = 1f;
 	
 	//テキストの移動値
 	float moveValue = 0.4f;

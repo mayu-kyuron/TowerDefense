@@ -34,17 +34,17 @@
 [flag exp="stor.enemyWoman=enemyWoman"]
 
 ;キャラクター名
-[flag exp="name.fighterA=ファイターA"]
-[flag exp="name.witchA=ウィッチA"]
-[flag exp="name.supporterA=サポーターA"]
-[flag exp="name.healerA=ヒーラーA"]
-[flag exp="name.fighterB=ファイターB"]
-[flag exp="name.supporterB=サポーターB"]
-[flag exp="name.witchB=ウィッチB"]
-[flag exp="name.healerB=ヒーラーB"]
-[flag exp="name.healerC=ヒーラーC"]
-[flag exp="name.enemyWoman=謎の女性"]
-[flag exp="name.lastBoss=ウロボロス"]
+[flag exp="name.fighterA=サキ"]
+[flag exp="name.witchA=アナ"]
+[flag exp="name.supporterA=ライラ"]
+[flag exp="name.healerA=カノン"]
+[flag exp="name.fighterB=ユノ"]
+[flag exp="name.supporterB=ケイト"]
+[flag exp="name.witchB=ローズ"]
+[flag exp="name.healerB=リリー"]
+[flag exp="name.healerC=オリヴィア"]
+[flag exp="name.enemyWoman=マリア"]
+[flag exp="name.lastBoss=イフリート"]
 [flag exp="name.???=？？？"]
 
 ;キャラクターY座標
@@ -67,7 +67,7 @@
 [calc exp="scale.enemyWoman=0.9"]
 
 ;デバッグ用
-;[calc exp="stage.number=-1"]
+;[calc exp="stage.number=9"]
 
 ;章ごとに材料取り込み
 [if exp="{stage.number}==0"]
