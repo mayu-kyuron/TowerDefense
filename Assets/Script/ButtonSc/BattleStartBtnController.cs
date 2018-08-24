@@ -12,11 +12,19 @@ public class BattleStartBtnController : MonoBehaviour {
 
     private GameObject cautionText;
     private Charahyozi charaHyoziScript;
-	
-    void Start() {
+	private AudioSource audioSource;
+	private AudioSource cautionAudioSource;
+
+	void Start() {
         this.cautionText = GameObject.Find("CautionText");
         this.charaHyoziScript = charaHyozi.GetComponent<Charahyozi>();
-    }
+		this.audioSource = this.gameObject.GetComponent<AudioSource>();
+		this.cautionAudioSource = this.cautionText.GetComponent<AudioSource>();
+
+		int seNum = this.charaHyozi.GetComponent<Charahyozi>().settingObject.GetComponent<SettingObject>().SeNum;
+		this.audioSource.volume = seNum * 0.2f;
+		this.cautionAudioSource.volume = seNum * 0.2f;
+	}
 	
     void Update() {
 
@@ -26,8 +34,11 @@ public class BattleStartBtnController : MonoBehaviour {
 
         // キャラクターが選択されているかをチェック
         if (!this.charaHyoziScript.selectedAnyChara) {
-            this.cautionText.GetComponent<Text>().text = "1人以上のキャラクターを選択してください！";
-            return;
+			this.cautionAudioSource.PlayOneShot(this.cautionAudioSource.clip);
+
+			this.cautionText.GetComponent<Text>().text = "1人以上のキャラクターを選択してください！";
+
+			return;
         }
 
         Dictionary<int, Sprite> spriteNumMap = this.charaHyoziScript.spriteNumMap;
@@ -43,9 +54,14 @@ public class BattleStartBtnController : MonoBehaviour {
         }
 
 		if(charaNumList.Count == 0) {
+			this.cautionAudioSource.PlayOneShot(this.cautionAudioSource.clip);
+
 			this.cautionText.GetComponent<Text>().text = "1人以上のキャラクターを選択してください！";
+
 			return;
 		}
+
+		this.audioSource.PlayOneShot(this.audioSource.clip);
 
 		this.cautionText.GetComponent<Text>().text = "";
 

@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// ステータス画面のキャラクターセッター
+/// </summary>
 public class CharacterSetter : MonoBehaviour {
 
     public Sprite fighterASprite;
@@ -11,10 +12,10 @@ public class CharacterSetter : MonoBehaviour {
     public Sprite witchASprite;
     public Sprite witchBSprite;
     public Sprite healerASprite;
-    public Sprite healerBSprite;
+    //public Sprite healerBSprite;
     public Sprite healerCSprite;
-    public Sprite guardianASprite;
-    public Sprite guardianBSprite;
+    //public Sprite guardianASprite;
+    //public Sprite guardianBSprite;
     public Sprite supporterASprite;
     public Sprite supporterBSprite;
     
@@ -23,10 +24,8 @@ public class CharacterSetter : MonoBehaviour {
     private GameObject explanationPrefab;
     private GameObject statusPrefab;
     private GameObject pageNumPrefab;
-
-    // Use this for initialization
-    void Start()
-    {
+	
+    void Start() {
         this.statusGenerator = GameObject.Find("StatusGenerator");
         this.charaPrefab = GameObject.Find("charaPrefab(Clone)");
         this.explanationPrefab = GameObject.Find("explanationPrefab(Clone)");
@@ -38,8 +37,7 @@ public class CharacterSetter : MonoBehaviour {
     /// ファイターAを設定する。
     /// </summary>
     /// <param name="charaNum">ファイターキャラ人数</param>
-    public void SetFighterA(int charaNum)
-    {
+    public void SetFighterA(int charaNum) {
         this.statusGenerator.GetComponent<StatusGenerator>()
                     .variables.GetComponent<Variables>().SetJudgeCharaPageNum(1);
         this.charaPrefab.GetComponent<Image>().sprite = this.fighterASprite;
@@ -47,26 +45,25 @@ public class CharacterSetter : MonoBehaviour {
         this.statusPrefab.transform.Find("Text").GetComponent<Text>().text = StatusContents.FighterAStatus;
         this.statusPrefab.transform.Find("Text2").GetComponent<Text>().text = StatusContents.FighterAStatus2;
 
-        if (charaNum == 1)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All1personPageText1;
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(225, 490);
+
+		if (charaNum == 1) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All1personPageText1;
         }
-        else if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (charaNum == 2) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText1;
         }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText1;
-        }
-    }
+		else if (charaNum == 3) {
+			this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
+		}
+	}
 
     /// <summary>
     /// ファイターBを設定する。
     /// </summary>
     /// <param name="charaNum">ファイターキャラ人数</param>
-    public void SetFighterB(int charaNum)
-    {
+    public void SetFighterB(int charaNum) {
         this.statusGenerator.GetComponent<StatusGenerator>()
                     .variables.GetComponent<Variables>().SetJudgeCharaPageNum(2);
         this.charaPrefab.GetComponent<Image>().sprite = this.fighterBSprite;
@@ -74,35 +71,38 @@ public class CharacterSetter : MonoBehaviour {
         this.statusPrefab.transform.Find("Text").GetComponent<Text>().text = StatusContents.FighterBStatus;
         this.statusPrefab.transform.Find("Text2").GetComponent<Text>().text = StatusContents.FighterBStatus2;
 
-        if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText2;
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(193, 420);
+
+		if (charaNum == 2) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText2;
         }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText2;
+        else if (charaNum == 3) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText2;
         }
     }
 
-    /// <summary>
-    /// ファイターCを設定する。
-    /// </summary>
-    public void SetFighterC()
-    {
-        this.statusGenerator.GetComponent<StatusGenerator>()
-                    .variables.GetComponent<Variables>().SetJudgeCharaPageNum(3);
-        this.charaPrefab.GetComponent<Image>().sprite = this.fighterCSprite;
-        this.explanationPrefab.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.FighterCExp;
-        this.statusPrefab.transform.Find("Text").GetComponent<Text>().text = StatusContents.FighterCStatus;
-        this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText3;
-    }
+	/// <summary>
+	/// ファイターCを設定する。
+	/// </summary>
+	public void SetFighterC() {
+		this.statusGenerator.GetComponent<StatusGenerator>()
+					.variables.GetComponent<Variables>().SetJudgeCharaPageNum(3);
+		this.charaPrefab.GetComponent<Image>().sprite = this.fighterCSprite;
+		this.explanationPrefab.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.FighterCExp;
+		this.statusPrefab.transform.Find("Text").GetComponent<Text>().text = StatusContents.FighterCStatus;
+		this.statusPrefab.transform.Find("Text2").GetComponent<Text>().text = StatusContents.FighterCStatus2;
+		this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText3;
 
-    /// <summary>
-    /// ウィッチAを設定する。
-    /// </summary>
-    /// <param name="charaNum">ウィッチキャラ人数</param>
-    public void SetWitchA(int charaNum)
-    {
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(225, 490);
+	}
+
+	/// <summary>
+	/// ウィッチAを設定する。
+	/// </summary>
+	/// <param name="charaNum">ウィッチキャラ人数</param>
+	public void SetWitchA(int charaNum) {
         this.statusGenerator.GetComponent<StatusGenerator>()
                     .variables.GetComponent<Variables>().SetJudgeCharaPageNum(1);
         this.charaPrefab.GetComponent<Image>().sprite = this.witchASprite;
@@ -110,17 +110,17 @@ public class CharacterSetter : MonoBehaviour {
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.WitchAStatus;
         this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.WitchAStatus2;
 
-        if (charaNum == 1)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All1personPageText1;
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(225, 490);
+
+		if (charaNum == 1) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All1personPageText1;
         }
-        else if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (charaNum == 2) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText1;
         }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText1;
+        else if (charaNum == 3) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
     }
 
@@ -128,8 +128,7 @@ public class CharacterSetter : MonoBehaviour {
     /// ウィッチBを設定する。
     /// </summary>
     /// <param name="charaNum">ウィッチキャラ人数</param>
-    public void SetWitchB(int charaNum)
-    {
+    public void SetWitchB(int charaNum) {
         this.statusGenerator.GetComponent<StatusGenerator>()
                     .variables.GetComponent<Variables>().SetJudgeCharaPageNum(2);
         this.charaPrefab.GetComponent<Image>().sprite = this.witchBSprite;
@@ -137,13 +136,14 @@ public class CharacterSetter : MonoBehaviour {
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.WitchBStatus;
         this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.WitchBStatus2;
 
-        if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText2;
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(207, 450);
+
+		if (charaNum == 2) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText2;
         }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText2;
+        else if (charaNum == 3) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText2;
         }
     }
 
@@ -151,8 +151,7 @@ public class CharacterSetter : MonoBehaviour {
     /// ヒーラーAを設定する。
     /// </summary>
     /// <param name="charaNum">ヒーラーキャラ人数</param>
-    public void SetHealerA(int charaNum)
-    {
+    public void SetHealerA(int charaNum) {
         this.statusGenerator.GetComponent<StatusGenerator>()
                     .variables.GetComponent<Variables>().SetJudgeCharaPageNum(1);
         this.charaPrefab.GetComponent<Image>().sprite = this.healerASprite;
@@ -160,17 +159,17 @@ public class CharacterSetter : MonoBehaviour {
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.HealerAStatus;
         this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.HealerAStatus2;
 
-        if (charaNum == 1)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All1personPageText1;
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(184, 400);
+
+		if (charaNum == 1) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All1personPageText1;
         }
-        else if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (charaNum == 2) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText1;
         }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText1;
+        else if (charaNum == 3) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
     }
 
@@ -178,93 +177,100 @@ public class CharacterSetter : MonoBehaviour {
     /// ヒーラーBを設定する。
     /// </summary>
     /// <param name="charaNum">ヒーラーキャラ人数</param>
-    public void SetHealerB(int charaNum)
-    {
-        this.statusGenerator.GetComponent<StatusGenerator>()
-                    .variables.GetComponent<Variables>().SetJudgeCharaPageNum(2);
-        this.charaPrefab.GetComponent<Image>().sprite = this.healerBSprite;
-        this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.HealerBExp;
-        this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.HealerBStatus;
-        this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.HealerBStatus2;
+  //  public void SetHealerB(int charaNum) {
+  //      this.statusGenerator.GetComponent<StatusGenerator>()
+  //                  .variables.GetComponent<Variables>().SetJudgeCharaPageNum(2);
+  //      this.charaPrefab.GetComponent<Image>().sprite = this.healerBSprite;
+  //      this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.HealerBExp;
+  //      this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.HealerBStatus;
+  //      this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.HealerBStatus2;
 
-        if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText2;
-        }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText2;
-        }
-    }
+		//RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		//charaRectTransform.sizeDelta = new Vector2(225, 490);
+
+		//if (charaNum == 2) {
+  //          this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText2;
+  //      }
+  //      else if (charaNum == 3) {
+  //          this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText2;
+  //      }
+  //  }
 
     /// <summary>
     /// ヒーラーCを設定する。
     /// </summary>
-    public void SetHealerC()
-    {
+    public void SetHealerC(int charaNum) {
         this.statusGenerator.GetComponent<StatusGenerator>()
-                    .variables.GetComponent<Variables>().SetJudgeCharaPageNum(3);
+                    .variables.GetComponent<Variables>().SetJudgeCharaPageNum(2);
         this.charaPrefab.GetComponent<Image>().sprite = this.healerCSprite;
         this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.HealerCExp;
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.HealerCStatus;
         this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.HealerCStatus2;
-        this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText3;
-    }
 
-    /// <summary>
-    /// ガーディアンAを設定する。
-    /// </summary>
-    /// <param name="charaNum">ガーディアンキャラ人数</param>
-    public void SetGuardianA(int charaNum)
-    {
-        this.statusGenerator.GetComponent<StatusGenerator>()
-                    .variables.GetComponent<Variables>().SetJudgeCharaPageNum(1);
-        this.charaPrefab.GetComponent<Image>().sprite = this.guardianASprite;
-        this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.GuardianAExp;
-        this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.GuardianAStatus;
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(225, 490);
 
-        if (charaNum == 1)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All1personPageText1;
-        }
-        else if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText1;
-        }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText1;
-        }
-    }
+		if (charaNum == 2) {
+			this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText2;
+		}
+		else if (charaNum == 3) {
+			this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText2;
+		}
+	}
 
-    /// <summary>
-    /// ガーディアンBを設定する。
-    /// </summary>
-    /// <param name="charaNum">ガーディアンキャラ人数</param>
-    public void SetGuardianB(int charaNum)
-    {
-        this.statusGenerator.GetComponent<StatusGenerator>()
-                    .variables.GetComponent<Variables>().SetJudgeCharaPageNum(2);
-        this.charaPrefab.GetComponent<Image>().sprite = this.guardianBSprite;
-        this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.GuardianBExp;
-        this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.GuardianBStatus;
+	/// <summary>
+	/// ガーディアンAを設定する。
+	/// </summary>
+	/// <param name="charaNum">ガーディアンキャラ人数</param>
+	//public void SetGuardianA(int charaNum)
+	//{
+	//    this.statusGenerator.GetComponent<StatusGenerator>()
+	//                .variables.GetComponent<Variables>().SetJudgeCharaPageNum(1);
+	//    this.charaPrefab.GetComponent<Image>().sprite = this.guardianASprite;
+	//    this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.GuardianAExp;
+	//    this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.GuardianAStatus;
 
-        if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText2;
-        }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText2;
-        }
-    }
+	//    if (charaNum == 1)
+	//    {
+	//        this.pageNumPrefab.GetComponent<Text>().text = Consts.All1personPageText1;
+	//    }
+	//    else if (charaNum == 2)
+	//    {
+	//        this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText1;
+	//    }
+	//    else if (charaNum == 3)
+	//    {
+	//        this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText1;
+	//    }
+	//}
 
-    /// <summary>
-    /// サポーターAを設定する。
-    /// </summary>
-    /// <param name="charaNum">サポーターキャラ人数</param>
-    public void SetSupporterA(int charaNum)
-    {
+	/// <summary>
+	/// ガーディアンBを設定する。
+	/// </summary>
+	/// <param name="charaNum">ガーディアンキャラ人数</param>
+	//public void SetGuardianB(int charaNum)
+	//{
+	//    this.statusGenerator.GetComponent<StatusGenerator>()
+	//                .variables.GetComponent<Variables>().SetJudgeCharaPageNum(2);
+	//    this.charaPrefab.GetComponent<Image>().sprite = this.guardianBSprite;
+	//    this.explanationPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = ExplanationContents.GuardianBExp;
+	//    this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.GuardianBStatus;
+
+	//    if (charaNum == 2)
+	//    {
+	//        this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText2;
+	//    }
+	//    else if (charaNum == 3)
+	//    {
+	//        this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText2;
+	//    }
+	//}
+
+	/// <summary>
+	/// サポーターAを設定する。
+	/// </summary>
+	/// <param name="charaNum">サポーターキャラ人数</param>
+	public void SetSupporterA(int charaNum) {
         this.statusGenerator.GetComponent<StatusGenerator>()
                     .variables.GetComponent<Variables>().SetJudgeCharaPageNum(1);
         this.charaPrefab.GetComponent<Image>().sprite = this.supporterASprite;
@@ -272,17 +278,17 @@ public class CharacterSetter : MonoBehaviour {
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.SupporterAStatus;
         this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.SupporterAStatus2;
 
-        if (charaNum == 1)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All1personPageText1;
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(225, 490);
+
+		if (charaNum == 1) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All1personPageText1;
         }
-        else if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (charaNum == 2) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText1;
         }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText1;
+        else if (charaNum == 3) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
     }
 
@@ -290,8 +296,7 @@ public class CharacterSetter : MonoBehaviour {
     /// サポーターBを設定する。
     /// </summary>
     /// <param name="charaNum">サポーターキャラ人数</param>
-    public void SetSupporterB(int charaNum)
-    {
+    public void SetSupporterB(int charaNum) {
         this.statusGenerator.GetComponent<StatusGenerator>()
                     .variables.GetComponent<Variables>().SetJudgeCharaPageNum(2);
         this.charaPrefab.GetComponent<Image>().sprite = this.supporterBSprite;
@@ -299,13 +304,14 @@ public class CharacterSetter : MonoBehaviour {
         this.statusPrefab.gameObject.transform.Find("Text").GetComponent<Text>().text = StatusContents.SupporterBStatus;
         this.statusPrefab.gameObject.transform.Find("Text2").GetComponent<Text>().text = StatusContents.SupporterBStatus2;
 
-        if (charaNum == 2)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All2peoplePageText2;
+		RectTransform charaRectTransform = this.charaPrefab.GetComponent(typeof(RectTransform)) as RectTransform;
+		charaRectTransform.sizeDelta = new Vector2(193, 420);
+
+		if (charaNum == 2) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText2;
         }
-        else if (charaNum == 3)
-        {
-            this.pageNumPrefab.GetComponent<Text>().text = Consts.All3peoplePageText2;
+        else if (charaNum == 3) {
+            this.pageNumPrefab.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText2;
         }
     }
 }

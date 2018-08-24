@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Novel;
 using System;
 
+/// <summary>
+/// マップ画面ジェネレータ
+/// </summary>
 public class MapGenerator : MonoBehaviour {
 
     // 人間界最終ステージの数
@@ -18,11 +19,14 @@ public class MapGenerator : MonoBehaviour {
     public GameObject variables;
     public GameObject settingObject;
 
-    private int mapNum;
+	// 音声ファイル
+	public AudioClip humanWorldBgm;
+	public AudioClip demonWorldBgm;
+
+	private int mapNum;
     private GameObject mapPrefab = null;
     private Canvas canvas;
-
-    // Use this for initialization
+	
     void Start () {
 
         double stageNum;
@@ -82,18 +86,16 @@ public class MapGenerator : MonoBehaviour {
         // ステージ番号設定
         this.variables.GetComponent<Variables>().SetStageNum(stageNum);
 
-        // 前回ユーザ設定の設定
-        SetLastSettings(isSetBefore, bgmNum, seNum, effectNum, damageNum);
+		// マップ画面決定（人間界or魔界）
+		if (stageNum <= MaxStageNumHumanWorld) {
+			this.mapNum = 1;
+		}
+		else {
+			this.mapNum = 2;
+		}
 
-        // マップ画面決定（人間界or魔界）
-        if (stageNum <= MaxStageNumHumanWorld)
-        {
-            this.mapNum = 1;
-        }
-        else
-        {
-            this.mapNum = 2;
-        }
+		// 前回ユーザ設定の設定
+		SetLastSettings(isSetBefore, bgmNum, seNum, effectNum, damageNum);
 
         // 人間界マップ
         if (this.mapNum == 1)
@@ -237,7 +239,6 @@ public class MapGenerator : MonoBehaviour {
         settingBtnInstance.transform.SetParent(this.canvas.transform, false);
     }
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
@@ -289,7 +290,21 @@ public class MapGenerator : MonoBehaviour {
         Debug.Log("MapGenerator - SeNum = " + this.settingObject.GetComponent<SettingObject>().SeNum);
         Debug.Log("MapGenerator - EffectNum = " + this.settingObject.GetComponent<SettingObject>().EffectNum);
         Debug.Log("MapGenerator - DamageNum = " + this.settingObject.GetComponent<SettingObject>().DamageNum);
-    }
+
+		// BGM音声ファイルの設定
+		var audioSource1 = Camera.main.GetComponents<AudioSource>()[0];
+		if (this.mapNum == 1) {
+			audioSource1.clip = this.humanWorldBgm;
+		}
+		else if (this.mapNum == 2) {
+			audioSource1.clip = this.demonWorldBgm;
+		}
+
+		audioSource1.volume = bgmNum * 0.2f;
+		//Camera.main.GetComponents<AudioSource>()[1].volume = seNum * 0.2f;
+
+		audioSource1.Play();
+	}
 
     private void InstantiateFlag1()
     {

@@ -1,40 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
+/// <summary>
+/// サポーターボタンのコントローラー
+/// </summary>
 public class SupporterBtnController : MonoBehaviour {
     
     private GameObject statusGenerator;
     private GameObject characterSetter;
-
-    // Use this for initialization
-    void Start()
-    {
+	
+    void Start() {
         this.statusGenerator = GameObject.Find("StatusGenerator");
         this.characterSetter = GameObject.Find("CharacterSetter");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
+	
+    void Update() {
 
     }
 
-	public void OnClick()
-    {
+	public void OnClick() {
         int charaNum;
 
         double stageNum = this.statusGenerator.GetComponent<StatusGenerator>()
             .variables.GetComponent<Variables>().StageNum;
 
         // キャラクターの人数判断
-        if (stageNum < Consts.Supporter2peopleStageNum)
-        {
+        if (stageNum < StatusSceneConst.Supporter2peopleStageNum) {
             charaNum = 1;
         }
-        else
-        {
+        else {
             charaNum = 2;
         }
 

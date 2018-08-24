@@ -1,17 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// ステータス画面ジェネレータ
+/// </summary>
 public class StatusGenerator : MonoBehaviour {
 
     public GameObject backBtnPrefab;
     public GameObject fighterBtnPrefab;
     public GameObject witchBtnPrefab;
     public GameObject healerBtnPrefab;
-    public GameObject guardianBtnPrefab;
+    //public GameObject guardianBtnPrefab;
     public GameObject supporterBtnPrefab;
-    public GameObject monsterBtnPrefab;
+    //public GameObject monsterBtnPrefab;
     public GameObject charaPrefab;
     public GameObject explanationPrefab;
     public GameObject statusPrefab;
@@ -22,10 +23,8 @@ public class StatusGenerator : MonoBehaviour {
     public GameObject settingObject;
 
     private Canvas canvas;
-
-    // Use this for initialization
+	
     void Start () {
-
         this.canvas = GameObject.FindObjectOfType<Canvas>();
         //double stageNum = 9;
 		double stageNum = double.Parse(GlobalObject.getInstance().Params[0].ToString());
@@ -35,16 +34,13 @@ public class StatusGenerator : MonoBehaviour {
 
         // 前回ユーザ設定の設定
         if ((object[])GlobalObject.getInstance().Params != null
-            && (object)GlobalObject.getInstance().Params[1] != null)
-        {
+            && (object)GlobalObject.getInstance().Params[1] != null) {
             SetLastSettings();
         }
 
         // ボタン表示
         GameObject[] btnInstances = DisplayButtons();
-        GameObject guardianBtnInstance = btnInstances[0];
-        GameObject supporterBtnInstance = btnInstances[1];
-        GameObject monsterBtnInstance = btnInstances[2];
+		GameObject healerBtnInstance = btnInstances[0];
 
         // キャラクター表示
         GameObject charaInstance = Instantiate(this.charaPrefab) as GameObject;
@@ -53,7 +49,7 @@ public class StatusGenerator : MonoBehaviour {
 
         // 説明ウィンドウ表示
         GameObject explanationInstance = Instantiate(this.explanationPrefab) as GameObject;
-        explanationInstance.transform.position = new Vector3(210, 120, 0);
+        explanationInstance.transform.position = new Vector3(195, 80, 0);
         explanationInstance.transform.SetParent(this.canvas.transform, false);
 
         // ステータスウィンドウ表示
@@ -69,65 +65,47 @@ public class StatusGenerator : MonoBehaviour {
         // 初期設定（ファイターAのステータスを表示）
         SetFirstCharacter();
 
-        if (stageNum == 1)
-        {
-            guardianBtnInstance.GetComponent<Button>().interactable = false;
-            supporterBtnInstance.GetComponent<Button>().interactable = false;
-            monsterBtnInstance.GetComponent<Button>().interactable = false;
-
-            pageNumInstance.GetComponent<Text>().text = Consts.All1personPageText1;
+        if (stageNum == 1) {
+            healerBtnInstance.GetComponent<Button>().interactable = false;
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All1personPageText1;
         }
-        else if (stageNum == 2)
-        {
-            guardianBtnInstance.GetComponent<Button>().interactable = false;
-            supporterBtnInstance.GetComponent<Button>().interactable = false;
-
-            pageNumInstance.GetComponent<Text>().text = Consts.All1personPageText1;
+        else if (stageNum == 2) {
+            healerBtnInstance.GetComponent<Button>().interactable = false;
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All1personPageText1;
         }
-        else if (stageNum == 3)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All1personPageText1;
+        else if (stageNum == 3) {
+			healerBtnInstance.GetComponent<Button>().interactable = false;
+			pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All1personPageText1;
         }
-        else if (stageNum == 4)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All1personPageText1;
+        else if (stageNum == 4) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All1personPageText1;
         }
-        else if (stageNum == 5)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (stageNum == 5) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText1;
         }
-        else if (stageNum == 6)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (stageNum == 6) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All2peoplePageText1;
         }
-        else if (stageNum == 7)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (stageNum == 7) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
-        else if (stageNum == 8)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (stageNum == 8) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
-        else if (stageNum == 9)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All2peoplePageText1;
+        else if (stageNum == 9) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
-        else if (stageNum == 10)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All3peoplePageText1;
-
+        else if (stageNum == 10) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
-        else if (stageNum == 11)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All3peoplePageText1;
+        else if (stageNum == 11) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
-        else if (stageNum == 12)
-        {
-            pageNumInstance.GetComponent<Text>().text = Consts.All3peoplePageText1;
+        else if (stageNum == 12) {
+            pageNumInstance.GetComponent<Text>().text = StatusSceneConst.All3peoplePageText1;
         }
     }
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}
@@ -135,22 +113,23 @@ public class StatusGenerator : MonoBehaviour {
     /// <summary>
     /// 前回の設定を反映する。
     /// </summary>
-    private void SetLastSettings()
-    {
+    private void SetLastSettings() {
         SettingObject settingObjectFromOthers = (SettingObject)GlobalObject.getInstance().Params[1];
         this.settingObject.GetComponent<SettingObject>().SetIsSetBefore(settingObjectFromOthers.IsSetBefore);
         this.settingObject.GetComponent<SettingObject>().SetBgmNum(settingObjectFromOthers.BgmNum);
         this.settingObject.GetComponent<SettingObject>().SetSeNum(settingObjectFromOthers.SeNum);
         this.settingObject.GetComponent<SettingObject>().SetEffectNum(settingObjectFromOthers.EffectNum);
         this.settingObject.GetComponent<SettingObject>().SetDamageNum(settingObjectFromOthers.DamageNum);
-    }
+
+		Camera.main.GetComponents<AudioSource>()[0].volume = settingObjectFromOthers.BgmNum * 0.2f;
+		//Camera.main.GetComponents<AudioSource>()[1].volume = settingObjectFromOthers.SeNum * 0.2f;
+	}
 
     /// <summary>
     /// ボタンを表示する。
     /// </summary>
-    /// <returns>ボタンインスタンスの配列（ガーディアン、サポーター、モンスター）</returns>
-    private GameObject[] DisplayButtons()
-    {
+    /// <returns>ボタンインスタンスの配列（ヒーラー）</returns>
+    private GameObject[] DisplayButtons() {
         GameObject backBtnInstance = Instantiate(this.backBtnPrefab) as GameObject;
         backBtnInstance.transform.position = new Vector3(-340, 190, 0);
         backBtnInstance.transform.SetParent(this.canvas.transform, false);
@@ -167,17 +146,17 @@ public class StatusGenerator : MonoBehaviour {
         healerBtnInstance.transform.position = new Vector3(-330, 0, 0);
         healerBtnInstance.transform.SetParent(this.canvas.transform, false);
 
-        GameObject guardianBtnInstance = Instantiate(this.guardianBtnPrefab) as GameObject;
-        guardianBtnInstance.transform.position = new Vector3(-330, -60, 0);
-        guardianBtnInstance.transform.SetParent(this.canvas.transform, false);
+        //GameObject guardianBtnInstance = Instantiate(this.guardianBtnPrefab) as GameObject;
+        //guardianBtnInstance.transform.position = new Vector3(-330, -60, 0);
+        //guardianBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject supporterBtnInstance = Instantiate(this.supporterBtnPrefab) as GameObject;
-        supporterBtnInstance.transform.position = new Vector3(-330, -120, 0);
+        supporterBtnInstance.transform.position = new Vector3(-330, -60, 0);
         supporterBtnInstance.transform.SetParent(this.canvas.transform, false);
 
-        GameObject monsterBtnInstance = Instantiate(this.monsterBtnPrefab) as GameObject;
-        monsterBtnInstance.transform.position = new Vector3(-330, -180, 0);
-        monsterBtnInstance.transform.SetParent(this.canvas.transform, false);
+        //GameObject monsterBtnInstance = Instantiate(this.monsterBtnPrefab) as GameObject;
+        //monsterBtnInstance.transform.position = new Vector3(-330, -180, 0);
+        //monsterBtnInstance.transform.SetParent(this.canvas.transform, false);
 
         GameObject leftArrowBtnInstance = Instantiate(this.leftArrowBtnPrefab) as GameObject;
         leftArrowBtnInstance.transform.position = new Vector3(63.6f, -190, 0);
@@ -187,14 +166,13 @@ public class StatusGenerator : MonoBehaviour {
         rightArrowBtnInstance.transform.position = new Vector3(325, -190, 0);
         rightArrowBtnInstance.transform.SetParent(this.canvas.transform, false);
 
-        return new GameObject[] { guardianBtnInstance, supporterBtnInstance, monsterBtnInstance };
+		return new GameObject[] { healerBtnInstance };
     }
 
     /// <summary>
     /// 初期設定（ファイターAを設定）する。
     /// </summary>
-    private void SetFirstCharacter()
-    {
+    private void SetFirstCharacter() {
         this.variables.GetComponent<Variables>().SetJudgeCharaTypeNum(1);
         this.variables.GetComponent<Variables>().SetJudgeCharaPageNum(1);
         this.canvas.gameObject.transform.FindChild("explanationPrefab(Clone)")

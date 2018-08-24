@@ -13,10 +13,10 @@ public class Charahyozi : MonoBehaviour {
 
     public Sprite fighterASprite;
     public Sprite fighterBSprite;
-    public Sprite witchASprite;
+	public Sprite fighterCSprite;
+	public Sprite witchASprite;
     public Sprite witchBSprite;
     public Sprite healerASprite;
-    public Sprite healerBSprite;
     public Sprite healerCSprite;
     public Sprite supporterASprite;
     public Sprite supporterBSprite;
@@ -39,6 +39,7 @@ public class Charahyozi : MonoBehaviour {
 	private Light sunLight;
     private Sprite[] sprites;
     private SelectBtnController[] selectBtnControllers = new SelectBtnController[EmptyImageCount];
+	private AudioSource cautionAudioSource;
 
 	private void Awake() {
 
@@ -68,11 +69,12 @@ public class Charahyozi : MonoBehaviour {
 	void Start () {
         Canvas canvas = GameObject.FindObjectOfType<Canvas>();
 		//this.sunLight = directionalLight.GetComponent<Light>();
+		this.cautionAudioSource = this.cautionText.GetComponent<AudioSource>();
 
 		double stageNum = this.variables.GetComponent<Variables>().StageNum;
 
 		this.sprites = new Sprite[] { fighterASprite, fighterBSprite,
-            witchASprite, witchBSprite, healerASprite, healerBSprite, healerCSprite,
+            witchASprite, witchBSprite, healerASprite, fighterCSprite, healerCSprite,
             supporterASprite, supporterBSprite };
 
 		this.spriteNumMap = new Dictionary<int, Sprite> {
@@ -81,11 +83,14 @@ public class Charahyozi : MonoBehaviour {
 			{ CharaMonsterNoConst.WitchANo, this.sprites[2] },
 			{ CharaMonsterNoConst.WitchBNo, this.sprites[3] },
 			{ CharaMonsterNoConst.HealerANo, this.sprites[4] },
-			{ CharaMonsterNoConst.HealerBNo, this.sprites[5] },
+			{ CharaMonsterNoConst.FighterCNo, this.sprites[5] },
 			{ CharaMonsterNoConst.HealerCNo, this.sprites[6] },
 			{ CharaMonsterNoConst.SupporterANo, this.sprites[7] },
 			{ CharaMonsterNoConst.SupporterBNo, this.sprites[8] },
 		};
+
+		int seNum = this.settingObject.GetComponent<SettingObject>().SeNum;
+		this.cautionAudioSource.volume = seNum * 0.2f;
 
 		// キャラクターボタン表示
 		GameObject charaBtnInstance1;
@@ -112,7 +117,15 @@ public class Charahyozi : MonoBehaviour {
 			charaBtnInstance5.name = "charaBtnInstance5";
 		}
 
-        charaBtnInstance2 = Instantiate(this.charaBtnPrefab) as GameObject;
+		if (stageNum >= 6) {
+			charaBtnInstance8 = Instantiate(this.charaBtnPrefab) as GameObject;
+			charaBtnInstance8.transform.position = new Vector3(340, 182, 0);
+			charaBtnInstance8.GetComponent<UnityEngine.UI.Image>().sprite = this.fighterCSprite;
+			charaBtnInstance8.transform.SetParent(canvas.transform, false);
+			charaBtnInstance8.name = "charaBtnInstance8";
+		}
+
+		charaBtnInstance2 = Instantiate(this.charaBtnPrefab) as GameObject;
         charaBtnInstance2.transform.position = new Vector3(230, 130, 0);
         charaBtnInstance2.GetComponent<UnityEngine.UI.Image>().sprite = this.witchASprite;
         charaBtnInstance2.transform.SetParent(canvas.transform, false);
@@ -134,17 +147,9 @@ public class Charahyozi : MonoBehaviour {
 			charaBtnInstance4.name = "charaBtnInstance4";
 		}
 
-		if (stageNum >= 6) {
-			charaBtnInstance8 = Instantiate(this.charaBtnPrefab) as GameObject;
-			charaBtnInstance8.transform.position = new Vector3(285, 78, 0);
-			charaBtnInstance8.GetComponent<UnityEngine.UI.Image>().sprite = this.healerBSprite;
-			charaBtnInstance8.transform.SetParent(canvas.transform, false);
-			charaBtnInstance8.name = "charaBtnInstance8";
-		}
-
 		if (stageNum >= 9) {
 			charaBtnInstance9 = Instantiate(this.charaBtnPrefab) as GameObject;
-			charaBtnInstance9.transform.position = new Vector3(340, 78, 0);
+			charaBtnInstance9.transform.position = new Vector3(285, 78, 0);
 			charaBtnInstance9.GetComponent<UnityEngine.UI.Image>().sprite = this.healerCSprite;
 			charaBtnInstance9.transform.SetParent(canvas.transform, false);
 			charaBtnInstance9.name = "charaBtnInstance9";
@@ -288,7 +293,7 @@ public class Charahyozi : MonoBehaviour {
     /// キャラクターを選択キャラ表示欄に表示する。
     /// </summary>
     /// <param name="charaNum">キャラクター番号</param>
-	public void DisplayCharaAtSelectedArea(int charaNum) {
+	public void DisplayCharaAtSelectedArea(int charaNum, AudioSource audioSource) {
 		double stageNum = this.variables.GetComponent<Variables>().StageNum;
 
 		if (charaNum != CharaMonsterNoConst.NoneNo) this.selectedAnyChara = true;
@@ -309,11 +314,15 @@ public class Charahyozi : MonoBehaviour {
                 }
 
                 if (charaNum != CharaMonsterNoConst.NoneNo && emptySpriteList.Contains(this.spriteNumMap[charaNum])) {
-                    this.cautionText.GetComponent<Text>().text = "同じキャラクターは選択できません！";
+					this.cautionAudioSource.PlayOneShot(this.cautionAudioSource.clip);
+
+					this.cautionText.GetComponent<Text>().text = "同じキャラクターは選択できません！";
                 }
                 // 重複のないキャラクターボタンが選択された場合
                 else {
-                    if (charaNum == CharaMonsterNoConst.NoneNo) {
+					audioSource.PlayOneShot(audioSource.clip);
+
+					if (charaNum == CharaMonsterNoConst.NoneNo) {
                         this.emptyImages[i].sprite = emptySprite;
                     }
                     else {
