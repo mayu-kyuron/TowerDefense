@@ -55,25 +55,25 @@ public abstract class AttackerController : CharaController {
 
 		if (this.monsterKind == MonsterStatusConst.FighterMonsterKind) {
 			this.fighterMonsterController.hp -= this.power;
-			this.fighterMonsterController.DisplayDamageUI(this.power);
+			this.fighterMonsterController.Damage(this.power);
 
 			Debug.Log(this.charaObjectName + " - this.fighterMonsterController.hp = " + this.fighterMonsterController.hp);
 		}
 		else if (this.monsterKind == MonsterStatusConst.SimpleWitchMonsterKind) {
 			this.simpleWitchMonsterController.hp -= this.power;
-			this.simpleWitchMonsterController.DisplayDamageUI(this.power);
+			this.simpleWitchMonsterController.Damage(this.power);
 			
 			Debug.Log(this.charaObjectName + " - this.simpleWitchMonsterController.hp = " + this.simpleWitchMonsterController.hp);
 		}
 		else if (this.monsterKind == MonsterStatusConst.BroadWitchMonsterKind) {
 			this.broadWitchMonsterController.hp -= this.power;
-			this.broadWitchMonsterController.DisplayDamageUI(this.power);
+			this.broadWitchMonsterController.Damage(this.power);
 
 			Debug.Log(this.charaObjectName + " - this.broadWitchMonsterController.hp = " + this.broadWitchMonsterController.hp);
 		}
 		else if (this.monsterKind == MonsterStatusConst.SimpleHealerMonsterKind) {
 			this.simpleHealerMonsterController.hp -= this.power;
-			this.simpleHealerMonsterController.DisplayDamageUI(this.power);
+			this.simpleHealerMonsterController.Damage(this.power);
 
 			Debug.Log(this.charaObjectName + " - this.simpleHealerMonsterController.hp = " + this.simpleHealerMonsterController.hp);
 		}

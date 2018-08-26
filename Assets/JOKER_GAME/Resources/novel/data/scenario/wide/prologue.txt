@@ -1,4 +1,4 @@
-@jump target = *a
+;@jump target = *a
 
 [autosave]
 
@@ -79,6 +79,6 @@
 
 [autosave]
 
-*a
+;*a
 
 [scene file="Map"]

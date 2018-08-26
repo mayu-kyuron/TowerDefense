@@ -67,7 +67,7 @@
 [calc exp="scale.enemyWoman=0.9"]
 
 ;デバッグ用
-;[calc exp="stage.number=8"]
+;[calc exp="stage.number=9"]
 
 ;章ごとに材料取り込み
 [if exp="{stage.number}==0"]

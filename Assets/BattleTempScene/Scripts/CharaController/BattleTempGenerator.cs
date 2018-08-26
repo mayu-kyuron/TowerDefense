@@ -122,9 +122,11 @@ public class BattleTempGenerator : MonoBehaviour {
 	private Dictionary<int, Sprite> charaNoSpriteMap;
     private Dictionary<int, AudioClip> stageBGMMap;
     public AudioSource audioSource;
+	[HideInInspector]
+	public bool isFinishMonster = false;
 
 	private void Awake() {
-		//double stageNum = 6;
+		//double stageNum = 12;
 		double stageNum = double.Parse(GlobalObject.getInstance().Params[0].ToString());
 
 		// ステージ番号の設定
@@ -141,7 +143,7 @@ public class BattleTempGenerator : MonoBehaviour {
 		double stageNum = this.variables.GetComponent<Variables>().StageNum;
 		var charaNoList = (List<int>)GlobalObject.getInstance().Params[2];
 		//var charaNoList = new List<int> {
-		//	1, 2, 3, 5, 8
+		//	1, 2, 3, 5, 7
 		//};
 
 		// 背景の設定
@@ -251,7 +253,10 @@ public class BattleTempGenerator : MonoBehaviour {
 		this.time += Time.deltaTime;
 
 		// ペースマップ通りの時間経過後、数がMAXでなければモンスター投下
-		if(this.monsterNum < this.paceMap.Count && this.time >= this.paceMap[this.monsterNum + 1]) {
+		if(!this.isFinishMonster
+			&& this.monsterNum < this.paceMap.Count
+			&& this.time >= this.paceMap[this.monsterNum + 1]) {
+
 			this.time = 0;
             GameObject monsterGo = new GameObject();
 
@@ -279,9 +284,15 @@ public class BattleTempGenerator : MonoBehaviour {
 			if (this.clearness <= 1.0f) {
 
 				if (this.clearness == 0.0f) {
+					foreach (string charaName in this.currentStatusVariables.CurrentCharaHpMap.Keys) {
+						GameObject chara = GameObject.Find(charaName);
+						Destroy(chara);
+					}
+
 					this.canvas.sortingOrder = 5;
 					this.hiddenClearImageUI.GetComponent<AudioSource>().Play();
 				}
+
                 this.audioSource.Stop();
                 this.clearness += SpeedClearFadein * Time.deltaTime;
 				this.hiddenClearImage.color = new Color(0.1843f, 0.3098f, 0.3098f, this.clearness);

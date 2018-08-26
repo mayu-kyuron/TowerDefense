@@ -73,8 +73,6 @@ public abstract class MonsterController : MonoBehaviour {
 
 	protected virtual void Update () {
 
-        //Debug.Log(this.isFacingEnemy);
-
 		// 範囲攻撃を受けていた場合のHPを反映する。
 		SetCurrentHp();
 
@@ -129,8 +127,6 @@ public abstract class MonsterController : MonoBehaviour {
 
 		// 前進していたとき、敵と衝突したら攻撃に移る。
 		if (!this.isFacingEnemy){
-
-            //Debug.Log("a");
 
 			// 遠距離攻撃キャラの攻撃用コライダは、ぶつかってもスル―
 			if (other.gameObject.tag == CharaStatusConst.AttackTag) return;
@@ -219,11 +215,23 @@ public abstract class MonsterController : MonoBehaviour {
 
 		return other.gameObject.GetComponent<T>();
 	}
-	
-    /// <summary>
-    /// 自分の受けたダメージを表示する。
-    /// </summary>
-    /// <param name="damage">ダメージ量</param>
+
+	/// <summary>
+	/// 自分の受けたダメージを表示し、HPを更新する。
+	/// </summary>
+	/// <param name="damage">ダメージ量</param>
+	public void Damage(float damage) {
+
+		DisplayDamageUI(damage);
+
+		// 登場モンスターマップのHPを更新する。
+		this.currentStatusVariables.UpdateMonsterHpOfMap(this.monsterObjectName, this.hp);
+	}
+
+	/// <summary>
+	/// 自分の受けたダメージを表示する。
+	/// </summary>
+	/// <param name="damage">ダメージ量</param>
 	public void DisplayDamageUI(float damage){
 		var damageUISc = this.damageUI.GetComponent<damageUIScript>();
         GameObject damageText = Instantiate(this.damageUI) as GameObject;
@@ -231,9 +239,6 @@ public abstract class MonsterController : MonoBehaviour {
         damageUISc.damage = damage;
 		damageText.transform.position = new Vector2(
             this.transform.position.x - 0.3f, this.transform.position.y + 1.3f);
-
-		// 登場モンスターマップのHPを更新する。
-		this.currentStatusVariables.UpdateMonsterHpOfMap(this.monsterObjectName, this.hp);
 	}
 
 	/// <summary>

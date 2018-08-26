@@ -59,10 +59,25 @@ public class ShipSc : MonoBehaviour {
             }
 			else if(this.textClearness <= 1.0f) {
 
-				if (this.textClearness == 0.0f) this.canvas.sortingOrder = 5;
+				if (this.time == 0) {
+					this.battleTempGenerator.isFinishMonster = true;
 
-				if (time < 1.0f) {
-					time += Time.deltaTime;
+					foreach (string charaName in this.currentStatusVariables.CurrentCharaHpMap.Keys) {
+						if (charaName == this.gameObject.name) continue;
+						GameObject chara = GameObject.Find(charaName);
+						Destroy(chara);
+					}
+
+					foreach (string monsterName in this.currentStatusVariables.CurrentMonsterHpMap.Keys) {
+						GameObject monster = GameObject.Find(monsterName);
+						Destroy(monster);
+					}
+
+					this.canvas.sortingOrder = 5;
+				}
+
+				if (this.time < 1.0f) {
+					this.time += Time.deltaTime;
 					return;
 				}
 
