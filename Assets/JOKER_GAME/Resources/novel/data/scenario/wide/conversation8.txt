@@ -1,4 +1,4 @@
-@jump target = *o
+;@jump target = *o
 
 [playbgm storage="cave2" wait=false vol={bgm.number}]
 

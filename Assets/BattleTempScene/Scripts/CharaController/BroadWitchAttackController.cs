@@ -14,21 +14,15 @@ public class BroadWitchAttackController : AttackerController {
     // 攻撃対象モンスターリスト
     private List<string> attackedMonsterList = new List<string>();
 
-	protected override void Awake() {
+	protected override void SetStatus(double stageNum) {
 
-        double stageNum = 12;
-        //double stageNum = double.Parse(GlobalObject.getInstance().Params[0].ToString());//ステージ番号の取得
-
-        Dictionary<string, float> thisCharaStatusMap = new Dictionary<string, float>();
-
-        //オブジェクトのタグ名からキャラを判断し、ステータスを取得する。
-        //ステージが7以降はパワーアップ
-        if (stageNum <= CharaStatusConst.ChangeNum)
-        {
+		// オブジェクトのタグ名からキャラを判断し、ステータスを取得する。
+		// ステージが7以降はパワーアップ
+		Dictionary<string, float> thisCharaStatusMap = new Dictionary<string, float>();
+		if (stageNum < CharaStatusConst.ChangeNum) {
             thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[transform.root.gameObject.tag];
         }
-        else
-        {
+        else {
             thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[transform.root.gameObject.tag + CharaStatusConst.SuperTag];
         }
 
@@ -64,6 +58,9 @@ public class BroadWitchAttackController : AttackerController {
 		foreach (string monsterName in monsterNameList) {
 
 			if (this.attackedMonsterList.Contains(monsterName)) {
+
+				Debug.Log(String.Format("{0}.power = {1}", this.charaObjectName, this.power));
+
 				this.monsterHpMap[monsterName] -= this.power;
                 monsterController = GameObject.Find(monsterName).GetComponent<MonsterController>();
                 this.monsterController.DisplayDamageUI(this.power);

@@ -343,6 +343,10 @@ public class Charahyozi : MonoBehaviour {
 	public void SetVariablesAndLoadBattleTemp(List<int> charaNoList) {
 		double stageNum = this.variables.GetComponent<Variables>().StageNum;
 
+		Debug.Log("CharaHyoji - stageNum = " + stageNum);
+		Debug.Log("CharaHyoji - this.settingObject.GetComponent<SettingObject>() = " + this.settingObject.GetComponent<SettingObject>());
+		Debug.Log("CharaHyoji - charaNoList = " + charaNoList);
+
 		GlobalObject.LoadLevelWithParams("BattleTemp",
 			stageNum.ToString(), this.settingObject.GetComponent<SettingObject>(), charaNoList);
 	}

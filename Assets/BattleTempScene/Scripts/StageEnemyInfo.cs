@@ -133,10 +133,10 @@ public class StageEnemyInfo : MonoBehaviour {
 	/// ステージ8のモンスターマップ
 	/// </summary>
 	static readonly Dictionary<int, List<int>> eighthMonsterMap = new Dictionary<int, List<int>>() {
-        { CharaMonsterNoConst.SlimeRedNo, new List<int>(){ 2, 3, 9, 13 , 18 } },
-        { CharaMonsterNoConst.ZonbieGreenNo, new List<int>(){ 5, 6, 14, 19} },
-        { CharaMonsterNoConst.CentaurBrownNo, new List<int>(){ 4, 7, 11, 17, 20} },
-        { CharaMonsterNoConst.OgreGreenNo, new List<int>(){ 8, 12, 15, 16} },
+        { CharaMonsterNoConst.SlimeRedNo, new List<int>(){ 2, 3, 9, 12 , 17 } },
+        { CharaMonsterNoConst.ZonbieGreenNo, new List<int>(){ 5, 6, 13, 18} },
+        { CharaMonsterNoConst.CentaurBrownNo, new List<int>(){ 4, 7, 10, 16, 19} },
+        { CharaMonsterNoConst.OgreGreenNo, new List<int>(){ 8, 11, 14, 15, 20} },
         { CharaMonsterNoConst.BossHealerNo, new List<int>(){1} },
     };
 

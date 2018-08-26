@@ -20,6 +20,7 @@ public abstract class CharaController : MonoBehaviour {
 	//フラッグ
 	[HideInInspector]
 	public bool isMoving = true;
+	[HideInInspector]
 	public bool isFacingEnemy = false;
 	protected string monsterKind;
 
@@ -32,6 +33,7 @@ public abstract class CharaController : MonoBehaviour {
 	protected SimpleWitchMonsterController simpleWitchMonsterController;
 	protected BroadWitchMonsterController broadWitchMonsterController;
 	protected SimpleHealerMonsterController simpleHealerMonsterController;
+	protected BattleTempGenerator battleTempGenerator;
 
 	protected CurrentStatusVariables currentStatusVariables;
 	protected CharaStatusConst charaStatusConst = new CharaStatusConst();
@@ -45,46 +47,62 @@ public abstract class CharaController : MonoBehaviour {
 	protected Regex halfNumRegex = new Regex(@"\d");
 
 	protected virtual void Awake() {
+		this.battleTempGenerator = GameObject.Find("BattleTempGenerator").GetComponent<BattleTempGenerator>();
+		
+		double stageNum = this.battleTempGenerator.variables.GetComponent<Variables>().StageNum;
+		SetStatus(stageNum);
+    }
 
-        double stageNum = 8;
-        //double stageNum = double.Parse(GlobalObject.getInstance().Params[0].ToString());//ステージ番号の取得
+	/// <summary>
+	/// ステータスを設定する。
+	/// </summary>
+	/// <param name="stageNum">ステージ番号</param>
+	protected virtual void SetStatus(double stageNum) {
 
-        //Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[this.gameObject.tag];
-        Dictionary<string, float> thisCharaStatusMap = new Dictionary<string, float>();
+		// オブジェクトのタグ名からキャラを判断し、ステータスを取得する。
+		// ステージが7以降はパワーアップ
+		Dictionary<string, float> thisCharaStatusMap = new Dictionary<string, float>();
+		if (stageNum < CharaStatusConst.ChangeNum) {
+			thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[this.gameObject.tag];
+		}
+		else {
+			thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[this.gameObject.tag + CharaStatusConst.SuperTag];
+		}
 
-        //オブジェクトのタグ名からキャラを判断し、ステータスを取得する。
-        //ステージが7以降はパワーアップ
-        if (stageNum <= CharaStatusConst.ChangeNum)
-        {
-            thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[this.gameObject.tag];
-        }
-        else
-        {
-            thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[this.gameObject.tag + CharaStatusConst.SuperTag];
-        }
-       
-        this.hp = thisCharaStatusMap[CharaStatusConst.HpKey];
+		this.hp = thisCharaStatusMap[CharaStatusConst.HpKey];
 		this.maxHp = thisCharaStatusMap[CharaStatusConst.HpKey];
 		this.power = thisCharaStatusMap[CharaStatusConst.PowerKey];
 		this.speedToMove = thisCharaStatusMap[CharaStatusConst.SpeedToMoveKey];
 		this.timeToAttack = thisCharaStatusMap[CharaStatusConst.TimeToAttackKey];
 		this.energyNeeded = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 
-        //foreach (KeyValuePair<string, float> a in thisCharaStatusMap)
-        //{
-        //    Debug.Log(a.Value);
-        //}
-    }
+		//foreach (KeyValuePair<string, float> a in thisCharaStatusMap)
+		//{
+		//    Debug.Log(a.Value);
+		//}
+	}
 
 	protected virtual void Start() {
 		this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
-        this.audioSource = gameObject.GetComponent<AudioSource>();
 
 		// キャラクターオブジェクト名を取得する。
 		this.charaObjectName = this.gameObject.name;
 		if (this.gameObject.tag == CharaStatusConst.AttackTag) this.charaObjectName = transform.root.gameObject.name;
 
 		AddCharaToMap();
+
+		// SE音声ファイルの設定
+		if (this.gameObject.tag != CharaStatusConst.WitchATag
+			&& this.gameObject.tag != CharaStatusConst.WitchBTag
+			&& this.gameObject.tag != CharaStatusConst.FighterBTag) {
+
+			this.audioSource = this.gameObject.GetComponent<AudioSource>();
+
+			int seNum = this.battleTempGenerator.settingObject.GetComponent<SettingObject>().SeNum;
+			float seScale = 0.2f;
+
+			this.audioSource.volume = seNum * seScale;
+		}
 	}
 
 	/// <summary>
@@ -153,8 +171,6 @@ public abstract class CharaController : MonoBehaviour {
 		// 前進していたとき、敵と衝突したら攻撃に移る
 		if (!this.isFacingEnemy) {
 
-            //Debug.Log("a");
-
 			// 遠距離攻撃キャラの攻撃用コライダは、ぶつかってもスル―
 			if (other.gameObject.tag == MonsterStatusConst.AttackTag) return;
 
@@ -220,8 +236,7 @@ public abstract class CharaController : MonoBehaviour {
 	/// <returns>モンスターコントローラーの子インスタンス</returns>
 	protected virtual T SetFightingMonster<T>(string monsterKind, Collider2D other)
 		where T : MonsterController {
-
-        //Debug.Log("B");
+		
 		this.isFacingEnemy = true;
 		this.isMoving = false;
 		this.monsterKind = monsterKind;
@@ -240,12 +255,12 @@ public abstract class CharaController : MonoBehaviour {
 		// 登場キャラマップのHPを更新する。
 		this.currentStatusVariables.UpdateCharaHpOfMap(this.charaObjectName, this.hp);
 	}
+
     /// <summary>
     /// 自分の受けたダメージを表示する。
     /// </summary>
     /// <param name="dammage"></param>
-    public void DisplayDamageUI(float damage)
-    {
+    public void DisplayDamageUI(float damage) {
         var damageUISc = this.damageUI.GetComponent<damageUIChara>();
         GameObject damageText = Instantiate(this.damageUI) as GameObject;
 

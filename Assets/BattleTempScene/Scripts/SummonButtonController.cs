@@ -81,8 +81,8 @@ public class SummonButtonController : MonoBehaviour {
 			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.HealerATag];
 			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 		}
-		else if (this.charaNum == CharaMonsterNoConst.HealerBNo) {
-			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.HealerBTag];
+		else if (this.charaNum == CharaMonsterNoConst.FighterCNo) {
+			Dictionary<string, float> thisCharaStatusMap = this.charaStatusConst.CharaStatusMap[CharaStatusConst.FighterCTag];
 			this.charaEnergy = (int)thisCharaStatusMap[CharaStatusConst.EnergyNeededKey];
 		}
 		else if (this.charaNum == CharaMonsterNoConst.HealerCNo) {

@@ -67,7 +67,7 @@
 [calc exp="scale.enemyWoman=0.9"]
 
 ;デバッグ用
-;[calc exp="stage.number=9"]
+;[calc exp="stage.number=8"]
 
 ;章ごとに材料取り込み
 [if exp="{stage.number}==0"]
@@ -187,7 +187,7 @@
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
 	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
-	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=DB7093 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
 	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 	
 [elsif exp="{stage.number}==6.5"]
@@ -202,7 +202,7 @@
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
 	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
-	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=DB7093 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
 	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 
 	;アイテム
@@ -227,7 +227,7 @@
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
 	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
-	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=DB7093 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
 	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 	
 [elsif exp="{stage.number}==8.5"]
@@ -242,7 +242,7 @@
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
 	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
-	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=DB7093 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
 	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
 	
@@ -267,7 +267,7 @@
 	;キャラクター
 	[chara_new name="supporterA" storage="{stor.supporterA}" jname="{name.supporterA}" jcolor=FFA020 tag="character" y="{y.supporterA}"]
 	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
-	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=DB7093 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
 	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
 	[chara_new name="enemyWoman" storage="{stor.enemyWoman}" jname="{name.enemyWoman}" jcolor=B0C4DE tag="character" scale="{scale.enemyWoman}" y="{y.enemyWoman}"]
@@ -304,7 +304,7 @@
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
 	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
-	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=DB7093 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
 	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
 	
@@ -320,7 +320,7 @@
 	[chara_new name="healerA" storage="{stor.healerA}" jname="{name.healerA}" jcolor=EFEFEF tag="character" scale="{scale.healerA}" y="{y.healerA}"]
 	[chara_new name="fighterB" storage="{stor.fighterB}" jname="{name.fighterB}" jcolor=FF3333 tag="character" scale="{scale.fighterB}" y="{y.fighterB}"]
 	[chara_new name="supporterB" storage="{stor.supporterB}" jname="{name.supporterB}" jcolor=FFE4E1 tag="character" scale="{scale.supporterB}" y="{y.supporterB}"]
-	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=800080 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
+	[chara_new name="witchB" storage="{stor.witchB}" jname="{name.witchB}" jcolor=DB7093 tag="character" scale="{scale.witchB}" y="{y.witchB}"]
 	[chara_new name="healerB" storage="{stor.healerB}" jname="{name.healerB}" jcolor=FFFF00 tag="character" y="{y.healerB}"]
 	[chara_new name="healerC" storage="{stor.healerC}" jname="{name.healerC}" jcolor=7FFFD4 tag="character" y="{y.healerC}"]
 

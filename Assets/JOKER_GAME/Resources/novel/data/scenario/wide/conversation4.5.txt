@@ -259,7 +259,7 @@
 
 [wait time=1]
 
-#?
+#{name.???}
 おーい、誰かいるかーい？[p]
 
 [chara_show name="supporterA" x=5 time=0.5]
@@ -272,10 +272,11 @@
 
 [wait time = 1]
 
-#supporterB
+#{name.???}
 お、いたいた。[r]
 はじめまして。僕、{name.supporterB}っていうんだ。[p]
 
+#supporterB
 魔物討伐の旅をしてるヒトたちがいるって聞いて来たんだよ。[r]
 僕も、君たちの仲間に加わりたいんだ。[p]
 

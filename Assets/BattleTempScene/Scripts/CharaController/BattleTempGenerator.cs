@@ -123,28 +123,53 @@ public class BattleTempGenerator : MonoBehaviour {
     private Dictionary<int, AudioClip> stageBGMMap;
     public AudioSource audioSource;
 
-    void Start () {
+	private void Awake() {
+		//double stageNum = 6;
+		double stageNum = double.Parse(GlobalObject.getInstance().Params[0].ToString());
+
+		// ステージ番号の設定
+		this.variables.GetComponent<Variables>().SetStageNum(stageNum);
+	}
+
+	void Start () {
 		this.canvas = GameObject.FindObjectOfType<Canvas>();
 		this.currentStatusVariables = GameObject.Find("CurrentStatusVariables").GetComponent<CurrentStatusVariables>();
 		this.hiddenClearImage = this.hiddenClearImageUI.GetComponent<UnityEngine.UI.Image>();
 		this.clearText = this.hiddenClearImageUI.GetComponentInChildren<Text>();
         this.audioSource = gameObject.GetComponent<AudioSource>();
 
-		double stageNum = 12;
-		//double stageNum = double.Parse(GlobalObject.getInstance().Params[0].ToString());
-        var charaNoList = new List<int> {
-            1, 3, 5, 7, 8
-        };
-        //var charaNoList = (List<int>)GlobalObject.getInstance().Params[2];
+		double stageNum = this.variables.GetComponent<Variables>().StageNum;
+		var charaNoList = (List<int>)GlobalObject.getInstance().Params[2];
+		//var charaNoList = new List<int> {
+		//	1, 2, 3, 5, 8
+		//};
 
-		// ステージ番号の設定
-		this.variables.GetComponent<Variables>().SetStageNum(stageNum);
+		// 背景の設定
+		this.stageBackgroundMap = new Dictionary<int, Sprite> {
+			{ 1, stage1Back }, { 2, stage2Back }, { 3, stage3Back }, { 4, stage4Back }, { 5, stage5Back }, { 6, stage6Back },
+			{ 7, stage7Back }, { 8, stage8Back }, { 9, stage9Back }, { 10, stage10Back }, { 11, stage11Back }, { 12, stage12Back },
+		};
+
+		//BGMの設定
+		this.stageBGMMap = new Dictionary<int, AudioClip> {
+			{ 1, stage1BGM }, { 2, stage2BGM }, { 3, stage3BGM }, { 4, stage4BGM }, { 5, stage5BGM }, { 6, stage6BGM },
+			{ 7, stage7BGM }, { 8, stage8BGM }, { 9, stage9BGM }, { 10, stage10BGM }, { 11, stage11BGM }, { 12, stage12BGM },
+		};
 
 		// 前回ユーザ設定の設定
 		if ((object[])GlobalObject.getInstance().Params != null
 			&& (object)GlobalObject.getInstance().Params[1] != null) {
 			SetLastSettings();
 		}
+		// ユーザ設定がnullの場合。本来はあり得ない（デバッグ用）。
+		//else {
+		//	this.settingObject.GetComponent<SettingObject>().SetBgmNum(3);
+		//	this.settingObject.GetComponent<SettingObject>().SetSeNum(3);
+
+		//	this.audioSource.clip = this.stageBGMMap[(int)stageNum];
+		//	this.audioSource.volume = 0.6f;
+		//	this.audioSource.Play();
+		//}
 
 		// プレイヤー選択キャラの設定
 		this.variables.GetComponent<Variables>().SetCharaNoList(charaNoList);
@@ -203,26 +228,13 @@ public class BattleTempGenerator : MonoBehaviour {
 			{ CharaMonsterNoConst.GolemNo, new MonsterObject(golemPre, MonsterStatusConst.GolemName) },
 			{ CharaMonsterNoConst.AlrauneNo, new MonsterObject(alraunePre, MonsterStatusConst.AlrauneName) },
             { CharaMonsterNoConst.BossSlimeNo, new MonsterObject(bossSlimePre, MonsterStatusConst.BossSlimeName) },
-            { CharaMonsterNoConst.BossHealerNo, new MonsterObject(bossHealerPre, MonsterStatusConst.BossSlimeName) },
+            { CharaMonsterNoConst.BossHealerNo, new MonsterObject(bossHealerPre, MonsterStatusConst.BossHealerName) },
         };
 
 		// 各モンスターの名前につける番号のマップを設定
 		foreach(int monsterNo in this.monsterMap.Keys) {
 			this.monsterNoMap.Add(monsterNo, 0);
 		}
-
-		// 背景の設定
-		this.stageBackgroundMap = new Dictionary<int, Sprite> {
-			{ 1, stage1Back }, { 2, stage2Back }, { 3, stage3Back }, { 4, stage4Back }, { 5, stage5Back }, { 6, stage6Back },
-			{ 7, stage7Back }, { 8, stage8Back }, { 9, stage9Back }, { 10, stage10Back }, { 11, stage11Back }, { 12, stage12Back },
-		};
-
-        //BGMの設定
-        this.stageBGMMap = new Dictionary<int, AudioClip>
-        {
-            { 1, stage1BGM }, { 2, stage2BGM }, { 3, stage3BGM }, { 4, stage4BGM }, { 5, stage5BGM }, { 6, stage6BGM },
-            { 7, stage7BGM }, { 8, stage8BGM }, { 9, stage9BGM }, { 10, stage10BGM }, { 11, stage11BGM }, { 12, stage12BGM },
-        };
 
 		GameObject backImgInstance = Instantiate(this.backImgPrefab) as GameObject;
 		backImgInstance.transform.position = new Vector3(0, 0, 0);
@@ -231,17 +243,8 @@ public class BattleTempGenerator : MonoBehaviour {
 		backImgInstance.transform.SetAsFirstSibling();
 		backImgInstance.name = "backImgInstance";
 
-        this.audioSource.clip = this.stageBGMMap[(int)stageNum]; //各ステージのBGMを選択
-
 		// 召喚ボタンの設定
 		SetSummonButtons();
-
-        int bgmNum = 3;
-        //int bgmNum = this.settingObject.GetComponent<SettingObject>().BgmNum;
-
-        //BGMを再生する
-        this.audioSource.volume = 0.2f * bgmNum;//音量
-        this.audioSource.Play();
 	}
 	
 	void Update () {
@@ -302,6 +305,14 @@ public class BattleTempGenerator : MonoBehaviour {
 		this.settingObject.GetComponent<SettingObject>().SetSeNum(settingObjectFromOthers.SeNum);
 		this.settingObject.GetComponent<SettingObject>().SetEffectNum(settingObjectFromOthers.EffectNum);
 		this.settingObject.GetComponent<SettingObject>().SetDamageNum(settingObjectFromOthers.DamageNum);
+
+		// BGM音声ファイルの設定
+		double stageNum = this.variables.GetComponent<Variables>().StageNum;
+		this.audioSource.clip = this.stageBGMMap[(int)stageNum];
+		
+		this.audioSource.volume = settingObjectFromOthers.BgmNum * 0.2f;
+
+		this.audioSource.Play();
 	}
 
 	/// <summary>
@@ -415,8 +426,8 @@ public class BattleTempGenerator : MonoBehaviour {
         {
             chara = Instantiate(this.fighter3Pre) as GameObject;
             chara.name = string.Format("FighterC{0}", this.charaNoMap[charaNo]);
-            positionY = -1.75f;
-        }
+			positionY = -0.8f;
+		}
         else if(charaNo == CharaMonsterNoConst.WitchANo) {
 			chara = Instantiate(this.witch1Pre) as GameObject;
 			chara.name = string.Format("WitchA{0}", this.charaNoMap[charaNo]);

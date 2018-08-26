@@ -184,6 +184,12 @@
 [wait time=0.5]
 
 [bg_hide name="grassLand"]
+[wait time=1]
+
+[playse storage="skill_up" vol={se.number}]
+[wait time=1]
+
+聖水の加護により、仲間全員の能力が上昇した！[p]
 
 [stopbgm storage="water" wait=false]
 [wait time=1]

@@ -30,11 +30,7 @@ public abstract class AttackerController : CharaController {
 
 			// 攻撃する
 			if (this.time >= this.timeToAttack) {
-
-                //SEをならす
-                int seNum = 3;
-                //int seNum = settingObject.GetComponent<SettingObject>().SeNum;
-                audioSource.volume = 0.2f * seNum;//音量
+				
                 GetComponent<AudioSource>().Play();
 
                 this.time = 0;

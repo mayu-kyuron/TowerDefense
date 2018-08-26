@@ -23,10 +23,7 @@ public abstract class HealerController : CharaController {
 		// 回復する
 		if (this.time >= this.timeToAttack) {
 
-            int seNum = 3;
-            //int seNum = settingObject.GetComponent<SettingObject>().SeNum;
-            this.audioSource.volume = 0.2f * seNum;//音量
-            GetComponent<AudioSource>().Play();//SEをならす
+            GetComponent<AudioSource>().Play();
 
             this.time = 0;
 			Dictionary<string, string> charaNameKindMap = GetCharaNameKindMap(this.currentStatusVariables.CurrentCharaHpMap);
@@ -106,7 +103,7 @@ public abstract class HealerController : CharaController {
 		Debug.Log("HealerController - " + charaName + ".maxHp = " + charaController.maxHp);
 	}
 
-    //nameListの中身をTag名で調べており本来はよくない。が、今回はそのままにしている。
+    // nameListの中身をTag名で調べており本来はよくない。が、今回はそのままにしている。
     protected override void RamifySettingFightingMonster(Collider2D other)
     {
         //Debug.Log(CharaStatusConst.ShipTag);

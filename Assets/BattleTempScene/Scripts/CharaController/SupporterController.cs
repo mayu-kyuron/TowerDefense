@@ -39,11 +39,8 @@ public abstract class SupporterController : CharaController {
 				if (skipCharaNameList != null && skipCharaNameList.Contains(charaName)) continue;
 				
 				if (!this.supportedCharaList.Contains(charaName)) {
-
-                    int seNum = 3;
-                    //int seNum = settingObject.GetComponent<SettingObject>().SeNum;
-                    this.audioSource.volume = 0.2f * seNum;//音量
-                    GetComponent<AudioSource>().Play();//SEをならす
+					
+                    GetComponent<AudioSource>().Play();
 
                     charaStatusMap[charaName] += this.power;
 					this.supportedCharaList.Add(charaName);
