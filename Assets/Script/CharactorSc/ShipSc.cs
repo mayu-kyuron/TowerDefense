@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ShipSc : MonoBehaviour {
 
 	[HideInInspector]
-	public float hp = 150f;
+	public float hp = 200f;
 
 	private const float SpeedScreenFadeout = 0.5f;
 	private const float SpeedTextFadein = 0.2f;
@@ -100,8 +100,7 @@ public class ShipSc : MonoBehaviour {
     /// 自分の受けたダメージを表示し、HPを更新する。
     /// </summary>
     /// <param name="damage">ダメージ量</param>
-    public void Damage(float damage)
-    {
+    public void Damage(float damage) {
 
         DisplayDamageUI(damage);
 
@@ -113,13 +112,11 @@ public class ShipSc : MonoBehaviour {
     /// 自分の受けたダメージを表示する。
     /// </summary>
     /// <param name="damage">ダメージ量</param>
-    public void DisplayDamageUI(float damage)
-    {
-        damageUIChara damageUIS = this.damageUI.GetComponent<damageUIChara>();
-        GameObject damageText = Instantiate(this.damageUI) as GameObject;
+    public void DisplayDamageUI(float damage) {
+		this.damageUI.GetComponent<damageUIChara>().damage = damage;
 
-        damageUIS.damage = damage;
+		GameObject damageText = Instantiate(this.damageUI) as GameObject;
         damageText.transform.position = new Vector2(
-         transform.position.x - 0.3f, transform.position.y + 1.3f);
+			transform.position.x - 0.3f, transform.position.y + 1.3f);
     }
 }

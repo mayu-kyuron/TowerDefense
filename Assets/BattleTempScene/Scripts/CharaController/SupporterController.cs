@@ -8,7 +8,7 @@ using System;
 public abstract class SupporterController : CharaController {
 
 	// すでに能力を上昇させたプレイヤー名リスト
-	private List<string> supportedCharaList = new List<string>();
+	protected List<string> supportedCharaList = new List<string>();
 
 	protected override void AddCharaToMap() {
 
@@ -26,50 +26,65 @@ public abstract class SupporterController : CharaController {
 		
 		if (this.time >= 1) {
 			this.time = 0;
-			Dictionary<string, float> charaStatusMap = GetCurrentCharaStatusMap();
 
-			// ループ中にマップの値を変えるため、キーのみをリストに取り出して回す。
-			List<string> charaNameList = new List<string>(charaStatusMap.Keys);
-
+			Dictionary<int, Dictionary<string, float>> charaStatusMaps = GetCurrentCharaStatusMaps();
 			List<string> skipCharaNameList = GetSkipCharaNameList();
 
-			// まだ能力上昇していないキャラのみ、能力を上昇させる。
-			foreach (string charaName in charaNameList) {
+			foreach (int mapNo in charaStatusMaps.Keys) {
 
-				if (skipCharaNameList != null && skipCharaNameList.Contains(charaName)) continue;
-				
-				if (!this.supportedCharaList.Contains(charaName)) {
-					
-                    GetComponent<AudioSource>().Play();
+				// ループ中にマップの値を変えるため、キーのみをリストに取り出して回す。
+				List<string> charaNameList = new List<string>(charaStatusMaps[mapNo].Keys);
 
-                    charaStatusMap[charaName] += this.power;
-					this.supportedCharaList.Add(charaName);
+				// まだ能力上昇していないキャラのみ、能力を上昇させる。
+				foreach (string charaName in charaNameList) {
 
-					var target = (this.charaObjectName.StartsWith("SupporterA")) ? "power" : "maxHp";
-					Debug.Log(String.Format("{0} - {1}.{2} = {3}", this.charaObjectName, charaName, target, charaStatusMap[charaName]));
+					if (skipCharaNameList != null && skipCharaNameList.Contains(charaName)) continue;
+
+					if (!this.supportedCharaList.Contains(charaName + mapNo)) {
+
+						GetComponent<AudioSource>().Play();
+
+						charaStatusMaps[mapNo][charaName] += this.power;
+						this.supportedCharaList.Add(charaName + mapNo);
+
+						string target = "";
+						if (mapNo == CurrentStatusVariables.CharaHpMapNo) {
+							target = "hp";
+						}
+						else if (mapNo == CurrentStatusVariables.CharaMaxHpMapNo) {
+							target = "maxHp";
+						}
+						else if (mapNo == CurrentStatusVariables.CharaPowerMapNo) {
+							target = "power";
+						}
+						Debug.Log(String.Format("{0} - {1}.{2} = {3}", this.charaObjectName, charaName, target, charaStatusMaps[mapNo][charaName]));
+					}
 				}
-			}
 
-			// 更新した登場キャラステータスマップを設定する。
-			SetCurrentCharaStatusMap(charaStatusMap);
+				// 更新した登場キャラステータスマップを設定する。
+				SetCurrentCharaStatusMap(mapNo, charaStatusMaps[mapNo]);
+			}
 		}
 	}
 
 	/// <summary>
 	/// 能力アップの対象となる登場キャラステータスマップを取得する。
+	/// どのステータスマップか判別するため、キーにCurrentStatusVariables定数を指定する。
 	/// </summary>
-	/// <returns></returns>
-	protected abstract Dictionary<string, float> GetCurrentCharaStatusMap();
+	/// <returns>登場キャラステータスマップ群</returns>
+	protected abstract Dictionary<int, Dictionary<string, float>> GetCurrentCharaStatusMaps();
 
 	/// <summary>
 	/// 能力アップ処理をスキップするキャラ名リストを取得する。
 	/// ※スキップキャラなしの場合はnullを返すこと。
 	/// </summary>
-	/// <returns></returns>
+	/// <returns>キャラ名リスト</returns>
 	protected abstract List<string> GetSkipCharaNameList();
 
 	/// <summary>
 	/// 更新した登場キャラステータスマップを設定する。
 	/// </summary>
-	protected abstract void SetCurrentCharaStatusMap(Dictionary<string, float> charaStatusMap);
+	/// <param name="mapNo">ステータスマップ番号</param>
+	/// <param name="charaStatusMap">登場キャラステータスマップ</param>
+	protected abstract void SetCurrentCharaStatusMap(int mapNo, Dictionary<string, float> charaStatusMap);
 }

@@ -13,19 +13,23 @@ public class SimpleHealerController : HealerController {
 		bool isFirst = true;
 		foreach (string objectName in currentHpMap.Keys) {
 
+			if (objectName == CharaStatusConst.ShipTag) continue;
+
+			var maxHp = GameObject.Find(objectName).GetComponent<CharaController>().maxHp;
+
+			if (currentHpMap[objectName] == maxHp) continue;
+
 			if (isFirst) {
 				lowHpObjectName = objectName;
 				isFirst = false;
 			}
 			else {
-				if (currentHpMap[objectName] < currentHpMap[lowHpObjectName]) {
-					float maxHp = GameObject.Find(objectName).GetComponent<CharaController>().maxHp;
-					if (currentHpMap[objectName] != maxHp) lowHpObjectName = objectName;
-				}
+				if (currentHpMap[objectName] < currentHpMap[lowHpObjectName]) lowHpObjectName = objectName;
 			}
 		}
 		
 		string lowHpCharaName = GetCharaMonsterName(lowHpObjectName);
+		Debug.Log(string.Format("{0} - lowHpObjectName = {1}", this.charaObjectName, lowHpObjectName));
 
 		return new Dictionary<string, string>() { { lowHpObjectName, lowHpCharaName } };
 	}

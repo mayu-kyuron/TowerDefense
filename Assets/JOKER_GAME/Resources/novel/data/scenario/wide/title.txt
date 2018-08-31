@@ -2,6 +2,25 @@
 *title
 ;タイトル画面
 @call file=wide/libs/utils
+
+[if exp="{bgm.number}==null"]
+	[calc exp="bgm.number=0.6"]
+	[calc exp="se.number=0.6"]
+[elsif exp="{bgm.number}==0"]
+	[calc exp="bgm.number=0.6"]
+	[calc exp="se.number=0.6"]
+[else]
+	[if exp="{is.fromEnding}==null"]
+		[calc exp="bgm.number={bgm.number}*0.2"]
+		[calc exp="se.number={se.number}*0.2"]
+	[endif]
+[endif]
+
+[flag exp="is.fromTitle=true"]
+[flag exp="is.fromEnding=null"]
+
+[playbgm storage="title" wait=false vol={bgm.number}]
+
 [bg_new name="background" layer="background" storage="title"]
 [bg_show name="background"]
 
@@ -39,8 +58,8 @@
 
 	[wait time = 1]
 
-	はじめからを選択するとすべてのデータが消えます。[r][l]
-	本当にしますか？
+	はじめからを選択すると、今までのデータが消去されます。[r][l]
+	はじめからプレイしますか？
 
 	[wait time =1]
 
@@ -76,7 +95,13 @@
 
 @bg_hide name="background" time=1.5
 
+[stopbgm storage="title" wait=false]
 [wait time=2]
+
+;判断用変数の初期化
+[calc exp="stage.number=null"]
+[calc exp="bgm.number=null"]
+
 @jump file=wide/material scene=new
 
 *click_load

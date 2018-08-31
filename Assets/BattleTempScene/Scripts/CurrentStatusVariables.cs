@@ -6,6 +6,11 @@ using System.Collections.Generic;
 /// </summary>
 public class CurrentStatusVariables : MonoBehaviour {
 
+	public const int CharaHpMapNo = 1;
+	public const int MonsterHpMapNo = 2;
+	public const int CharaPowerMapNo = 3;
+	public const int CharaMaxHpMapNo = 4;
+
 	// 戦闘中の全キャラクターのHPマップ
 	private Dictionary<string, float> currentCharaHpMap = new Dictionary<string, float>();
 	

@@ -196,18 +196,18 @@ public class MonsterStatusConst {
 	/// スライムのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> slimeStatusMap = new Dictionary<string, float>() {
-		{ HpKey, 65 },
-		{ PowerKey, 5.0f },
+		{ HpKey, 70 },
+		{ PowerKey, 8.0f },
 		{ SpeedToMoveKey, -0.01f },
-		{ TimeToAttackKey, 4.0f }
+		{ TimeToAttackKey, 4.5f }
 	};
 
     /// <summary>
     /// ゲイザーのステータス
     /// </summary>
     static readonly Dictionary<string, float> gaitherStatusMap = new Dictionary<string, float>() {
-        { HpKey, 20 },
-        { PowerKey, 6.0f },
+        { HpKey, 30 },
+        { PowerKey, 10.0f },
         { SpeedToMoveKey, -0.015f },
         { TimeToAttackKey, 2.0f }
     };
@@ -217,9 +217,9 @@ public class MonsterStatusConst {
     /// </summary>
     static readonly Dictionary<string, float> zonbieWhiteStatusMap = new Dictionary<string, float>() {
         { HpKey, 90 },
-        { PowerKey, 10.0f },
+        { PowerKey, 15.0f },
         { SpeedToMoveKey, -0.012f },
-        { TimeToAttackKey, 5.5f }
+        { TimeToAttackKey, 6.0f }
     };
 
     /// <summary>
@@ -227,19 +227,19 @@ public class MonsterStatusConst {
     /// </summary>
     static readonly Dictionary<string, float> yetiWhiteStatusMap = new Dictionary<string, float>() {
         { HpKey, 30 },
-        { PowerKey, 10.0f },
+        { PowerKey, 15.0f },
         { SpeedToMoveKey, -0.009f },
-        { TimeToAttackKey, 8.0f }
+        { TimeToAttackKey, 6.5f }
     };
 
     /// <summary>
 	/// ボススライムのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> bossSlimeStatusMap = new Dictionary<string, float>() {
-        { HpKey, 500 },
-        { PowerKey, 20.0f },
-        { SpeedToMoveKey, -0.004f },
-        { TimeToAttackKey, 5.0f }
+        { HpKey, 900 },
+        { PowerKey, 50.0f },
+        { SpeedToMoveKey, -0.002f },
+        { TimeToAttackKey, 6.5f }
     };
 
     /// <summary>
@@ -247,18 +247,18 @@ public class MonsterStatusConst {
     /// </summary>
     static readonly Dictionary<string, float> goblinGreenStatusMap = new Dictionary<string, float>() {
         { HpKey, 120 },
-        { PowerKey, 15.0f },
-        { SpeedToMoveKey, -0.015f },
-        { TimeToAttackKey, 6.0f }
+        { PowerKey, 20.0f },
+        { SpeedToMoveKey, -0.01f },
+        { TimeToAttackKey, 6.8f }
     };
 
     /// <summary>
 	/// キマイラレッドのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> chimeraRedStatusMap = new Dictionary<string, float>() {
-        { HpKey, 100 },
+        { HpKey, 90 },
         { PowerKey, 15.0f },
-        { SpeedToMoveKey, -0.04f },
+        { SpeedToMoveKey, -0.035f },
         { TimeToAttackKey, 3.5f }
     };
 
@@ -279,14 +279,14 @@ public class MonsterStatusConst {
         { HpKey, 50 },
         { PowerKey, 10.0f },
         { SpeedToMoveKey, -0.06f },
-        { TimeToAttackKey, 3.0f }
+        { TimeToAttackKey, 2.5f }
     };
 
     /// <summary>
     /// アルラウネのステータス
     /// </summary>
     static readonly Dictionary<string, float> alrauneStatusMap = new Dictionary<string, float>() {
-        { HpKey, 40 },
+        { HpKey, 60 },
         { PowerKey, 20.0f },
         { SpeedToMoveKey, -0.025f },
         { TimeToAttackKey, 4.0f }
@@ -307,27 +307,27 @@ public class MonsterStatusConst {
     /// </summary>
     static readonly Dictionary<string, float> golemStatusMap = new Dictionary<string, float>() {
         { HpKey, 2000 },
-        { PowerKey, 100.0f },
-        { SpeedToMoveKey, -0.0015f },
-        { TimeToAttackKey, 7.0f }
+        { PowerKey, 200.0f },
+        { SpeedToMoveKey, -0.0022f },
+        { TimeToAttackKey, 8.0f }
     };
 
     /// <summary>
 	/// オーガグリーンのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> orgeGreenStatusMap = new Dictionary<string, float>() {
-        { HpKey, 100 },
+        { HpKey, 150 },
         { PowerKey, 25.0f },
         { SpeedToMoveKey, -0.015f },
-        { TimeToAttackKey, 8.0f }
+        { TimeToAttackKey, 5.0f }
     };
 
     /// <summary>
     /// ケンタウロスブラウンのステータス
     /// </summary>
     static readonly Dictionary<string, float> centaurBrownStatusMap = new Dictionary<string, float>() {
-        { HpKey, 40 },
-        { PowerKey, 20.0f },
+        { HpKey, 30 },
+        { PowerKey, 25.0f },
         { SpeedToMoveKey, -0.025f },
         { TimeToAttackKey, 6.0f }
     };
@@ -336,29 +336,19 @@ public class MonsterStatusConst {
 	/// スライムレッドのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> slimeRedStatusMap = new Dictionary<string, float>() {
-        { HpKey, 60 },
+        { HpKey, 160 },
         { PowerKey, 20.0f },
-        { SpeedToMoveKey, -0.03f },
-        { TimeToAttackKey, 5.0f }
+        { SpeedToMoveKey, -0.01f },
+        { TimeToAttackKey, 4.5f }
     };
 
     /// <summary>
     /// ゾンビグリーンのステータス
     /// </summary>
     static readonly Dictionary<string, float> zonbieGreenStatusMap = new Dictionary<string, float>() {
-        { HpKey, 180 },
-        { PowerKey, 20.0f },
-        { SpeedToMoveKey, -0.012f },
-        { TimeToAttackKey, 5.5f }
-    };
-
-    /// <summary>
-    /// ゴブリンブラックのステータス
-    /// </summary>
-    static readonly Dictionary<string, float> goblinBlackStatusMap = new Dictionary<string, float>() {
-        { HpKey, 240 },
+        { HpKey, 200 },
         { PowerKey, 30.0f },
-        { SpeedToMoveKey, -0.015f },
+        { SpeedToMoveKey, -0.012f },
         { TimeToAttackKey, 6.0f }
     };
     
@@ -366,18 +356,28 @@ public class MonsterStatusConst {
     /// ボスヒーラーのステータス
     /// </summary>
     static readonly Dictionary<string, float> bossHealerStatusMap = new Dictionary<string, float>() {
-        { HpKey, 1000 },
-        { PowerKey, 40.0f },
+        { HpKey, 300 },
+        { PowerKey, 60.0f },
         { SpeedToMoveKey, -0.005f },
         { TimeToAttackKey, 3.0f }
     };
 
-    /// <summary>
+	/// <summary>
+	/// ゴブリンブラックのステータス
+	/// </summary>
+	static readonly Dictionary<string, float> goblinBlackStatusMap = new Dictionary<string, float>() {
+		{ HpKey, 200 },
+		{ PowerKey, 35.0f },
+		{ SpeedToMoveKey, -0.01f },
+		{ TimeToAttackKey, 6.8f }
+	};
+
+	/// <summary>
 	/// ゲイザーホワイトのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> gaitherWhiteStatusMap = new Dictionary<string, float>() {
-        { HpKey, 40 },
-        { PowerKey, 12.0f },
+        { HpKey, 80 },
+        { PowerKey, 25.0f },
         { SpeedToMoveKey, -0.015f },
         { TimeToAttackKey, 2.0f }
     };
@@ -386,10 +386,10 @@ public class MonsterStatusConst {
     /// フェアリーイエローのステータス
     /// </summary>
     static readonly Dictionary<string, float> fairyYellowStatusMap = new Dictionary<string, float>() {
-        { HpKey, 35 },
-        { PowerKey, 10.0f },
+        { HpKey, 90 },
+        { PowerKey, 25.0f },
         { SpeedToMoveKey, -0.025f },
-        { TimeToAttackKey, 3.0f }
+        { TimeToAttackKey, 3.5f }
     };
 
     /// <summary>
@@ -397,18 +397,18 @@ public class MonsterStatusConst {
     /// </summary>
     static readonly Dictionary<string, float> yetiGreenStatusMap = new Dictionary<string, float>() {
         { HpKey, 60 },
-        { PowerKey, 20.0f },
+        { PowerKey, 25.0f },
         { SpeedToMoveKey, -0.009f },
-        { TimeToAttackKey, 8.0f }
+        { TimeToAttackKey, 6.5f }
     };
 
     /// <summary>
 	/// キマイラパープルのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> chimeraPurpleStatusMap = new Dictionary<string, float>() {
-        { HpKey, 120 },
-        { PowerKey, 25.0f },
-        { SpeedToMoveKey, -0.04f },
+        { HpKey, 180 },
+        { PowerKey, 30.0f },
+        { SpeedToMoveKey, -0.035f },
         { TimeToAttackKey, 3.5f }
     };
 
@@ -416,8 +416,8 @@ public class MonsterStatusConst {
     /// ケンタウロスブラックのステータス
     /// </summary>
     static readonly Dictionary<string, float> centaurBlackStatusMap = new Dictionary<string, float>() {
-        { HpKey, 60 },
-        { PowerKey, 25.0f },
+        { HpKey, 50 },
+        { PowerKey, 40.0f },
         { SpeedToMoveKey, -0.025f },
         { TimeToAttackKey, 6.0f }
     };
@@ -426,8 +426,8 @@ public class MonsterStatusConst {
     /// ユニコーンブラックのステータス
     /// </summary>
     static readonly Dictionary<string, float> unicornBlackStatusMap = new Dictionary<string, float>() {
-        { HpKey, 120 },
-        { PowerKey, 30.0f },
+        { HpKey, 140 },
+        { PowerKey, 40.0f },
         { SpeedToMoveKey, -0.02f },
         { TimeToAttackKey, 4.0f }
     };
@@ -437,7 +437,7 @@ public class MonsterStatusConst {
     /// </summary>
     static readonly Dictionary<string, float> ifritGreenStatusMap = new Dictionary<string, float>() {
         { HpKey, 2500 },
-        { PowerKey, 300.0f },
+        { PowerKey, 220.0f },
         { SpeedToMoveKey, -0.001f },
         { TimeToAttackKey, 10.0f }
     };
@@ -446,10 +446,10 @@ public class MonsterStatusConst {
 	/// オーガオレンジのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> orgeOrangeStatusMap = new Dictionary<string, float>() {
-        { HpKey, 170 },
-        { PowerKey, 40.0f },
+        { HpKey, 300 },
+        { PowerKey, 50.0f },
         { SpeedToMoveKey, -0.015f },
-        { TimeToAttackKey, 8.0f }
+        { TimeToAttackKey, 5.0f }
     };
 
     /// <summary>
@@ -457,7 +457,7 @@ public class MonsterStatusConst {
     /// </summary>
     static readonly Dictionary<string, float> ifritRedStatusMap = new Dictionary<string, float>() {
         { HpKey, 4000 },
-        { PowerKey, 500.0f },
+        { PowerKey, 400.0f },
         { SpeedToMoveKey, -0.001f },
         { TimeToAttackKey, 10.0f }
     };

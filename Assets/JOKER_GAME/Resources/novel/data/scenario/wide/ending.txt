@@ -220,6 +220,7 @@
 
 [calc exp="stage.number=null"]
 [calc exp="bgm.number=null"]
+[flag exp="is.fromEnding=true"]
 
 ;タイトルへ戻る
 [jump scene=new file=wide/title]

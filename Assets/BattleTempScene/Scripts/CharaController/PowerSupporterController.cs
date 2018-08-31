@@ -5,15 +5,18 @@
 /// </summary>
 public class PowerSupporterController : SupporterController {
 
-	protected override Dictionary<string, float> GetCurrentCharaStatusMap() {
-		return this.currentStatusVariables.CurrentCharaPowerMap;
+	protected override Dictionary<int, Dictionary<string, float>> GetCurrentCharaStatusMaps() {
+
+		return new Dictionary<int, Dictionary<string, float>> {
+			{ CurrentStatusVariables.CharaPowerMapNo, this.currentStatusVariables.CurrentCharaPowerMap },
+		};
 	}
 
 	protected override List<string> GetSkipCharaNameList() {
 		return null;
 	}
 
-	protected override void SetCurrentCharaStatusMap(Dictionary<string, float> charaStatusMap) {
+	protected override void SetCurrentCharaStatusMap(int mapNo, Dictionary<string, float> charaStatusMap) {
 		this.currentStatusVariables.SetCurrentCharaPowerMap(charaStatusMap);
 	}
 }

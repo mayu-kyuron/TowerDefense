@@ -233,10 +233,9 @@ public abstract class MonsterController : MonoBehaviour {
 	/// </summary>
 	/// <param name="damage">ダメージ量</param>
 	public void DisplayDamageUI(float damage){
-		var damageUISc = this.damageUI.GetComponent<damageUIScript>();
-        GameObject damageText = Instantiate(this.damageUI) as GameObject;
+		this.damageUI.GetComponent<damageUIScript>().damage = damage;
 
-        damageUISc.damage = damage;
+		GameObject damageText = Instantiate(this.damageUI) as GameObject;
 		damageText.transform.position = new Vector2(
             this.transform.position.x - 0.3f, this.transform.position.y + 1.3f);
 	}
@@ -246,10 +245,9 @@ public abstract class MonsterController : MonoBehaviour {
 	/// </summary>
 	/// <param name="cure">回復量</param>
 	public void DisplayCureUI(float cure) {
-		var cureUIController = this.cureUI.GetComponent<CureUIController>();
-		GameObject cureText = Instantiate(this.cureUI) as GameObject;
+		this.cureUI.GetComponent<CureUIController>().cure = cure;
 
-		cureUIController.cure = cure;
+		GameObject cureText = Instantiate(this.cureUI) as GameObject;
 		cureText.transform.position = new Vector2(
 			this.transform.position.x - 0.3f, this.transform.position.y + 1.3f);
 

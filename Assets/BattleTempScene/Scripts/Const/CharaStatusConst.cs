@@ -52,6 +52,7 @@ public class CharaStatusConst {
     static readonly List<string> powerSupporterNameList = new List<string> { "SupporterA" };
 	static readonly List<string> hpSupporterNameList = new List<string> { "SupporterB" };
     static readonly List<string> HealerShipNameList = new List<string> { "HealerA", "HealerC", "Ship" };//ヒーラー同士、船はぶつからず、味方の後ろに滞在する処理
+	public const string ShipName = "Ship";
 
     // 全キャラクターのタグリスト
     // ※キャラクターを増やすごとに追加
@@ -146,21 +147,21 @@ public class CharaStatusConst {
 	/// ファイターAのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> fighterAStatusMap = new Dictionary<string, float>() {
-		{ HpKey, 120f },
+		{ HpKey, 100f },
 		{ PowerKey, 15f },
 		{ SpeedToMoveKey, 0.025f },
-		{ TimeToAttackKey, 3.0f },
-		{ EnergyNeededKey, 13}
+		{ TimeToAttackKey, 3.75f },
+		{ EnergyNeededKey, 14}
 	};
 
     /// <summary>
 	/// ファイターBのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> fighterBStatusMap = new Dictionary<string, float>() {
-        { HpKey, 60f },
-        { PowerKey, 30f },
+        { HpKey, 50f },
+        { PowerKey, 25f },
         { SpeedToMoveKey, 0.03f },
-        { TimeToAttackKey, 4.0f },
+        { TimeToAttackKey, 5.0f },
         { EnergyNeededKey, 20 }
     };
 
@@ -171,40 +172,40 @@ public class CharaStatusConst {
         { HpKey, 200f },
         { PowerKey, 5f },
         { SpeedToMoveKey, 0.02f },
-        { TimeToAttackKey, 6.0f },
-        { EnergyNeededKey, 15 }
+        { TimeToAttackKey, 8.0f },
+        { EnergyNeededKey, 15}
     };
 
     /// <summary>
     /// ウィッチAのステータス
     /// </summary>
     static readonly Dictionary<string, float> witchAStatusMap = new Dictionary<string, float>() {
-		{ HpKey, 15f },
+		{ HpKey, 30f },
 		{ PowerKey, 10.0f },
 		{ SpeedToMoveKey, 0.04f },
-		{ TimeToAttackKey, 2.5f },
-		{ EnergyNeededKey, 10 }
+		{ TimeToAttackKey, 2.0f },
+		{ EnergyNeededKey, 15 }
 	};
 
 	/// <summary>
 	/// ウィッチBのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> witchBStatusMap = new Dictionary<string, float>() {
-		{ HpKey, 30f },
+		{ HpKey, 10f },
 		{ PowerKey, 20.0f },
 		{ SpeedToMoveKey, 0.025f },
-		{ TimeToAttackKey, 3.0f },
-		{ EnergyNeededKey, 20 }
+		{ TimeToAttackKey, 4.5f },
+		{ EnergyNeededKey, 22 }
 	};
 
 	/// <summary>
 	/// ヒーラーAのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> healerAStatusMap = new Dictionary<string, float>() {
-		{ HpKey, 70 },
-		{ PowerKey, 15 },
+		{ HpKey, 60 },
+		{ PowerKey, 20 },
 		{ SpeedToMoveKey, 0.015f },
-		{ TimeToAttackKey, 3.0f },
+		{ TimeToAttackKey, 2.5f },
 		{ EnergyNeededKey, 15 }
 	};
 
@@ -215,8 +216,8 @@ public class CharaStatusConst {
 		{ HpKey, 50f },
 		{ PowerKey, 10f },
 		{ SpeedToMoveKey, 0.015f },
-		{ TimeToAttackKey, 4.0f },
-		{ EnergyNeededKey, 18 }
+		{ TimeToAttackKey, 3.0f },
+		{ EnergyNeededKey, 20 }
 	};
 
 	/// <summary>
@@ -224,42 +225,42 @@ public class CharaStatusConst {
 	/// </summary>
 	static readonly Dictionary<string, float> supporterAStatusMap = new Dictionary<string, float>() {
 		{ HpKey, 30f },
-		{ PowerKey, 2.5f },
+		{ PowerKey, 5.0f },
 		{ SpeedToMoveKey, 0.03f },
 		{ TimeToAttackKey, 0 },
-		{ EnergyNeededKey, 20 }
+		{ EnergyNeededKey, 18 }
 	};
 
 	/// <summary>
 	/// サポーターBのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> supporterBStatusMap = new Dictionary<string, float>() {
-		{ HpKey, 50f },
-		{ PowerKey, 5f },
+		{ HpKey, 40f },
+		{ PowerKey, 5.0f },
 		{ SpeedToMoveKey, 0.03f },
 		{ TimeToAttackKey, 0 },
-		{ EnergyNeededKey, 15 }
+		{ EnergyNeededKey, 18 }
 	};
 
     /// <summary>
 	/// スーパーファイターAのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> sFighterAStatusMap = new Dictionary<string, float>() {
-        { HpKey, 240 },
+        { HpKey, 220 },
         { PowerKey, 30f },
         { SpeedToMoveKey, 0.025f },
-        { TimeToAttackKey, 3.0f },
-        { EnergyNeededKey, 13 }
+        { TimeToAttackKey, 3.75f },
+        { EnergyNeededKey, 14 }
     };
 
     /// <summary>
 	/// スーパーファイターBのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> sFighterBStatusMap = new Dictionary<string, float>() {
-        { HpKey, 120f },
-        { PowerKey, 60f },
+        { HpKey, 100f },
+        { PowerKey, 50f },
         { SpeedToMoveKey, 0.03f },
-        { TimeToAttackKey, 4.0f },
+        { TimeToAttackKey, 5.0f },
         { EnergyNeededKey, 20 }
     };
 
@@ -267,10 +268,10 @@ public class CharaStatusConst {
 	/// スーパーファイターCのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> sFighterCStatusMap = new Dictionary<string, float>() {
-        { HpKey, 450f },
-        { PowerKey, 5f },
+        { HpKey, 400f },
+        { PowerKey, 5.0f },
         { SpeedToMoveKey, 0.02f },
-        { TimeToAttackKey, 4.0f },
+        { TimeToAttackKey, 8.0f },
         { EnergyNeededKey, 15 }
     };
 
@@ -278,32 +279,32 @@ public class CharaStatusConst {
 	/// スーパーウィッチAのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> sWitchAStatusMap = new Dictionary<string, float>() {
-        { HpKey, 35f },
-        { PowerKey, 15f },
-        { SpeedToMoveKey, 0.045f },
-        { TimeToAttackKey, 2.5f },
-        { EnergyNeededKey, 10 }
+        { HpKey, 60f },
+        { PowerKey, 20.0f },
+        { SpeedToMoveKey, 0.04f },
+        { TimeToAttackKey, 2.0f },
+        { EnergyNeededKey, 15 }
     };
 
     /// <summary>
 	/// スーパーウィッチBのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> sWitchBStatusMap = new Dictionary<string, float>() {
-        { HpKey, 60f },
-        { PowerKey, 50f },
+        { HpKey, 26f },
+        { PowerKey, 40f },
         { SpeedToMoveKey, 0.025f },
-        { TimeToAttackKey, 3.0f },
-        { EnergyNeededKey, 20 }
+        { TimeToAttackKey, 4.5f },
+        { EnergyNeededKey, 22 }
     };
 
     /// <summary>
 	/// スーパーヒーラーAのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> sHealerAStatusMap = new Dictionary<string, float>() {
-        { HpKey, 140f },
+        { HpKey, 120f },
         { PowerKey, 40f },
         { SpeedToMoveKey, 0.015f },
-        { TimeToAttackKey, 3.0f },
+        { TimeToAttackKey, 2.5f },
         { EnergyNeededKey, 15 }
     };
 
@@ -311,11 +312,11 @@ public class CharaStatusConst {
 	/// スーパーヒーラーCのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> sHealerCStatusMap = new Dictionary<string, float>() {
-        { HpKey, 80f },
-        { PowerKey, 15f },
+        { HpKey, 100f },
+        { PowerKey, 20f },
         { SpeedToMoveKey, 0.015f },
-        { TimeToAttackKey, 4.0f },
-        { EnergyNeededKey, 18 }
+        { TimeToAttackKey, 3.0f },
+        { EnergyNeededKey, 20 }
     };
 
     /// <summary>
@@ -323,20 +324,20 @@ public class CharaStatusConst {
 	/// </summary>
 	static readonly Dictionary<string, float> sSupporterAStatusMap = new Dictionary<string, float>() {
         { HpKey, 60f },
-        { PowerKey, 5f },
+        { PowerKey, 10.0f },
         { SpeedToMoveKey, 0.03f },
         { TimeToAttackKey, 0f },
-        { EnergyNeededKey, 20 }
+        { EnergyNeededKey, 18 }
     };
 
     /// <summary>
 	/// スーパーサポーターBのステータス
 	/// </summary>
 	static readonly Dictionary<string, float> sSupporterBStatusMap = new Dictionary<string, float>() {
-        { HpKey, 100f },
-        { PowerKey, 10f },
+        { HpKey, 80f },
+        { PowerKey, 20.0f },
         { SpeedToMoveKey, 0.03f },
         { TimeToAttackKey, 0f },
-        { EnergyNeededKey, 15 }
+        { EnergyNeededKey, 18 }
     };
 }
