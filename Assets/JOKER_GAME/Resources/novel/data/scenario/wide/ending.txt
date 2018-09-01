@@ -222,5 +222,11 @@
 [calc exp="bgm.number=null"]
 [flag exp="is.fromEnding=true"]
 
+最後まで遊んでいただきありがとうございました。[r]
+今後も鋭意ゲーム製作に勤しんでまいりますので、[r]
+どうぞよろしくお願いいたします！　byアスタウノ[p]
+
+[wait time=1]
+
 ;タイトルへ戻る
 [jump scene=new file=wide/title]
