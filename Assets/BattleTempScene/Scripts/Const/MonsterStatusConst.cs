@@ -277,9 +277,9 @@ public class MonsterStatusConst {
 	/// </summary>
 	static readonly Dictionary<string, float> carbuncleStatusMap = new Dictionary<string, float>() {
         { HpKey, 50 },
-        { PowerKey, 10.0f },
+        { PowerKey, 8.0f },
         { SpeedToMoveKey, -0.06f },
-        { TimeToAttackKey, 2.5f }
+        { TimeToAttackKey, 3.0f }
     };
 
     /// <summary>
@@ -297,7 +297,7 @@ public class MonsterStatusConst {
     /// </summary>
     static readonly Dictionary<string, float> unicornWhiteStatusMap = new Dictionary<string, float>() {
         { HpKey, 70 },
-        { PowerKey, 20.0f },
+        { PowerKey, 15.0f },
         { SpeedToMoveKey, -0.02f },
         { TimeToAttackKey, 4.0f }
     };
@@ -308,7 +308,7 @@ public class MonsterStatusConst {
     static readonly Dictionary<string, float> golemStatusMap = new Dictionary<string, float>() {
         { HpKey, 2000 },
         { PowerKey, 200.0f },
-        { SpeedToMoveKey, -0.0022f },
+        { SpeedToMoveKey, -0.0018f },
         { TimeToAttackKey, 8.0f }
     };
 
